@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FCFCFC;
+  color: #0B0B0B;
+}
+
+/* Scroll-triggered animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pricing page section spacing */
+.pricing-page > section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (min-width: 880px) {
+  .pricing-page > section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
