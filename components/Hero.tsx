@@ -51,16 +51,32 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Chat mockup */}
+          {/* Right — Device frame with embedded chat */}
           <div className="flex-1 flex justify-center lg:justify-end w-full max-w-[520px] lg:max-w-none" data-animate="" style={{ transitionDelay: '150ms' }}>
-            <Image
-              src="/images/hero-chat-mockup.png"
-              alt="A2V2 AI Assistant chat interface"
-              width={520}
-              height={480}
-              className="w-full max-w-[520px] object-contain drop-shadow-xl"
-              priority
-            />
+            <div className="relative w-full max-w-[520px]">
+              <Image
+                src="/images/hero-background-mockup-2.0.png"
+                alt="A2V2 device frame"
+                width={520}
+                height={480}
+                className="w-full object-contain"
+                priority
+              />
+              {/* Iframe overlay positioned inside the device frame */}
+              <iframe
+                src="https://chat.a2v2.ai/6997ccdf7498815679b412d8"
+                title="A2V2 AI Chat"
+                allow="clipboard-write"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                className="absolute rounded-[12px] border-0"
+                style={{
+                  top: '4.5%',
+                  left: '4.5%',
+                  width: '91%',
+                  height: '91%',
+                }}
+              />
+            </div>
           </div>
 
         </div>
