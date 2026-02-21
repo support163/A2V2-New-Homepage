@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 const cards = [
   {
@@ -51,12 +50,14 @@ export default function TrustSection() {
             >
               Book a Demo
             </a>
-            <Link
-              href="/security"
-              className="text-btn font-medium text-text-primary hover:text-primary transition-colors"
+            <a
+              href="https://www.app.a2v2.ai/signin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-text-primary text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-gray-50 transition-colors"
             >
-              Learn more &rarr;
-            </Link>
+              Try For Free
+            </a>
           </div>
         </div>
 
