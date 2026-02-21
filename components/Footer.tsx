@@ -2,10 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const socialLinks = [
-  { href: 'https://facebook.com', icon: '/icons/icon-facebook.svg', label: 'Facebook' },
-  { href: 'https://x.com', icon: '/icons/icon-x.svg', label: 'X' },
-  { href: 'https://instagram.com', icon: '/icons/icon-instagram.svg', label: 'Instagram' },
-  { href: 'https://linkedin.com', icon: '/icons/icon-linkedin.svg', label: 'LinkedIn' },
+  { href: 'https://x.com/A2V2_Ai', icon: '/icons/icon-x.svg', label: 'X' },
+  { href: 'https://www.instagram.com/a2v2.ai', icon: '/icons/icon-instagram.svg', label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/a2v2', icon: '/icons/icon-linkedin.svg', label: 'LinkedIn' },
 ]
 
 export default function Footer() {
@@ -82,7 +81,7 @@ export default function Footer() {
               <p className="text-sm font-medium text-white/60">Socials</p>
               <div className="mt-3 flex items-center gap-3">
                 {socialLinks.map((s) => (
-                  <Link key={s.label} href={s.href} aria-label={s.label} className="flex items-center justify-center">
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="flex items-center justify-center">
                     <Image
                       src={s.icon}
                       alt=""
@@ -90,7 +89,7 @@ export default function Footer() {
                       height={24}
                       className="block w-6 h-6 object-contain opacity-60 hover:opacity-100 transition-opacity"
                     />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
