@@ -14,7 +14,7 @@ export default function Footer() {
       <div data-animate="" className="mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
 
         {/* Top 4-column grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_1fr_2fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_2fr]">
 
           {/* Column 1 — Logo + tagline */}
           <div>
@@ -32,22 +32,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2 — About */}
-          <div>
-            <h4 className="text-btn font-bold text-white">About</h4>
-            <ul className="mt-4 flex flex-col gap-3">
-              <li>
-                <a
-                  href="mailto:support@a2v2.ai"
-                  className="text-sm text-white/60 hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3 — Company */}
+          {/* Column 2 — Company */}
           <div>
             <h4 className="text-btn font-bold text-white">Company</h4>
             <ul className="mt-4 flex flex-col gap-3">
