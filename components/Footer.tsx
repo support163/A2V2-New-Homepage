@@ -37,12 +37,12 @@ export default function Footer() {
             <h4 className="text-btn font-bold text-white">About</h4>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
-                <Link
-                  href="/contact"
+                <a
+                  href="mailto:support@a2v2.ai"
                   className="text-sm text-white/60 hover:text-white transition-colors"
                 >
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
