@@ -43,12 +43,14 @@ export default function TrustSection() {
 
           {/* CTAs */}
           <div className="mt-8 flex items-center justify-center gap-6">
-            <Link
-              href="/demo"
+            <a
+              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
             >
               Book a Demo
-            </Link>
+            </a>
             <Link
               href="/security"
               className="text-btn font-medium text-text-primary hover:text-primary transition-colors"

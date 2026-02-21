@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -28,12 +27,14 @@ export default function Hero() {
               >
                 Try For Free
               </a>
-              <Link
-                href="/demo"
+              <a
+                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-background text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn border border-text-primary hover:bg-gray-50 transition-colors"
               >
                 See a Demo
-              </Link>
+              </a>
             </div>
 
             {/* No credit card note */}
