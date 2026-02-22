@@ -6,7 +6,7 @@ const cards = [
     title: 'Enterprise-Grade Data Security',
     titleMaxW: '',
     description:
-      'SOC2 Type II certified with AES-256 encryption at rest and in transit.',
+      'Certified with AES-256 encryption at rest and in transit.',
   },
   {
     icon: '/icons/icon-lock.svg',
