@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   title: 'A2V2.ai — Clone Yourself. Scale Your Influence.',
   description:
     'The all-in-one bio hub that chats like you, captures leads like a CRM, and converts while you sleep.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({
