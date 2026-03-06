@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { APP_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const cards = [
   {
@@ -25,6 +26,9 @@ const cards = [
 ]
 
 export default function TrustSection() {
+  const appUrl = APP_URL
+  const demoBookingUrl = DEMO_BOOKING_URL
+
   return (
     <section className="bg-background py-8 md:py-section-y">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
@@ -43,7 +47,7 @@ export default function TrustSection() {
           {/* CTAs */}
           <div className="mt-8 flex items-center justify-center gap-6">
             <a
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb"
+              href={demoBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
@@ -51,7 +55,7 @@ export default function TrustSection() {
               Book a Demo
             </a>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={`${appUrl}/signin`}
               target="_blank"
               rel="noopener noreferrer"
               className="border border-text-primary text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-gray-50 transition-colors"

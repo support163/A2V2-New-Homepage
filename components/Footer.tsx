@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { APP_URL } from '@/lib/constants'
 
 const socialLinks = [
   { href: 'https://x.com/A2V2_Ai', icon: '/icons/icon-x.svg', label: 'X' },
@@ -8,6 +9,8 @@ const socialLinks = [
 ]
 
 export default function Footer() {
+  const appUrl = APP_URL
+
   return (
     <footer className="bg-surface">
       <div data-animate="" className="mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
@@ -37,7 +40,7 @@ export default function Footer() {
             <ul className="mt-4 flex flex-col gap-3">
               <li>
                 <a
-                  href="https://www.app.a2v2.ai/terms"
+                  href={`${appUrl}/terms`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/60 hover:text-white transition-colors"
@@ -47,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.app.a2v2.ai/privacy"
+                  href={`${appUrl}/privacy`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/60 hover:text-white transition-colors"
@@ -105,7 +108,7 @@ export default function Footer() {
           <p className="text-sm text-white/40">©2026 A2V2.ai All rights reserved</p>
           <div className="flex items-center gap-4">
             <a
-              href="https://www.app.a2v2.ai/privacy"
+              href={`${appUrl}/privacy`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
@@ -114,7 +117,7 @@ export default function Footer() {
             </a>
             <span className="text-white/20">|</span>
             <a
-              href="https://www.app.a2v2.ai/terms"
+              href={`${appUrl}/terms`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"

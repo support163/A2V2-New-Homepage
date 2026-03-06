@@ -1,6 +1,11 @@
 import Image from 'next/image'
+import { APP_URL, CHAT_EMBED_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 export default function Hero() {
+  const appUrl = APP_URL
+  const chatEmbedUrl = CHAT_EMBED_URL
+  const demoBookingUrl = DEMO_BOOKING_URL
+
   return (
     <section className="bg-background py-8 md:py-section-y">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
@@ -20,7 +25,7 @@ export default function Hero() {
             {/* CTA buttons */}
             <div className="mt-8 md:mt-6 flex items-center justify-center lg:justify-start gap-4 flex-wrap">
               <a
-                href="https://www.app.a2v2.ai/signin"
+                href={`${appUrl}/signin`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
@@ -28,7 +33,7 @@ export default function Hero() {
                 Try For Free
               </a>
               <a
-                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb"
+                href={demoBookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-background text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn border border-text-primary hover:bg-gray-50 transition-colors"
@@ -65,7 +70,7 @@ export default function Hero() {
               />
               {/* Iframe overlay positioned inside the device frame */}
               <iframe
-                src="https://chat.a2v2.ai/6997ccdf7498815679b412d8"
+                src={chatEmbedUrl}
                 title="A2V2 AI Chat"
                 allow="clipboard-write"
                 sandbox="allow-scripts allow-same-origin allow-popups allow-forms"

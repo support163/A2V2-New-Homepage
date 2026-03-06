@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { APP_URL } from '@/lib/constants'
 
 const addOns = [
   {
@@ -18,6 +19,8 @@ const addOns = [
 ]
 
 export default function AddOns() {
+  const appUrl = APP_URL
+
   return (
     <section className="bg-background py-8 md:py-section-y">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
@@ -71,7 +74,7 @@ export default function AddOns() {
 
               {/* Get add on button */}
               <a
-                href="https://www.app.a2v2.ai/signin"
+                href={`${appUrl}/signin`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 block text-center text-sm font-medium text-text-primary bg-gray-100 hover:bg-gray-200 transition-colors py-2.5 rounded-btn"

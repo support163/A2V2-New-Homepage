@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { APP_URL } from '@/lib/constants'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -11,6 +12,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const appUrl = APP_URL
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background border-b border-gray-100">
@@ -45,7 +47,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           {/* Sign In */}
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={`${appUrl}/signin`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-btn font-medium text-text-primary hover:text-primary transition-colors"
@@ -61,7 +63,7 @@ export default function Navbar() {
 
           {/* Try For Free */}
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={`${appUrl}/signin`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
@@ -109,7 +111,7 @@ export default function Navbar() {
           ))}
           <div className="flex flex-col gap-3 pt-2 border-t border-gray-100">
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={`${appUrl}/signin`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-btn font-medium text-text-primary hover:text-primary transition-colors"
@@ -123,7 +125,7 @@ export default function Navbar() {
               />
             </a>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={`${appUrl}/signin`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex justify-center bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { APP_URL } from '@/lib/constants'
 
 type Feature = { text: string; included: boolean }
 
@@ -91,6 +92,7 @@ const plans: Plan[] = [
 
 export default function PricingSection() {
   const [yearly, setYearly] = useState(false)
+  const appUrl = APP_URL
 
   return (
     <section className="bg-background py-8 md:py-section-y">
@@ -195,7 +197,7 @@ export default function PricingSection() {
 
                 {/* CTA button */}
                 <a
-                  href="https://www.app.a2v2.ai/signin"
+                  href={`${appUrl}/signin`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`mt-6 block text-center text-btn font-medium px-btn-x py-btn-y rounded-btn transition-colors ${

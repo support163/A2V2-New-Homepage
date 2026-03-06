@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { APP_URL } from '@/lib/constants'
 
 export default function CtaBanner() {
+  const appUrl = APP_URL
+
   return (
     <section className="bg-background py-8 md:py-section-y">
       {/* Same container as all other sections for alignment */}
@@ -32,7 +35,7 @@ export default function CtaBanner() {
             </p>
 
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={`${appUrl}/signin`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 md:mt-8 bg-white text-surface text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-gray-100 transition-colors"

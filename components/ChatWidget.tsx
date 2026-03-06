@@ -1,16 +1,17 @@
 'use client'
 
 import { useEffect } from 'react'
+import { CHAT_WIDGET_URL, CHATBOT_ID } from '@/lib/constants'
 
 export default function ChatWidget() {
   useEffect(() => {
     ;(window as any).A2V2WidgetConfig = {
-      chatbotId: '6997ccdf7498815679b412d8',
+      chatbotId: CHATBOT_ID,
       position: 'bottom-right',
     }
 
     const script = document.createElement('script')
-    script.src = 'https://chat-widget.a2v2.ai/embed.js'
+    script.src = CHAT_WIDGET_URL
     script.async = true
     document.body.appendChild(script)
 
