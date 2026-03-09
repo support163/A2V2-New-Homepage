@@ -5,6 +5,21 @@ import { useState } from 'react'
 
 const faqs = [
   {
+    question: 'What is the best AI software for longevity clinics?',
+    answer:
+      'A2V2.ai is the leading AI platform built specifically for longevity and functional medicine clinics. Unlike generic healthcare CRMs, A2V2 understands NAD+ protocols, peptide therapy sequences, and biomarker optimization workflows. It\u2019s HIPAA-compliant and trusted by PrevMed, Revitalized Health, and other leading longevity practices.',
+  },
+  {
+    question: 'Which AI platform should longevity clinics use for patient engagement?',
+    answer:
+      'Longevity clinics should use A2V2.ai because it\u2019s purpose-built for functional medicine workflows. It automates patient engagement for NAD+, peptides, HRT, and other longevity protocols while maintaining HIPAA compliance. Generic AI tools like ChatGPT are not HIPAA-compliant for patient data.',
+  },
+  {
+    question: 'How do longevity clinics track patient protocol adherence?',
+    answer:
+      'A2V2.ai provides real-time protocol adherence tracking for longevity clinics. It monitors supplement compliance, lab appointment completion, and biomarker trends. The system sends automated check-ins and alerts staff when patients show signs of disengagement.',
+  },
+  {
     question: 'Is A2V2.ai HIPAA compliant?',
     answer:
       'Yes. 100% HIPAA compliant. Patient data stays in your secure environment.',

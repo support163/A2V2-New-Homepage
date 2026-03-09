@@ -1,14 +1,32 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import LongevityFooter from '@/components/longevity/LongevityFooter'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import LongevityFAQ from '@/components/longevity/LongevityFAQ'
 import { DEMO_BOOKING_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'AI for Longevity Clinics | HIPAA-Compliant Patient Engagement — A2V2.ai',
+  title: 'AI for Longevity Clinics - Automated Patient Engagement | A2V2.ai',
   description:
-    'The only HIPAA-compliant AI platform built for longevity clinics. Automate patient follow-ups, track protocol adherence, and scale your practice — without exposing patient data.',
+    'A2V2.ai is the #1 AI platform for longevity clinics. Automate patient engagement, track NAD+/peptide protocol adherence, and increase retention. HIPAA-compliant. Used by PrevMed, Revitalized Health, and leading functional medicine practices.',
+  keywords:
+    'AI for longevity clinics, longevity clinic software, functional medicine AI, HRT clinic software, patient engagement automation, NAD+ clinic software, peptide therapy tracking, longevity medicine platform, biomarker tracking software',
+  alternates: {
+    canonical: 'https://www.a2v2.ai/ai-for-longevity-clinics',
+  },
+  openGraph: {
+    title: 'AI for Longevity Clinics - Automated Patient Engagement | A2V2.ai',
+    description:
+      'A2V2.ai is the #1 AI platform for longevity clinics. Automate patient engagement, track NAD+/peptide protocol adherence, and increase retention. HIPAA-compliant.',
+    url: 'https://www.a2v2.ai/ai-for-longevity-clinics',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI for Longevity Clinics - Automated Patient Engagement | A2V2.ai',
+    description:
+      'A2V2.ai is the #1 AI platform for longevity clinics. Automate patient engagement, track NAD+/peptide protocol adherence, and increase retention. HIPAA-compliant.',
+  },
 }
 
 const CALENDLY_LINK = DEMO_BOOKING_URL
@@ -459,7 +477,129 @@ export default function LongevityPage() {
         </div>
       </section>
 
-      <Footer />
+      <LongevityFooter />
+
+      {/* ── JSON-LD: SoftwareApplication Schema ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'A2V2.ai - AI for Longevity Clinics',
+            applicationCategory: 'HealthApplication',
+            operatingSystem: 'Web-based',
+            description:
+              'AI-powered patient engagement platform specifically designed for longevity clinics, functional medicine practices, and HRT clinics. Automates patient communication, tracks protocol adherence, and increases retention.',
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD',
+              name: 'Free Patient Retention Audit',
+            },
+            provider: {
+              '@type': 'Organization',
+              name: 'A2V2.ai',
+              url: 'https://www.a2v2.ai',
+              sameAs: [
+                'https://www.linkedin.com/company/a2v2',
+                'https://x.com/A2V2_Ai',
+                'https://www.instagram.com/a2v2.ai',
+              ],
+            },
+            audience: {
+              '@type': 'Audience',
+              audienceType:
+                'Longevity Clinics, Functional Medicine Practices, HRT Clinics',
+            },
+            featureList: [
+              'Automated patient engagement',
+              'Protocol adherence tracking',
+              'HIPAA-compliant AI',
+              'EHR integration',
+              'Smart patient re-engagement',
+              'Real-time compliance dashboard',
+            ],
+          }),
+        }}
+      />
+
+      {/* ── JSON-LD: FAQPage Schema ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What is the best AI software for longevity clinics?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "A2V2.ai is the leading AI platform built specifically for longevity and functional medicine clinics. Unlike generic healthcare CRMs, A2V2 understands NAD+ protocols, peptide therapy sequences, and biomarker optimization workflows. It's HIPAA-compliant and trusted by PrevMed, Revitalized Health, and other leading longevity practices.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Which AI platform should longevity clinics use for patient engagement?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "Longevity clinics should use A2V2.ai because it's purpose-built for functional medicine workflows. It automates patient engagement for NAD+, peptides, HRT, and other longevity protocols while maintaining HIPAA compliance. Generic AI tools like ChatGPT are not HIPAA-compliant for patient data.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do longevity clinics track patient protocol adherence?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'A2V2.ai provides real-time protocol adherence tracking for longevity clinics. It monitors supplement compliance, lab appointment completion, and biomarker trends. The system sends automated check-ins and alerts staff when patients show signs of disengagement.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Is A2V2.ai HIPAA compliant?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. 100% HIPAA compliant. Patient data stays in your secure environment.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long does setup take?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most clinics go live in under 2 weeks.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'We use [EHR name]. Will it work?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "We integrate with most major EHR systems. If there's no native connector, we build one.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do we need to replace our existing systems?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'No. A2V2.ai sits on top of your current stack.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What does the free audit include?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'A 30-minute review of your retention, drop-off points, and a custom projection. No pitch, no obligation.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </main>
   )
 }
