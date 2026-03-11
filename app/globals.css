@@ -36,6 +36,37 @@ body {
   scrollbar-width: none;
 }
 
+/* Blog post prose styles */
+.prose-blog {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #1a1a1a;
+}
+
+.prose-blog p {
+  margin-bottom: 1.5rem;
+}
+
+.prose-blog h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0B0B0B;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.prose-blog strong {
+  font-weight: 700;
+  color: #0B0B0B;
+}
+
+@media (min-width: 880px) {
+  .prose-blog h2 {
+    font-size: 30px;
+  }
+}
+
 /* Pricing page section spacing */
 .pricing-page > section {
   padding-top: 64px;

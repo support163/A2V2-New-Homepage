@@ -13,11 +13,11 @@ const categories = [
 const blogPosts = [
   {
     id: 1,
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
+    title: 'The Silent Revenue Killer in Longevity Medicine—and What\'s Finally Fixing It',
     description:
-      'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    category: "What's New",
-    href: '#',
+      'Most longevity clinics don\'t have a patient acquisition problem. They have a patient disappearance problem.',
+    category: 'Best Practices',
+    href: '/blog/silent-revenue-killer-longevity-medicine',
   },
   {
     id: 2,
