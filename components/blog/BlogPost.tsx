@@ -171,8 +171,17 @@ export default function BlogPost() {
             <ShareBar url={articleUrl} title={articleTitle} />
           </header>
 
-          {/* Hero placeholder image */}
-          <div className="w-full aspect-[16/9] bg-gray-200 rounded-2xl mb-12" />
+          {/* Hero image */}
+          <div className="w-full mb-12">
+            <Image
+              src="/images/Blog_post_photo1.png"
+              alt="The Silent Revenue Killer in Longevity Medicine"
+              width={720}
+              height={405}
+              className="w-full rounded-2xl object-cover"
+              priority
+            />
+          </div>
 
           {/* Body */}
           <article className="prose-blog">

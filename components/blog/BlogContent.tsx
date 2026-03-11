@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 const categories = [
   'All Category',
@@ -18,6 +19,7 @@ const blogPosts = [
       'Most longevity clinics don\'t have a patient acquisition problem. They have a patient disappearance problem.',
     category: 'Best Practices',
     href: '/blog/silent-revenue-killer-longevity-medicine',
+    thumbnail: '/images/Blog_post_photo1.png',
   },
   {
     id: 2,
@@ -190,12 +192,20 @@ export default function BlogContent() {
                 <a
                   key={post.id}
                   href={post.href}
-                  data-animate=""
-                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
                   className="flex flex-col rounded-xl transition-transform duration-200 hover:scale-[1.02]"
                 >
-                  {/* Placeholder image */}
-                  <div className="w-full aspect-[4/3] bg-gray-200 rounded-xl" />
+                  {/* Thumbnail */}
+                  {post.thumbnail ? (
+                    <Image
+                      src={post.thumbnail}
+                      alt={post.title}
+                      width={600}
+                      height={450}
+                      className="w-full aspect-[4/3] rounded-xl object-cover"
+                    />
+                  ) : (
+                    <div className="w-full aspect-[4/3] bg-gray-200 rounded-xl" />
+                  )}
 
                   <h2 className="mt-4 text-btn md:text-body-lg font-bold text-text-primary leading-snug">
                     {post.title}
