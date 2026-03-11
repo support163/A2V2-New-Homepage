@@ -27,6 +27,15 @@ body {
   transform: translateY(0);
 }
 
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Pricing page section spacing */
 .pricing-page > section {
   padding-top: 64px;
