@@ -4,26 +4,12 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { DEMO_BOOKING_URL } from '@/lib/constants'
+import { getRelatedPosts } from '@/lib/blog-posts'
 
 const CALENDLY_LINK = DEMO_BOOKING_URL
 
-const relatedPosts = [
-  {
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description: 'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    href: '/blog',
-  },
-  {
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description: 'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    href: '/blog',
-  },
-  {
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description: 'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    href: '/blog',
-  },
-]
+const CURRENT_HREF = '/blog/silent-revenue-killer-longevity-medicine'
+const relatedPosts = getRelatedPosts(CURRENT_HREF)
 
 function ReadingProgress() {
   const [progress, setProgress] = useState(0)
@@ -325,7 +311,17 @@ export default function BlogPost() {
                 href={post.href}
                 className="flex flex-col rounded-xl transition-transform duration-200 hover:scale-[1.02]"
               >
-                <div className="w-full aspect-[4/3] bg-gray-200 rounded-xl" />
+                {post.thumbnail ? (
+                  <Image
+                    src={post.thumbnail}
+                    alt={post.title}
+                    width={600}
+                    height={450}
+                    className="w-full aspect-[4/3] rounded-xl object-cover"
+                  />
+                ) : (
+                  <div className="w-full aspect-[4/3] bg-gray-200 rounded-xl" />
+                )}
                 <h3 className="mt-4 text-sm font-bold text-text-primary leading-snug">
                   {post.title}
                 </h3>

@@ -13,7 +13,7 @@ export default function HealthcareAiFooter() {
 
   return (
     <footer className="bg-surface">
-      <div data-animate="" className="mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
 
         {/* Top 3-column grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_2fr]">

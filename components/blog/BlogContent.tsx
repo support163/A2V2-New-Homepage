@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { blogPosts } from '@/lib/blog-posts'
 
 const categories = [
   'All Category',
@@ -9,42 +10,6 @@ const categories = [
   'Quick Guides',
   'Best Practices',
   'Privacy & Trust',
-]
-
-const blogPosts = [
-  {
-    id: 1,
-    title: 'The Silent Revenue Killer in Longevity Medicine—and What\'s Finally Fixing It',
-    description:
-      'Most longevity clinics don\'t have a patient acquisition problem. They have a patient disappearance problem.',
-    category: 'Best Practices',
-    href: '/blog/silent-revenue-killer-longevity-medicine',
-    thumbnail: '/images/Blog_post_photo1.png',
-  },
-  {
-    id: 2,
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description:
-      'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    category: 'Quick Guides',
-    href: '#',
-  },
-  {
-    id: 3,
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description:
-      'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    category: 'Best Practices',
-    href: '#',
-  },
-  {
-    id: 4,
-    title: 'From Chatbots to Smart AI Agents: Introducing the New A2V2 Platform',
-    description:
-      'The new A2V2 platform: AI agents built to elevate customer experiences.',
-    category: 'Privacy & Trust',
-    href: '#',
-  },
 ]
 
 export default function BlogContent() {
@@ -62,7 +27,7 @@ export default function BlogContent() {
   })
 
   return (
-    <section className="bg-background py-8 md:py-section-y">
+    <section className="bg-background py-8 md:py-section-y min-h-screen">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
         {/* ── Mobile: Title + categories on top ── */}
         <div className="block md:hidden">
