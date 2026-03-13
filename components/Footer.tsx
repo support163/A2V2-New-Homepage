@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { APP_URL } from '@/lib/constants'
+import { APP_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const socialLinks = [
   { href: 'https://x.com/A2V2_Ai', icon: '/icons/icon-x.svg', label: 'X' },
@@ -12,14 +12,14 @@ export default function Footer() {
   const appUrl = APP_URL
 
   return (
-    <footer className="bg-surface">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
+    <footer className="relative bg-surface overflow-hidden">
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
 
-        {/* Top 4-column grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_2fr]">
+        {/* Top row */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-10">
 
-          {/* Column 1 — Logo + tagline */}
-          <div>
+          {/* Column 1 — Logo + tagline + CTA */}
+          <div className="flex-shrink-0">
             <Link href="/">
               <Image
                 src="/icons/Logo.svg"
@@ -29,12 +29,40 @@ export default function Footer() {
                 className="invert"
               />
             </Link>
-            <p className="mt-4 text-sm leading-[22px] text-white/60 max-w-[200px]">
-              Turn Your YouTube Videos into a Personal AI Clone
+            <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-[512px]">
+              HIPAA-compliant AI patient engagement built for longevity medicine.
+              Retain more patients, recover lost revenue, automate the follow-up.
             </p>
+            <a
+              href={DEMO_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+            >
+              Book a free audit
+              <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
 
-          {/* Column 2 — Company */}
+          {/* Right columns wrapper */}
+          <div className="flex flex-col md:flex-row gap-10 md:gap-[62px]">
+
+          {/* Column 2 — Resources */}
+          <div>
+            <h4 className="text-btn font-bold text-white">Resources</h4>
+            <ul className="mt-4 flex flex-col gap-3">
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3 — Company */}
           <div>
             <h4 className="text-btn font-bold text-white">Company</h4>
             <ul className="mt-4 flex flex-col gap-3">
@@ -61,42 +89,32 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Newsletter + Socials */}
+          {/* Column 4 — Socials */}
           <div>
-            <h4 className="text-btn font-bold text-white">
-              Subscribe to our Newsletter
-            </h4>
-            <div className="mt-4 flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="min-w-0 flex-1 rounded-btn border border-white/20 bg-white/5 px-4 py-[10px] text-sm text-white placeholder-white/40 focus:border-white/40 focus:outline-none"
-              />
-              <button
-                type="button"
-                className="whitespace-nowrap rounded-btn bg-white px-btn-x py-btn-y text-btn font-medium text-surface hover:bg-gray-100 transition-colors"
-              >
-                Subscribe
-              </button>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-sm font-medium text-white/60">Socials</p>
-              <div className="mt-3 flex items-center gap-3">
-                {socialLinks.map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="flex items-center justify-center">
-                    <Image
-                      src={s.icon}
-                      alt=""
-                      width={24}
-                      height={24}
-                      className="block w-6 h-6 object-contain opacity-60 hover:opacity-100 transition-opacity"
-                    />
-                  </a>
-                ))}
-              </div>
+            <h4 className="text-btn font-bold text-white">Socials</h4>
+            <div className="mt-4 flex items-center gap-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex items-center justify-center"
+                >
+                  <Image
+                    src={s.icon}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="block w-6 h-6 object-contain opacity-60 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              ))}
             </div>
           </div>
+
+          </div>{/* end right columns wrapper */}
 
         </div>
 
@@ -127,6 +145,18 @@ export default function Footer() {
           </div>
         </div>
 
+      </div>
+
+      {/* Large decorative background logo */}
+      <div className="relative z-0 flex justify-center -mt-8 pointer-events-none select-none" aria-hidden="true">
+        <Image
+          src="/icons/Big-A2V2-Logo.svg"
+          alt=""
+          width={1200}
+          height={400}
+          className="w-full max-w-[1400px] opacity-[0.20]"
+          style={{ filter: 'brightness(2)' }}
+        />
       </div>
     </footer>
   )

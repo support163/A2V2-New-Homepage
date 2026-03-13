@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import HrtFooter from '@/components/hrt/HrtFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import HrtFAQ from '@/components/hrt/HrtFAQ'
 
@@ -576,7 +576,7 @@ export default function HrtClinicsPage() {
         </div>
       </section>
 
-      <HrtFooter />
+      <Footer />
 
       {/* ── JSON-LD: SoftwareApplication Schema ── */}
       <script

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import HealthcareAiFooter from '@/components/healthcare-ai/HealthcareAiFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import HealthcareAiFAQ from '@/components/healthcare-ai/HealthcareAiFAQ'
 
@@ -645,7 +645,7 @@ export default function HealthcareAiPlatformPage() {
         </div>
       </section>
 
-      <HealthcareAiFooter />
+      <Footer />
 
       {/* ── JSON-LD: SoftwareApplication Schema ── */}
       <script

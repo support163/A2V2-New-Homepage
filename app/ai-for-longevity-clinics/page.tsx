@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import LongevityFooter from '@/components/longevity/LongevityFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import LongevityFAQ from '@/components/longevity/LongevityFAQ'
 import { DEMO_BOOKING_URL } from '@/lib/constants'
@@ -477,7 +477,7 @@ export default function LongevityPage() {
         </div>
       </section>
 
-      <LongevityFooter />
+      <Footer />
 
       {/* ── JSON-LD: SoftwareApplication Schema ── */}
       <script

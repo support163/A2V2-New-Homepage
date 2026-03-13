@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import RetentionFooter from '@/components/retention/RetentionFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import RetentionFAQ from '@/components/retention/RetentionFAQ'
 
@@ -641,7 +641,7 @@ export default function PatientRetentionPage() {
         </div>
       </section>
 
-      <RetentionFooter />
+      <Footer />
 
       {/* ── JSON-LD: SoftwareApplication Schema ── */}
       <script

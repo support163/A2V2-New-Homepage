@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import FunctionalMedicineFooter from '@/components/functional-medicine/FunctionalMedicineFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import FunctionalMedicineFAQ from '@/components/functional-medicine/FunctionalMedicineFAQ'
 
@@ -530,7 +530,7 @@ export default function FunctionalMedicinePage() {
         </div>
       </section>
 
-      <FunctionalMedicineFooter />
+      <Footer />
 
       {/* ── JSON-LD: SoftwareApplication Schema ── */}
       <script

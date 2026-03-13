@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
-import LongevityFooter from '@/components/longevity/LongevityFooter'
+import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BlogPost from '@/components/blog/BlogPost'
 
@@ -64,7 +64,7 @@ export default function BlogPostPage() {
         <ScrollAnimator />
         <Navbar />
         <BlogPost />
-        <LongevityFooter />
+        <Footer />
       </main>
     </>
   )
