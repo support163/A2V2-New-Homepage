@@ -96,8 +96,15 @@ export default function UseCasesSection() {
           </div>
         </div>
 
+        {/* Preload all tab images so switching is instant */}
+        <div className="hidden">
+          {tabs.map((tab) => (
+            <Image key={tab.id} src={tab.image} alt="" width={1200} height={540} priority />
+          ))}
+        </div>
+
         {/* Content card */}
-        <div data-animate="" style={{ transitionDelay: '200ms' }} className="mt-6 rounded-[20px] bg-surface overflow-hidden flex flex-col md:min-h-[600px]">
+        <div data-animate="" style={{ transitionDelay: '200ms' }} className="mt-6 rounded-[20px] bg-surface overflow-hidden flex flex-col md:min-h-[690px]">
 
           {/* Animated content wrapper */}
           <div
@@ -106,7 +113,7 @@ export default function UseCasesSection() {
             }`}
           >
             {/* Image area — mobile: cropped 4:3 fill; desktop: flex-1 with padding */}
-            <div className="pt-4 aspect-[4/3] overflow-hidden md:aspect-auto md:flex-1 md:min-h-[420px] md:flex md:items-end md:justify-center md:px-6 md:pt-8">
+            <div className="pt-4 aspect-[4/3] overflow-hidden md:aspect-auto md:flex-1 md:min-h-[420px] md:flex md:items-center md:justify-center md:px-6">
               <Image
                 src={shown.image}
                 alt={shown.title}

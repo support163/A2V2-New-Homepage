@@ -8,6 +8,7 @@ const cards = [
     titleMaxW: '',
     description:
       'Certified with AES-256 encryption at rest and in transit.',
+    bgPosition: 'left',
   },
   {
     icon: '/icons/icon-lock.svg',
@@ -15,6 +16,7 @@ const cards = [
     titleMaxW: 'max-w-[160px]',
     description:
       'Your data is isolated and never used to train our public models.',
+    bgPosition: 'center',
   },
   {
     icon: '/icons/icon-hipaa.svg',
@@ -22,10 +24,15 @@ const cards = [
     titleMaxW: '',
     description:
       'Full BAA support and PHI protection for all healthcare providers.',
+    bgPosition: 'right',
   },
 ]
 
-export default function TrustSection() {
+interface TrustSectionProps {
+  gradientCards?: boolean
+}
+
+export default function TrustSection({ gradientCards = false }: TrustSectionProps) {
   const appUrl = APP_URL
   const demoBookingUrl = DEMO_BOOKING_URL
 
@@ -71,8 +78,15 @@ export default function TrustSection() {
             <div
               key={card.title}
               data-animate=""
-              style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-              className="bg-surface rounded-card p-card-p flex flex-col items-center text-center"
+              style={{
+                transitionDelay: `${(i + 1) * 100}ms`,
+                ...(gradientCards ? {
+                  backgroundImage: 'url(/images/New-Cta-Background.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: card.bgPosition,
+                } : {}),
+              }}
+              className={`rounded-card p-card-p flex flex-col items-center text-center ${gradientCards ? '' : 'bg-surface'}`}
             >
               <Image
                 src={card.icon}
@@ -84,7 +98,7 @@ export default function TrustSection() {
               <h3 className={`mt-4 text-btn md:text-body-lg font-bold text-white ${card.titleMaxW}`}>
                 {card.title}
               </h3>
-              <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px] min-h-[44px]">
+              <p className={`mt-4 text-[12px] md:text-btn leading-[22px] min-h-[44px] ${gradientCards ? 'text-[#F3F3F3]' : 'text-white/60'}`}>
                 {card.description}
               </p>
             </div>

@@ -3,9 +3,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import HealthcareAiFAQ from '@/components/healthcare-ai/HealthcareAiFAQ'
+import CtaBanner from '@/components/CtaBanner'
+import { DEMO_BOOKING_URL } from '@/lib/constants'
 
-const CALENDLY_LINK =
-  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb'
+const CALENDLY_LINK = DEMO_BOOKING_URL
 
 export const metadata: Metadata = {
   title:
@@ -612,38 +613,10 @@ export default function HealthcareAiPlatformPage() {
       <HealthcareAiFAQ />
 
       {/* ── FINAL CTA ── */}
-      <section className="bg-background py-8 md:py-section-y">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="relative rounded-[20px] bg-primary overflow-hidden px-6 py-12 md:px-[96px] md:py-[64px]">
-            <div className="relative z-10 max-w-[640px] mx-auto text-center">
-              <h2 className="text-[24px] md:text-h2 font-bold text-white leading-tight">
-                Your Practice Deserves AI That Was Built for Healthcare
-              </h2>
-              <p className="mt-4 text-btn text-white/70 leading-[22px]">
-                In 30 minutes, we&apos;ll show you exactly where you&apos;re
-                losing patients, what it&apos;s costing you, and how A2V2.ai
-                recovers that revenue &mdash; automatically and compliantly.
-              </p>
-
-              <div className="mt-8">
-                <a
-                  href={CALENDLY_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-surface text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-gray-100 transition-colors"
-                >
-                  Book Your Free Patient Retention Audit
-                </a>
-              </div>
-
-              <p className="mt-6 text-sm text-white/60">
-                No pitch. No commitment. Just clarity on what AI can actually do
-                for your practice.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBanner
+        heading="Your Practice Deserves AI That Was Built for Healthcare"
+        subtext="In 30 minutes, we'll show you exactly where you're losing patients, what it's costing you, and how A2V2.ai recovers that revenue — automatically and compliantly."
+      />
 
       <Footer />
 

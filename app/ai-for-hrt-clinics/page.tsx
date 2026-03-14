@@ -3,9 +3,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import HrtFAQ from '@/components/hrt/HrtFAQ'
+import CtaBanner from '@/components/CtaBanner'
+import { DEMO_BOOKING_URL } from '@/lib/constants'
 
-const CALENDLY_LINK =
-  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1mosl4E14DaFo3zdh1kBAVaQm7utfpH2Ns0Xt2fmknpca-KOeaAoP_pTLfDoQa3eXV4luzv_Eb'
+const CALENDLY_LINK = DEMO_BOOKING_URL
 
 export const metadata: Metadata = {
   title: 'AI for HRT Clinics - Automated Patient Engagement | A2V2.ai',
@@ -542,39 +543,10 @@ export default function HrtClinicsPage() {
       <HrtFAQ />
 
       {/* ── FINAL CTA ── */}
-      <section className="bg-background py-8 md:py-section-y">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="relative rounded-[20px] bg-primary overflow-hidden px-6 py-12 md:px-[96px] md:py-[64px]">
-            <div className="relative z-10 max-w-[640px] mx-auto text-center">
-              <h2 className="text-[24px] md:text-h2 font-bold text-white leading-tight">
-                Find Out How Many HRT Patients You&apos;re Losing &mdash; And
-                How to Get Them Back
-              </h2>
-              <p className="mt-4 text-btn text-white/70 leading-[22px]">
-                In 30 minutes, we&apos;ll audit your current patient engagement,
-                identify your biggest drop-off points, and show you the revenue
-                A2V2.ai would recover for your clinic.
-              </p>
-
-              <div className="mt-8">
-                <a
-                  href={CALENDLY_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-surface text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-gray-100 transition-colors"
-                >
-                  Book Your Free Patient Retention Audit
-                </a>
-              </div>
-
-              <p className="mt-6 text-sm text-white/60">
-                No pitch. No commitment. Just clarity on what&apos;s possible
-                for your clinic.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBanner
+        heading="Find Out How Many HRT Patients You're Losing — And How to Get Them Back"
+        subtext="In 30 minutes, we'll audit your current patient engagement, identify your biggest drop-off points, and show you the revenue A2V2.ai would recover for your clinic."
+      />
 
       <Footer />
 

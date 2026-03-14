@@ -21,7 +21,7 @@ export default function PricingPage() {
       <Navbar />
       <PricingSection />
       <AddOns />
-      <TrustSection />
+      <TrustSection gradientCards />
       <FAQ />
       <CtaBanner />
       <Footer />
