@@ -1,10 +1,29 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import HealthcareAiFAQ from '@/components/healthcare-ai/HealthcareAiFAQ'
 import CtaBanner from '@/components/CtaBanner'
-import { DEMO_BOOKING_URL } from '@/lib/constants'
+import { APP_URL, CHAT_EMBED_URL, DEMO_BOOKING_URL } from '@/lib/constants'
+import {
+  AlertTriangle,
+  Database,
+  Users,
+  ShieldCheck,
+  Shield,
+  Lock,
+  Server,
+  Activity,
+  Layers,
+  MessageSquare,
+  Brain,
+  BarChart3,
+  ClipboardCheck,
+  Plug,
+  Settings,
+  Zap,
+} from 'lucide-react'
 
 const CALENDLY_LINK = DEMO_BOOKING_URL
 
@@ -48,42 +67,49 @@ const problemCards = [
   {
     title: 'Generic AI Is a Compliance Risk',
     body: 'ChatGPT, Gemini, and other general AI tools are not HIPAA-compliant. Using them for patient communication, scheduling, or data analysis puts your practice at risk of fines up to $1.5M per violation, license loss, and patient lawsuits.',
+    icon: AlertTriangle,
   },
   {
     title: 'CRMs Weren\u2019t Built for Clinical Workflows',
     body: 'Salesforce and HubSpot are built for sales teams, not medical practices. They don\u2019t understand treatment protocols, lab tracking, biomarker trends, or the patient engagement patterns that drive retention in healthcare.',
+    icon: Database,
   },
   {
     title: 'DIY Automation Breaks at Scale',
     body: 'Stitching together Zapier, email tools, and spreadsheets works for 50 patients. At 200+, it falls apart. Data lives in silos, follow-ups get missed, and your team spends more time managing tools than caring for patients.',
+    icon: Users,
   },
 ]
 
 const credibilityBadges = [
-  'HIPAA Compliant',
-  'ITAR Compliant',
-  'PHI Never Shared',
-  'Private LLM Deployment',
-  'End-to-End Encryption',
-  'BAA Provided',
+  { label: 'HIPAA Compliant', icon: ShieldCheck },
+  { label: 'ITAR Compliant', icon: Shield },
+  { label: 'PHI Never Shared', icon: Lock },
+  { label: 'Private LLM Deployment', icon: Server },
+  { label: 'End-to-End Encryption', icon: Lock },
+  { label: 'BAA Provided', icon: ShieldCheck },
 ]
 
 const solutionCards = [
   {
     title: 'Clinical-Grade Patient Engagement',
     body: 'AI-powered SMS, email, and phone sequences built around treatment protocols, not marketing funnels. Every touchpoint is clinically timed and personalized to the patient\u2019s therapy stage, adherence history, and communication preferences.',
+    icon: MessageSquare,
   },
   {
     title: 'Treatment Protocol Intelligence',
     body: 'Native support for NAD+ therapy, peptide sequences, HRT programs, supplement protocols, and biomarker optimization. The AI understands your clinical workflows \u2014 not just appointment dates.',
+    icon: Brain,
   },
   {
     title: 'Predictive Patient Analytics',
     body: 'AI analyzes engagement patterns across your entire patient base and flags at-risk patients 30\u201345 days before they drop off. Your team gets actionable alerts, not data dumps. Prevent churn instead of reacting to it.',
+    icon: BarChart3,
   },
   {
     title: 'Enterprise-Grade Compliance',
     body: '100% HIPAA compliant with private LLM deployment. End-to-end AES-256 encryption, BAA provided, quarterly penetration testing, role-based access control, and complete audit logs. Built for practices that take compliance seriously.',
+    icon: ClipboardCheck,
   },
 ]
 
@@ -93,18 +119,21 @@ const howItWorksSteps = [
     title: 'Connect',
     description:
       'We integrate A2V2.ai with your existing EHR/EMR, lab partners (Quest, LabCorp), wearables (Oura, Whoop, Apple Health, CGM), and communication systems. No migrations, no downtime.',
+    icon: Plug,
   },
   {
     step: 2,
     title: 'Configure',
     description:
       'Our team maps your treatment protocols, patient journeys, engagement touchpoints, and compliance rules. Everything is customized to your specialty and workflows.',
+    icon: Settings,
   },
   {
     step: 3,
     title: 'Launch',
     description:
       'A2V2 runs 24/7, engaging patients, tracking adherence, and alerting your team when human intervention is needed. Full live dashboard from day one.',
+    icon: Zap,
   },
 ]
 
@@ -192,45 +221,75 @@ export default function HealthcareAiPlatformPage() {
       {/* ── HERO ── */}
       <section className="bg-background py-8 md:py-section-y">
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="max-w-[780px]">
-            <h1 className="text-[32px] md:text-h1 font-bold text-text-primary leading-tight">
-              The Healthcare AI Platform That&apos;s Actually Built for
-              Healthcare
-            </h1>
-            <p className="mt-6 text-btn md:text-body-lg text-text-secondary max-w-[680px] leading-relaxed">
-              Most AI tools weren&apos;t designed for medicine. A2V2.ai is a
-              HIPAA-compliant AI platform purpose-built for clinical workflows
-              &mdash; automating patient engagement, tracking treatment
-              adherence, and scaling your practice without compromising
-              compliance.
-            </p>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="flex-1 w-full flex flex-col items-center lg:items-start" data-animate="">
+              <h1 className="text-[28px] md:text-h1 font-bold text-text-primary leading-[1.2] md:leading-[58px] w-full md:max-w-[520px] text-center lg:text-left">
+                The Healthcare AI Platform That&apos;s Actually Built for
+                Healthcare
+              </h1>
+              <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
+                Most AI tools weren&apos;t designed for medicine. A2V2.ai is a
+                HIPAA-compliant AI platform purpose-built for clinical workflows
+                &mdash; automating patient engagement, tracking treatment
+                adherence, and scaling your practice without compromising
+                compliance.
+              </p>
 
-            <div className="mt-8">
-              <a
-                href={CALENDLY_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
-              >
-                Get Your Free Patient Retention Audit
-              </a>
-            </div>
-          </div>
-
-          {/* Trust bar */}
-          <div data-animate="" className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
-            {trustBarItems.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-sm md:text-btn text-text-secondary"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
-                  <circle cx="8" cy="8" r="8" fill="#2563EB" />
-                  <path d="M5 8l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {item}
+              <div className="mt-8 md:mt-6 flex items-center justify-center lg:justify-start gap-4 flex-wrap">
+                <a
+                  href={`${APP_URL}/signin`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
+                >
+                  Try For Free
+                </a>
+                <a
+                  href={CALENDLY_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn border border-text-primary hover:bg-gray-50 transition-colors"
+                >
+                  See a Demo
+                </a>
               </div>
-            ))}
+
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 justify-center lg:justify-start">
+                {trustBarItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-sm md:text-btn text-text-secondary"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+                      <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                      <path d="M5 8l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1 flex justify-center lg:justify-end w-full max-w-[520px] lg:max-w-none" data-animate="" style={{ transitionDelay: '150ms' }}>
+              <div className="relative w-full max-w-[520px]">
+                <Image
+                  src="/images/hero-background-mockup-2.0.png"
+                  alt="A2V2 device frame"
+                  width={520}
+                  height={480}
+                  className="w-full object-contain"
+                  priority
+                />
+                <iframe
+                  src={CHAT_EMBED_URL}
+                  title="A2V2 AI Chat"
+                  allow="clipboard-write"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                  className="absolute rounded-[12px] border-0"
+                  style={{ top: '4.5%', left: '4.5%', width: '91%', height: '91%' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -250,12 +309,13 @@ export default function HealthcareAiPlatformPage() {
                 key={card.title}
                 data-animate=""
                 style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
+                className="flex flex-col"
               >
-                <h3 className="text-btn md:text-body-lg font-bold text-white">
+                <card.icon className="w-12 h-12 text-black" strokeWidth={1.5} />
+                <h3 className="mt-4 text-btn md:text-body-lg font-bold text-black">
                   {card.title}
                 </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
+                <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
                   {card.body}
                 </p>
               </div>
@@ -288,12 +348,13 @@ export default function HealthcareAiPlatformPage() {
           >
             {credibilityBadges.map((badge, i) => (
               <div
-                key={badge}
+                key={badge.label}
                 style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-6 flex items-center justify-center text-center"
+                className="flex flex-col items-center text-center"
               >
-                <span className="text-sm md:text-btn font-medium text-white">
-                  {badge}
+                <badge.icon className="w-8 h-8 text-black" strokeWidth={1.5} />
+                <span className="mt-3 text-sm md:text-btn font-medium text-black">
+                  {badge.label}
                 </span>
               </div>
             ))}
@@ -323,12 +384,13 @@ export default function HealthcareAiPlatformPage() {
                 key={card.title}
                 data-animate=""
                 style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
+                className="flex flex-col"
               >
-                <h3 className="text-btn md:text-body-lg font-bold text-white">
+                <card.icon className="w-10 h-10 text-black" strokeWidth={1.5} />
+                <h3 className="mt-4 text-btn md:text-body-lg font-bold text-black">
                   {card.title}
                 </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
+                <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
                   {card.body}
                 </p>
               </div>
@@ -352,15 +414,16 @@ export default function HealthcareAiPlatformPage() {
                 key={step.title}
                 data-animate=""
                 style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
+                className="flex flex-col"
               >
-                <span className="text-primary text-sm font-bold uppercase tracking-wide">
+                <step.icon className="w-10 h-10 text-black" strokeWidth={1.5} />
+                <span className="mt-4 text-gray-500 text-sm font-bold uppercase tracking-wide">
                   Step {step.step}
                 </span>
-                <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
+                <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
+                <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
                   {step.description}
                 </p>
               </div>
@@ -380,66 +443,66 @@ export default function HealthcareAiPlatformPage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-card-gap">
             {/* PrevMed */}
-            <div data-animate="" style={{ transitionDelay: '100ms' }} className="bg-surface rounded-card p-card-p flex flex-col">
-              <span className="text-primary text-sm font-bold uppercase tracking-wide">
+            <div data-animate="" style={{ transitionDelay: '100ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
+              <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 PrevMed
               </span>
-              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
+              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
                 3x Patient Engagement in 6 Months
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">67%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Reduction in no-shows</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">67%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Reduction in no-shows</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">3x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Patient engagement</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">3x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient engagement</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Revenue growth</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Revenue growth</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">$850K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Recovered in year one</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">$850K</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Recovered in year one</p>
                 </div>
               </div>
               <div className="mt-6">
-                <a href="#" className="text-primary text-btn font-medium hover:underline">
+                <a href="#" className="text-black text-btn font-medium hover:underline">
                   Read Full Case Study &rarr;
                 </a>
               </div>
             </div>
 
             {/* Revitalized Health */}
-            <div data-animate="" style={{ transitionDelay: '200ms' }} className="bg-surface rounded-card p-card-p flex flex-col">
-              <span className="text-primary text-sm font-bold uppercase tracking-wide">
+            <div data-animate="" style={{ transitionDelay: '200ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
+              <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 Revitalized Health
               </span>
-              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
+              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
                 2x HRT Patient Retention
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Retention rate</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Retention rate</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">40%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Adherence increase</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">40%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Adherence increase</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">90%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Comms automated</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">90%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms automated</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">$420K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Added annual revenue</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">$420K</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Added annual revenue</p>
                 </div>
               </div>
               <div className="mt-6">
-                <a href="#" className="text-primary text-btn font-medium hover:underline">
+                <a href="#" className="text-black text-btn font-medium hover:underline">
                   See How They Did It &rarr;
                 </a>
               </div>
@@ -457,23 +520,23 @@ export default function HealthcareAiPlatformPage() {
             </h2>
           </div>
 
-          <div data-animate="" className="mt-12 overflow-x-auto">
+          <div data-animate="" className="mt-12 overflow-x-auto rounded-2xl border border-gray-200">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="py-4 pr-4 text-left text-btn font-bold text-text-primary">
+                <tr className="bg-[#F5F5F5]">
+                  <th className="py-4 pr-4 pl-4 text-left text-btn font-bold text-black">
                     Feature
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-primary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-black">
                     A2V2.ai
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-gray-500">
                     Generic CRM
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-gray-500">
                     ChatGPT / Claude / Gemini
                   </th>
-                  <th className="py-4 pl-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 pl-4 pr-4 text-left text-btn font-bold text-gray-500">
                     DIY Automation
                   </th>
                 </tr>
@@ -482,21 +545,21 @@ export default function HealthcareAiPlatformPage() {
                 {comparisonRows.map((row, i) => (
                   <tr
                     key={row.feature}
-                    className={i < comparisonRows.length - 1 ? 'border-b border-gray-100' : ''}
+                    className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'} ${i < comparisonRows.length - 1 ? 'border-b border-gray-100' : ''}`}
                   >
-                    <td className="py-4 pr-4 text-sm md:text-btn font-medium text-text-primary">
+                    <td className="py-4 pr-4 pl-4 text-sm md:text-btn font-medium text-black">
                       {row.feature}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-primary font-medium">
+                    <td className="py-4 px-4 text-sm md:text-btn text-black font-medium">
                       {row.a2v2}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 px-4 text-sm md:text-btn text-gray-500">
                       {row.crm}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 px-4 text-sm md:text-btn text-gray-500">
                       {row.generic}
                     </td>
-                    <td className="py-4 pl-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 pl-4 pr-4 text-sm md:text-btn text-gray-500">
                       {row.diy}
                     </td>
                   </tr>
@@ -516,47 +579,47 @@ export default function HealthcareAiPlatformPage() {
       {/* ── ROI ── */}
       <section className="bg-background py-8 md:py-section-y">
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="bg-surface rounded-card p-card-p md:p-[64px] text-center">
-            <h2 className="text-[24px] md:text-h2 font-bold text-white">
+          <div data-animate="" className="text-center">
+            <h2 className="text-[24px] md:text-h2 font-bold text-black">
               The ROI of a Real Healthcare AI Platform
             </h2>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   73%
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Patient drop-off rate without AI
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   35%
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Drop-off rate with A2V2.ai
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   $1.14M
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Avg revenue saved annually
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   &lt;60 Days
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Time to full ROI
                 </p>
               </div>
             </div>
 
-            <p className="mt-6 text-sm md:text-btn text-white/60 max-w-[560px] mx-auto">
+            <p className="mt-6 text-sm md:text-btn text-gray-500 max-w-[560px] mx-auto">
               Every month without automated patient engagement is revenue
               walking out the door. We&apos;ll show you exactly how much in a
               free 30-minute audit.
@@ -593,9 +656,9 @@ export default function HealthcareAiPlatformPage() {
               <div
                 key={name}
                 style={{ transitionDelay: `${(i + 1) * 50}ms` }}
-                className="bg-surface rounded-card p-5 flex items-center justify-center text-center min-h-[80px]"
+                className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-5 flex items-center justify-center text-center min-h-[80px]"
               >
-                <span className="text-sm md:text-btn font-medium text-white">
+                <span className="text-sm md:text-btn font-medium text-black">
                   {name}
                 </span>
               </div>

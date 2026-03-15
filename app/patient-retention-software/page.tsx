@@ -1,10 +1,27 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import RetentionFAQ from '@/components/retention/RetentionFAQ'
 import CtaBanner from '@/components/CtaBanner'
-import { DEMO_BOOKING_URL } from '@/lib/constants'
+import { APP_URL, CHAT_EMBED_URL, DEMO_BOOKING_URL } from '@/lib/constants'
+import {
+  TrendingDown,
+  UserX,
+  Clock,
+  Brain,
+  MessageSquare,
+  BarChart3,
+  RefreshCw,
+  Plug,
+  Settings,
+  Zap,
+  ShieldCheck,
+  Shield,
+  Lock,
+  Server,
+} from 'lucide-react'
 
 const CALENDLY_LINK = DEMO_BOOKING_URL
 
@@ -48,40 +65,47 @@ const problemCards = [
   {
     title: 'The Silent Drop-Off',
     body: '73% of patients disengage from treatment protocols within 6 months. They don\u2019t complain or cancel \u2014 they just stop showing up. By the time you notice, they\u2019ve already found another provider or given up entirely.',
+    icon: TrendingDown,
   },
   {
     title: 'Manual Follow-Ups Don\u2019t Scale',
     body: 'Your front desk is already overwhelmed. Phone calls go unanswered, emails get buried, and text reminders feel generic. The more patients you add, the more fall through the cracks. You can\u2019t hire your way out of this.',
+    icon: UserX,
   },
   {
     title: 'No Early Warning System',
     body: 'You have no way to predict which patients are about to drop off. No visibility into adherence between visits. No alerts when engagement drops. You find out a patient left when their chart goes cold.',
+    icon: Clock,
   },
 ]
 
 const credibilityBadges = [
-  'HIPAA Compliant',
-  'ITAR Compliant',
-  'PHI Never Shared',
-  'Private LLM Deployment',
+  { label: 'HIPAA Compliant', icon: ShieldCheck },
+  { label: 'ITAR Compliant', icon: Shield },
+  { label: 'PHI Never Shared', icon: Lock },
+  { label: 'Private LLM Deployment', icon: Server },
 ]
 
 const solutionCards = [
   {
     title: 'Predictive Drop-Off Alerts',
     body: 'AI analyzes patient behavior patterns and flags at-risk patients 30\u201345 days before they churn. Your team gets alerts with recommended actions. Stop reacting to lost patients and start preventing it.',
+    icon: Brain,
   },
   {
     title: 'Automated Engagement Sequences',
     body: 'Personalized SMS, email, and phone sequences triggered by each patient\u2019s treatment stage. Check-ins at day 7, 30, 90, 180. Every message feels personal \u2014 because the AI adapts tone and content to each patient.',
+    icon: MessageSquare,
   },
   {
     title: 'Real-Time Adherence Dashboard',
     body: 'See which patients are on track and who\u2019s falling behind \u2014 at a glance. Track appointment attendance, lab completion, prescription refills, and protocol compliance. No more spreadsheets or guessing.',
+    icon: BarChart3,
   },
   {
     title: 'Smart Re-Engagement Engine',
     body: 'Automatically detects and re-engages patients who\u2019ve gone quiet. Personalized win-back campaigns based on their treatment history. 40% success rate bringing inactive patients back. Recover revenue you already spent to earn.',
+    icon: RefreshCw,
   },
 ]
 
@@ -91,18 +115,21 @@ const howItWorksSteps = [
     title: 'Connect',
     description:
       'We integrate with your existing EHR, lab systems, and communication tools. No migrations, no downtime. Our engineering team handles everything.',
+    icon: Plug,
   },
   {
     step: 2,
     title: 'Configure',
     description:
       'We map your patient journeys, engagement triggers, and re-engagement rules. Every workflow is customized to your practice and speciality.',
+    icon: Settings,
   },
   {
     step: 3,
     title: 'Retain',
     description:
       'A2V2 monitors your patients 24/7, engages them automatically, and alerts your team when human intervention is needed. You focus on care, we handle retention.',
+    icon: Zap,
   },
 ]
 
@@ -183,43 +210,74 @@ export default function PatientRetentionPage() {
       {/* ── HERO ── */}
       <section className="bg-background py-8 md:py-section-y">
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="max-w-[780px]">
-            <h1 className="text-[32px] md:text-h1 font-bold text-text-primary leading-tight">
-              Stop Losing Patients You Already Paid to Acquire
-            </h1>
-            <p className="mt-6 text-btn md:text-body-lg text-text-secondary max-w-[680px] leading-relaxed">
-              A2V2.ai is AI-powered patient retention software that automates
-              follow-ups, predicts drop-offs before they happen, and re-engages
-              inactive patients &mdash; recovering hundreds of thousands in lost
-              revenue. 100% HIPAA compliant.
-            </p>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="flex-1 w-full flex flex-col items-center lg:items-start" data-animate="">
+              <h1 className="text-[28px] md:text-h1 font-bold text-text-primary leading-[1.2] md:leading-[58px] w-full md:max-w-[520px] text-center lg:text-left">
+                Stop Losing Patients You Already Paid to Acquire
+              </h1>
+              <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
+                A2V2.ai is AI-powered patient retention software that automates
+                follow-ups, predicts drop-offs before they happen, and re-engages
+                inactive patients &mdash; recovering hundreds of thousands in lost
+                revenue. 100% HIPAA compliant.
+              </p>
 
-            <div className="mt-8">
-              <a
-                href={CALENDLY_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
-              >
-                Get Your Free Patient Retention Audit
-              </a>
-            </div>
-          </div>
-
-          {/* Trust bar */}
-          <div data-animate="" className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
-            {trustBarItems.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-sm md:text-btn text-text-secondary"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
-                  <circle cx="8" cy="8" r="8" fill="#2563EB" />
-                  <path d="M5 8l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {item}
+              <div className="mt-8 md:mt-6 flex items-center justify-center lg:justify-start gap-4 flex-wrap">
+                <a
+                  href={`${APP_URL}/signin`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-white text-btn font-medium px-btn-x py-btn-y rounded-btn hover:bg-blue-700 transition-colors"
+                >
+                  Try For Free
+                </a>
+                <a
+                  href={CALENDLY_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background text-text-primary text-btn font-medium px-btn-x py-btn-y rounded-btn border border-text-primary hover:bg-gray-50 transition-colors"
+                >
+                  See a Demo
+                </a>
               </div>
-            ))}
+
+              {/* Trust bar */}
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 justify-center lg:justify-start">
+                {trustBarItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-sm md:text-btn text-text-secondary"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+                      <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                      <path d="M5 8l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1 flex justify-center lg:justify-end w-full max-w-[520px] lg:max-w-none" data-animate="" style={{ transitionDelay: '150ms' }}>
+              <div className="relative w-full max-w-[520px]">
+                <Image
+                  src="/images/hero-background-mockup-2.0.png"
+                  alt="A2V2 device frame"
+                  width={520}
+                  height={480}
+                  className="w-full object-contain"
+                  priority
+                />
+                <iframe
+                  src={CHAT_EMBED_URL}
+                  title="A2V2 AI Chat"
+                  allow="clipboard-write"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                  className="absolute rounded-[12px] border-0"
+                  style={{ top: '4.5%', left: '4.5%', width: '91%', height: '91%' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -235,21 +293,25 @@ export default function PatientRetentionPage() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-card-gap">
-            {problemCards.map((card, i) => (
-              <div
-                key={card.title}
-                data-animate=""
-                style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
-              >
-                <h3 className="text-btn md:text-body-lg font-bold text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
-                  {card.body}
-                </p>
-              </div>
-            ))}
+            {problemCards.map((card, i) => {
+              const Icon = card.icon
+              return (
+                <div
+                  key={card.title}
+                  data-animate=""
+                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+                  className="flex flex-col"
+                >
+                  <Icon className="w-12 h-12 text-black" strokeWidth={1.5} />
+                  <h3 className="mt-4 text-btn md:text-body-lg font-bold text-black">
+                    {card.title}
+                  </h3>
+                  <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
+                    {card.body}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -276,17 +338,21 @@ export default function PatientRetentionPage() {
             data-animate=""
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-card-gap max-w-[800px] mx-auto"
           >
-            {credibilityBadges.map((badge, i) => (
-              <div
-                key={badge}
-                style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-6 flex items-center justify-center text-center"
-              >
-                <span className="text-sm md:text-btn font-medium text-white">
-                  {badge}
-                </span>
-              </div>
-            ))}
+            {credibilityBadges.map((badge, i) => {
+              const Icon = badge.icon
+              return (
+                <div
+                  key={badge.label}
+                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <Icon className="w-8 h-8 text-black" strokeWidth={1.5} />
+                  <span className="mt-3 text-sm md:text-btn font-medium text-black">
+                    {badge.label}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -308,21 +374,25 @@ export default function PatientRetentionPage() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-card-gap">
-            {solutionCards.map((card, i) => (
-              <div
-                key={card.title}
-                data-animate=""
-                style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
-              >
-                <h3 className="text-btn md:text-body-lg font-bold text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
-                  {card.body}
-                </p>
-              </div>
-            ))}
+            {solutionCards.map((card, i) => {
+              const Icon = card.icon
+              return (
+                <div
+                  key={card.title}
+                  data-animate=""
+                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+                  className="flex flex-col"
+                >
+                  <Icon className="w-10 h-10 text-black" strokeWidth={1.5} />
+                  <h3 className="mt-4 text-btn md:text-body-lg font-bold text-black">
+                    {card.title}
+                  </h3>
+                  <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
+                    {card.body}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -337,24 +407,28 @@ export default function PatientRetentionPage() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-card-gap">
-            {howItWorksSteps.map((step, i) => (
-              <div
-                key={step.title}
-                data-animate=""
-                style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-card-p flex flex-col"
-              >
-                <span className="text-primary text-sm font-bold uppercase tracking-wide">
-                  Step {step.step}
-                </span>
-                <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-[12px] md:text-btn text-white/60 leading-[22px]">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+            {howItWorksSteps.map((step, i) => {
+              const Icon = step.icon
+              return (
+                <div
+                  key={step.title}
+                  data-animate=""
+                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+                  className="flex flex-col"
+                >
+                  <Icon className="w-10 h-10 text-black" strokeWidth={1.5} />
+                  <span className="mt-4 text-gray-500 text-sm font-bold uppercase tracking-wide">
+                    Step {step.step}
+                  </span>
+                  <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-[12px] md:text-btn text-gray-500 leading-[22px]">
+                    {step.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -370,35 +444,35 @@ export default function PatientRetentionPage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-card-gap">
             {/* PrevMed */}
-            <div data-animate="" style={{ transitionDelay: '100ms' }} className="bg-surface rounded-card p-card-p flex flex-col">
-              <span className="text-primary text-sm font-bold uppercase tracking-wide">
+            <div data-animate="" style={{ transitionDelay: '100ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
+              <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 PrevMed
               </span>
-              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
+              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
                 3x Patient Engagement in 6 Months
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">67%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Reduction in no-shows</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">67%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Reduction in no-shows</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">3x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Patient engagement</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">3x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient engagement</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Revenue growth</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Revenue growth</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">$850K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Recovered in year one</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">$850K</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Recovered in year one</p>
                 </div>
               </div>
               <div className="mt-6">
                 <a
                   href="#"
-                  className="text-primary text-btn font-medium hover:underline"
+                  className="text-black text-btn font-medium hover:underline"
                 >
                   Read Full Case Study &rarr;
                 </a>
@@ -406,35 +480,35 @@ export default function PatientRetentionPage() {
             </div>
 
             {/* Revitalized Health */}
-            <div data-animate="" style={{ transitionDelay: '200ms' }} className="bg-surface rounded-card p-card-p flex flex-col">
-              <span className="text-primary text-sm font-bold uppercase tracking-wide">
+            <div data-animate="" style={{ transitionDelay: '200ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
+              <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 Revitalized Health
               </span>
-              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-white">
+              <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
                 2x Patient Retention
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Retention rate</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Retention rate</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">40%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Adherence increase</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">40%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Adherence increase</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">90%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Comms automated</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">90%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms automated</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-primary">$420K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-white/60">Added annual revenue</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">$420K</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Added annual revenue</p>
                 </div>
               </div>
               <div className="mt-6">
                 <a
                   href="#"
-                  className="text-primary text-btn font-medium hover:underline"
+                  className="text-black text-btn font-medium hover:underline"
                 >
                   See How They Did It &rarr;
                 </a>
@@ -453,23 +527,23 @@ export default function PatientRetentionPage() {
             </h2>
           </div>
 
-          <div data-animate="" className="mt-12 overflow-x-auto">
+          <div data-animate="" className="mt-12 overflow-x-auto rounded-2xl border border-gray-200">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="py-4 pr-4 text-left text-btn font-bold text-text-primary">
+                <tr className="bg-[#F5F5F5]">
+                  <th className="py-4 pr-4 pl-6 text-left text-btn font-bold text-black">
                     Feature
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-primary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-black">
                     A2V2.ai
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-gray-500">
                     Generic CRM
                   </th>
-                  <th className="py-4 px-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 px-4 text-left text-btn font-bold text-gray-500">
                     ChatGPT / Generic AI
                   </th>
-                  <th className="py-4 pl-4 text-left text-btn font-bold text-text-secondary">
+                  <th className="py-4 pr-6 pl-4 text-left text-btn font-bold text-gray-500">
                     Basic Reminder Tools
                   </th>
                 </tr>
@@ -478,21 +552,21 @@ export default function PatientRetentionPage() {
                 {comparisonRows.map((row, i) => (
                   <tr
                     key={row.feature}
-                    className={i < comparisonRows.length - 1 ? 'border-b border-gray-100' : ''}
+                    className={`${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'} ${i < comparisonRows.length - 1 ? 'border-b border-gray-100' : ''}`}
                   >
-                    <td className="py-4 pr-4 text-sm md:text-btn font-medium text-text-primary">
+                    <td className="py-4 pr-4 pl-6 text-sm md:text-btn font-medium text-black">
                       {row.feature}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-primary font-medium">
+                    <td className="py-4 px-4 text-sm md:text-btn text-black font-medium">
                       {row.a2v2}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 px-4 text-sm md:text-btn text-gray-500">
                       {row.crm}
                     </td>
-                    <td className="py-4 px-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 px-4 text-sm md:text-btn text-gray-500">
                       {row.generic}
                     </td>
-                    <td className="py-4 pl-4 text-sm md:text-btn text-text-secondary">
+                    <td className="py-4 pr-6 pl-4 text-sm md:text-btn text-gray-500">
                       {row.basic}
                     </td>
                   </tr>
@@ -512,47 +586,47 @@ export default function PatientRetentionPage() {
       {/* ── ROI ── */}
       <section className="bg-background py-8 md:py-section-y">
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-          <div data-animate="" className="bg-surface rounded-card p-card-p md:p-[64px] text-center">
-            <h2 className="text-[24px] md:text-h2 font-bold text-white">
+          <div data-animate="" className="text-center">
+            <h2 className="text-[24px] md:text-h2 font-bold text-black">
               The Math on Patient Retention
             </h2>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   $15K
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Avg patient lifetime value
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   73%
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Drop-off rate without automation
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   35%
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Drop-off rate with A2V2.ai
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
-                <p className="text-[20px] md:text-[36px] font-bold text-primary">
+                <p className="text-[20px] md:text-[36px] font-bold text-black">
                   $1.14M
                 </p>
-                <p className="mt-2 text-sm md:text-btn text-white/60">
+                <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Revenue saved annually (200 patients)
                 </p>
               </div>
             </div>
 
-            <p className="mt-6 text-sm md:text-btn text-white/60 max-w-[560px] mx-auto">
+            <p className="mt-6 text-sm md:text-btn text-gray-500 max-w-[560px] mx-auto">
               Most clinics see full ROI within 60 days. We&apos;ll show you the
               exact math for your practice in the free audit.
             </p>
@@ -588,9 +662,9 @@ export default function PatientRetentionPage() {
               <div
                 key={name}
                 style={{ transitionDelay: `${(i + 1) * 100}ms` }}
-                className="bg-surface rounded-card p-6 flex items-center justify-center text-center min-h-[100px]"
+                className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-6 flex items-center justify-center text-center min-h-[100px]"
               >
-                <span className="text-sm md:text-btn font-medium text-white">
+                <span className="text-sm md:text-btn font-medium text-black">
                   {name}
                 </span>
               </div>
