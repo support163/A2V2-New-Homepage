@@ -1,17 +1,20 @@
 import Image from 'next/image'
+import { ShieldCheck, Lock, ShieldPlus } from 'lucide-react'
 import { APP_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const cards = [
   {
     icon: '/icons/icon-security.svg',
+    lucideIcon: ShieldCheck,
     title: 'Enterprise-Grade Data Security',
     titleMaxW: '',
     description:
-      'Certified with AES-256 encryption at rest and in transit.',
+      'SOC2 Type II certified with AES-256 encryption at rest and in transit.',
     bgPosition: 'left',
   },
   {
     icon: '/icons/icon-lock.svg',
+    lucideIcon: Lock,
     title: 'Zero-Retention Private AI',
     titleMaxW: 'max-w-[160px]',
     description:
@@ -20,6 +23,7 @@ const cards = [
   },
   {
     icon: '/icons/icon-hipaa.svg',
+    lucideIcon: ShieldPlus,
     title: 'HIPAA Compliant Architecture',
     titleMaxW: '',
     description:
@@ -30,9 +34,10 @@ const cards = [
 
 interface TrustSectionProps {
   gradientCards?: boolean
+  flatDesign?: boolean
 }
 
-export default function TrustSection({ gradientCards = false }: TrustSectionProps) {
+export default function TrustSection({ gradientCards = false, flatDesign = false }: TrustSectionProps) {
   const appUrl = APP_URL
   const demoBookingUrl = DEMO_BOOKING_URL
 
@@ -74,35 +79,58 @@ export default function TrustSection({ gradientCards = false }: TrustSectionProp
 
         {/* Three trust cards */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-card-gap">
-          {cards.map((card, i) => (
-            <div
-              key={card.title}
-              data-animate=""
-              style={{
-                transitionDelay: `${(i + 1) * 100}ms`,
-                ...(gradientCards ? {
-                  backgroundImage: 'url(/images/New-Cta-Background.png)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: card.bgPosition,
-                } : {}),
-              }}
-              className={`rounded-card p-card-p flex flex-col items-center text-center ${gradientCards ? '' : 'bg-surface'}`}
-            >
-              <Image
-                src={card.icon}
-                alt=""
-                width={64}
-                height={64}
-                className=""
-              />
-              <h3 className={`mt-4 text-btn md:text-body-lg font-bold text-white ${card.titleMaxW}`}>
-                {card.title}
-              </h3>
-              <p className={`mt-4 text-[12px] md:text-btn leading-[22px] min-h-[44px] ${gradientCards ? 'text-[#F3F3F3]' : 'text-white/60'}`}>
-                {card.description}
-              </p>
-            </div>
-          ))}
+          {cards.map((card, i) => {
+            const LucideIcon = card.lucideIcon
+
+            if (flatDesign) {
+              return (
+                <div
+                  key={card.title}
+                  data-animate=""
+                  style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+                  className="flex flex-col items-center text-center py-8"
+                >
+                  <LucideIcon size={48} strokeWidth={1.5} className="text-gray-800" />
+                  <h3 className="mt-5 text-btn md:text-body-lg font-bold text-text-primary">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-[12px] md:text-btn leading-[22px] text-text-secondary max-w-[280px]">
+                    {card.description}
+                  </p>
+                </div>
+              )
+            }
+
+            return (
+              <div
+                key={card.title}
+                data-animate=""
+                style={{
+                  transitionDelay: `${(i + 1) * 100}ms`,
+                  ...(gradientCards ? {
+                    backgroundImage: 'url(/images/New-Cta-Background.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: card.bgPosition,
+                  } : {}),
+                }}
+                className={`rounded-card p-card-p flex flex-col items-center text-center ${gradientCards ? '' : 'bg-surface'}`}
+              >
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className=""
+                />
+                <h3 className={`mt-4 text-btn md:text-body-lg font-bold text-white ${card.titleMaxW}`}>
+                  {card.title}
+                </h3>
+                <p className={`mt-4 text-[12px] md:text-btn leading-[22px] min-h-[44px] ${gradientCards ? 'text-[#F3F3F3]' : 'text-white/60'}`}>
+                  {card.description}
+                </p>
+              </div>
+            )
+          })}
         </div>
 
       </div>

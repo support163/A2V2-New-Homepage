@@ -17,7 +17,7 @@ export default function HomePage() {
       <TrainSection />
       <FeaturesSection />
       <UseCasesSection />
-      <TrustSection gradientCards />
+      <TrustSection flatDesign />
       <CtaBanner />
       <Footer />
     </main>

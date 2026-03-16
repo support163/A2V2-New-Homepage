@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 3,
+    title: 'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis No One Is Tracking',
+    description:
+      'The problem isn\'t your protocols. It\'s the 89 days between appointments when no one is paying attention.',
+    category: 'Best Practices',
+    href: '/blog/protocol-adherence-crisis-longevity-medicine',
+    thumbnail: '/images/Blog-Post3-MainHeroImage.png',
+  },
+  {
     id: 2,
     title: 'Your AI Is a HIPAA Violation Waiting to Happen — Here\'s How to Fix It',
     description:
