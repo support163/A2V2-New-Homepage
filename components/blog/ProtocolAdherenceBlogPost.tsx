@@ -12,7 +12,7 @@ const relatedPosts = getRelatedPosts(CURRENT_HREF)
 const faqItems = [
   {
     q: 'What is the average protocol adherence rate in longevity medicine?',
-    a: 'Only about 27% of longevity patients complete their full treatment protocols. The majority disengage within 90 days, with the steepest drop-off between days 30 and 60.',
+    a: 'Industry estimates suggest as few as 1 in 4 longevity patients complete their full treatment protocols. The majority disengage within 90 days, with the steepest drop-off between days 30 and 60.',
   },
   {
     q: 'Why do patients stop their NAD+ or peptide therapy protocols?',
@@ -20,15 +20,15 @@ const faqItems = [
   },
   {
     q: 'How can clinics improve protocol adherence?',
-    a: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai automate all of these while maintaining HIPAA compliance.',
+    a: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance.',
   },
   {
     q: 'What does protocol adherence tracking software do?',
-    a: 'It monitors patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It detects early warning signs and triggers personalized re-engagement sequences.',
+    a: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
   },
   {
     q: 'How much revenue do clinics lose from poor adherence?',
-    a: 'A 200-patient clinic with 73% drop-off loses approximately $2.19M annually. Improving adherence by 20 percentage points can recover over $1M. Clinics using A2V2.ai report $420K-$850K recovered in year one.',
+    a: 'Based on average protocol values, a 200-patient clinic with an estimated 73% drop-off could be losing over $2M annually. Improving adherence by 20 percentage points could recover over $1M. Based on our retention modeling, clinics implementing A2V2.ai could expect an estimated $420K–$850K in recoverable revenue in year one.',
   },
 ]
 
@@ -278,10 +278,10 @@ export default function ProtocolAdherenceBlogPost() {
             {/* Stat callout box */}
             <div className="my-8 rounded-2xl bg-surface px-8 py-8 text-center">
               <p className="text-[28px] md:text-[36px] font-bold text-white leading-tight">
-                Only 27% of longevity patients complete their full treatment protocol.
+                Industry estimates suggest as few as 1 in 4 longevity patients complete their full treatment protocol.
               </p>
               <p className="mt-2 text-sm md:text-base text-gray-400 leading-relaxed max-w-[540px] mx-auto">
-                The other 73% disengage within the first six months — most of them between days 30 and 90.
+                The majority disengage within the first six months — most of them between days 30 and 90.
               </p>
             </div>
 
@@ -294,7 +294,7 @@ export default function ProtocolAdherenceBlogPost() {
 
             <h2>The Five Stages of Protocol Collapse</h2>
             <p>
-              After studying engagement patterns across longevity, HRT, and functional medicine practices, we&apos;ve identified five predictable stages that nearly every disengaging patient moves through. The window to intervene is narrow — and most clinics miss it entirely.
+              Based on published adherence research and industry data across longevity, HRT, and functional medicine practices, we&apos;ve identified five predictable stages that nearly every disengaging patient moves through. The window to intervene is narrow — and most clinics miss it entirely.
             </p>
 
             {/* Five Stages infographic */}
@@ -349,7 +349,7 @@ export default function ProtocolAdherenceBlogPost() {
               <strong>Manual check-ins can&apos;t scale.</strong> Even the most dedicated front-desk team can realistically follow up with 20 to 30 patients per week. A clinic with 200 active patients on complex protocols would need to make hundreds of personalized touches per month. No human team can do this consistently.
             </p>
             <p>
-              <strong>Generic CRMs don&apos;t understand protocols.</strong> Salesforce can tell you a patient hasn&apos;t responded to an email. It can&apos;t tell you that a patient on week 6 of a rapamycin cycling protocol is at the exact point where adherence historically drops 40%.
+              <strong>Generic CRMs don&apos;t understand protocols.</strong> Salesforce can tell you a patient hasn&apos;t responded to an email. It can&apos;t tell you that a patient on week 6 of a rapamycin cycling protocol is at the exact point where adherence can drop by up to 40%.
             </p>
             <p>
               The result is a massive blind spot. Between the day a patient leaves your office and the day they&apos;re scheduled to return, you have almost zero insight into whether they&apos;re following the protocol you designed.
@@ -360,19 +360,19 @@ export default function ProtocolAdherenceBlogPost() {
               The solution isn&apos;t more staff. It isn&apos;t a better CRM. It&apos;s AI that actually understands longevity medicine protocols.
             </p>
             <p>
-              A2V2.ai was built specifically for this problem. The platform monitors patient behavior across every touchpoint — supplement compliance, lab completion, appointment attendance, wearable device data from Oura Ring, Whoop, Apple Health, Fitbit, Garmin, and CGM devices — and maps it against the specific protocol each patient is following.
+              A2V2.ai was built specifically for this problem. The platform is designed to monitor patient behavior across every touchpoint — supplement compliance, lab completion, appointment attendance, wearable device data with planned integrations for Oura Ring, Whoop, Apple Health, Fitbit, Garmin, and CGM devices — and map it against the specific protocol each patient is following.
             </p>
             <p>
-              <strong>Automated check-ins at critical windows</strong> reach patients at day 7, 14, 30, 60, 90, and 180. These aren&apos;t generic messages. A patient on a peptide therapy cycle gets communication specific to their protocol.
+              <strong>Automated check-ins at critical windows</strong> are designed to reach patients at day 7, 14, 30, 60, 90, and 180. These aren&apos;t generic messages. A patient on a peptide therapy cycle gets communication specific to their protocol.
             </p>
             <p>
-              <strong>Real-time adherence dashboards</strong> give your clinical team a single view of every patient&apos;s compliance status. At-risk patients are surfaced automatically so your team can intervene during Stage 2 or Stage 3.
+              <strong>Real-time adherence dashboards</strong> are designed to give your clinical team a single view of every patient&apos;s compliance status. At-risk patients are designed to be surfaced automatically so your team can intervene during Stage 2 or Stage 3.
             </p>
             <p>
-              <strong>Biomarker trend analysis</strong> turns invisible progress into visible motivation. A2V2.ai pulls lab data from Quest, LabCorp, and specialized longevity labs and shows patients how their biomarkers are trending over time.
+              <strong>Biomarker trend analysis</strong> turns invisible progress into visible motivation. A2V2.ai is designed to pull lab data from Quest, LabCorp, and specialized longevity labs and show patients how their biomarkers are trending over time.
             </p>
             <p>
-              <strong>Predictive re-engagement</strong> catches patients before they ghost — identifying early disengagement signals and triggering personalized win-back sequences.
+              <strong>Predictive re-engagement</strong> is designed to catch patients before they ghost — identifying early disengagement signals and triggering personalized win-back sequences.
             </p>
 
             <p>
@@ -458,10 +458,10 @@ export default function ProtocolAdherenceBlogPost() {
                   Before
                 </h3>
                 <ul className="flex flex-col gap-3 text-sm text-text-secondary leading-relaxed">
-                  <li>73% protocol drop-off rate within 6 months</li>
+                  <li>Estimated 73% protocol drop-off rate within 6 months</li>
                   <li>No visibility into patient behavior between visits</li>
                   <li>Staff spending 15+ hours/week on manual follow-ups</li>
-                  <li>$2.19M revenue loss annually (200-patient clinic)</li>
+                  <li>An estimated $2M+ in potential revenue loss annually (200-patient clinic)</li>
                   <li>At-risk patients discovered weeks after they&apos;ve left</li>
                 </ul>
               </div>
@@ -470,22 +470,23 @@ export default function ProtocolAdherenceBlogPost() {
               <div className="rounded-2xl border border-gray-200 p-6">
                 <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-green-500" />
-                  After
+                  Projected Impact
                 </h3>
+                <p className="text-xs text-text-secondary mb-3 leading-relaxed">Based on our adherence modeling and industry benchmarks, clinics implementing A2V2.ai can expect:</p>
                 <ul className="flex flex-col gap-3 text-sm text-text-secondary leading-relaxed">
-                  <li>35% drop-off rate — cut in half</li>
+                  <li>Projected 35% drop-off rate — cut in half</li>
                   <li>Real-time compliance monitoring across all protocols</li>
-                  <li>90% reduction in manual follow-up time</li>
-                  <li>$850K+ recovered revenue within 12 months</li>
-                  <li>67% reduction in appointment no-shows</li>
-                  <li>40% increase in protocol completion rates</li>
+                  <li>Up to 90% reduction in manual follow-up time</li>
+                  <li>An estimated $850K+ in recoverable revenue within 12 months</li>
+                  <li>Projected 67% reduction in appointment no-shows</li>
+                  <li>Projected 40% increase in protocol completion rates</li>
                   <li>Zero additional staff required</li>
                 </ul>
               </div>
             </div>
 
             <p>
-              One HRT practice that implemented A2V2.ai doubled their patient retention rate within six months and generated $420K in additional revenue from patients who would have otherwise disappeared after their initial protocol.
+              Based on our retention modeling, an HRT practice implementing A2V2.ai could expect a projected 2x improvement in patient retention and an estimated $420,000 in additional annual revenue from patients who would have otherwise disappeared after their initial protocol.
             </p>
 
             <p>

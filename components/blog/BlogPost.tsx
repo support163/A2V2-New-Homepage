@@ -179,10 +179,10 @@ export default function BlogPost() {
               If this sounds familiar, you&apos;re not alone. It&apos;s the most expensive problem in longevity medicine—and almost nobody is talking about it.
             </p>
             <p>
-              That number should stop every clinic owner in their tracks. Nearly three out of four patients who trust you with their health, who invest thousands in protocols like BPC-157, TB-500, rapamycin, and testosterone replacement, will quietly walk away before they reach the outcomes they came for.
+              This pattern should stop every clinic owner in their tracks. Based on published adherence research, a significant portion of patients who trust you with their health, who invest thousands in protocols like BPC-157, TB-500, rapamycin, and testosterone replacement, will quietly walk away before they reach the outcomes they came for.
             </p>
             <p>
-              The financial impact is staggering. With the average longevity patient worth $8,000 to $24,000 per year, a 200-patient clinic losing 73% retention can be leaving over $2 million in annual revenue on the table. Not because the treatments don&apos;t work—but because the follow-through breaks down.
+              The financial impact is staggering. Based on average protocol values, a longevity patient can be worth an estimated $8,000 to $24,000 per year. For a 200-patient clinic with industry-typical retention gaps, that could mean over $2 million in potential annual revenue left on the table. Not because the treatments don&apos;t work—but because the follow-through breaks down.
             </p>
 
             <h2>Why Patients Disappear</h2>
@@ -208,7 +208,7 @@ export default function BlogPost() {
               Some clinics have tried to solve this with off-the-shelf AI tools—using ChatGPT or similar platforms to draft patient communications or analyze engagement patterns. The problem? These tools are <strong>not HIPAA-compliant</strong> for patient data management.
             </p>
             <p>
-              Every time a staff member pastes patient information into a general-purpose AI tool, they&apos;re creating legal exposure. HIPAA violations can carry fines up to $1.5 million per incident, not to mention the risk to your medical license, your reputation, and the trust your patients placed in you.
+              Every time a staff member pastes patient information into a general-purpose AI tool, they&apos;re creating legal exposure. Under federal guidelines, HIPAA violations can carry fines of up to $1.5 million per incident category, not to mention the risk to your medical license, your reputation, and the trust your patients placed in you.
             </p>
             <p>
               Longevity medicine sits at a unique intersection: the protocols are complex, the data is sensitive, and the patient relationship is long-term. Solving the retention problem requires a tool that understands all three.
@@ -219,12 +219,12 @@ export default function BlogPost() {
               At A2V2.ai, we built something different. Not a repurposed CRM. Not a general-purpose chatbot. A patient engagement platform designed from the ground up for the exact way longevity clinics operate.
             </p>
             <p>
-              That philosophy is built into everything we do. Our platform monitors patient behavior in real-time—supplement adherence, lab appointment completion, communication responsiveness, wearable device data—and detects the early signals of disengagement before a patient goes quiet.
+              That philosophy is built into everything we do. Our platform is designed to monitor patient behavior in real-time—supplement adherence, lab appointment completion, communication responsiveness, wearable device data—and detect the early signals of disengagement before a patient goes quiet.
             </p>
 
             <h2>Engagement That Understands Your Protocols</h2>
             <p>
-              A2V2.ai doesn&apos;t send generic &ldquo;time for your checkup!&rdquo; reminders. It sends protocol-specific communications tailored to where each patient is in their treatment journey. A patient on week 3 of a peptide therapy cycle gets a different message than someone due for their 90-day NAD+ booster. The tone, timing, and content all adapt automatically.
+              A2V2.ai doesn&apos;t send generic &ldquo;time for your checkup!&rdquo; reminders. It is designed to send protocol-specific communications tailored to where each patient is in their treatment journey. A patient on week 3 of a peptide therapy cycle gets a different message than someone due for their 90-day NAD+ booster. The tone, timing, and content all adapt automatically.
             </p>
 
             <h2>Compliance Built In, Not Bolted On</h2>
@@ -234,7 +234,7 @@ export default function BlogPost() {
 
             <h2>Integration Without Disruption</h2>
             <p>
-              One of the biggest barriers to adopting new technology in a clinical setting is the fear of ripping out existing systems. A2V2.ai sits on top of what you already have. It connects to your EHR/EMR, your lab partners like Quest and LabCorp, your wearable device ecosystem, and your payment processors. No data migration. No system overhaul. Most clinics go live in under two weeks.
+              One of the biggest barriers to adopting new technology in a clinical setting is the fear of ripping out existing systems. A2V2.ai is designed to sit on top of what you already have. It is designed to connect to your EHR/EMR, your lab partners like Quest and LabCorp, your wearable device ecosystem, and your payment processors. No data migration. No system overhaul. Most clinics can expect to go live in under two weeks.
             </p>
 
             <h2>The Bottom Line</h2>
@@ -245,7 +245,7 @@ export default function BlogPost() {
               The clinics that will thrive in the next decade aren&apos;t necessarily the ones with the most advanced protocols. They&apos;re the ones that solve the engagement problem. The ones that keep patients connected, informed, and on track between appointments. The ones that detect disengagement before it becomes disappearance.
             </p>
             <p>
-              That&apos;s the problem A2V2.ai was built to solve. And for the clinics already using it, the results speak for themselves.
+              That&apos;s the problem A2V2.ai was built to solve. And based on our retention modeling and industry benchmarks, the projected impact is significant.
             </p>
           </article>
 

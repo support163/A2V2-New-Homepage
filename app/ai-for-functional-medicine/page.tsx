@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const trustBarItems = [
   '100% HIPAA Compliant',
   'Integrates with your EHR',
-  'Live in under 2 weeks',
+  'Estimated go-live in under 2 weeks',
   'Trusted by leading functional medicine practices',
 ]
 
@@ -79,11 +79,11 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view \u2014 labs, biomarkers, communications, adherence. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables (Oura, Whoop, Apple Health, CGM devices). AI surfaces at-risk patients before they churn.',
+    body: 'All patient data in one view \u2014 labs, biomarkers, communications, adherence. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables (Oura, Whoop, Apple Health, CGM devices). AI is designed to surface at-risk patients before they churn.',
   },
   {
     title: 'Smart Re-Engagement Engine',
-    body: 'Detects quiet patients after 30\u201345 days of inactivity. Personalized win-back sequences based on their protocol stage. 40% success rate re-engaging inactive patients. Recovers revenue from patients you already paid to acquire.',
+    body: 'Designed to detect quiet patients after 30\u201345 days of inactivity. Personalized win-back sequences based on their protocol stage. Projected 40% re-engagement rate for inactive patients. Designed to recover revenue from patients you already paid to acquire.',
   },
 ]
 
@@ -141,7 +141,7 @@ const comparisonRows = [
   },
   {
     feature: 'Deployment Time',
-    a2v2: '<2 weeks',
+    a2v2: 'Typical <2 weeks',
     crm: '2-6 months',
     generic: 'N/A',
   },
@@ -181,8 +181,8 @@ export default function FunctionalMedicinePage() {
               </h1>
 
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
-                A2V2.ai automates patient engagement, tracks complex supplement
-                protocols, and re-engages patients before they drop off &mdash;
+                A2V2.ai is designed to automate patient engagement, track complex supplement
+                protocols, and re-engage patients before they drop off &mdash;
                 100% HIPAA compliant, integrated with your existing EHR. No new
                 staff required.
               </p>
@@ -340,8 +340,8 @@ export default function FunctionalMedicinePage() {
             <p className="mt-4 text-btn md:text-body-lg text-text-secondary leading-relaxed">
               Whether you&apos;re managing complex supplement stacks, root-cause
               treatment plans, chronic disease reversal programs, or lifestyle
-              modification protocols, A2V2.ai tracks patient adherence in
-              real-time. Integrate data from labs, wearables, and continuous
+              modification protocols, A2V2.ai is designed to track patient adherence in
+              real-time. Designed to integrate data from labs, wearables, and continuous
               glucose monitors for a complete patient health picture.
             </p>
           </div>
@@ -376,7 +376,7 @@ export default function FunctionalMedicinePage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Live in Two Weeks. Results in 60 Days.
+              Estimated Go-Live in Two Weeks. Projected Results in 60 Days.
             </h2>
           </div>
 
@@ -474,6 +474,7 @@ export default function FunctionalMedicinePage() {
             <h2 className="text-[24px] md:text-h2 font-bold text-black">
               What One Retained Patient Is Worth to Your Practice
             </h2>
+            <p className="mt-4 text-sm md:text-btn text-gray-500">Based on industry averages and our retention model:</p>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -486,7 +487,7 @@ export default function FunctionalMedicinePage() {
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  5-15
+                  Est. 5-15
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Retained patients / month
@@ -497,15 +498,15 @@ export default function FunctionalMedicinePage() {
                   $480K-$1.2M
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Recovered annual revenue
+                  Estimated recoverable revenue
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  60 Days
+                  Est. 60 Days
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  To full ROI
+                  Estimated time to full ROI
                 </p>
               </div>
             </div>

@@ -12,7 +12,7 @@ const faqs = [
   {
     question: 'How is this different from my EHR\u2019s built-in messaging?',
     answer:
-      'EHR messaging is basic \u2014 appointment reminders and generic blasts. A2V2.ai uses AI to personalize every message based on each patient\u2019s treatment stage, adherence patterns, and engagement history. It predicts drop-offs and acts automatically.',
+      'EHR messaging is basic \u2014 appointment reminders and generic blasts. A2V2.ai uses AI to personalize every message based on each patient\u2019s treatment stage, adherence patterns, and engagement history. It is designed to predict drop-offs and act automatically.',
   },
   {
     question: 'Is A2V2.ai HIPAA compliant?',

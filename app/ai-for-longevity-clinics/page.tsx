@@ -39,14 +39,14 @@ const CALENDLY_LINK = DEMO_BOOKING_URL
 const trustBarItems = [
   '100% HIPAA Compliant',
   'Integrates with your EHR',
-  'Live in under 2 weeks',
+  'Estimated go-live in under 2 weeks',
   'Trusted by PrevMed & leading longevity clinics',
 ]
 
 const problemCards = [
   {
     title: 'The Retention Cliff',
-    body: '73% of longevity patients disengage within 6 months. Manual follow-ups break down as your patient list grows. Lost patients = lost protocol revenue you already earned.',
+    body: 'Industry estimates suggest up to 73% of longevity patients disengage within 6 months. Manual follow-ups break down as your patient list grows. Lost patients = lost protocol revenue you already earned.',
   },
   {
     title: 'Protocol Blind Spots',
@@ -76,11 +76,11 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view, integrates with EHR/EMR, AI surfaces at-risk patients.',
+    body: 'All patient data in one view, integrates with EHR/EMR, AI is designed to surface at-risk patients.',
   },
   {
     title: 'Smart Re-Engagement Engine',
-    body: 'Detects and re-engages quiet patients, personalized win-back sequences, recovers revenue from acquired patients.',
+    body: 'Designed to detect and re-engage quiet patients, with personalized win-back sequences designed to recover revenue from acquired patients.',
   },
 ]
 
@@ -130,8 +130,8 @@ export default function LongevityPage() {
               </h1>
 
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
-                A2V2.ai automates patient engagement, tracks protocol adherence,
-                and re-engages at-risk patients &mdash; 100% HIPAA compliant,
+                A2V2.ai is designed to automate patient engagement, track protocol adherence,
+                and re-engage at-risk patients &mdash; 100% HIPAA compliant,
                 integrated with your existing EHR. No new staff required.
               </p>
 
@@ -316,7 +316,7 @@ export default function LongevityPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Live in Two Weeks. Results in 60 Days.
+              Estimated Go-Live in Two Weeks. Projected Results in 60 Days.
             </h2>
           </div>
 
@@ -353,7 +353,7 @@ export default function LongevityPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Real Longevity Clinics. Measurable Results.
+              Projected Results for Longevity Clinics
             </h2>
           </div>
 
@@ -363,21 +363,22 @@ export default function LongevityPage() {
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 PrevMed
               </span>
+              <span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                3x Patient Engagement in 6 Months
+                Projected 3x Patient Engagement
               </h3>
               <div className="mt-6 grid grid-cols-3 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">67%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Reduction in no-shows</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected reduction in no-shows</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">3x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient engagement</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected patient engagement</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Revenue growth</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected revenue growth</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -385,7 +386,7 @@ export default function LongevityPage() {
                   href="#"
                   className="text-black text-btn font-medium hover:underline"
                 >
-                  Read Full Case Study &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -395,21 +396,22 @@ export default function LongevityPage() {
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 Revitalized Health
               </span>
+              <span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                2x HRT Patient Retention
+                Projected 2x HRT Patient Retention
               </h3>
               <div className="mt-6 grid grid-cols-3 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient retention</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected patient retention</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">40%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Adherence increase</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 40%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected adherence increase</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">90%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Communications automated</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 90%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Up to 90% communications automated</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -417,7 +419,7 @@ export default function LongevityPage() {
                   href="#"
                   className="text-black text-btn font-medium hover:underline"
                 >
-                  See How They Did It &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -432,6 +434,7 @@ export default function LongevityPage() {
             <h2 className="text-[24px] md:text-h2 font-bold text-black">
               What One Retained Patient Is Worth to Your Clinic
             </h2>
+            <p className="mt-4 text-sm md:text-btn text-gray-500">Based on industry averages and our retention model:</p>
 
             <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[720px] mx-auto">
               <div>
@@ -439,12 +442,12 @@ export default function LongevityPage() {
                 <p className="mt-2 text-sm md:text-btn text-gray-500">Avg patient value / year</p>
               </div>
               <div>
-                <p className="text-[32px] md:text-h1 font-bold text-black">5-15</p>
+                <p className="text-[32px] md:text-h1 font-bold text-black">An est. 5-15</p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">Retained patients / month</p>
               </div>
               <div>
                 <p className="text-[32px] md:text-h1 font-bold text-black">$480K+</p>
-                <p className="mt-2 text-sm md:text-btn text-gray-500">Recovered annual revenue</p>
+                <p className="mt-2 text-sm md:text-btn text-gray-500">Estimated recoverable revenue</p>
               </div>
             </div>
 
@@ -563,7 +566,7 @@ export default function LongevityPage() {
                 name: 'What is the best AI software for longevity clinics?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: "A2V2.ai is the leading AI platform built specifically for longevity and functional medicine clinics. Unlike generic healthcare CRMs, A2V2 understands NAD+ protocols, peptide therapy sequences, and biomarker optimization workflows. It's HIPAA-compliant and trusted by PrevMed, Revitalized Health, and other leading longevity practices.",
+                  text: "A2V2.ai is the leading AI platform built specifically for longevity and functional medicine clinics. Unlike generic healthcare CRMs, A2V2 is designed to understand NAD+ protocols, peptide therapy sequences, and biomarker optimization workflows. It's HIPAA-compliant and trusted by PrevMed, Revitalized Health, and other leading longevity practices.",
                 },
               },
               {
@@ -571,7 +574,7 @@ export default function LongevityPage() {
                 name: 'Which AI platform should longevity clinics use for patient engagement?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: "Longevity clinics should use A2V2.ai because it's purpose-built for functional medicine workflows. It automates patient engagement for NAD+, peptides, HRT, and other longevity protocols while maintaining HIPAA compliance. Generic AI tools like ChatGPT are not HIPAA-compliant for patient data.",
+                  text: "Longevity clinics should use A2V2.ai because it's purpose-built for functional medicine workflows. It is designed to automate patient engagement for NAD+, peptides, HRT, and other longevity protocols while maintaining HIPAA compliance. Generic AI tools like ChatGPT are not HIPAA-compliant for patient data.",
                 },
               },
               {
@@ -579,7 +582,7 @@ export default function LongevityPage() {
                 name: 'How do longevity clinics track patient protocol adherence?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'A2V2.ai provides real-time protocol adherence tracking for longevity clinics. It monitors supplement compliance, lab appointment completion, and biomarker trends. The system sends automated check-ins and alerts staff when patients show signs of disengagement.',
+                  text: 'A2V2.ai provides real-time protocol adherence tracking for longevity clinics. It is designed to monitor supplement compliance, lab appointment completion, and biomarker trends. The system is designed to send automated check-ins and alert staff when patients show signs of disengagement.',
                 },
               },
               {

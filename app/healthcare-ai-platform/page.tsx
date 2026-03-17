@@ -103,7 +103,7 @@ const solutionCards = [
   },
   {
     title: 'Predictive Patient Analytics',
-    body: 'AI analyzes engagement patterns across your entire patient base and flags at-risk patients 30\u201345 days before they drop off. Your team gets actionable alerts, not data dumps. Prevent churn instead of reacting to it.',
+    body: 'AI is designed to analyze engagement patterns across your entire patient base and flag at-risk patients 30\u201345 days before they drop off. Your team gets actionable alerts, not data dumps. Prevent churn instead of reacting to it.',
     icon: BarChart3,
   },
   {
@@ -168,7 +168,7 @@ const comparisonRows = [
   },
   {
     feature: 'Deployment Time',
-    a2v2: '<2 weeks',
+    a2v2: 'Typical <2 weeks',
     crm: '2-6 months',
     generic: 'N/A',
     diy: 'Months of DIY',
@@ -437,7 +437,7 @@ export default function HealthcareAiPlatformPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Trusted by Leading Healthcare Practices
+              Projected Results for Healthcare Practices
             </h2>
           </div>
 
@@ -446,31 +446,31 @@ export default function HealthcareAiPlatformPage() {
             <div data-animate="" style={{ transitionDelay: '100ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 PrevMed
-              </span>
+              </span><span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                3x Patient Engagement in 6 Months
+                Projected 3x Patient Engagement
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">67%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Reduction in no-shows</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected reduction in no-shows</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">3x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient engagement</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected patient engagement</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Revenue growth</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected revenue growth</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">$850K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Recovered in year one</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Estimated recoverable revenue</p>
                 </div>
               </div>
               <div className="mt-6">
                 <a href="#" className="text-black text-btn font-medium hover:underline">
-                  Read Full Case Study &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -479,31 +479,31 @@ export default function HealthcareAiPlatformPage() {
             <div data-animate="" style={{ transitionDelay: '200ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 Revitalized Health
-              </span>
+              </span><span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                2x HRT Patient Retention
+                Projected 2x HRT Patient Retention
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Retention rate</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected retention rate</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">40%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Adherence increase</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 40%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected adherence increase</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">90%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms automated</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 90%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms can be automated</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">$420K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Added annual revenue</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Estimated additional revenue</p>
                 </div>
               </div>
               <div className="mt-6">
                 <a href="#" className="text-black text-btn font-medium hover:underline">
-                  See How They Did It &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -583,22 +583,23 @@ export default function HealthcareAiPlatformPage() {
             <h2 className="text-[24px] md:text-h2 font-bold text-black">
               The ROI of a Real Healthcare AI Platform
             </h2>
+            <p className="mt-4 text-sm md:text-btn text-gray-500">Based on industry averages and our retention model:</p>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  73%
+                  Est. 73%
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Patient drop-off rate without AI
+                  Estimated drop-off rate without AI
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  35%
+                  Est. 35%
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Drop-off rate with A2V2.ai
+                  Projected drop-off rate with A2V2.ai
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -606,7 +607,7 @@ export default function HealthcareAiPlatformPage() {
                   $1.14M
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Avg revenue saved annually
+                  Estimated revenue recoverable annually
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -614,13 +615,13 @@ export default function HealthcareAiPlatformPage() {
                   &lt;60 Days
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Time to full ROI
+                  Estimated time to full ROI
                 </p>
               </div>
             </div>
 
             <p className="mt-6 text-sm md:text-btn text-gray-500 max-w-[560px] mx-auto">
-              Every month without automated patient engagement is revenue
+              Based on our retention model, every month without automated patient engagement is potential revenue
               walking out the door. We&apos;ll show you exactly how much in a
               free 30-minute audit.
             </p>

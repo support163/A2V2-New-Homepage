@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const trustBarItems = [
   '100% HIPAA Compliant',
   'Integrates with your EHR',
-  'Live in under 2 weeks',
+  'Estimated go-live in under 2 weeks',
   'Trusted by Revitalized Health & leading HRT clinics',
 ]
 
@@ -76,11 +76,11 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view \u2014 labs, hormone levels, communications, adherence history. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables. AI surfaces at-risk patients before they churn.',
+    body: 'All patient data in one view \u2014 labs, hormone levels, communications, adherence history. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables. AI is designed to surface at-risk patients before they churn.',
   },
   {
     title: 'Smart Re-Engagement Engine',
-    body: 'Detects patients who\u2019ve gone quiet after 30\u201345 days. Personalized win-back sequences based on their therapy stage. 40% success rate re-engaging inactive HRT patients. Recovers revenue from patients you already paid to acquire.',
+    body: 'Designed to detect patients who\u2019ve gone quiet after 30\u201345 days. Personalized win-back sequences based on their therapy stage. Projected 40% re-engagement rate for inactive HRT patients. Designed to recover revenue from patients you already paid to acquire.',
   },
 ]
 
@@ -138,7 +138,7 @@ const comparisonRows = [
   },
   {
     feature: 'Deployment Time',
-    a2v2: '<2 weeks',
+    a2v2: 'Typical <2 weeks',
     crm: '2-6 months',
     generic: 'N/A',
   },
@@ -178,8 +178,8 @@ export default function HrtClinicsPage() {
               </h1>
 
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
-                A2V2.ai automates patient engagement, tracks hormone therapy
-                adherence, and re-engages patients before they discontinue &mdash;
+                A2V2.ai is designed to automate patient engagement, track hormone therapy
+                adherence, and re-engage patients before they discontinue &mdash;
                 100% HIPAA compliant, integrated with your existing EHR. No new
                 staff required.
               </p>
@@ -337,8 +337,8 @@ export default function HrtClinicsPage() {
             <p className="mt-4 text-btn md:text-body-lg text-text-secondary leading-relaxed">
               Whether you&apos;re managing testosterone replacement therapy
               (TRT), estrogen and progesterone programs, DHEA and thyroid
-              optimization, or pellet therapy tracking, A2V2.ai monitors patient
-              adherence to hormone protocols in real-time. Integrate lab data,
+              optimization, or pellet therapy tracking, A2V2.ai is designed to monitor patient
+              adherence to hormone protocols in real-time. Designed to integrate lab data,
               wearable metrics, and patient-reported symptoms for a complete
               picture.
             </p>
@@ -374,7 +374,7 @@ export default function HrtClinicsPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Live in Two Weeks. Results in 60 Days.
+              Estimated Go-Live in Two Weeks. Projected Results in 60 Days.
             </h2>
           </div>
 
@@ -472,6 +472,7 @@ export default function HrtClinicsPage() {
             <h2 className="text-[24px] md:text-h2 font-bold text-black">
               What One Retained HRT Patient Is Worth to Your Clinic
             </h2>
+            <p className="mt-4 text-sm md:text-btn text-gray-500">Based on industry averages and our retention model:</p>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -484,7 +485,7 @@ export default function HrtClinicsPage() {
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  5-15
+                  Est. 5-15
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
                   Retained patients / month
@@ -495,15 +496,15 @@ export default function HrtClinicsPage() {
                   $480K-$1.2M
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Recovered annual revenue
+                  Estimated recoverable revenue
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  60 Days
+                  Est. 60 Days
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  To full ROI
+                  Estimated time to full ROI
                 </p>
               </div>
             </div>

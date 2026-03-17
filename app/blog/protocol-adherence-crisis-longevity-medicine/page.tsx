@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis No One Is Tracking | A2V2.ai Blog',
   description:
-    'Only 27% of longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching. Here\'s how to fix it.',
+    'Industry estimates suggest as few as 1 in 4 longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching. Here\'s how to fix it.',
   alternates: {
     canonical:
       'https://www.a2v2.ai/blog/protocol-adherence-crisis-longevity-medicine',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title:
       'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis No One Is Tracking',
     description:
-      'Only 27% of longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching.',
+      'Industry estimates suggest as few as 1 in 4 longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching.',
     url: 'https://www.a2v2.ai/blog/protocol-adherence-crisis-longevity-medicine',
     type: 'article',
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title:
       'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis | A2V2.ai Blog',
     description:
-      'Only 27% of longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching.',
+      'Industry estimates suggest as few as 1 in 4 longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching.',
   },
 }
 
@@ -42,7 +42,7 @@ export default function ProtocolAdherenceBlogPostPage() {
             headline:
               'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis No One Is Tracking',
             description:
-              'Only 27% of longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching. Here\'s how to fix it.',
+              'Industry estimates suggest as few as 1 in 4 longevity patients complete their full protocol. The problem isn\'t your treatment — it\'s the 89 days between appointments when no one is watching. Here\'s how to fix it.',
             author: {
               '@type': 'Organization',
               name: 'The A2V2.ai Team',
@@ -73,7 +73,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'What is the average protocol adherence rate in longevity medicine?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Only about 27% of longevity patients complete their full treatment protocols. The majority disengage within 90 days, with the steepest drop-off between days 30 and 60.',
+                  text: 'Industry estimates suggest as few as 1 in 4 longevity patients complete their full treatment protocols. The majority disengage within 90 days, with the steepest drop-off between days 30 and 60.',
                 },
               },
               {
@@ -89,7 +89,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'How can clinics improve protocol adherence?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai automate all of these while maintaining HIPAA compliance.',
+                  text: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance.',
                 },
               },
               {
@@ -97,7 +97,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'What does protocol adherence tracking software do?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'It monitors patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It detects early warning signs and triggers personalized re-engagement sequences.',
+                  text: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
                 },
               },
               {
@@ -105,7 +105,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'How much revenue do clinics lose from poor adherence?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'A 200-patient clinic with 73% drop-off loses approximately $2.19M annually. Improving adherence by 20 percentage points can recover over $1M. Clinics using A2V2.ai report $420K-$850K recovered in year one.',
+                  text: 'Based on average protocol values, a 200-patient clinic with an estimated 73% drop-off could be losing over $2M annually. Improving adherence by 20 percentage points could recover over $1M. Based on our retention modeling, clinics implementing A2V2.ai could expect an estimated $420K–$850K in recoverable revenue in year one.',
                 },
               },
             ],

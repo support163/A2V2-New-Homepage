@@ -62,7 +62,7 @@ const faqSchema = {
       name: 'Is ChatGPT HIPAA-compliant for patient communication?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines up to $1.5 million per violation. Healthcare providers need purpose-built platforms like A2V2.ai that include BAA agreements, end-to-end encryption, and private model deployment.',
+        text: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines of up to $1.5 million per violation category. Healthcare providers need purpose-built platforms like A2V2.ai that are designed to include BAA agreements, end-to-end encryption, and private model deployment.',
       },
     },
     {
@@ -94,7 +94,7 @@ const faqSchema = {
       name: 'How does A2V2.ai handle patient data differently than ChatGPT?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A2V2.ai was built from the ground up for healthcare. Patient data never leaves your secure environment, is never used to train external models, and is protected by 256-bit AES encryption. Every client receives a signed BAA.',
+        text: 'A2V2.ai is designed from the ground up for healthcare. The platform is designed so that patient data never leaves your secure environment, is never used to train external models, and is protected by 256-bit AES encryption. Every client receives a signed BAA.',
       },
     },
   ],

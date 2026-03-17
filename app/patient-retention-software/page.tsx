@@ -57,14 +57,14 @@ export const metadata: Metadata = {
 const trustBarItems = [
   '100% HIPAA Compliant',
   'Integrates with your EHR',
-  'Live in under 2 weeks',
+  'Estimated go-live in under 2 weeks',
   'Trusted by PrevMed, Revitalized Health & leading clinics',
 ]
 
 const problemCards = [
   {
     title: 'The Silent Drop-Off',
-    body: '73% of patients disengage from treatment protocols within 6 months. They don\u2019t complain or cancel \u2014 they just stop showing up. By the time you notice, they\u2019ve already found another provider or given up entirely.',
+    body: 'Industry estimates suggest up to 73% of patients disengage from treatment protocols within 6 months. They don\u2019t complain or cancel \u2014 they just stop showing up. By the time you notice, they\u2019ve already found another provider or given up entirely.',
     icon: TrendingDown,
   },
   {
@@ -89,7 +89,7 @@ const credibilityBadges = [
 const solutionCards = [
   {
     title: 'Predictive Drop-Off Alerts',
-    body: 'AI analyzes patient behavior patterns and flags at-risk patients 30\u201345 days before they churn. Your team gets alerts with recommended actions. Stop reacting to lost patients and start preventing it.',
+    body: 'AI is designed to analyze patient behavior patterns and flag at-risk patients 30\u201345 days before they churn. Your team gets alerts with recommended actions. Stop reacting to lost patients and start preventing it.',
     icon: Brain,
   },
   {
@@ -104,7 +104,7 @@ const solutionCards = [
   },
   {
     title: 'Smart Re-Engagement Engine',
-    body: 'Automatically detects and re-engages patients who\u2019ve gone quiet. Personalized win-back campaigns based on their treatment history. 40% success rate bringing inactive patients back. Recover revenue you already spent to earn.',
+    body: 'Designed to automatically detect and re-engage patients who\u2019ve gone quiet. Personalized win-back campaigns based on their treatment history. Projected 40% re-engagement rate for inactive patients. Designed to recover revenue you already spent to earn.',
     icon: RefreshCw,
   },
 ]
@@ -178,7 +178,7 @@ const comparisonRows = [
   },
   {
     feature: 'Deployment Time',
-    a2v2: '<2 weeks',
+    a2v2: 'Typical <2 weeks',
     crm: '2-6 months',
     generic: 'N/A',
     basic: '1-4 weeks',
@@ -216,8 +216,8 @@ export default function PatientRetentionPage() {
                 Stop Losing Patients You Already Paid to Acquire
               </h1>
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
-                A2V2.ai is AI-powered patient retention software that automates
-                follow-ups, predicts drop-offs before they happen, and re-engages
+                A2V2.ai is AI-powered patient retention software designed to automate
+                follow-ups, predict drop-offs before they happen, and re-engage
                 inactive patients &mdash; recovering hundreds of thousands in lost
                 revenue. 100% HIPAA compliant.
               </p>
@@ -402,7 +402,7 @@ export default function PatientRetentionPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Live in Two Weeks. Retained Patients in 60 Days.
+              Estimated Go-Live in Two Weeks. Projected Retained Patients in 60 Days.
             </h2>
           </div>
 
@@ -438,7 +438,7 @@ export default function PatientRetentionPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
           <div data-animate="">
             <h2 className="text-[24px] md:text-h2 font-bold text-text-primary">
-              Real Clinics. Measurable Retention.
+              Projected Results for Healthcare Clinics
             </h2>
           </div>
 
@@ -447,26 +447,26 @@ export default function PatientRetentionPage() {
             <div data-animate="" style={{ transitionDelay: '100ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 PrevMed
-              </span>
+              </span><span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                3x Patient Engagement in 6 Months
+                Projected 3x Patient Engagement
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">67%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Reduction in no-shows</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected reduction in no-shows</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">3x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Patient engagement</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected patient engagement</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Revenue growth</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected revenue growth</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">$850K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Recovered in year one</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Estimated recoverable revenue</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -474,7 +474,7 @@ export default function PatientRetentionPage() {
                   href="#"
                   className="text-black text-btn font-medium hover:underline"
                 >
-                  Read Full Case Study &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -483,26 +483,26 @@ export default function PatientRetentionPage() {
             <div data-animate="" style={{ transitionDelay: '200ms' }} className="rounded-2xl bg-[#F5F5F5] border border-gray-200 p-card-p flex flex-col">
               <span className="text-gray-500 text-sm font-bold uppercase tracking-wide">
                 Revitalized Health
-              </span>
+              </span><span className="ml-2 text-xs font-medium text-gray-400 uppercase">Modeled Scenario</span>
               <h3 className="mt-3 text-btn md:text-body-lg font-bold text-black">
-                2x Patient Retention
+                Projected 2x Patient Retention
               </h3>
               <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">2x</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Retention rate</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected retention rate</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">40%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Adherence increase</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 40%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Projected adherence increase</p>
                 </div>
                 <div>
-                  <p className="text-[24px] md:text-h3 font-bold text-black">90%</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms automated</p>
+                  <p className="text-[24px] md:text-h3 font-bold text-black">Up to 90%</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Comms can be automated</p>
                 </div>
                 <div>
                   <p className="text-[24px] md:text-h3 font-bold text-black">$420K</p>
-                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Added annual revenue</p>
+                  <p className="mt-1 text-[12px] md:text-sm text-gray-500">Estimated additional revenue</p>
                 </div>
               </div>
               <div className="mt-6">
@@ -510,7 +510,7 @@ export default function PatientRetentionPage() {
                   href="#"
                   className="text-black text-btn font-medium hover:underline"
                 >
-                  See How They Did It &rarr;
+                  See Projected Results &rarr;
                 </a>
               </div>
             </div>
@@ -590,6 +590,7 @@ export default function PatientRetentionPage() {
             <h2 className="text-[24px] md:text-h2 font-bold text-black">
               The Math on Patient Retention
             </h2>
+            <p className="mt-4 text-sm md:text-btn text-gray-500">Based on industry averages and our retention model:</p>
 
             <div className="mt-10 flex flex-wrap justify-center">
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -602,18 +603,18 @@ export default function PatientRetentionPage() {
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  73%
+                  Est. 73%
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Drop-off rate without automation
+                  Estimated drop-off rate without automation
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
                 <p className="text-[20px] md:text-[36px] font-bold text-black">
-                  35%
+                  Est. 35%
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Drop-off rate with A2V2.ai
+                  Projected drop-off rate with A2V2.ai
                 </p>
               </div>
               <div className="w-1/2 md:w-1/4 overflow-hidden px-3 py-4 text-center">
@@ -621,13 +622,13 @@ export default function PatientRetentionPage() {
                   $1.14M
                 </p>
                 <p className="mt-2 text-sm md:text-btn text-gray-500">
-                  Revenue saved annually (200 patients)
+                  Estimated revenue recoverable annually (200 patients)
                 </p>
               </div>
             </div>
 
             <p className="mt-6 text-sm md:text-btn text-gray-500 max-w-[560px] mx-auto">
-              Most clinics see full ROI within 60 days. We&apos;ll show you the
+              Based on our retention model, most clinics can expect full ROI within an estimated 60 days. We&apos;ll show you the
               exact math for your practice in the free audit.
             </p>
 
@@ -757,7 +758,7 @@ export default function PatientRetentionPage() {
                 name: "How is this different from my EHR's built-in messaging?",
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: "EHR messaging is basic \u2014 appointment reminders and generic blasts. A2V2.ai uses AI to personalize every message based on each patient's treatment stage, adherence patterns, and engagement history. It predicts drop-offs and acts automatically.",
+                  text: "EHR messaging is basic \u2014 appointment reminders and generic blasts. A2V2.ai uses AI to personalize every message based on each patient's treatment stage, adherence patterns, and engagement history. It is designed to predict drop-offs and act automatically.",
                 },
               },
               {

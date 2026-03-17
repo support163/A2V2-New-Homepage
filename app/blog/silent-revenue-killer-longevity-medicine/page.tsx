@@ -7,7 +7,7 @@ import BlogPost from '@/components/blog/BlogPost'
 export const metadata: Metadata = {
   title: 'The Silent Revenue Killer in Longevity Medicine | A2V2.ai Blog',
   description:
-    '73% of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is solving the retention crisis in longevity medicine.',
+    'The majority of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is designed to solve the retention crisis in longevity medicine.',
   alternates: {
     canonical:
       'https://www.a2v2.ai/blog/silent-revenue-killer-longevity-medicine',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title:
       'The Silent Revenue Killer in Longevity Medicine—and What\'s Finally Fixing It',
     description:
-      '73% of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is solving the retention crisis in longevity medicine.',
+      'The majority of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is designed to solve the retention crisis in longevity medicine.',
     url: 'https://www.a2v2.ai/blog/silent-revenue-killer-longevity-medicine',
     type: 'article',
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title:
       'The Silent Revenue Killer in Longevity Medicine | A2V2.ai Blog',
     description:
-      '73% of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is solving the retention crisis in longevity medicine.',
+      'The majority of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is designed to solve the retention crisis in longevity medicine.',
   },
 }
 
@@ -41,7 +41,7 @@ export default function BlogPostPage() {
             headline:
               'The Silent Revenue Killer in Longevity Medicine—and What\'s Finally Fixing It',
             description:
-              '73% of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is solving the retention crisis in longevity medicine.',
+              'The majority of longevity patients disengage within 6 months. Learn why patients disappear and how AI-powered engagement is designed to solve the retention crisis in longevity medicine.',
             author: {
               '@type': 'Organization',
               name: 'The A2V2 Team',

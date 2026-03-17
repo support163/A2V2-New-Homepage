@@ -11,7 +11,7 @@ const relatedPosts = getRelatedPosts(CURRENT_HREF)
 const faqItems = [
   {
     q: 'Is ChatGPT HIPAA-compliant for patient communication?',
-    a: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines up to $1.5 million per violation. Healthcare providers need purpose-built platforms like A2V2.ai that include BAA agreements, end-to-end encryption, and private model deployment.',
+    a: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines of up to $1.5 million per violation category. Healthcare providers need purpose-built platforms like A2V2.ai that are designed to include BAA agreements, end-to-end encryption, and private model deployment.',
   },
   {
     q: 'What makes an AI platform HIPAA-compliant?',
@@ -19,7 +19,7 @@ const faqItems = [
   },
   {
     q: 'What are the penalties for HIPAA violations involving AI?',
-    a: 'Fines range from $100 to $1.5 million per violation category per year. Beyond fines, violations can lead to loss of medical license, patient lawsuits, criminal charges, and reputational damage.',
+    a: 'Fines can range from $100 to up to $1.5 million per violation category per year. Beyond fines, violations can lead to loss of medical license, patient lawsuits, criminal charges, and reputational damage.',
   },
   {
     q: 'Can longevity clinics use AI for patient engagement without violating HIPAA?',
@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     q: 'How does A2V2.ai handle patient data differently than ChatGPT?',
-    a: 'A2V2.ai was built from the ground up for healthcare. Patient data never leaves your secure environment, is never used to train external models, and is protected by 256-bit AES encryption. Every client receives a signed BAA.',
+    a: 'A2V2.ai is designed from the ground up for healthcare. The platform is designed so that patient data never leaves your secure environment, is never used to train external models, and is protected by 256-bit AES encryption. Every client receives a signed BAA.',
   },
 ]
 
@@ -303,7 +303,7 @@ export default function HipaaComplianceBlogPost() {
               The moment Protected Health Information enters a general-purpose AI
               tool, your clinic has created a HIPAA violation. Not a gray area.
               Not a technicality. A violation — with consequences that can reach
-              $1.5 million per incident.
+              up to $1.5 million per violation category per year.
             </p>
             <p>
               And here&apos;s the part that should concern you: it&apos;s
@@ -523,38 +523,38 @@ export default function HipaaComplianceBlogPost() {
 
             <h2>How A2V2.ai Solves the Compliance Problem</h2>
             <p>
-              A2V2.ai was built from the ground up for healthcare — not adapted,
+              A2V2.ai is designed from the ground up for healthcare — not adapted,
               not configured, not patched together from a general-purpose
               platform.
             </p>
             <p>
-              Patient data never leaves your secure environment. It is never used
+              The platform is designed so that patient data never leaves your secure environment and is never used
               to train external AI models. Every client receives a signed BAA
-              before a single data point is processed. The platform uses 256-bit
+              before a single data point is processed. The platform is designed to use 256-bit
               AES encryption at rest and TLS 1.3 in transit. Two-factor
-              authentication and role-based access control protect every staff
-              login. Complete audit logs track every data access event. And
+              authentication and role-based access control are designed to protect every staff
+              login. Complete audit logs are designed to track every data access event. And
               quarterly penetration testing by third-party security firms
-              validates the entire system.
+              is designed to validate the entire system.
             </p>
             <p>
               But compliance alone doesn&apos;t solve the operational problem.
-              A2V2.ai automates patient engagement with protocol-specific
-              intelligence. A patient on week 2 of a peptide therapy cycle gets
+              A2V2.ai is designed to automate patient engagement with protocol-specific
+              intelligence. A patient on week 2 of a peptide therapy cycle would receive
               different communication than someone due for their quarterly
               hormone panel. A patient whose wearable data shows declining sleep
-              quality gets a proactive check-in. A patient who hasn&apos;t
-              completed their lab requisition gets a gentle, automated nudge.
+              quality could receive a proactive check-in. A patient who hasn&apos;t
+              completed their lab requisition would receive a gentle, automated nudge.
             </p>
             <p>
-              All of this happens within a fully compliant environment. No PHI
-              exposure. No training data contamination. No legal liability.
+              All of this is designed to happen within a fully compliant environment — with no PHI
+              exposure, no training data contamination, and no unnecessary legal liability.
             </p>
             <p>
-              And because A2V2.ai integrates directly with your existing
+              And because A2V2.ai is designed to integrate directly with your existing
               EHR/EMR, lab partners, wearable devices, and payment processors,
               there&apos;s no data migration and no system overhaul. Most clinics
-              go live in under two weeks.
+              can expect to go live in under two weeks.
             </p>
             <p>
               Functional medicine practices managing complex supplement protocols
