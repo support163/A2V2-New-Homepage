@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 5,
+    title: 'The Patients You Already Lost Are Your Biggest Revenue Opportunity',
+    description:
+      'You spent thousands to acquire them. They already trust your clinic. And right now, hundreds of them are sitting in your EHR doing absolutely nothing.',
+    category: 'Best Practices',
+    href: '/blog/lapsed-patient-re-engagement-longevity-clinics',
+    thumbnail: '/images/Blog-Post5-Heroimage.png',
+  },
+  {
     id: 4,
     title: 'Your Patients Are Generating Health Data 24/7 — Your Clinic Is Ignoring All of It',
     description:
