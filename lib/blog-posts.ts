@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 4,
+    title: 'Your Patients Are Generating Health Data 24/7 — Your Clinic Is Ignoring All of It',
+    description:
+      'They wear Oura Rings. They strap on Whoop bands. They stick CGMs to their arms. So why isn\'t any of that data reaching your clinic?',
+    category: 'Quick Guides',
+    href: '/blog/wearable-data-gap-longevity-clinics',
+    thumbnail: '/images/Blog-Post4-Heroimage.png',
+  },
+  {
     id: 3,
     title: 'Why Your NAD+ Patients Quit After 90 Days — The Protocol Adherence Crisis No One Is Tracking',
     description:
