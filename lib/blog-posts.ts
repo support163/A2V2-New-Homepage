@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 6,
+    title: 'Your Front Desk Is Doing the Work of Five People and Patients Are Still Falling Through the Cracks',
+    description:
+      'The problem is not your team. It is the system they are working inside. Here is what needs to change.',
+    category: 'Quick Guides',
+    href: '/blog/longevity-clinic-staff-burnout-automation',
+    thumbnail: '/images/Blog-Post6-Heroimage.png',
+  },
+  {
     id: 5,
     title: 'The Patients You Already Lost Are Your Biggest Revenue Opportunity',
     description:
