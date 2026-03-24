@@ -47,10 +47,15 @@ export default function LapsedPatientBlogPostPage() {
               '@type': 'Organization',
               name: 'The A2V2.ai Team',
             },
+            image: 'https://www.a2v2.ai/images/Blog-Post5-Heroimage.png',
             publisher: {
               '@type': 'Organization',
               name: 'A2V2.ai',
               url: 'https://www.a2v2.ai',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+              },
             },
             datePublished: '2026-03-19',
             dateModified: '2026-03-19',

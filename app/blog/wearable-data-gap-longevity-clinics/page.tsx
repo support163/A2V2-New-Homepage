@@ -47,10 +47,15 @@ export default function WearableDataGapBlogPostPage() {
               '@type': 'Organization',
               name: 'The A2V2.ai Team',
             },
+            image: 'https://www.a2v2.ai/images/Blog-Post4-Heroimage.png',
             publisher: {
               '@type': 'Organization',
               name: 'A2V2.ai',
               url: 'https://www.a2v2.ai',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+              },
             },
             datePublished: '2026-03-18',
             dateModified: '2026-03-18',
@@ -108,6 +113,20 @@ export default function WearableDataGapBlogPostPage() {
                   text: 'Published research suggests patients who see objective evidence of progress are more likely to stay engaged. Wearable data makes invisible progress visible \u2014 a key retention driver in platforms like A2V2.ai.',
                 },
               },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://www.a2v2.ai/blog' },
+              { '@type': 'ListItem', position: 2, name: 'Quick Guides', item: 'https://www.a2v2.ai/blog?category=Quick+Guides' },
+              { '@type': 'ListItem', position: 3, name: 'Your Patients Are Generating Health Data 24/7', item: 'https://www.a2v2.ai/blog/wearable-data-gap-longevity-clinics' },
             ],
           }),
         }}

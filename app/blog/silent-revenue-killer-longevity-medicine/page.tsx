@@ -46,10 +46,15 @@ export default function BlogPostPage() {
               '@type': 'Organization',
               name: 'The A2V2 Team',
             },
+            image: 'https://www.a2v2.ai/images/Blog_post_photo1.png',
             publisher: {
               '@type': 'Organization',
               name: 'A2V2.ai',
               url: 'https://www.a2v2.ai',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+              },
             },
             datePublished: '2026-03-11',
             dateModified: '2026-03-11',
@@ -57,6 +62,20 @@ export default function BlogPostPage() {
             articleSection: 'Best Practices',
             keywords:
               'longevity medicine, patient retention, patient engagement, NAD+, peptide therapy, HIPAA compliance, healthcare AI',
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://www.a2v2.ai/blog' },
+              { '@type': 'ListItem', position: 2, name: 'Best Practices', item: 'https://www.a2v2.ai/blog?category=Best+Practices' },
+              { '@type': 'ListItem', position: 3, name: 'The Silent Revenue Killer in Longevity Medicine', item: 'https://www.a2v2.ai/blog/silent-revenue-killer-longevity-medicine' },
+            ],
           }),
         }}
       />

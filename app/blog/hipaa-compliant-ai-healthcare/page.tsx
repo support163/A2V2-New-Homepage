@@ -40,10 +40,15 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'The A2V2.ai Team',
   },
+  image: 'https://www.a2v2.ai/images/Blog-Post-photo2.png',
   publisher: {
     '@type': 'Organization',
     name: 'A2V2.ai',
     url: 'https://www.a2v2.ai',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+    },
   },
   datePublished: '2026-03-12',
   dateModified: '2026-03-12',
@@ -110,6 +115,20 @@ export default function HipaaBlogPostPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://www.a2v2.ai/blog' },
+              { '@type': 'ListItem', position: 2, name: 'Privacy & Trust', item: 'https://www.a2v2.ai/blog?category=Privacy+%26+Trust' },
+              { '@type': 'ListItem', position: 3, name: 'Your AI Is a HIPAA Violation Waiting to Happen', item: 'https://www.a2v2.ai/blog/hipaa-compliant-ai-healthcare' },
+            ],
+          }),
+        }}
       />
       <main>
         <ScrollAnimator />

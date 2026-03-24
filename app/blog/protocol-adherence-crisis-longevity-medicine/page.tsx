@@ -47,10 +47,15 @@ export default function ProtocolAdherenceBlogPostPage() {
               '@type': 'Organization',
               name: 'The A2V2.ai Team',
             },
+            image: 'https://www.a2v2.ai/images/Blog-Post3-MainHeroImage.png',
             publisher: {
               '@type': 'Organization',
               name: 'A2V2.ai',
               url: 'https://www.a2v2.ai',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+              },
             },
             datePublished: '2026-03-16',
             dateModified: '2026-03-16',
@@ -108,6 +113,20 @@ export default function ProtocolAdherenceBlogPostPage() {
                   text: 'Based on average protocol values, a 200-patient clinic with an estimated 73% drop-off could be losing over $2M annually. Improving adherence by 20 percentage points could recover over $1M. Based on our retention modeling, clinics implementing A2V2.ai could expect an estimated $420K–$850K in recoverable revenue in year one.',
                 },
               },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://www.a2v2.ai/blog' },
+              { '@type': 'ListItem', position: 2, name: 'Best Practices', item: 'https://www.a2v2.ai/blog?category=Best+Practices' },
+              { '@type': 'ListItem', position: 3, name: 'Why Your NAD+ Patients Quit After 90 Days', item: 'https://www.a2v2.ai/blog/protocol-adherence-crisis-longevity-medicine' },
             ],
           }),
         }}

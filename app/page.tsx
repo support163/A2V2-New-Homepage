@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import TrainSection from '@/components/TrainSection'
@@ -7,6 +8,26 @@ import TrustSection from '@/components/TrustSection'
 import CtaBanner from '@/components/CtaBanner'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.a2v2.ai',
+  },
+  openGraph: {
+    title: 'A2V2.ai — Clone Yourself. Scale Your Influence.',
+    description:
+      'The all-in-one bio hub that chats like you, captures leads like a CRM, and converts while you sleep.',
+    url: 'https://www.a2v2.ai',
+    siteName: 'A2V2.ai',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'A2V2.ai — Clone Yourself. Scale Your Influence.',
+    description:
+      'The all-in-one bio hub that chats like you, captures leads like a CRM, and converts while you sleep.',
+  },
+}
 
 export default function HomePage() {
   return (
