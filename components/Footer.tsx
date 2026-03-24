@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { APP_URL, DEMO_BOOKING_URL } from '@/lib/constants'
+import { DEMO_BOOKING_URL } from '@/lib/constants'
 
 const socialLinks = [
   { href: 'https://x.com/A2V2_Ai', icon: '/icons/icon-x.svg', label: 'X' },
@@ -9,8 +9,6 @@ const socialLinks = [
 ]
 
 export default function Footer() {
-  const appUrl = APP_URL
-
   return (
     <footer className="relative bg-surface overflow-hidden">
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
@@ -67,24 +65,20 @@ export default function Footer() {
             <h4 className="text-btn font-bold text-white">Company</h4>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
-                <a
-                  href={`${appUrl}/terms`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/terms-and-conditions"
                   className="text-sm text-white/60 hover:text-white transition-colors"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href={`${appUrl}/privacy`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/privacy-policy"
                   className="text-sm text-white/60 hover:text-white transition-colors"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,23 +119,19 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-white/40">©2026 A2V2.ai All rights reserved</p>
           <div className="flex items-center gap-4">
-            <a
-              href={`${appUrl}/privacy`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/privacy-policy"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className="text-white/20">|</span>
-            <a
-              href={`${appUrl}/terms`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/terms-and-conditions"
               className="text-sm text-white/40 hover:text-white/70 transition-colors"
             >
               Terms &amp; Conditions
-            </a>
+            </Link>
           </div>
         </div>
 

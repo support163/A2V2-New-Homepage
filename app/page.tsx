@@ -10,6 +10,26 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 
 export default function HomePage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'A2V2.ai',
+            url: 'https://www.a2v2.ai',
+            logo: 'https://www.a2v2.ai/icons/Solo-Logo-A2V2.svg',
+            description:
+              'A2V2.ai is an AI-powered engagement platform that creates personalized AI clones for automated client and patient engagement. Serving healthcare with HIPAA-compliant patient engagement for longevity and preventive medicine practices, and real estate with AI-powered client engagement for agents.',
+            sameAs: [
+              'https://x.com/A2V2_Ai',
+              'https://www.instagram.com/a2v2.ai',
+              'https://www.linkedin.com/company/a2v2',
+            ],
+          }),
+        }}
+      />
     <main>
       <ScrollAnimator />
       <Navbar />
@@ -21,5 +41,6 @@ export default function HomePage() {
       <CtaBanner />
       <Footer />
     </main>
+    </>
   )
 }
