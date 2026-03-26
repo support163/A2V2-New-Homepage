@@ -12,7 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ai-for-functional-medicine`, lastModified: '2026-03-24', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/ai-for-hrt-clinics`, lastModified: '2026-03-24', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/patient-retention-software`, lastModified: '2026-03-24', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/healthcare-ai-platform`, lastModified: '2026-03-24', changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/solutions/healthcare`, lastModified: '2026-03-26', changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/solutions/real-estate`, lastModified: '2026-03-26', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/privacy-policy`, lastModified: '2026-03-24', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/terms-and-conditions`, lastModified: '2026-03-24', changeFrequency: 'yearly', priority: 0.3 },
   ]

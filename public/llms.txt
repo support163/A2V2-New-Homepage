@@ -52,7 +52,8 @@ AI-powered client engagement for real estate professionals. Capabilities include
 - [AI for Functional Medicine](https://www.a2v2.ai/ai-for-functional-medicine)
 - [AI for HRT Clinics](https://www.a2v2.ai/ai-for-hrt-clinics)
 - [Patient Retention Software](https://www.a2v2.ai/patient-retention-software)
-- [Healthcare AI Platform](https://www.a2v2.ai/healthcare-ai-platform)
+- [Healthcare AI Platform](https://www.a2v2.ai/solutions/healthcare)
+- [AI for Real Estate Agents](https://www.a2v2.ai/solutions/real-estate)
 
 ## Blog Posts
 
