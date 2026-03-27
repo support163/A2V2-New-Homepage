@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { APP_URL } from '@/lib/constants'
-import { HeartPulse, ChevronDown, Building, LayoutGrid } from 'lucide-react'
+import { HeartPlus, ChevronDown, Landmark, LandPlot } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -14,13 +14,13 @@ const navLinks = [
 
 const solutionsItems = [
   {
-    icon: HeartPulse,
+    icon: HeartPlus,
     title: 'Healthcare',
     subtitle: 'For hospitals, biotech, and medicine',
     href: '/solutions/healthcare',
   },
   {
-    icon: Building,
+    icon: Landmark,
     title: 'Real Estate',
     subtitle: 'For agents, brokers, and property managers',
     href: '/solutions/real-estate',
@@ -113,13 +113,11 @@ export default function Navbar() {
             >
               {/* Header */}
               <div className="px-5 pt-4 pb-3 flex items-center gap-2">
-                <LayoutGrid size={14} className="text-text-secondary -mt-[3px]" />
+                <LandPlot size={14} className="text-text-secondary -mt-[3px]" />
                 <p className="text-xs font-medium text-text-secondary uppercase tracking-wider">
                   Solutions
                 </p>
               </div>
-              <div className="mx-5 border-t border-gray-200" />
-
               {/* Items */}
               <div className="py-2">
                 {solutionsItems.map((item) => (
