@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/patient-retention-software`, lastModified: '2026-03-24', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/solutions/healthcare`, lastModified: '2026-03-26', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/solutions/real-estate`, lastModified: '2026-03-26', changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/features/pay-for-access`, lastModified: '2026-03-29', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/privacy-policy`, lastModified: '2026-03-24', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE}/terms-and-conditions`, lastModified: '2026-03-24', changeFrequency: 'yearly', priority: 0.3 },
   ]
