@@ -1,8 +1,8 @@
-const steps = [
-  { num: 1, label: 'Classify', sub: 'determine complexity', status: 'done' as const },
-  { num: 2, label: 'Plan', sub: 'build response strategy', status: 'done' as const },
-  { num: 3, label: 'Execute', sub: 'generate personalized answer', status: 'pending' as const },
-  { num: 4, label: 'Analyze', sub: 'quality control check', status: 'pending' as const },
+const steps: { num: number; label: string; sub: string; status: 'done' | 'running' | 'pending' }[] = [
+  { num: 1, label: 'Classify', sub: 'determine complexity', status: 'done' },
+  { num: 2, label: 'Plan', sub: 'build response strategy', status: 'done' },
+  { num: 3, label: 'Execute', sub: 'generate personalized answer', status: 'pending' },
+  { num: 4, label: 'Analyze', sub: 'quality control check', status: 'pending' },
 ]
 
 export default function AIPipelineMockup() {
