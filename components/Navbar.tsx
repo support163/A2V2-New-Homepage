@@ -97,7 +97,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/"
-              className="text-btn font-medium text-text-primary hover:bg-gray-100 rounded-lg px-3 py-1.5 transition-colors"
+              className="nav-pill text-btn font-medium text-text-primary px-4 py-2"
             >
               Home
             </Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
             onMouseLeave={closeDropdowns}
           >
             <button
-              className="flex items-center gap-1 text-btn font-medium text-text-primary hover:bg-gray-100 rounded-lg px-3 py-1.5 transition-colors"
+              className="nav-pill flex items-center gap-1 text-btn font-medium text-text-primary px-4 py-2"
               onClick={() => setSolutionsOpen((prev) => !prev)}
               aria-expanded={solutionsOpen}
               aria-haspopup="true"
@@ -124,18 +124,24 @@ export default function Navbar() {
 
             {/* Dropdown panel */}
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[320px] bg-white border border-[#e5e5e5] rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-150 ${
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[320px] rounded-xl transition-all duration-150 ${
                 solutionsOpen
                   ? 'opacity-100 translate-y-0 pointer-events-auto'
                   : 'opacity-0 -translate-y-1 pointer-events-none'
               }`}
+              style={{
+                background: 'rgba(0, 0, 0, 0.65)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+              }}
               onMouseEnter={openSolutions}
               onMouseLeave={closeDropdowns}
             >
               {/* Header */}
               <div className="px-5 pt-4 pb-3 flex items-center gap-2">
-                <LandPlot size={14} className="text-text-secondary -mt-[3px]" />
-                <p className="text-xs font-medium text-text-secondary uppercase tracking-wider">
+                <LandPlot size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
+                <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   Solutions
                 </p>
               </div>
@@ -145,17 +151,23 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center gap-3.5 px-5 py-2.5 hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                    style={{ ['--hover-bg' as string]: 'rgba(255,255,255,0.08)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     onClick={() => setSolutionsOpen(false)}
                   >
-                    <span className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100">
-                      <item.icon size={18} className="text-text-secondary" />
+                    <span
+                      className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
+                      style={{ background: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
                     </span>
                     <div>
-                      <p className="text-[13px] font-semibold text-[#5D5D5D] leading-tight">
+                      <p className="text-[13px] font-semibold leading-tight text-white">
                         {item.title}
                       </p>
-                      <p className="text-[11px] text-text-secondary leading-snug mt-0.5">
+                      <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
                         {item.subtitle}
                       </p>
                     </div>
@@ -172,7 +184,7 @@ export default function Navbar() {
             onMouseLeave={closeDropdowns}
           >
             <button
-              className="flex items-center gap-1 text-btn font-medium text-text-primary hover:bg-gray-100 rounded-lg px-3 py-1.5 transition-colors"
+              className="nav-pill flex items-center gap-1 text-btn font-medium text-text-primary px-4 py-2"
               onClick={() => setFeaturesOpen((prev) => !prev)}
               aria-expanded={featuresOpen}
               aria-haspopup="true"
@@ -186,18 +198,24 @@ export default function Navbar() {
 
             {/* Dropdown panel */}
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[320px] bg-white border border-[#e5e5e5] rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-150 ${
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[320px] rounded-xl transition-all duration-150 ${
                 featuresOpen
                   ? 'opacity-100 translate-y-0 pointer-events-auto'
                   : 'opacity-0 -translate-y-1 pointer-events-none'
               }`}
+              style={{
+                background: 'rgba(0, 0, 0, 0.65)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+              }}
               onMouseEnter={openFeatures}
               onMouseLeave={closeDropdowns}
             >
               {/* Header */}
               <div className="px-5 pt-4 pb-3 flex items-center gap-2">
-                <Sparkles size={14} className="text-text-secondary -mt-[3px]" />
-                <p className="text-xs font-medium text-text-secondary uppercase tracking-wider">
+                <Sparkles size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
+                <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   Features
                 </p>
               </div>
@@ -207,17 +225,22 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center gap-3.5 px-5 py-2.5 hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                    onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     onClick={() => setFeaturesOpen(false)}
                   >
-                    <span className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100">
-                      <item.icon size={18} className="text-text-secondary" />
+                    <span
+                      className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
+                      style={{ background: 'rgba(255,255,255,0.1)' }}
+                    >
+                      <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
                     </span>
                     <div>
-                      <p className="text-[13px] font-semibold text-[#5D5D5D] leading-tight">
+                      <p className="text-[13px] font-semibold leading-tight text-white">
                         {item.title}
                       </p>
-                      <p className="text-[11px] text-text-secondary leading-snug mt-0.5">
+                      <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
                         {item.subtitle}
                       </p>
                     </div>
@@ -232,7 +255,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-btn font-medium text-text-primary hover:bg-gray-100 rounded-lg px-3 py-1.5 transition-colors"
+                className="nav-pill text-btn font-medium text-text-primary px-4 py-2"
               >
                 {link.label}
               </Link>

@@ -28,8 +28,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-[512px]">
-              HIPAA-compliant AI patient engagement built for longevity medicine.
-              Retain more patients, recover lost revenue, automate the follow-up.
+              AI-powered lead engagement built for real estate. Capture more leads, book more viewings, close more deals.
             </p>
             <a
               href={DEMO_BOOKING_URL}

@@ -7,12 +7,12 @@ const faqs = [
   {
     question: 'What makes A2V2.ai different from other healthcare AI platforms?',
     answer:
-      'A2V2.ai was built exclusively for healthcare from the ground up \u2014 not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and use private LLM deployment so your patient data never touches public models.',
+      'A2V2.ai was built exclusively for healthcare from the ground up, not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and use private LLM deployment so your patient data never touches public models.',
   },
   {
     question: 'Can I use ChatGPT or Claude for patient engagement?',
     answer:
-      'No \u2014 not safely. ChatGPT, Claude, and Gemini are not HIPAA-compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100% HIPAA-compliant with private LLM deployment.',
+      'No, not safely. ChatGPT, Claude, and Gemini are not HIPAA-compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100% HIPAA-compliant with private LLM deployment.',
   },
   {
     question: 'Is A2V2.ai HIPAA compliant?',
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: 'Do we need to replace our existing systems?',
     answer:
-      'No. A2V2.ai sits on top of your current stack \u2014 EHR/EMR, lab systems, communication tools, and payment processors. No migrations required.',
+      'No. A2V2.ai sits on top of your current stack: EHR/EMR, lab systems, communication tools, and payment processors. No migrations required.',
   },
   {
     question: 'What does the free audit include?',
@@ -45,7 +45,7 @@ export default function HealthcareAiFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-background py-8 md:py-section-y">
+    <section className="bg-white py-8 md:py-section-y">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
 
         <div data-animate="" className="text-center">

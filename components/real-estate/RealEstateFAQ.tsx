@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'Does it work with my existing real estate tools?',
     answer:
-      'A2V2.ai is designed to work alongside your existing tools \u2014 your website, social media, and calendar. It\u2019s not designed to replace your CRM but to handle the front-end lead engagement that feeds into your existing workflow.',
+      'A2V2.ai is designed to work alongside your existing tools: your website, social media, and calendar. It\u2019s not designed to replace your CRM but to handle the front-end lead engagement that feeds into your existing workflow.',
   },
   {
     question: 'Can I customize what the AI says?',
@@ -40,7 +40,7 @@ export default function RealEstateFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-background py-8 md:py-section-y">
+    <section className="bg-white py-8 md:py-section-y">
       <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
 
         <div data-animate="" className="text-center">

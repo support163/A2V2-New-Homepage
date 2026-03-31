@@ -89,6 +89,18 @@ input[type='range']::-moz-range-thumb {
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
+/* Desktop navbar link hover pill */
+.nav-pill {
+  border-radius: 9999px;
+  transition: background 200ms ease, color 200ms ease, backdrop-filter 200ms ease;
+}
+.nav-pill:hover {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+}
+
 /* Pricing page section spacing */
 .pricing-page > section {
   padding-top: 64px;
