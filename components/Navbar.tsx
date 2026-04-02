@@ -7,7 +7,6 @@ import { APP_URL } from '@/lib/constants'
 import { HeartPlus, ChevronDown, Landmark, LandPlot, LockKeyhole, Sparkles } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home', href: '/' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
 ]
@@ -107,17 +106,6 @@ export default function Navbar() {
 
           {/* Desktop nav links — centered absolutely */}
           <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 list-none">
-
-            {/* Home */}
-            <li>
-              <Link
-                href="/"
-                className="nav-pill text-btn font-medium px-4 py-2"
-                style={{ color: 'rgba(255,255,255,0.85)' }}
-              >
-                Home
-              </Link>
-            </li>
 
             {/* Solutions dropdown */}
             <li
@@ -260,7 +248,7 @@ export default function Navbar() {
             </li>
 
             {/* Pricing & Blog */}
-            {navLinks.filter((l) => l.label !== 'Home').map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -275,6 +263,17 @@ export default function Navbar() {
 
           {/* Desktop right side */}
           <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://www.app.a2v2.ai/signin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium mr-1 transition-colors"
+              style={{ color: 'rgba(255,255,255,0.85)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.85)')}
+            >
+              Sign In
+            </a>
             <a
               href={`${appUrl}/signin`}
               target="_blank"
@@ -318,18 +317,6 @@ export default function Navbar() {
             className="mx-auto max-w-5xl rounded-2xl px-5 py-4 flex flex-col gap-3"
             style={pillStyle}
           >
-            {/* Home */}
-            <Link
-              href="/"
-              className="text-btn font-medium rounded-lg px-3 py-1.5 transition-colors"
-              style={{ color: 'rgba(255,255,255,0.85)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-              onClick={() => setMobileOpen(false)}
-            >
-              Home
-            </Link>
-
             {/* Solutions accordion */}
             <div>
               <button
@@ -411,7 +398,7 @@ export default function Navbar() {
             </div>
 
             {/* Pricing & Blog */}
-            {navLinks.filter((l) => l.label !== 'Home').map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
