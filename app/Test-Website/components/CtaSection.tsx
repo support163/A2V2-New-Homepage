@@ -1,62 +1,52 @@
 import Image from 'next/image'
-import { APP_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 export default function CtaSection() {
   return (
-    <section style={{ background: '#0F0E0D' }} className="py-8 md:py-section-y">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
-        <div
-          data-animate=""
-          className="relative rounded-[20px] overflow-hidden
-            flex flex-col md:flex-row md:items-center md:justify-between
-            px-6 py-6 md:px-[96px] md:py-[24px] md:h-[460px]
-            gap-8 md:gap-2"
-          style={{
-            backgroundImage: 'url(/images/New-Cta-Background.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="relative z-10 flex flex-col items-start max-w-[480px] md:min-w-[50%]">
-            <h2 className="text-[24px] md:text-h2 font-bold text-white leading-tight">
-              Ready to scale without scaling your team?
-            </h2>
-            <p className="mt-4 text-btn text-white/70 leading-[22px]">
-              Whether you run a clinic or create content, A2V2 puts AI to work for you.
-            </p>
-            <div className="mt-4 md:mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href={`${APP_URL}/signin`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-surface text-btn font-medium px-btn-x py-btn-y rounded-full hover:bg-gray-100 transition-colors text-center"
-              >
-                Try For Free
-              </a>
-              <a
-                href={DEMO_BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white text-white text-btn font-medium px-btn-x py-btn-y rounded-full hover:bg-white/10 transition-colors text-center"
-              >
-                Book a Demo
-              </a>
-            </div>
-          </div>
+    <section style={{ background: '#0F0E0D', marginBottom: '-8px' }}>
 
-          <div className="hidden md:flex relative z-0 flex-shrink-0 items-center justify-end md:self-stretch overflow-hidden">
-            <Image
-              src="/images/New-Cta-Decoration.png"
-              alt=""
-              width={400}
-              height={412}
-              quality={100}
-              unoptimized
-              className="w-full max-w-[320px] md:h-full md:w-auto md:max-w-none object-contain object-center md:object-right"
-            />
-          </div>
+      {/* Text content */}
+      <div data-animate="" className="relative z-10 pt-20 mx-auto max-w-[700px] px-6 text-center">
+        <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight">
+          Clone Yourself.<br />Scale Your Influence.
+        </h2>
+        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+          AI-powered engagement for healthcare and creators. Get started in minutes.
+        </p>
+        <div className="mt-8">
+          <a
+            href="https://www.app.a2v2.ai/signin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-xs font-semibold tracking-widest uppercase transition-opacity hover:opacity-90"
+            style={{ background: '#ffffff', color: '#0F0E0D' }}
+          >
+            Get Started
+          </a>
         </div>
       </div>
+
+      {/* Full image — natural aspect ratio, no cropping */}
+      <div className="relative overflow-hidden" style={{ marginTop: '-220px', zIndex: 0 }}>
+        <Image
+          src="/images/Cta-Background2.png"
+          alt=""
+          width={1920}
+          height={800}
+          quality={100}
+          unoptimized
+          className="w-full h-auto pointer-events-none"
+          style={{ display: 'block', verticalAlign: 'bottom' }}
+        />
+        <div
+          className="absolute bottom-0 left-0 right-0 pointer-events-none"
+          style={{
+            height: '280px',
+            background: 'linear-gradient(to bottom, transparent, #0F0E0D)',
+            zIndex: 10,
+          }}
+        />
+      </div>
+
     </section>
   )
 }

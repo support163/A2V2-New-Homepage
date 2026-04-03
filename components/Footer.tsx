@@ -10,7 +10,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-surface overflow-hidden">
+    <footer className="relative overflow-hidden" style={{ background: '#0F0E0D' }}>
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-section-x py-8 md:py-section-y">
 
         {/* Top row */}

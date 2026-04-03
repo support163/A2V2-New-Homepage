@@ -1,40 +1,95 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const innerBg = 'rgba(255,255,255,0.08)'
-const avatarBg = 'rgba(255,255,255,0.15)'
+const gradientDot: React.CSSProperties = {
+  width: 12,
+  height: 12,
+  borderRadius: '50%',
+  background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)',
+  flexShrink: 0,
+}
+
+const glassBg: React.CSSProperties = {
+  background: 'rgba(0,0,0,0.55)',
+  backdropFilter: 'blur(20px)',
+  WebkitBackdropFilter: 'blur(20px)',
+  border: '1px solid rgba(255,255,255,0.1)',
+  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+}
+
+function MiniTabBar({ items }: { items: string[] }) {
+  return (
+    <div className="flex items-center gap-0.5 mb-3 rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
+      {items.map((t, i) => (
+        <div
+          key={t}
+          className="flex-1 text-center text-[10px] font-medium py-1 rounded-md"
+          style={{
+            background: i === 0 ? 'rgba(255,255,255,0.12)' : 'transparent',
+            color: i === 0 ? '#ffffff' : 'rgba(255,255,255,0.4)',
+          }}
+        >
+          {t}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function ActionRow({ cancelLabel, confirmLabel }: { cancelLabel: string; confirmLabel: string }) {
+  return (
+    <div className="flex items-center justify-between mt-3">
+      <button className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{cancelLabel}</button>
+      <button
+        className="text-[11px] font-semibold rounded-lg px-3 py-1.5"
+        style={{ background: '#ffffff', color: '#000000' }}
+      >
+        {confirmLabel}
+      </button>
+    </div>
+  )
+}
 
 function HealthcareGlass() {
   const patients = [
-    { initials: 'SJ', name: 'Sarah J.', protocol: 'HRT Protocol · Week 6', sbg: 'rgba(37,99,235,0.3)', sc: '#93c5fd', status: 'Sent' },
-    { initials: 'MK', name: 'Michael K.', protocol: 'NAD+ Protocol · Week 3', sbg: 'rgba(22,163,74,0.3)', sc: '#86efac', status: 'Opened' },
-    { initials: 'AL', name: 'Amy L.', protocol: 'Peptide Protocol · Week 1', sbg: 'rgba(217,119,6,0.3)', sc: '#fcd34d', status: 'Scheduled' },
+    { initials: 'SJ', name: 'Sarah J.', protocol: 'HRT · Week 6', status: 'Sent' },
+    { initials: 'MK', name: 'Michael K.', protocol: 'NAD+ · Week 3', status: 'Opened' },
+    { initials: 'AL', name: 'Amy L.', protocol: 'Peptide · Week 1', status: 'Scheduled' },
   ]
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.45)' }}>
-        Patient Queue
-      </p>
-      {patients.map((p) => (
-        <div key={p.name} className="flex items-center gap-2.5 rounded-lg px-3 py-2" style={{ background: innerBg }}>
+    <div className="flex flex-col">
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <div style={gradientDot} />
+        <span className="text-sm font-semibold text-white">Patient queue</span>
+      </div>
+      <MiniTabBar items={['Active', 'Pending', 'Completed']} />
+      <div className="flex flex-col">
+        {patients.map((p, i) => (
           <div
-            className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-semibold flex-shrink-0"
-            style={{ background: avatarBg, color: 'rgba(255,255,255,0.8)' }}
+            key={p.name}
+            className="flex items-center gap-2 py-2"
+            style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
           >
-            {p.initials}
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-semibold flex-shrink-0"
+              style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.8)' }}
+            >
+              {p.initials}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-white truncate">{p.name}</p>
+              <p className="text-[10px] truncate" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.protocol}</p>
+            </div>
+            <span
+              className="text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0"
+              style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
+            >
+              {p.status}
+            </span>
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-[11px] font-semibold text-white truncate">{p.name}</p>
-            <p className="text-[9px] truncate" style={{ color: 'rgba(255,255,255,0.45)' }}>{p.protocol}</p>
-          </div>
-          <span
-            className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap"
-            style={{ background: p.sbg, color: p.sc }}
-          >
-            {p.status}
-          </span>
-        </div>
-      ))}
+        ))}
+      </div>
+      <ActionRow cancelLabel="View all" confirmLabel="New sequence" />
     </div>
   )
 }
@@ -43,29 +98,36 @@ const payBars = [35, 50, 42, 60, 72, 55, 80, 68]
 
 function PayForAccessGlass() {
   return (
-    <div className="flex flex-col gap-2.5">
-      <div className="grid grid-cols-2 gap-2">
-        <div className="rounded-lg px-3 py-2" style={{ background: innerBg }}>
-          <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.45)' }}>Sessions</p>
-          <p className="text-sm font-semibold text-white">1,247</p>
+    <div className="flex flex-col">
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <div style={gradientDot} />
+        <span className="text-sm font-semibold text-white">Earnings snapshot</span>
+      </div>
+      <MiniTabBar items={['Today', 'Week', 'Month']} />
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        <div className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Sessions</p>
+          <p className="text-lg font-bold text-white">1,247</p>
         </div>
-        <div className="rounded-lg px-3 py-2" style={{ background: innerBg }}>
-          <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.45)' }}>Revenue (est.)</p>
-          <p className="text-sm font-semibold text-white">$6,223</p>
+        <div className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Revenue</p>
+          <p className="text-lg font-bold text-white">$6,223</p>
         </div>
       </div>
-      <div className="rounded-lg px-3 py-2.5" style={{ background: innerBg }}>
-        <p className="text-[9px] mb-1.5" style={{ color: 'rgba(255,255,255,0.45)' }}>Last 8 weeks</p>
-        <div className="flex items-end gap-0.5 h-8">
-          {payBars.map((h, i) => (
-            <div
-              key={i}
-              className={`flex-1 rounded-sm ${i === payBars.length - 1 ? 'bg-blue-400' : 'bg-blue-400/30'}`}
-              style={{ height: `${h}%` }}
-            />
-          ))}
-        </div>
+      <p className="text-[10px] mb-1.5" style={{ color: 'rgba(255,255,255,0.3)' }}>Last 8 weeks</p>
+      <div className="flex items-end gap-0.5 h-8">
+        {payBars.map((h, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-sm"
+            style={{
+              height: `${h}%`,
+              background: i === payBars.length - 1 ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
+            }}
+          />
+        ))}
       </div>
+      <ActionRow cancelLabel="Export" confirmLabel="View dashboard" />
     </div>
   )
 }
@@ -86,7 +148,7 @@ function CardColumn({ bgImage, dotColor, tag, title, description, href, linkLabe
   return (
     <div data-animate="" style={{ transitionDelay: animateDelay }}>
       {/* Standalone image container — fully rounded */}
-      <div className="relative rounded-xl overflow-hidden" style={{ height: '400px' }}>
+      <div className="relative rounded-xl overflow-hidden w-full" style={{ height: '480px' }}>
         <Image
           src={bgImage}
           alt=""
@@ -105,11 +167,7 @@ function CardColumn({ bgImage, dotColor, tag, title, description, href, linkLabe
             className="w-full rounded-xl p-4"
             style={{
               maxWidth: '280px',
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+              ...glassBg,
             }}
           >
             {glass}
@@ -146,7 +204,7 @@ function CardColumn({ bgImage, dotColor, tag, title, description, href, linkLabe
 export default function ProductCards() {
   return (
     <section style={{ background: '#0F0E0D' }} className="py-20 md:py-24">
-      <div className="mx-auto max-w-[1000px] px-6">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
 
         {/* Heading */}
         <div data-animate="" className="text-center mb-12">
@@ -159,7 +217,7 @@ export default function ProductCards() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <CardColumn
             bgImage="/images/Ui-Card-Background1.jpg"
             dotColor="#ffffff"

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Layers, UserPlus, DollarSign } from 'lucide-react'
 
@@ -41,155 +41,196 @@ const tabs: Tab[] = [
 ]
 
 /* ─── Glass card content ─── */
-const innerBg = 'rgba(255,255,255,0.08)'
+const gradientDot: React.CSSProperties = {
+  width: 12,
+  height: 12,
+  borderRadius: '50%',
+  background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)',
+  flexShrink: 0,
+}
 
-function AiCloneCard() {
-  const steps = [
-    { num: 1, label: 'Classify', sub: 'Determine complexity', done: true },
-    { num: 2, label: 'Plan', sub: 'Build response strategy', done: true },
-    { num: 3, label: 'Execute', sub: 'Generate personalized answer', done: false, active: true },
-    { num: 4, label: 'Analyze', sub: 'Quality control check', done: false },
-  ]
+function ModalHeader({ title }: { title: string }) {
   return (
-    <div className="flex flex-col gap-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>AI Pipeline</p>
-      {steps.map((step) => (
-        <div key={step.num} className="flex items-center gap-3 rounded-xl px-3 py-2.5" style={{ background: innerBg }}>
-          <div
-            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-            style={{
-              background: step.done ? 'rgba(22,163,74,0.2)' : step.active ? 'rgba(37,99,235,0.2)' : 'rgba(255,255,255,0.06)',
-              color: step.done ? '#86efac' : step.active ? '#93c5fd' : 'rgba(255,255,255,0.3)',
-            }}
-          >
-            {step.done ? (
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8l3 3 7-7" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            ) : step.num}
-          </div>
-          <div>
-            <p className="text-xs font-semibold" style={{ color: step.done ? 'rgba(255,255,255,0.7)' : step.active ? '#93c5fd' : 'rgba(255,255,255,0.3)' }}>
-              {step.label}
-            </p>
-            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{step.sub}</p>
-          </div>
-          {step.active && (
-            <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: 'rgba(37,99,235,0.2)', color: '#93c5fd' }}>
-              Processing
-            </span>
-          )}
+    <div className="flex items-center justify-center gap-2 mb-3">
+      <div style={gradientDot} />
+      <span className="text-sm font-semibold text-white">{title}</span>
+    </div>
+  )
+}
+
+function MiniTabBar({ items, active = 0 }: { items: string[]; active?: number }) {
+  return (
+    <div className="flex items-center gap-0.5 mb-3 rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
+      {items.map((t, i) => (
+        <div
+          key={t}
+          className="flex-1 text-center text-[10px] font-medium py-1 rounded-md"
+          style={{
+            background: i === active ? 'rgba(255,255,255,0.12)' : 'transparent',
+            color: i === active ? '#ffffff' : 'rgba(255,255,255,0.4)',
+          }}
+        >
+          {t}
         </div>
       ))}
     </div>
   )
 }
 
+function ActionRow({ cancelLabel = 'Cancel', confirmLabel }: { cancelLabel?: string; confirmLabel: string }) {
+  return (
+    <div className="flex items-center justify-between mt-3">
+      <button className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{cancelLabel}</button>
+      <button
+        className="text-[11px] font-semibold rounded-lg px-3 py-1.5"
+        style={{ background: '#ffffff', color: '#000000' }}
+      >
+        {confirmLabel}
+      </button>
+    </div>
+  )
+}
+
+function AiCloneCard() {
+  return (
+    <div className="flex flex-col">
+      <ModalHeader title="Train your AI" />
+      <MiniTabBar items={['YouTube', 'PDF', 'Articles']} />
+      <p className="text-[10px] mb-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Add training content</p>
+      <p className="text-[10px] mb-2.5" style={{ color: 'rgba(255,255,255,0.3)' }}>
+        Upload files to train your AI on your expertise
+      </p>
+      <div
+        className="rounded-lg flex flex-col items-center justify-center py-5 mb-3"
+        style={{ border: '1px dashed rgba(255,255,255,0.15)' }}
+      >
+        <div className="flex items-center gap-1.5 mb-1.5">
+          {['MP4', 'PDF', 'DOC', 'TXT'].map((ext) => (
+            <div
+              key={ext}
+              className="text-[8px] font-semibold px-1.5 py-0.5 rounded"
+              style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.35)' }}
+            >
+              {ext}
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          Drag files here or click to browse
+        </p>
+      </div>
+      <ActionRow confirmLabel="Start training" />
+    </div>
+  )
+}
+
 function LeadCaptureCard() {
   return (
-    <div className="flex flex-col gap-3 max-w-[300px] mx-auto">
-      <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>Lead Capture Form</p>
-      <div className="rounded-xl p-4 flex flex-col gap-3" style={{ background: innerBg }}>
-        <div className="flex items-center gap-2.5 mb-1">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="4" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </div>
-          <div>
-            <p className="text-xs font-semibold text-white">Chat with Alex</p>
-            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Access expires in 24h</p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="rounded-lg px-3 py-2 text-xs" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.35)' }}>
-            Full name
-          </div>
-          <div className="rounded-lg px-3 py-2 text-xs" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.35)' }}>
-            Email address
-          </div>
-        </div>
-        <button className="w-full bg-blue-600 text-white text-xs font-semibold rounded-lg py-2 hover:bg-blue-700 transition-colors">
-          Start chatting for $4.99
-        </button>
-        <div className="flex items-center justify-center gap-1">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="11" width="18" height="11" rx="2" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" />
+    <div className="flex flex-col">
+      <ModalHeader title="Lead gate settings" />
+      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Require before access</p>
+      <div className="flex flex-col gap-2 mb-3">
+        <div
+          className="flex items-center gap-2 rounded-lg px-3 py-2"
+          style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
-          <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>Secured by Stripe</span>
+          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>Full name</span>
+        </div>
+        <div
+          className="flex items-center gap-2 rounded-lg px-3 py-2"
+          style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" />
+            <path d="M2 8l10 6 10-6" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>Email address</span>
         </div>
       </div>
+      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Session price</p>
+      <div
+        className="flex items-center gap-2 rounded-lg px-3 py-2"
+        style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}
+      >
+        <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>$</span>
+        <span className="text-xs text-white">4.99</span>
+      </div>
+      <ActionRow confirmLabel="Save settings" />
     </div>
   )
 }
 
 function RevenueCard() {
+  const bars = [35, 50, 42, 60, 72, 55, 80, 68]
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Earnings Summary</p>
-      <div className="rounded-xl p-3 flex flex-col gap-2" style={{ background: innerBg }}>
-        {[
-          { label: 'Followers', val: '100,000' },
-          { label: 'Conversion rate', val: '3%' },
-          { label: 'Price per session', val: '$4.99' },
-        ].map((r) => (
-          <div key={r.label} className="flex items-center justify-between">
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{r.label}</span>
-            <span className="text-xs font-semibold text-white">{r.val}</span>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-2.5">
-        <div className="rounded-xl p-3" style={{ background: 'rgba(37,99,235,0.15)' }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>Monthly (est.)</p>
-          <p className="text-lg font-semibold text-blue-400 mt-0.5">$14,970</p>
+    <div className="flex flex-col">
+      <ModalHeader title="Earnings snapshot" />
+      <MiniTabBar items={['Daily', 'Weekly', 'Monthly']} />
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        <div className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Sessions</p>
+          <p className="text-lg font-bold text-white">1,247</p>
         </div>
-        <div className="rounded-xl p-3" style={{ background: innerBg }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>Annual (proj.)</p>
-          <p className="text-lg font-semibold text-white mt-0.5">$179,640</p>
+        <div className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <p className="text-[9px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Revenue</p>
+          <p className="text-lg font-bold text-white">$6,223</p>
         </div>
       </div>
-      <p className="text-[10px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.3)' }}>
-        Projections based on industry conversion data. Actual results may vary.
-      </p>
+      <div className="rounded-lg p-2.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
+        <div className="flex items-end gap-0.5 h-8 mb-1.5">
+          {bars.map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-sm"
+              style={{
+                height: `${h}%`,
+                background: i === bars.length - 1 ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
+              }}
+            />
+          ))}
+        </div>
+        <p className="text-center text-[9px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Last 8 weeks</p>
+      </div>
     </div>
   )
 }
 
 function AnalyticsCard() {
-  const bars = [40, 55, 48, 62, 70, 58, 75, 65]
-  const topQ = ['How should I structure my offer?', 'What tools do you recommend?', 'How do I grow on Instagram?']
+  const questions = [
+    'How do I start a calorie deficit?',
+    'Best supplements for recovery?',
+    'How often should I train legs?',
+    'What should I eat post-workout?',
+  ]
   return (
-    <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-2 gap-2.5">
-        <div className="rounded-xl p-3" style={{ background: innerBg }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Sessions</p>
-          <p className="text-xl font-semibold text-white">1,247</p>
-          <p className="text-[10px] text-green-400 mt-0.5">+18% this week</p>
-        </div>
-        <div className="rounded-xl p-3" style={{ background: innerBg }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Revenue (est.)</p>
-          <p className="text-xl font-semibold text-white">$6,223</p>
-          <p className="text-[10px] text-green-400 mt-0.5">+22% this week</p>
-        </div>
+    <div className="flex flex-col">
+      <ModalHeader title="Audience insights" />
+      <MiniTabBar items={['Questions', 'Demographics', 'Conversions']} />
+      <div className="flex flex-col">
+        {questions.map((q, i) => (
+          <div
+            key={i}
+            className="flex items-start gap-2.5 py-2"
+            style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
+          >
+            <span className="text-[10px] font-semibold flex-shrink-0" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              {i + 1}.
+            </span>
+            <span className="text-xs text-white">{q}</span>
+          </div>
+        ))}
       </div>
-      <div className="rounded-xl p-3" style={{ background: innerBg }}>
-        <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Sessions (last 8 weeks)</p>
-        <div className="flex items-end gap-1 h-10">
-          {bars.map((h, i) => (
-            <div key={i} className={`flex-1 rounded-sm ${i === bars.length - 1 ? 'bg-blue-400' : 'bg-blue-400/30'}`} style={{ height: `${h}%` }} />
-          ))}
-        </div>
-      </div>
-      <div className="rounded-xl p-3" style={{ background: innerBg }}>
-        <p className="text-[10px] mb-1.5" style={{ color: 'rgba(255,255,255,0.4)' }}>Top questions</p>
-        <div className="flex flex-col gap-1">
-          {topQ.map((q) => (
-            <p key={q} className="text-[10px] truncate" style={{ color: 'rgba(255,255,255,0.65)' }}>{q}</p>
-          ))}
-        </div>
+      <div className="mt-3 flex justify-center">
+        <button
+          className="text-[11px] font-medium rounded-full px-4 py-1.5"
+          style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}
+        >
+          Export report
+        </button>
       </div>
     </div>
   )
@@ -205,6 +246,13 @@ const cardContent = [
 /* ─── Main component ─── */
 export default function PayForAccessShowcase() {
   const [activeTab, setActiveTab] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length)
+    }, 8000)
+    return () => clearInterval(interval)
+  }, [activeTab])
 
   function switchTab(i: number) {
     if (i === activeTab) return
@@ -295,31 +343,14 @@ export default function PayForAccessShowcase() {
               style={{
                 maxWidth: '300px',
                 padding: '20px',
-                background: 'rgba(255,255,255,0.12)',
+                background: 'rgba(0,0,0,0.55)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
               }}
             >
-              <div style={{ position: 'relative', height: '300px', overflow: 'hidden' }}>
-                {cardContent.map((content, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      opacity: activeTab === i ? 1 : 0,
-                      pointerEvents: activeTab === i ? 'auto' : 'none',
-                      transition: 'opacity 300ms ease',
-                    }}
-                  >
-                    {content}
-                  </div>
-                ))}
-              </div>
+              {cardContent[activeTab]}
             </div>
             </div>{/* end flex centering layer */}
           </div>
@@ -342,17 +373,20 @@ export default function PayForAccessShowcase() {
               </Link>
             </div>
 
-            {/* Divider */}
-            <div className="mt-6 mb-2" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }} />
 
             {/* Tabs */}
+            <style>{`
+              @keyframes pfaFillProgress {
+                from { width: 0%; }
+                to { width: 100%; }
+              }
+            `}</style>
             <div className="flex flex-col">
               {tabs.map((tab, i) => (
                 <button
                   key={i}
                   onClick={() => switchTab(i)}
-                  className="w-full text-left py-4 transition-all duration-200"
-                  style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
+                  className="w-full text-left py-4 transition-all duration-200 relative"
                 >
                   <span
                     className="text-sm block"
@@ -376,6 +410,19 @@ export default function PayForAccessShowcase() {
                     <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
                       {tab.description}
                     </p>
+                  </div>
+                  {/* Progress line */}
+                  <div className="absolute bottom-0 left-0 w-full" style={{ height: '2px', background: 'rgba(255,255,255,0.1)' }}>
+                    {activeTab === i && (
+                      <div
+                        key={`pfa-progress-${activeTab}`}
+                        style={{
+                          height: '100%',
+                          background: 'rgba(255,255,255,0.8)',
+                          animation: 'pfaFillProgress 8s linear forwards',
+                        }}
+                      />
+                    )}
                   </div>
                 </button>
               ))}

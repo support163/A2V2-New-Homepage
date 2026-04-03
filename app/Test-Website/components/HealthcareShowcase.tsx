@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Shield, Zap, Bell } from 'lucide-react'
 
@@ -41,139 +41,185 @@ const tabs: Tab[] = [
 ]
 
 /* ─── Glass card content ─── */
-const innerBg = 'rgba(255,255,255,0.08)'
-const avatarBg = 'rgba(255,255,255,0.15)'
+const gradientDot: React.CSSProperties = {
+  width: 12,
+  height: 12,
+  borderRadius: '50%',
+  background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)',
+  flexShrink: 0,
+}
 
-function PatientEngagementCard() {
-  const patients = [
-    { initials: 'SJ', name: 'Sarah J.', protocol: 'HRT Protocol · Week 6', status: 'Sent', sbg: 'rgba(37,99,235,0.3)', sc: '#93c5fd' },
-    { initials: 'MK', name: 'Michael K.', protocol: 'NAD+ Protocol · Week 3', status: 'Opened', sbg: 'rgba(22,163,74,0.3)', sc: '#86efac' },
-    { initials: 'AL', name: 'Alyssa R.', protocol: 'Peptide Protocol · Week 1', status: 'Scheduled', sbg: 'rgba(217,119,6,0.3)', sc: '#fcd34d' },
-    { initials: 'DP', name: 'Derek P.', protocol: 'Biomarker Review · Week 2', status: 'Sent', sbg: 'rgba(37,99,235,0.3)', sc: '#93c5fd' },
-  ]
+function ModalHeader({ title }: { title: string }) {
   return (
-    <div className="flex flex-col gap-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Patient Queue</p>
-      {patients.map((p) => (
-        <div key={p.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5" style={{ background: innerBg }}>
-          <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold flex-shrink-0" style={{ background: avatarBg, color: 'rgba(255,255,255,0.8)' }}>
-            {p.initials}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs font-semibold truncate text-white">{p.name}</p>
-            <p className="text-[10px] truncate" style={{ color: 'rgba(255,255,255,0.45)' }}>{p.protocol}</p>
-          </div>
-          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap" style={{ background: p.sbg, color: p.sc }}>
-            {p.status}
-          </span>
+    <div className="flex items-center justify-center gap-2 mb-3">
+      <div style={gradientDot} />
+      <span className="text-sm font-semibold text-white">{title}</span>
+    </div>
+  )
+}
+
+function MiniTabBar({ items, active = 0 }: { items: string[]; active?: number }) {
+  return (
+    <div className="flex items-center gap-0.5 mb-3 rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
+      {items.map((t, i) => (
+        <div
+          key={t}
+          className="flex-1 text-center text-[10px] font-medium py-1 rounded-md"
+          style={{
+            background: i === active ? 'rgba(255,255,255,0.12)' : 'transparent',
+            color: i === active ? '#ffffff' : 'rgba(255,255,255,0.4)',
+          }}
+        >
+          {t}
         </div>
       ))}
+    </div>
+  )
+}
+
+function ActionRow({ cancelLabel = 'Cancel', confirmLabel }: { cancelLabel?: string; confirmLabel: string }) {
+  return (
+    <div className="flex items-center justify-between mt-3">
+      <button className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{cancelLabel}</button>
+      <button
+        className="text-[11px] font-semibold rounded-lg px-3 py-1.5"
+        style={{ background: '#ffffff', color: '#000000' }}
+      >
+        {confirmLabel}
+      </button>
+    </div>
+  )
+}
+
+function PatientEngagementCard() {
+  return (
+    <div className="flex flex-col">
+      <ModalHeader title="New patient sequence" />
+      <MiniTabBar items={['SMS', 'Email', 'Phone']} />
+      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Select protocol</p>
+      <div
+        className="flex items-center justify-between rounded-lg px-3 py-2 mb-3 text-xs"
+        style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)' }}
+      >
+        <span>NAD+ IV Therapy — Week 3</span>
+        <span style={{ color: 'rgba(255,255,255,0.4)' }}>▾</span>
+      </div>
+      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Timing</p>
+      <div
+        className="flex items-center justify-between rounded-lg px-3 py-2 text-xs"
+        style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)' }}
+      >
+        <span>Send 48 hours before appointment</span>
+        <span style={{ color: 'rgba(255,255,255,0.4)' }}>▾</span>
+      </div>
+      <ActionRow confirmLabel="Create sequence" />
     </div>
   )
 }
 
 function ProtocolCard() {
   const protocols = [
-    { name: 'NAD+ Therapy', patients: '48 patients', pct: 76 },
-    { name: 'HRT Protocol', patients: '124 patients', pct: 82 },
-    { name: 'Peptide Therapy', patients: '31 patients', pct: 61 },
-    { name: 'Biomarker Tracking', patients: '89 patients', pct: 45 },
+    { name: 'NAD+ IV Therapy', count: '8 patients' },
+    { name: 'HRT Optimization', count: '14 patients' },
+    { name: 'Peptide BPC-157', count: '6 patients' },
   ]
   return (
-    <div className="flex flex-col gap-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Active Protocols</p>
-      {protocols.map((p) => (
-        <div key={p.name} className="rounded-xl px-3 py-2.5" style={{ background: innerBg }}>
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-semibold text-white">{p.name}</span>
-            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.patients}</span>
+    <div className="flex flex-col">
+      <ModalHeader title="Protocol overview" />
+      <MiniTabBar items={['Active', 'Completed', 'Archived']} />
+      <div className="flex flex-col">
+        {protocols.map((p, i) => (
+          <div
+            key={p.name}
+            className="flex items-center justify-between py-2.5"
+            style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />
+              <span className="text-sm text-white">{p.name}</span>
+            </div>
+            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.count}</span>
           </div>
-          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.12)' }}>
-            <div className="h-full bg-blue-400 rounded-full" style={{ width: `${p.pct}%` }} />
-          </div>
-          <div className="text-right mt-1">
-            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.pct}% adherence</span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className="mt-3 text-center">
+        <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>28 active protocols</span>
+      </div>
     </div>
   )
 }
 
 function AnalyticsCard() {
-  const bars = [85, 78, 70, 62, 58, 50, 44, 35]
   return (
-    <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-2 gap-2.5">
-        <div className="rounded-xl p-3" style={{ background: innerBg }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Patient retention</p>
-          <p className="text-xl font-semibold text-white mt-0.5">87%</p>
-          <p className="text-[10px] text-green-400 mt-0.5">+12% vs. baseline</p>
-        </div>
-        <div className="rounded-xl p-3" style={{ background: innerBg }}>
-          <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>At-risk patients</p>
-          <p className="text-xl font-semibold text-white mt-0.5">4</p>
-          <p className="text-[10px] text-amber-400 mt-0.5">Flagged this week</p>
-        </div>
+    <div className="flex flex-col">
+      <ModalHeader title="Patient risk alert" />
+      <div
+        className="rounded-lg p-3 mb-3"
+        style={{ background: 'rgba(255,100,100,0.1)', border: '1px solid rgba(255,100,100,0.15)' }}
+      >
+        <p className="text-sm font-semibold text-white">2 patients flagged</p>
+        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          Engagement dropped below threshold
+        </p>
       </div>
-      <div className="flex flex-col gap-2">
-        {[
-          { name: 'Rachel M.', detail: 'No check-in in 18 days' },
-          { name: 'James T.', detail: 'Missed 2 protocol milestones' },
-        ].map((a) => (
-          <div key={a.name} className="flex items-center gap-3 rounded-xl px-3 py-2" style={{ background: 'rgba(217,119,6,0.12)', border: '1px solid rgba(217,119,6,0.2)' }}>
-            <div className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
-            <div>
-              <p className="text-xs font-semibold text-white">{a.name}</p>
-              <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.45)' }}>{a.detail}</p>
-            </div>
+      {[
+        { name: 'Jennifer W.', detail: 'Missed 2 check-ins', time: '2h ago' },
+        { name: 'Robert T.', detail: 'Labs overdue 12 days', time: '5h ago' },
+      ].map((p) => (
+        <div
+          key={p.name}
+          className="flex items-center justify-between py-2.5"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <div>
+            <p className="text-xs font-semibold text-white">{p.name}</p>
+            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.detail}</p>
           </div>
-        ))}
-      </div>
-      <div className="rounded-xl p-3" style={{ background: innerBg }}>
-        <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Retention trend (8 weeks)</p>
-        <div className="flex items-end gap-1 h-10">
-          {bars.map((h, i) => (
-            <div key={i} className={`flex-1 rounded-sm ${i === bars.length - 1 ? 'bg-blue-400' : 'bg-blue-400/30'}`} style={{ height: `${h}%` }} />
-          ))}
+          <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{p.time}</span>
         </div>
-      </div>
+      ))}
+      <ActionRow cancelLabel="Dismiss" confirmLabel="Review patients" />
     </div>
   )
 }
 
 function ComplianceCard() {
   const items = [
-    { label: 'HIPAA Compliant', sub: 'Full BAA provided on all plans' },
-    { label: 'AES-256 Encryption', sub: 'Data encrypted at rest and in transit' },
-    { label: 'Private LLM', sub: 'Your data never touches public models' },
+    'HIPAA compliance active',
+    'AES-256 encryption enabled',
+    'Private LLM deployed',
+    'BAA signed and stored',
+    'Last pen test: 14 days ago',
   ]
-  const badges = ['BAA provided', 'Private LLM', 'Audit logs', 'ITAR compliant', 'Pen tested', 'RBAC']
   return (
-    <div className="flex flex-col gap-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Security overview</p>
-      {items.map((s) => (
-        <div key={s.label} className="flex items-center gap-3 rounded-xl px-3 py-2.5" style={{ background: innerBg }}>
-          <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(22,163,74,0.2)' }}>
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8l3 3 7-7" stroke="#86efac" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+    <div className="flex flex-col">
+      <ModalHeader title="Security status" />
+      <div className="flex flex-col">
+        {items.map((item, i) => (
+          <div
+            key={item}
+            className="flex items-center gap-2.5 py-2"
+            style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
+          >
+            <div
+              className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ border: '1px solid rgba(255,255,255,0.3)' }}
+            >
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3 3 7-7" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <span className="text-xs text-white">{item}</span>
           </div>
-          <div>
-            <p className="text-xs font-semibold text-white">{s.label}</p>
-            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.sub}</p>
-          </div>
-        </div>
-      ))}
-      <div className="flex flex-wrap gap-1.5 mt-1">
-        {badges.map((b) => (
-          <span key={b} className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-medium" style={{ border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)' }}>
-            <svg width="8" height="8" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8l3 3 7-7" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            {b}
-          </span>
         ))}
+      </div>
+      <div className="mt-3 flex justify-center">
+        <button
+          className="text-[11px] font-medium rounded-full px-4 py-1.5"
+          style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}
+        >
+          View full audit log
+        </button>
       </div>
     </div>
   )
@@ -189,6 +235,13 @@ const cardContent = [
 /* ─── Main component ─── */
 export default function HealthcareShowcase() {
   const [activeTab, setActiveTab] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length)
+    }, 8000)
+    return () => clearInterval(interval)
+  }, [activeTab])
 
   function switchTab(i: number) {
     if (i === activeTab) return
@@ -260,17 +313,20 @@ export default function HealthcareShowcase() {
               </Link>
             </div>
 
-            {/* Divider */}
-            <div className="mt-6 mb-2" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }} />
 
             {/* Tabs */}
+            <style>{`
+              @keyframes hcFillProgress {
+                from { width: 0%; }
+                to { width: 100%; }
+              }
+            `}</style>
             <div className="flex flex-col">
               {tabs.map((tab, i) => (
                 <button
                   key={i}
                   onClick={() => switchTab(i)}
-                  className="w-full text-left py-4 transition-all duration-200"
-                  style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
+                  className="w-full text-left py-4 transition-all duration-200 relative"
                 >
                   <span
                     className="text-sm block"
@@ -294,6 +350,19 @@ export default function HealthcareShowcase() {
                     <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
                       {tab.description}
                     </p>
+                  </div>
+                  {/* Progress line */}
+                  <div className="absolute bottom-0 left-0 w-full" style={{ height: '2px', background: 'rgba(255,255,255,0.1)' }}>
+                    {activeTab === i && (
+                      <div
+                        key={`hc-progress-${activeTab}`}
+                        style={{
+                          height: '100%',
+                          background: 'rgba(255,255,255,0.8)',
+                          animation: 'hcFillProgress 8s linear forwards',
+                        }}
+                      />
+                    )}
                   </div>
                 </button>
               ))}
@@ -337,31 +406,14 @@ export default function HealthcareShowcase() {
               style={{
                 maxWidth: '300px',
                 padding: '20px',
-                background: 'rgba(255,255,255,0.12)',
+                background: 'rgba(0,0,0,0.55)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
               }}
             >
-              <div style={{ position: 'relative', height: '300px', overflow: 'hidden' }}>
-                {cardContent.map((content, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      opacity: activeTab === i ? 1 : 0,
-                      pointerEvents: activeTab === i ? 'auto' : 'none',
-                      transition: 'opacity 300ms ease',
-                    }}
-                  >
-                    {content}
-                  </div>
-                ))}
-              </div>
+              {cardContent[activeTab]}
             </div>
             </div>{/* end flex centering layer */}
           </div>

@@ -9,7 +9,7 @@ const badges = [
 export default function TrustBadges() {
   return (
     <section style={{ background: '#0F0E0D' }} className="py-20">
-      <div className="mx-auto max-w-[1000px] px-6">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
         <div
           data-animate=""
           className="flex flex-col md:flex-row md:items-center md:justify-between gap-10"

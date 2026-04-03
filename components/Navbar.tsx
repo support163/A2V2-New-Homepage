@@ -136,9 +136,12 @@ export default function Navbar() {
                 }`}
                 style={{
                   background: 'rgba(0, 0, 0, 0.65)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  isolation: 'isolate',
+                  zIndex: 60,
                 }}
                 onMouseEnter={openSolutions}
                 onMouseLeave={closeDropdowns}
@@ -206,9 +209,12 @@ export default function Navbar() {
                 }`}
                 style={{
                   background: 'rgba(0, 0, 0, 0.65)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  isolation: 'isolate',
+                  zIndex: 60,
                 }}
                 onMouseEnter={openFeatures}
                 onMouseLeave={closeDropdowns}
@@ -267,7 +273,7 @@ export default function Navbar() {
               href="https://www.app.a2v2.ai/signin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium mr-1 transition-colors"
+              className="nav-pill text-btn font-medium px-4 py-2 transition-colors"
               style={{ color: 'rgba(255,255,255,0.85)' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.85)')}
