@@ -10,7 +10,7 @@ export default function HeroSection() {
 
       {/* Background image */}
       <Image
-        src="/images/Hero-background-Image3.jpg"
+        src="/images/Hero-background-Image4.jpg"
         alt=""
         fill
         sizes="100vw"
