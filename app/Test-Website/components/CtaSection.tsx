@@ -17,7 +17,7 @@ export default function CtaSection() {
             href="https://www.app.a2v2.ai/signin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-xs font-semibold tracking-widest uppercase transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
             style={{ background: '#ffffff', color: '#0F0E0D' }}
           >
             Get Started

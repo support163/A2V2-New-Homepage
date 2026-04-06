@@ -28,7 +28,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-[512px]">
-              AI-powered lead engagement built for real estate. Capture more leads, book more viewings, close more deals.
+              AI-powered engagement for healthcare and creators. Clone yourself, scale your influence, and grow revenue on autopilot.
             </p>
             <a
               href={DEMO_BOOKING_URL}

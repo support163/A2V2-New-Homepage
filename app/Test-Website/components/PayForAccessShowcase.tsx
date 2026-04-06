@@ -45,7 +45,9 @@ const gradientDot: React.CSSProperties = {
   width: 12,
   height: 12,
   borderRadius: '50%',
-  background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)',
+  backgroundImage: "url('/images/dot-image.jpg')",
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
   flexShrink: 0,
 }
 
@@ -269,9 +271,9 @@ export default function PayForAccessShowcase() {
           {/* Left: label + heading */}
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)' }} />
-              <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                PayForAccess
+              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundImage: "url('/images/dot-image.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                Pay For Access
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
