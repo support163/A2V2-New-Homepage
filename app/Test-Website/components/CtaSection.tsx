@@ -37,7 +37,7 @@ export default function CtaSection() {
           className="w-full h-auto pointer-events-none"
           style={{ display: 'block', verticalAlign: 'bottom' }}
         />
-        <div
+<div
           className="absolute bottom-0 left-0 right-0 pointer-events-none"
           style={{
             height: '280px',
