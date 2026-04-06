@@ -269,7 +269,7 @@ export default function PayForAccessShowcase() {
           {/* Left: label + heading */}
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-white flex-shrink-0" />
+              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)' }} />
               <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.5)' }}>
                 PayForAccess
               </span>

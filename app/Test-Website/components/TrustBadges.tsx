@@ -16,7 +16,7 @@ export default function TrustBadges() {
         >
 
           {/* Left */}
-          <div className="flex flex-col items-start" style={{ maxWidth: '500px' }}>
+          <div className="flex flex-col items-start">
             <h2 className="text-3xl md:text-4xl font-semibold text-white">
               Built to earn trust
             </h2>
@@ -43,14 +43,14 @@ export default function TrustBadges() {
                 key={title}
                 className="flex flex-col items-center justify-center flex-shrink-0"
                 style={{
-                  width: '88px',
-                  height: '88px',
+                  width: '116px',
+                  height: '116px',
                   borderRadius: '50%',
                   border: '1px solid rgba(255,255,255,0.2)',
                 }}
               >
-                <span className="text-sm font-bold text-white leading-tight">{title}</span>
-                <span className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</span>
+                <span className="text-lg font-bold text-white leading-tight">{title}</span>
+                <span className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</span>
               </div>
             ))}
           </div>

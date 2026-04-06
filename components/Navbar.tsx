@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { APP_URL } from '@/lib/constants'
 import { HeartPlus, ChevronDown, Landmark, LandPlot, LockKeyhole, Sparkles } from 'lucide-react'
 
@@ -43,15 +44,36 @@ const pillStyle: React.CSSProperties = {
   boxShadow: '0 4px 24px rgba(0, 0, 0, 0.15)',
 }
 
+const dropdownPanelStyle: React.CSSProperties = {
+  position: 'fixed',
+  width: '320px',
+  background: 'rgba(0, 0, 0, 0.65)',
+  backdropFilter: 'blur(16px)',
+  WebkitBackdropFilter: 'blur(16px)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  borderRadius: '12px',
+  zIndex: 9999,
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [featuresOpen, setFeaturesOpen] = useState(false)
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false)
   const [mobileFeaturesOpen, setMobileFeaturesOpen] = useState(false)
-  const appUrl = APP_URL
+  const [mounted, setMounted] = useState(false)
 
+  const solutionsTriggerRef = useRef<HTMLButtonElement>(null)
+  const featuresTriggerRef = useRef<HTMLButtonElement>(null)
+  const solutionsDropdownRef = useRef<HTMLDivElement>(null)
+  const featuresDropdownRef = useRef<HTMLDivElement>(null)
+
+  const appUrl = APP_URL
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   function clearCloseTimer() {
     if (closeTimeout.current) {
@@ -79,9 +101,39 @@ export default function Navbar() {
     }, 150)
   }
 
+  // Click-outside handler
   useEffect(() => {
+    if (!solutionsOpen && !featuresOpen) return
+    function handleClick(e: MouseEvent) {
+      const target = e.target as Node
+      if (
+        solutionsTriggerRef.current?.contains(target) ||
+        featuresTriggerRef.current?.contains(target) ||
+        solutionsDropdownRef.current?.contains(target) ||
+        featuresDropdownRef.current?.contains(target)
+      ) return
+      setSolutionsOpen(false)
+      setFeaturesOpen(false)
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [solutionsOpen, featuresOpen])
+
+useEffect(() => {
     return () => { clearCloseTimer() }
   }, [])
+
+  function getSolutionsPos() {
+    if (!solutionsTriggerRef.current) return { top: 0, left: 0 }
+    const rect = solutionsTriggerRef.current.getBoundingClientRect()
+    return { top: rect.bottom + 16, left: rect.left + rect.width / 2 }
+  }
+
+  function getFeaturesPos() {
+    if (!featuresTriggerRef.current) return { top: 0, left: 0 }
+    const rect = featuresTriggerRef.current.getBoundingClientRect()
+    return { top: rect.bottom + 16, left: rect.left + rect.width / 2 }
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full pointer-events-none">
@@ -107,13 +159,13 @@ export default function Navbar() {
           {/* Desktop nav links — centered absolutely */}
           <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 list-none">
 
-            {/* Solutions dropdown */}
+            {/* Solutions trigger */}
             <li
-              className="relative"
               onMouseEnter={openSolutions}
               onMouseLeave={closeDropdowns}
             >
               <button
+                ref={solutionsTriggerRef}
                 className="nav-pill flex items-center gap-1 text-btn font-medium px-4 py-2"
                 style={{ color: 'rgba(255,255,255,0.85)' }}
                 onClick={() => setSolutionsOpen((prev) => !prev)}
@@ -126,67 +178,15 @@ export default function Navbar() {
                   className={`transition-transform duration-200 ${solutionsOpen ? 'rotate-180' : ''}`}
                 />
               </button>
-
-              {/* Dropdown panel */}
-              <div
-                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[320px] rounded-xl transition-all duration-150 ${
-                  solutionsOpen
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 -translate-y-1 pointer-events-none'
-                }`}
-                style={{
-                  background: 'rgba(0, 0, 0, 0.65)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  isolation: 'isolate',
-                  zIndex: 60,
-                }}
-                onMouseEnter={openSolutions}
-                onMouseLeave={closeDropdowns}
-              >
-                <div className="px-5 pt-4 pb-3 flex items-center gap-2">
-                  <LandPlot size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
-                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                    Solutions
-                  </p>
-                </div>
-                <div className="py-2">
-                  {solutionsItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-                      onClick={() => setSolutionsOpen(false)}
-                    >
-                      <span
-                        className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
-                        style={{ background: 'rgba(255,255,255,0.1)' }}
-                      >
-                        <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
-                      </span>
-                      <div>
-                        <p className="text-[13px] font-semibold leading-tight text-white">{item.title}</p>
-                        <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                          {item.subtitle}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </li>
 
-            {/* Features dropdown */}
+            {/* Features trigger */}
             <li
-              className="relative"
               onMouseEnter={openFeatures}
               onMouseLeave={closeDropdowns}
             >
               <button
+                ref={featuresTriggerRef}
                 className="nav-pill flex items-center gap-1 text-btn font-medium px-4 py-2"
                 style={{ color: 'rgba(255,255,255,0.85)' }}
                 onClick={() => setFeaturesOpen((prev) => !prev)}
@@ -199,58 +199,6 @@ export default function Navbar() {
                   className={`transition-transform duration-200 ${featuresOpen ? 'rotate-180' : ''}`}
                 />
               </button>
-
-              {/* Dropdown panel */}
-              <div
-                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[320px] rounded-xl transition-all duration-150 ${
-                  featuresOpen
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 -translate-y-1 pointer-events-none'
-                }`}
-                style={{
-                  background: 'rgba(0, 0, 0, 0.65)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  isolation: 'isolate',
-                  zIndex: 60,
-                }}
-                onMouseEnter={openFeatures}
-                onMouseLeave={closeDropdowns}
-              >
-                <div className="px-5 pt-4 pb-3 flex items-center gap-2">
-                  <Sparkles size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
-                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                    Features
-                  </p>
-                </div>
-                <div className="py-2">
-                  {featuresItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-                      onClick={() => setFeaturesOpen(false)}
-                    >
-                      <span
-                        className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
-                        style={{ background: 'rgba(255,255,255,0.1)' }}
-                      >
-                        <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
-                      </span>
-                      <div>
-                        <p className="text-[13px] font-semibold leading-tight text-white">{item.title}</p>
-                        <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                          {item.subtitle}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </li>
 
             {/* Pricing & Blog */}
@@ -431,6 +379,108 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Portal dropdowns — rendered to document.body, outside navbar stacking context */}
+      {mounted && createPortal(
+        <>
+          {/* Solutions dropdown */}
+          <div
+            ref={solutionsDropdownRef}
+            style={{
+              ...dropdownPanelStyle,
+              top: getSolutionsPos().top,
+              left: getSolutionsPos().left,
+              transform: 'translateX(-50%)',
+              opacity: solutionsOpen ? 1 : 0,
+              pointerEvents: solutionsOpen ? 'auto' : 'none',
+              transition: 'opacity 150ms ease',
+            }}
+            onMouseEnter={openSolutions}
+            onMouseLeave={closeDropdowns}
+          >
+            <div className="px-5 pt-4 pb-3 flex items-center gap-2">
+              <LandPlot size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
+              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                Solutions
+              </p>
+            </div>
+            <div className="py-2">
+              {solutionsItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                  onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                  onClick={() => setSolutionsOpen(false)}
+                >
+                  <span
+                    className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
+                    style={{ background: 'rgba(255,255,255,0.1)' }}
+                  >
+                    <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
+                  </span>
+                  <div>
+                    <p className="text-[13px] font-semibold leading-tight text-white">{item.title}</p>
+                    <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Features dropdown */}
+          <div
+            ref={featuresDropdownRef}
+            style={{
+              ...dropdownPanelStyle,
+              top: getFeaturesPos().top,
+              left: getFeaturesPos().left,
+              transform: 'translateX(-50%)',
+              opacity: featuresOpen ? 1 : 0,
+              pointerEvents: featuresOpen ? 'auto' : 'none',
+              transition: 'opacity 150ms ease',
+            }}
+            onMouseEnter={openFeatures}
+            onMouseLeave={closeDropdowns}
+          >
+            <div className="px-5 pt-4 pb-3 flex items-center gap-2">
+              <Sparkles size={14} className="-mt-[3px]" style={{ color: 'rgba(255,255,255,0.4)' }} />
+              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                Features
+              </p>
+            </div>
+            <div className="py-2">
+              {featuresItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                  onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                  onClick={() => setFeaturesOpen(false)}
+                >
+                  <span
+                    className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg"
+                    style={{ background: 'rgba(255,255,255,0.1)' }}
+                  >
+                    <item.icon size={18} style={{ color: 'rgba(255,255,255,0.7)' }} />
+                  </span>
+                  <div>
+                    <p className="text-[13px] font-semibold leading-tight text-white">{item.title}</p>
+                    <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </>,
+        document.body
       )}
     </header>
   )

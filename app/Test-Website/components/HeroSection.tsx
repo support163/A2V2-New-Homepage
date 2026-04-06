@@ -40,7 +40,7 @@ export default function HeroSection() {
             href="/features/pay-for-access"
             className="inline-flex items-center gap-2 border border-white/30 rounded-full px-4 py-1.5 text-sm text-white/90 hover:border-white/60 hover:text-white transition-colors mb-6 bg-white/10 backdrop-blur-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)' }} />
             Now live: PayForAccess for creators
             <span className="text-white/60 ml-0.5">&#8250;</span>
           </Link>

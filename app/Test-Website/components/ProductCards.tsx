@@ -220,7 +220,7 @@ export default function ProductCards() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <CardColumn
             bgImage="/images/Ui-Card-Background1.jpg"
-            dotColor="#ffffff"
+            dotColor="radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)"
             tag="Live"
             title="Healthcare Platform"
             description="HIPAA-compliant AI that automates patient engagement, tracks treatment adherence, and recovers lost revenue for longevity and HRT clinics."
@@ -231,7 +231,7 @@ export default function ProductCards() {
           />
           <CardColumn
             bgImage="/images/Ui-Card-Background2.jpg"
-            dotColor="#ffffff"
+            dotColor="radial-gradient(circle at top left, #e8e0d8, #f5c77e, #ef8a3e, #e05a2b)"
             tag="New"
             title="PayForAccess"
             description="Let followers pay $4.99 for 24-hour access to an AI trained on your content. Earn passive income while your AI handles conversations."
