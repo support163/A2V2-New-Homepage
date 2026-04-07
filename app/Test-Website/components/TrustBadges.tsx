@@ -1,10 +1,5 @@
 import Link from 'next/link'
 
-const badges = [
-  { title: 'HIPAA', sub: 'Compliant' },
-  { title: 'SOC 2', sub: 'Certified' },
-  { title: 'AES-256', sub: 'Encryption' },
-]
 
 export default function TrustBadges() {
   return (
@@ -21,7 +16,7 @@ export default function TrustBadges() {
               Built to earn trust
             </h2>
             <p className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Your trust is our foundation. A2V2.ai is designed with a deep commitment to data privacy, HIPAA compliance, and enterprise-grade security across both platforms.
+              Your trust is our foundation. A2V2.ai is built with HIPAA-compliant infrastructure, encrypted data handling, and private LLM deployment so your data never touches public AI models.
             </p>
             <div className="mt-6">
               <Link
@@ -37,8 +32,12 @@ export default function TrustBadges() {
           </div>
 
           {/* Right */}
-          <div className="flex items-center gap-6 md:justify-end">
-            {badges.map(({ title, sub }) => (
+          <div className="flex items-center gap-8 justify-center md:justify-end">
+            {[
+              { title: 'HIPAA', sub: 'Compliant' },
+              { title: 'Encrypted', sub: 'Infrastructure' },
+              { title: 'Private LLM', sub: 'Deployment' },
+            ].map(({ title, sub }) => (
               <div
                 key={title}
                 className="flex flex-col items-center justify-center flex-shrink-0"
@@ -49,8 +48,8 @@ export default function TrustBadges() {
                   border: '1px solid rgba(255,255,255,0.2)',
                 }}
               >
-                <span className="text-lg font-bold text-white leading-tight">{title}</span>
-                <span className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</span>
+                <span className="text-lg font-bold text-white leading-tight text-center px-2">{title}</span>
+                <span className="text-sm mt-0.5 text-center" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</span>
               </div>
             ))}
           </div>

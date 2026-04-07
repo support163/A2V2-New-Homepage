@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { APP_URL } from '@/lib/constants'
-import { HeartPlus, ChevronDown, Landmark, LandPlot, LockKeyhole, Sparkles } from 'lucide-react'
+import { HeartPlus, ChevronDown, Landmark, LandPlot, LockKeyhole, Sparkles, Shield } from 'lucide-react'
 
 const navLinks = [
   { label: 'Pricing', href: '/pricing' },
@@ -33,6 +33,12 @@ const featuresItems = [
     title: 'Pay For Access',
     subtitle: 'Monetize your content with gated access',
     href: '/features/pay-for-access',
+  },
+  {
+    icon: Shield,
+    title: 'Security',
+    subtitle: 'How we protect your data',
+    href: '/features/security',
   },
 ]
 
@@ -327,7 +333,7 @@ useEffect(() => {
               </button>
               <div
                 className={`overflow-hidden transition-all duration-200 ${
-                  mobileFeaturesOpen ? 'max-h-[200px] mt-2' : 'max-h-0'
+                  mobileFeaturesOpen ? 'max-h-[300px] mt-2' : 'max-h-0'
                 }`}
               >
                 <div className="flex flex-col gap-2 pl-2">
