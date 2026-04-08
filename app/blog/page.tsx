@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main>
+    <main style={{ background: '#0F0E0D' }}>
       <ScrollAnimator />
       <Navbar />
       <BlogContent />

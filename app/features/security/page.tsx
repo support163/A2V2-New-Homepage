@@ -78,10 +78,10 @@ function HeroSection() {
   return (
     <section
       className="relative flex items-center justify-center overflow-hidden -mt-[72px]"
-      style={{ background: '#0F0E0D', height: '60vh' }}
+      style={{ background: '#0F0E0D', height: '90vh' }}
     >
       <Image
-        src="/images/hero-background-Image4.jpg"
+        src="/images/hero-background-Image6.jpg"
         alt=""
         fill
         className="object-cover"
@@ -90,7 +90,6 @@ function HeroSection() {
         priority
         style={{ zIndex: 0 }}
       />
-      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.45)', zIndex: 1 }} />
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #0F0E0D)', zIndex: 2 }}
@@ -115,7 +114,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '560px' }}
+          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '560px' }}
         >
           A2V2.ai is built from the ground up with HIPAA-compliant infrastructure, encrypted data handling, and secured LLM access under a Business Associate Agreement.
         </p>
@@ -135,9 +134,9 @@ function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-colors"
-            style={{ border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
           >
             Book a Demo
           </a>

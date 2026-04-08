@@ -91,10 +91,10 @@ function HeroSection() {
   return (
     <section
       className="relative flex items-center justify-center overflow-hidden -mt-[72px]"
-      style={{ background: '#0F0E0D', height: '60vh' }}
+      style={{ background: '#0F0E0D', height: '90vh' }}
     >
       <Image
-        src="/images/hero-background-Image4.jpg"
+        src="/images/hero-background-Image5.jpg"
         alt=""
         fill
         className="object-cover"
@@ -103,7 +103,6 @@ function HeroSection() {
         priority
         style={{ zIndex: 0 }}
       />
-      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.45)', zIndex: 1 }} />
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #0F0E0D)', zIndex: 2 }}
@@ -127,7 +126,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '580px' }}
+          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '580px' }}
         >
           It only takes 2 minutes to set up your personal AI that can talk to thousands of people for $0. Then upgrade on your terms.
         </p>
@@ -147,9 +146,9 @@ function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-colors"
-            style={{ border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
           >
             Book a Demo
           </a>
@@ -161,27 +160,7 @@ function HeroSection() {
 
 /* ─── Section 2: Pricing Cards ─── */
 
-const monthlyPrices = { starter: 19.99, pro: 39.99, enterprise: 99.99 }
-const yearlyPrices = { starter: 15.99, pro: 31.99, enterprise: 79.99 }
-
 function PricingSection() {
-  const [yearly, setYearly] = useState(false)
-  const [priceOpacity, setPriceOpacity] = useState(1)
-
-  function switchBilling(toYearly: boolean) {
-    if (toYearly === yearly) return
-    setPriceOpacity(0)
-    setTimeout(() => {
-      setYearly(toYearly)
-      setPriceOpacity(1)
-    }, 150)
-  }
-
-  const displayPrice = (tier: keyof typeof monthlyPrices) => {
-    const p = yearly ? yearlyPrices[tier] : monthlyPrices[tier]
-    return `$${p.toFixed(2)}`
-  }
-
   const cardBase: React.CSSProperties = {
     background: 'rgba(255,255,255,0.04)',
     border: '1px solid rgba(255,255,255,0.08)',
@@ -211,58 +190,9 @@ function PricingSection() {
     textDecoration: 'none',
   }
 
-  const priceStyle: React.CSSProperties = {
-    opacity: priceOpacity,
-    transition: 'opacity 0.15s',
-  }
-
-  const billingNoteStyle: React.CSSProperties = {
-    opacity: priceOpacity,
-    transition: 'opacity 0.15s',
-    color: 'rgba(255,255,255,0.3)',
-    fontSize: '12px',
-    marginTop: '4px',
-    minHeight: '18px',
-  }
-
   return (
     <section style={{ background: '#0F0E0D' }} className="py-20">
       <div className="mx-auto max-w-[1280px] px-6">
-
-        {/* Billing toggle */}
-        <div data-animate="" className="flex items-center justify-center mb-12">
-          <div
-            className="flex items-center rounded-full p-1"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-          >
-            <button
-              onClick={() => switchBilling(false)}
-              className="rounded-full px-5 py-2 text-sm font-medium transition-colors"
-              style={{
-                background: !yearly ? 'rgba(255,255,255,0.12)' : 'transparent',
-                color: !yearly ? '#fff' : 'rgba(255,255,255,0.5)',
-              }}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => switchBilling(true)}
-              className="flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors"
-              style={{
-                background: yearly ? 'rgba(255,255,255,0.12)' : 'transparent',
-                color: yearly ? '#fff' : 'rgba(255,255,255,0.5)',
-              }}
-            >
-              Yearly
-              <span
-                className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                style={{ background: 'rgba(37,99,235,0.3)', color: '#60a5fa' }}
-              >
-                Save 20%
-              </span>
-            </button>
-          </div>
-        </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -277,12 +207,9 @@ function PricingSection() {
                 Individual creators, small YouTubers, or those just getting started.
               </p>
             </div>
-            <div className="mt-6 flex items-baseline gap-1" style={priceStyle}>
+            <div className="mt-6 flex items-baseline gap-1">
               <span className="text-4xl font-semibold text-white">$0</span>
               <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>/month</span>
-            </div>
-            <div style={billingNoteStyle}>
-              {yearly ? 'free forever' : ''}
             </div>
             <div className="mt-6 pt-6 flex flex-col flex-1 gap-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <FeatureRow text="1 AI clone" active={true} />
@@ -342,12 +269,9 @@ function PricingSection() {
                 Solo creators ready to engage their audience and capture leads.
               </p>
             </div>
-            <div className="mt-6 flex items-baseline gap-1" style={priceStyle}>
-              <span className="text-4xl font-semibold text-white">{displayPrice('starter')}</span>
+            <div className="mt-6 flex items-baseline gap-1">
+              <span className="text-4xl font-semibold text-white">$19.99</span>
               <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>/month</span>
-            </div>
-            <div style={billingNoteStyle}>
-              {yearly ? 'billed annually' : ''}
             </div>
             <div className="mt-6 pt-6 flex flex-col flex-1 gap-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <FeatureRow text="1 AI clone" active={true} />
@@ -407,12 +331,9 @@ function PricingSection() {
                 Growing channels and small businesses with more content needs.
               </p>
             </div>
-            <div className="mt-6 flex items-baseline gap-1" style={priceStyle}>
-              <span className="text-4xl font-semibold text-white">{displayPrice('pro')}</span>
+            <div className="mt-6 flex items-baseline gap-1">
+              <span className="text-4xl font-semibold text-white">$39.99</span>
               <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>/month</span>
-            </div>
-            <div style={billingNoteStyle}>
-              {yearly ? 'billed annually' : ''}
             </div>
             <div className="mt-6 pt-6 flex flex-col flex-1 gap-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <FeatureRow text="2 AI clones" active={true} />
@@ -445,12 +366,9 @@ function PricingSection() {
                 Large businesses, agencies, or creators with complex needs.
               </p>
             </div>
-            <div className="mt-6 flex items-baseline gap-1" style={priceStyle}>
-              <span className="text-4xl font-semibold text-white">{displayPrice('enterprise')}</span>
+            <div className="mt-6 flex items-baseline gap-1">
+              <span className="text-4xl font-semibold text-white">$99.99</span>
               <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>/month</span>
-            </div>
-            <div style={billingNoteStyle}>
-              {yearly ? 'billed annually' : ''}
             </div>
             <div className="mt-6 pt-6 flex flex-col flex-1 gap-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               <FeatureRow text="3 AI clones" active={true} />

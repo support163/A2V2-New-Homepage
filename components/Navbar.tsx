@@ -411,12 +411,12 @@ useEffect(() => {
                 Solutions
               </p>
             </div>
-            <div className="py-2">
+            <div className="px-2 py-2">
               {solutionsItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                  className="flex items-center gap-3.5 px-3 py-2.5 rounded-xl transition-colors"
                   onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                   onClick={() => setSolutionsOpen(false)}
@@ -459,12 +459,12 @@ useEffect(() => {
                 Features
               </p>
             </div>
-            <div className="py-2">
+            <div className="px-2 py-2">
               {featuresItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-3.5 px-5 py-2.5 transition-colors"
+                  className="flex items-center gap-3.5 px-3 py-2.5 rounded-xl transition-colors"
                   onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                   onClick={() => setFeaturesOpen(false)}
