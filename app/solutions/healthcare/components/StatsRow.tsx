@@ -55,7 +55,7 @@ const trustItems = [
   'HIPAA Compliant',
   'ITAR Compliant',
   'PHI Never Shared',
-  'Private LLM Deployment',
+  'Secured LLM Access',
 ]
 
 export default function StatsRow() {

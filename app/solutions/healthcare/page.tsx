@@ -244,7 +244,7 @@ function ComplianceBadgeCard() {
   const items = [
     'HIPAA compliance active',
     'AES-256 encryption enabled',
-    'Private LLM deployed',
+    'Secured LLM access (BAA)',
     'BAA signed and stored',
   ]
   return (
@@ -304,7 +304,7 @@ function BenefitCards() {
       bg: '/images/Ui-Card-Background2.jpg',
       dot: 'Compliance',
       title: 'Built-In HIPAA Compliance',
-      desc: '100 percent HIPAA compliant from day one. Private LLM deployment, end-to-end encryption, BAA provided, and complete audit trails.',
+      desc: '100 percent HIPAA compliant from day one. Secured LLM access under a BAA, end-to-end encryption, and complete audit trails. Your data is never used for AI training.',
       mockup: <ComplianceBadgeCard />,
     },
   ]
@@ -374,7 +374,7 @@ const showcaseTabs = [
   {
     title: 'Compliance',
     description:
-      'Private LLM deployment, AES-256 encryption, BAA provided. Your patient data never touches public models.',
+      'Secured LLM access under a BAA, AES-256 encryption, and complete audit trails. Your patient data is never used for AI training.',
   },
 ]
 
@@ -520,7 +520,7 @@ function SecurityOverviewCard() {
   const items = [
     'HIPAA compliance active',
     'AES-256 encryption',
-    'Private LLM deployed',
+    'Secured LLM access (BAA)',
     'BAA signed',
     'Last audit: 14 days ago',
   ]
@@ -838,15 +838,15 @@ function RoiCalculator() {
 const faqs = [
   {
     q: 'What makes A2V2.ai different from other healthcare AI platforms?',
-    a: 'A2V2.ai was built exclusively for healthcare from the ground up. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and use private LLM deployment so your patient data never touches public models.',
+    a: 'A2V2.ai was built exclusively for healthcare from the ground up. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and operate under a BAA so your patient data is never used for AI training.',
   },
   {
     q: 'Can I use ChatGPT or Claude for patient engagement?',
-    a: 'Not safely. ChatGPT, Claude, and Gemini are not HIPAA compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100 percent HIPAA compliant with private LLM deployment.',
+    a: 'Not safely. ChatGPT, Claude, and Gemini are not HIPAA compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100 percent HIPAA compliant with secured LLM access under a BAA.',
   },
   {
     q: 'Is A2V2.ai HIPAA compliant?',
-    a: 'Yes. 100 percent HIPAA compliant with end-to-end AES-256 encryption, private LLM deployment, BAA provided, quarterly penetration testing, and complete audit logs. Your PHI never leaves your secure environment.',
+    a: 'Yes. 100 percent HIPAA compliant with end-to-end AES-256 encryption, secured LLM access under a BAA, quarterly penetration testing, and complete audit logs. Your PHI never leaves your secure environment.',
   },
   {
     q: 'What specialties does A2V2.ai support?',

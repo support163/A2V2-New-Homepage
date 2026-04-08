@@ -117,7 +117,7 @@ function HeroSection() {
           className="text-lg mt-4 text-center"
           style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '560px' }}
         >
-          A2V2.ai is built from the ground up with HIPAA-compliant infrastructure, encrypted data handling, and private LLM deployment.
+          A2V2.ai is built from the ground up with HIPAA-compliant infrastructure, encrypted data handling, and secured LLM access under a Business Associate Agreement.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -290,14 +290,14 @@ function PillarCards() {
     },
     {
       bg: '/images/Ui-Card-Background3.jpg',
-      dot: 'Private LLM',
-      title: 'Private LLM Deployment',
-      desc: 'Your data never touches public AI models like ChatGPT or Gemini. A2V2 runs on private infrastructure so your data stays yours.',
+      dot: 'Secured LLM',
+      title: 'Secured LLM Access',
+      desc: 'Your data is never used to train AI models. All AI processing happens under a Business Associate Agreement (BAA) so your data stays protected.',
       mockup: (
         <div>
-          <CardGlassHeader title="LLM deployment" />
+          <CardGlassHeader title="LLM access" />
           {[
-            { label: 'Model hosting', tag: 'Private' },
+            { label: 'BAA coverage', tag: 'Active' },
             { label: 'Data training', tag: 'Never' },
             { label: 'Data centers', tag: 'U.S. only' },
           ].map(({ label, tag }, i) => (
@@ -687,9 +687,9 @@ function ShowcaseSection() {
 function ComplianceSection() {
   const a2v2Items = [
     'HIPAA compliant from day one',
-    'Private LLM deployment',
+    'Secured LLM under BAA',
     'BAA provided',
-    'Patient data never used for training',
+    'Data never used for AI training',
     'U.S.-based data centers',
     'Complete audit trails',
   ]

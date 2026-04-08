@@ -62,7 +62,7 @@ const credibilityBadges = [
   'HIPAA Compliant',
   'ITAR Compliant',
   'PHI Never Shared',
-  'Private LLM Deployment',
+  'Secured LLM Access',
 ]
 
 const solutionCards = [

@@ -16,7 +16,7 @@ export default function TrustBadges() {
               Built to earn trust
             </h2>
             <p className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Your trust is our foundation. A2V2.ai is built with HIPAA-compliant infrastructure, encrypted data handling, and private LLM deployment so your data never touches public AI models.
+              Your trust is our foundation. A2V2.ai is built with HIPAA-compliant infrastructure, encrypted data handling, and secured LLM access under a Business Associate Agreement so your data is never used for AI training.
             </p>
             <div className="mt-6">
               <Link
@@ -36,7 +36,7 @@ export default function TrustBadges() {
             {[
               { title: 'HIPAA', sub: 'Compliant' },
               { title: 'Encrypted', sub: 'Infrastructure' },
-              { title: 'Private LLM', sub: 'Deployment' },
+              { title: 'BAA', sub: 'Coverage' },
             ].map(({ title, sub }) => (
               <div
                 key={title}

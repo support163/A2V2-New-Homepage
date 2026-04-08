@@ -3,7 +3,7 @@ const securityRows = [
   { label: 'AES-256 Encryption', sub: 'At rest and in transit', icon: 'lock' },
 ]
 
-const badges = ['BAA provided', 'Private LLM', 'Audit logs', 'ITAR compliant', 'Pen testing', 'RBAC']
+const badges = ['BAA provided', 'Secured LLM', 'Audit logs', 'ITAR compliant', 'Pen testing', 'RBAC']
 
 function ShieldIcon() {
   return (

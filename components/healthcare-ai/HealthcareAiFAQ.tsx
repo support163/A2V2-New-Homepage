@@ -7,17 +7,17 @@ const faqs = [
   {
     question: 'What makes A2V2.ai different from other healthcare AI platforms?',
     answer:
-      'A2V2.ai was built exclusively for healthcare from the ground up, not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and use private LLM deployment so your patient data never touches public models.',
+      'A2V2.ai was built exclusively for healthcare from the ground up, not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and operate under a BAA so your patient data is never used for AI training.',
   },
   {
     question: 'Can I use ChatGPT or Claude for patient engagement?',
     answer:
-      'No, not safely. ChatGPT, Claude, and Gemini are not HIPAA-compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100% HIPAA-compliant with private LLM deployment.',
+      'No, not safely. ChatGPT, Claude, and Gemini are not HIPAA-compliant for patient data management. Using them for patient communication creates legal liability with potential fines up to $1.5M per violation. A2V2.ai is 100% HIPAA-compliant with secured LLM access under a BAA.',
   },
   {
     question: 'Is A2V2.ai HIPAA compliant?',
     answer:
-      'Yes. 100% HIPAA-compliant with end-to-end AES-256 encryption, private LLM deployment, BAA provided, quarterly penetration testing, and complete audit logs. Your PHI never leaves your secure environment.',
+      'Yes. 100% HIPAA-compliant with end-to-end AES-256 encryption, secured LLM access under a BAA, quarterly penetration testing, and complete audit logs. Your PHI never leaves your secure environment.',
   },
   {
     question: 'What specialties does A2V2.ai support?',

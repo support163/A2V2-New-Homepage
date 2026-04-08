@@ -36,7 +36,7 @@ const tabs: Tab[] = [
   {
     title: 'Compliance',
     description:
-      'Private LLM deployment, AES-256 encryption, BAA provided. Your patient data never touches public models.',
+      'Secured LLM access under a BAA, AES-256 encryption, and complete audit trails. Your patient data is never used for AI training.',
   },
 ]
 
@@ -189,7 +189,7 @@ function ComplianceCard() {
   const items = [
     'HIPAA compliance active',
     'AES-256 encryption enabled',
-    'Private LLM deployed',
+    'Secured LLM access (BAA)',
     'BAA signed and stored',
     'Last pen test: 14 days ago',
   ]

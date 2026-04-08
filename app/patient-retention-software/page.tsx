@@ -83,7 +83,7 @@ const credibilityBadges = [
   { label: 'HIPAA Compliant', icon: ShieldCheck },
   { label: 'ITAR Compliant', icon: Shield },
   { label: 'PHI Never Shared', icon: Lock },
-  { label: 'Private LLM Deployment', icon: Server },
+  { label: 'Secured LLM Access', icon: Server },
 ]
 
 const solutionCards = [
