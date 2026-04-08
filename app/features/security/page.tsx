@@ -170,8 +170,8 @@ function StatsSection() {
           </div>
 
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
-            <div className="text-3xl font-semibold text-white">Private</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>LLM Deployment</div>
+            <div className="text-3xl font-semibold text-white">Secured</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>LLM Access</div>
           </div>
 
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
