@@ -11,9 +11,11 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'A2V2.ai — Clone Yourself. Scale Your Influence.',
-  description:
-    'The all-in-one bio hub that chats like you, captures leads like a CRM, and converts while you sleep.',
+  title: {
+    default: 'A2V2.ai',
+    template: '%s | A2V2.ai',
+  },
+  description: 'HIPAA-compliant AI platform for healthcare patient engagement.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

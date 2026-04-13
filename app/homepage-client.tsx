@@ -1512,7 +1512,7 @@ function FAQSection() {
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
-export default function HealthcareHomePage() {
+export default function HomepageClient() {
   return (
     <main style={{ background: '#0F0E0D', fontFamily: "'Inter', sans-serif" }}>
       <ScrollAnimator />
