@@ -121,14 +121,14 @@ function HeroSection() {
           className="text-3xl md:text-5xl text-white tracking-tight text-center"
           style={{ fontWeight: 600, maxWidth: '720px', lineHeight: 1.15 }}
         >
-          Clone yourself. Scale your time.
+          Pricing built for practices that grow
         </h1>
 
         <p
           className="text-lg mt-4 text-center"
           style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '580px' }}
         >
-          It only takes 2 minutes to set up your personal AI that can talk to thousands of people for $0. Then upgrade on your terms.
+          Start free. Scale as your patient base grows. HIPAA-compliant infrastructure included on every plan.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -204,7 +204,7 @@ function PricingSection() {
                 Free
               </div>
               <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Individual creators, small YouTubers, or those just getting started.
+                For solo practitioners or clinics testing AI patient engagement for the first time.
               </p>
             </div>
             <div className="mt-6 flex items-baseline gap-1">
@@ -266,7 +266,7 @@ function PricingSection() {
                 </span>
               </div>
               <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Solo creators ready to engage their audience and capture leads.
+                For small clinics ready to automate routine patient communication and capture leads.
               </p>
             </div>
             <div className="mt-6 flex items-baseline gap-1">
@@ -328,7 +328,7 @@ function PricingSection() {
                 </span>
               </div>
               <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Growing channels and small businesses with more content needs.
+                For growing practices managing multiple protocols and patient cohorts.
               </p>
             </div>
             <div className="mt-6 flex items-baseline gap-1">
@@ -363,7 +363,7 @@ function PricingSection() {
                 Enterprise
               </div>
               <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Large businesses, agencies, or creators with complex needs.
+                For multi-location clinics, healthcare networks, and teams with complex workflows.
               </p>
             </div>
             <div className="mt-6 flex items-baseline gap-1">
@@ -501,28 +501,32 @@ function AddOnsSection() {
 
 const faqItems = [
   {
-    q: 'How does the AI know what to say?',
-    a: 'You are in full control. The AI is trained only on the data you provide, such as your website URL, PDF documents, or YouTube videos. It does not use outside internet knowledge to answer questions about your business, ensuring it stays on brand.',
+    q: 'Is A2V2 HIPAA compliant on every plan?',
+    a: 'Yes. Every plan includes HIPAA compliance, BAA coverage, AES-256 encryption, and complete audit trails. Security is never a paid upgrade.',
   },
   {
-    q: 'Can the chatbot hallucinate or lie to my audience?',
-    a: 'We use strict guardrails to minimize hallucinations. If the AI does not know the answer based on the data you uploaded, it is programmed to say, "I do not have that information right now," rather than making something up.',
+    q: 'How does the AI know what to say to my patients?',
+    a: 'You upload your protocols, intake forms, and clinical workflows. The AI is trained only on your content, not general internet knowledge, so responses stay on-protocol and on-brand.',
   },
   {
-    q: 'Do I need to know how to code to train it?',
-    a: 'Not at all. If you can copy and paste a link or upload a file, you can train your AI. The setup process typically takes less than 5 minutes.',
+    q: 'Can the AI give bad clinical advice?',
+    a: 'The AI uses strict guardrails and is designed to escalate anything outside its training to your team. If it does not know the answer, it says so rather than guessing.',
   },
   {
-    q: 'Is my data used to train public AI models?',
-    a: 'Never. Your conversations and uploaded content are not used to train public models like ChatGPT. We do not sell your data or share your proprietary content with third parties.',
+    q: 'Do I need to replace my EHR or CRM?',
+    a: 'No. A2V2 sits on top of your existing stack. EHR, lab systems, communication tools, and payment processors. No migrations required.',
   },
   {
-    q: 'Who owns the conversations and leads the AI collects?',
-    a: 'You do. All chat logs, collected emails, and phone numbers belong to you. You can export your data at any time.',
+    q: 'Who owns the patient conversations and data?',
+    a: 'You do. All conversations, captured contact info, and patient data belong to your practice. You can export your data at any time. Your data is never used to train AI models.',
   },
   {
-    q: 'Can I embed the chatbot on my existing website?',
-    a: 'Yes. On the Starter plan and above, we provide a simple code snippet that allows you to add your custom AI chatbot as a widget on your WordPress, Squarespace, or Webflow site.',
+    q: 'How long does setup take?',
+    a: 'Most practices go live in under 2 weeks. Our implementation team handles EHR integration, protocol mapping, and staff training.',
+  },
+  {
+    q: 'What happens if I need more than the Enterprise plan?',
+    a: 'Reach out to our team. We offer custom plans for multi-location networks, health systems, and practices with specialized compliance needs.',
   },
 ]
 
@@ -535,10 +539,10 @@ function FAQSection() {
 
         <div data-animate="" className="text-center mb-12">
           <h2 className="text-3xl text-white tracking-tight" style={{ fontWeight: 600 }}>
-            Unsure which plan is right for you?
+            Frequently asked questions
           </h2>
           <p className="mt-4 mx-auto text-sm" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '700px' }}>
-            Every A2V2 subscription includes Knowledge Training, an AI chatbot builder, and a custom bio page. If you still have questions, our team is just a click away.
+            Every A2V2 subscription is HIPAA compliant and built for clinical workflows. If you still have questions, our team is just a click away.
           </p>
         </div>
 
@@ -591,11 +595,15 @@ function CtaSection() {
   return (
     <section style={{ background: '#0F0E0D', marginBottom: '-8px' }}>
       <div data-animate="" className="relative z-10 pt-20 mx-auto max-w-[700px] px-6 text-center">
-        <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
-          Clone Yourself.<br />Scale Your Influence.
+        <h2 className="text-4xl md:text-6xl tracking-tight" style={{ fontWeight: 600, lineHeight: 1.35 }}>
+          <span style={{ color: 'rgba(255,255,255,0.35)' }}>Your Patients.</span>
+          <br />
+          <span style={{ color: 'rgba(255,255,255,0.35)' }}>Engaged.</span>
+          {' '}
+          <span style={{ color: '#ffffff' }}>Every Day.</span>
         </h2>
         <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
-          Get started in minutes. No credit card required.
+          Start free. Upgrade when your practice is ready. No credit card required.
         </p>
         <div className="mt-8">
           <a
@@ -612,7 +620,7 @@ function CtaSection() {
 
       <div className="relative overflow-hidden" style={{ marginTop: '-180px', zIndex: 0 }}>
         <Image
-          src="/images/Cta-Background2.png"
+          src="/images/Cta-Background3.png"
           alt=""
           width={1920}
           height={800}

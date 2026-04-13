@@ -1,16 +1,24 @@
 import Image from 'next/image'
 
-export default function CtaSection() {
+export default function CtaSection({
+  heading,
+  subtitle,
+}: {
+  heading?: React.ReactNode
+  subtitle?: string
+} = {}) {
   return (
     <section style={{ background: '#0F0E0D', marginBottom: '-8px' }}>
 
       {/* Text content */}
       <div data-animate="" className="relative z-10 pt-20 mx-auto max-w-[700px] px-6 text-center">
-        <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight">
-          Clone Yourself.<br />Scale Your Influence.
+        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight" style={{ lineHeight: '1.35' }}>
+          {heading ?? (
+            <span className="text-white">Clone Yourself.<br />Scale Your Influence.</span>
+          )}
         </h2>
         <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
-          AI-powered engagement for healthcare and creators. Get started in minutes.
+          {subtitle ?? 'AI-powered engagement for healthcare and creators. Get started in minutes.'}
         </p>
         <div className="mt-8">
           <a
@@ -28,7 +36,7 @@ export default function CtaSection() {
       {/* Full image — natural aspect ratio, no cropping */}
       <div className="relative overflow-hidden" style={{ marginTop: '-220px', zIndex: 0 }}>
         <Image
-          src="/images/Cta-Background2.png"
+          src="/images/Cta-Background3.png"
           alt=""
           width={1920}
           height={800}
