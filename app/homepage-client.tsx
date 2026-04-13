@@ -1230,7 +1230,7 @@ function BulletItem({ text }: { text: string }) {
 
 const chatbotTabs = [
   { title: 'Symptom check-ins', description: 'Patients describe how they feel after treatment. The AI responds with clinical accuracy and flags concerns to your team.' },
-  { title: 'Protocol questions', description: "Answers questions about NAD+, peptides, HRT, supplements, and dosing schedules in your clinic's voice." },
+  { title: 'Protocol questions', description: "Answers questions about NAD+, peptides, HRT, and supplements in your clinic's voice." },
   { title: 'Appointment booking', description: 'Patients book, reschedule, and confirm visits directly through chat without picking up the phone.' },
   { title: 'Lab result explanations', description: 'Walks patients through their lab results in plain language and recommends next steps based on your protocols.' },
   { title: 'Smart escalation', description: 'When a question requires human judgment, the AI flags it to the right team member with full context attached.' },
