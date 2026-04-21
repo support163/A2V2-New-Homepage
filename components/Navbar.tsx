@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { APP_URL } from '@/lib/constants'
+import { APP_URL, SIGN_IN_URL } from '@/lib/constants'
 import { HeartPlus, ChevronDown, Landmark, LandPlot, LockKeyhole, Sparkles, Shield } from 'lucide-react'
 
 const navLinks = [
@@ -224,7 +224,7 @@ useEffect(() => {
           {/* Desktop right side */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="nav-pill text-btn font-medium px-4 py-2 transition-colors"

@@ -6,6 +6,7 @@ import { ChevronDown, Activity, Sparkles, Bell } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import { SIGN_IN_URL } from '@/lib/constants'
 
 /* ─── Shared ─── */
 
@@ -108,7 +109,7 @@ function HeroSection() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={SIGN_IN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
@@ -920,7 +921,7 @@ function CtaSection() {
         </p>
         <div className="mt-8">
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={SIGN_IN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
@@ -933,7 +934,7 @@ function CtaSection() {
 
       <div className="relative overflow-hidden" style={{ marginTop: '-180px', zIndex: 0 }}>
         <Image
-          src="/images/Cta-Background2.png"
+          src="/images/Cta-Background3.png"
           alt=""
           width={1920}
           height={800}

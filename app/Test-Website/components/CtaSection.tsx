@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { SIGN_IN_URL } from '@/lib/constants'
 
 export default function CtaSection({
   heading,
@@ -22,7 +23,7 @@ export default function CtaSection({
         </p>
         <div className="mt-8">
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={SIGN_IN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"

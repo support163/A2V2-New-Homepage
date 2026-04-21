@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import TrustBadges from '@/app/Test-Website/components/TrustBadges'
+import { SIGN_IN_URL } from '@/lib/constants'
 
 /* ─── Shared ─── */
 
@@ -133,7 +134,7 @@ function HeroSection() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={SIGN_IN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
@@ -221,7 +222,7 @@ function PricingSection() {
               <FeatureRow text="Team option" active={false} />
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={btnStyle}
@@ -283,7 +284,7 @@ function PricingSection() {
               <FeatureRow text="Team option" active={false} />
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={btnStyle}
@@ -345,7 +346,7 @@ function PricingSection() {
               <FeatureRow text="3 team members included" active={true} />
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={btnStyle}
@@ -380,7 +381,7 @@ function PricingSection() {
               <FeatureRow text="5 team members included" active={true} />
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={btnStyle}
@@ -439,7 +440,7 @@ function AddOnsSection() {
               </div>
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 w-full text-center text-sm font-medium text-white rounded-full py-3 transition-colors"
@@ -475,7 +476,7 @@ function AddOnsSection() {
               </div>
             </div>
             <a
-              href="https://www.app.a2v2.ai/signin"
+              href={SIGN_IN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 w-full text-center text-sm font-medium text-white rounded-full py-3 transition-colors"
@@ -607,7 +608,7 @@ function CtaSection() {
         </p>
         <div className="mt-8">
           <a
-            href="https://www.app.a2v2.ai/signin"
+            href={SIGN_IN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
