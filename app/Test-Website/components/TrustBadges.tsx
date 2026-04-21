@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 
-export default function TrustBadges() {
+export default function TrustBadges({ descriptionColor = 'rgba(255,255,255,0.5)' }: { descriptionColor?: string } = {}) {
   return (
     <section style={{ background: '#0F0E0D' }} className="py-20">
       <div className="mx-auto max-w-[1200px] px-6 md:px-12">
@@ -15,7 +15,7 @@ export default function TrustBadges() {
             <h2 className="text-3xl md:text-4xl font-semibold text-white">
               Built to earn trust
             </h2>
-            <p className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-4 text-base leading-relaxed" style={{ color: descriptionColor }}>
               Your trust is our foundation. A2V2.ai is built with HIPAA-compliant infrastructure, encrypted data handling, and secured LLM access under a Business Associate Agreement so your data is never used for AI training.
             </p>
             <div className="mt-6">

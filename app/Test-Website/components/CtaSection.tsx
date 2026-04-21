@@ -4,9 +4,15 @@ import { SIGN_IN_URL } from '@/lib/constants'
 export default function CtaSection({
   heading,
   subtitle,
+  subtitleColor = 'rgba(255,255,255,0.5)',
+  subtitleSize = 'text-sm',
+  subtitleMaxWidth = '400px',
 }: {
   heading?: React.ReactNode
   subtitle?: string
+  subtitleColor?: string
+  subtitleSize?: string
+  subtitleMaxWidth?: string
 } = {}) {
   return (
     <section style={{ background: '#0F0E0D', marginBottom: '-8px' }}>
@@ -18,7 +24,7 @@ export default function CtaSection({
             <span className="text-white">Clone Yourself.<br />Scale Your Influence.</span>
           )}
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className={`mt-6 ${subtitleSize} mx-auto`} style={{ color: subtitleColor, maxWidth: subtitleMaxWidth }}>
           {subtitle ?? 'AI-powered engagement for healthcare and creators. Get started in minutes.'}
         </p>
         <div className="mt-8">

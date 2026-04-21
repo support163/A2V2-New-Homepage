@@ -115,7 +115,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '560px' }}
+          style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '560px' }}
         >
           A2V2.ai is built from the ground up with HIPAA-compliant infrastructure, encrypted data handling, and secured LLM access under a Business Associate Agreement.
         </p>
@@ -161,24 +161,24 @@ function StatsSection() {
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={100} format={(n) => `${Math.floor(n)}%`} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>HIPAA Compliant</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>HIPAA Compliant</div>
           </div>
 
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
             <div className="text-3xl font-semibold text-white">AES-256</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Encryption Standard</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Encryption Standard</div>
           </div>
 
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
             <div className="text-3xl font-semibold text-white">Secured</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>LLM Access</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>LLM Access</div>
           </div>
 
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={99.9} format={(n) => `${n.toFixed(1)}%`} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Uptime SLA</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Uptime SLA</div>
           </div>
         </div>
       </div>
@@ -318,7 +318,7 @@ function PillarCards() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             How we protect your data
           </h2>
-          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '600px' }}>
+          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
             Enterprise-grade security across every layer of the platform
           </p>
         </div>
@@ -361,7 +361,7 @@ function PillarCards() {
               <div className="pt-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span style={gradientDot} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{dot}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{dot}</span>
                 </div>
                 <h3 className="text-xl text-white" style={{ fontWeight: 600 }}>{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
@@ -443,7 +443,7 @@ function AccessControlsCard() {
           style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
         >
           <span className="text-sm text-white">{role}</span>
-          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{access}</span>
+          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{access}</span>
         </div>
       ))}
     </div>
@@ -495,7 +495,7 @@ function InfrastructureCard() {
           style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
         >
           <span className="text-sm text-white">{label}</span>
-          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{value}</span>
+          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{value}</span>
         </div>
       ))}
     </div>
@@ -535,7 +535,7 @@ function ShowcaseSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span style={gradientDot} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Security Infrastructure
               </span>
             </div>
@@ -574,7 +574,7 @@ function ShowcaseSection() {
           {/* Left: info + tabs */}
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Security Engine</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Comprehensive security built into every layer of the platform.
             </p>
             <div className="mt-4">
@@ -622,7 +622,7 @@ function ShowcaseSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -710,7 +710,7 @@ function ComplianceSection() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Why generic AI is a compliance risk
           </h2>
-          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Most AI tools were not built for regulated industries
           </p>
         </div>
@@ -742,7 +742,7 @@ function ComplianceSection() {
             className="rounded-xl p-8"
             style={{ background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.05)', transitionDelay: '80ms' }}
           >
-            <h3 className="text-xl font-semibold mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <h3 className="text-xl font-semibold mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Generic AI (ChatGPT, Gemini)
             </h3>
             <div className="flex flex-col gap-3">
@@ -752,7 +752,7 @@ function ComplianceSection() {
                     <circle cx="8" cy="8" r="7.5" stroke="rgba(255,100,100,0.3)" />
                     <path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(255,100,100,0.6)" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{item}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -772,7 +772,7 @@ function CtaSection() {
         <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
           Clone Yourself.<br />Scale Your Influence.
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
           Get started in minutes. No credit card required.
         </p>
         <div className="mt-8">

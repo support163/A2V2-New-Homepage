@@ -127,7 +127,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '580px' }}
+          style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '580px' }}
         >
           Start free. Scale as your patient base grows. HIPAA-compliant infrastructure included on every plan.
         </p>
@@ -201,10 +201,10 @@ function PricingSection() {
           {/* Free */}
           <div data-animate="" className="p-6 flex flex-col" style={cardBase}>
             <div className="min-h-[100px]">
-              <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Free
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 For solo practitioners or clinics testing AI patient engagement for the first time.
               </p>
             </div>
@@ -237,7 +237,7 @@ function PricingSection() {
           <div data-animate="" className="p-6 flex flex-col" style={{ ...cardBase, transitionDelay: '80ms' }}>
             <div className="min-h-[100px]">
               <div className="flex items-start justify-between">
-                <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   Starter
                 </div>
                 <span
@@ -266,7 +266,7 @@ function PricingSection() {
                   BEST VALUE
                 </span>
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 For small clinics ready to automate routine patient communication and capture leads.
               </p>
             </div>
@@ -299,7 +299,7 @@ function PricingSection() {
           <div data-animate="" className="p-6 flex flex-col" style={{ ...cardHighlight, transitionDelay: '160ms' }}>
             <div className="min-h-[100px]">
               <div className="flex items-start justify-between">
-                <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   Pro
                 </div>
                 <span
@@ -328,7 +328,7 @@ function PricingSection() {
                   RECOMMENDED
                 </span>
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 For growing practices managing multiple protocols and patient cohorts.
               </p>
             </div>
@@ -360,10 +360,10 @@ function PricingSection() {
           {/* Enterprise */}
           <div data-animate="" className="p-6 flex flex-col" style={{ ...cardBase, transitionDelay: '240ms' }}>
             <div className="min-h-[100px]">
-              <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <div className="text-sm font-medium uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Enterprise
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <p className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 For multi-location clinics, healthcare networks, and teams with complex workflows.
               </p>
             </div>
@@ -409,7 +409,7 @@ function AddOnsSection() {
           <h2 className="text-3xl text-white tracking-tight" style={{ fontWeight: 600 }}>
             Scale on your terms
           </h2>
-          <p className="mt-4 mx-auto text-sm" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '600px' }}>
+          <p className="mt-4 mx-auto text-base" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
             Need to manage a second brand or bring in an assistant? Add resources without jumping to a higher tier.
           </p>
         </div>
@@ -431,7 +431,7 @@ function AddOnsSection() {
                 </div>
                 <div>
                   <h3 className="text-base text-white" style={{ fontWeight: 600 }}>Additional Team Members</h3>
-                  <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Add team members on-demand</p>
+                  <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.75)' }}>Add team members on-demand</p>
                 </div>
               </div>
               <div className="text-right flex-shrink-0">
@@ -467,7 +467,7 @@ function AddOnsSection() {
                 </div>
                 <div>
                   <h3 className="text-base text-white" style={{ fontWeight: 600 }}>Additional Chatbots</h3>
-                  <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Add chatbots on-demand</p>
+                  <p className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.75)' }}>Add chatbots on-demand</p>
                 </div>
               </div>
               <div className="text-right flex-shrink-0">
@@ -542,7 +542,7 @@ function FAQSection() {
           <h2 className="text-3xl text-white tracking-tight" style={{ fontWeight: 600 }}>
             Frequently asked questions
           </h2>
-          <p className="mt-4 mx-auto text-sm" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '700px' }}>
+          <p className="mt-4 mx-auto text-base" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '700px' }}>
             Every A2V2 subscription is HIPAA compliant and built for clinical workflows. If you still have questions, our team is just a click away.
           </p>
         </div>
@@ -576,7 +576,7 @@ function FAQSection() {
                   transition: 'max-height 0.35s ease',
                 }}
               >
-                <p className="text-sm pb-5" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <p className="text-base pb-5" style={{ color: 'rgba(255,255,255,0.75)' }}>
                   {item.a}
                 </p>
               </div>
@@ -603,7 +603,7 @@ function CtaSection() {
           {' '}
           <span style={{ color: '#ffffff' }}>Every Day.</span>
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
           Start free. Upgrade when your practice is ready. No credit card required.
         </p>
         <div className="mt-8">
@@ -653,7 +653,7 @@ export default function PricingPage() {
       <HeroSection />
       <PricingSection />
       <AddOnsSection />
-      <TrustBadges />
+      <TrustBadges descriptionColor="rgba(255,255,255,0.75)" />
       <FAQSection />
       <CtaSection />
       <Footer />

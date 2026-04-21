@@ -113,7 +113,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '560px' }}
+          style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '560px' }}
         >
           Train an AI on your content. Followers pay $4.99 for 24-hour personalized access. You earn while you sleep.
         </p>
@@ -157,19 +157,19 @@ function StatsSection() {
         >
           <div data-animate="" className="flex-1 text-center py-8 md:py-4">
             <div className="text-3xl font-semibold text-white">$4.99</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Per session</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Per session</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
             <div className="text-3xl font-semibold text-white">15 min</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Setup time</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Setup time</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
             <div className="text-3xl font-semibold text-white">24/7</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>AI availability</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>AI availability</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
             <div className="text-3xl font-semibold text-white">Zero</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Ongoing time</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Ongoing time</div>
           </div>
         </div>
       </div>
@@ -293,7 +293,7 @@ function BenefitCards() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Built for creators. Built for revenue.
           </h2>
-          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '600px' }}>
+          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
             Everything you need to scale your influence without scaling your time.
           </p>
         </div>
@@ -324,7 +324,7 @@ function BenefitCards() {
               <div className="pt-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span style={gradientDot} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{dot}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{dot}</span>
                 </div>
                 <h3 className="text-xl text-white" style={{ fontWeight: 600 }}>{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
@@ -389,7 +389,7 @@ function TrainCard() {
           </div>
         ))}
       </div>
-      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Add training content</p>
+      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Add training content</p>
       <div
         className="flex flex-col items-center justify-center gap-2 rounded-lg py-6"
         style={{ border: '1px dashed rgba(255,255,255,0.15)' }}
@@ -438,7 +438,7 @@ function CustomizeCard() {
             className="flex items-center justify-between rounded-lg px-3 py-2"
             style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
-            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</span>
+            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.75)' }}>{label}</span>
             <span className="text-xs text-white">{value}</span>
           </div>
         ))}
@@ -546,7 +546,7 @@ function HowItWorksSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span style={gradientDot} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Pay For Access
               </span>
             </div>
@@ -584,7 +584,7 @@ function HowItWorksSection() {
           {/* Left: tabs */}
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Creator Workflow</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               The fastest way to monetize your expertise with zero ongoing time commitment.
             </p>
             <div className="mt-4">
@@ -634,7 +634,7 @@ function HowItWorksSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -717,7 +717,7 @@ function RevenueCalculator() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Calculate your projected earnings
           </h2>
-          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Based on $4.99 per session and 1 to 5 percent follower conversion
           </p>
         </div>
@@ -734,7 +734,7 @@ function RevenueCalculator() {
           {/* Slider 1 */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Your follower count</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Your follower count</span>
               <span className="text-2xl font-medium text-white">{formatFollowers(followers)}</span>
             </div>
             <input
@@ -752,7 +752,7 @@ function RevenueCalculator() {
           {/* Slider 2 */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Expected conversion rate</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Expected conversion rate</span>
               <span className="text-2xl font-medium text-white">{conversionRate}%</span>
             </div>
             <input
@@ -793,13 +793,13 @@ function RevenueCalculator() {
             className="flex flex-wrap gap-x-6 gap-y-2 mt-4 pt-4 text-sm"
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
           >
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Sessions/year: <span className="font-medium text-white">{payingFollowers.toLocaleString()}</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Per session: <span className="font-medium text-white">$4.99</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Paying followers: <span className="font-medium text-white">{payingFollowers.toLocaleString()}</span>
             </span>
           </div>
@@ -864,7 +864,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           transition: 'max-height 250ms ease',
         }}
       >
-        <p className="pb-5 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{a}</p>
+        <p className="pb-5 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{a}</p>
       </div>
     </div>
   )
@@ -898,7 +898,7 @@ function CtaSection() {
         <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
           Clone Yourself.<br />Scale Your Influence.
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
           Get started in minutes. No credit card required.
         </p>
         <div className="mt-8">

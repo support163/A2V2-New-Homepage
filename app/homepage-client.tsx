@@ -116,20 +116,15 @@ function HeroSection() {
         priority
         style={{ zIndex: 0 }}
       />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.2)', zIndex: 1 }} />
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{ height: '200px', background: 'linear-gradient(to bottom, transparent, #0F0E0D)', zIndex: 2 }}
       />
       <div className="relative mx-auto max-w-[720px] px-6 text-center w-full" style={{ zIndex: 3 }}>
-        <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-white mb-6" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
-          <span style={gradientDot} />
-          Healthcare AI
-        </div>
         <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
           AI engagement built for every healthcare practice
         </h1>
-        <p className="mt-4 text-lg mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '580px' }}>
+        <p className="mt-4 text-lg mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '580px' }}>
           From longevity clinics to functional medicine to HRT practices. HIPAA-compliant AI that automates patient engagement and recovers lost revenue.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -177,19 +172,19 @@ function StatsSection() {
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={73} format={(n) => `${Math.round(n)}%`} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Avg patient drop-off</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Avg patient drop-off</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
             <div className="text-3xl font-semibold text-white">30-45</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Day early warning</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Day early warning</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
             <div className="text-3xl font-semibold text-white">&lt;2 Weeks</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Implementation</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Implementation</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
             <div className="text-3xl font-semibold text-white">100%</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>HIPAA Compliant</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>HIPAA Compliant</div>
           </div>
         </div>
       </div>
@@ -287,7 +282,7 @@ function BenefitCardsSection() {
       <div className="mx-auto max-w-[1200px] px-6 md:px-12">
         <div data-animate="" className="text-center mb-12">
           <h2 className="text-3xl font-semibold text-white">Built for clinical workflows</h2>
-          <p className="mt-3 text-lg max-w-[540px] mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="mt-3 text-lg max-w-[540px] mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             AI that understands medicine, not marketing funnels.
           </p>
         </div>
@@ -317,10 +312,10 @@ function BenefitCardsSection() {
               <div className="pt-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span style={gradientDot} />
-                  <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>{card.tag}</span>
+                  <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.75)' }}>{card.tag}</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{card.description}</p>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{card.description}</p>
               </div>
             </div>
           ))}
@@ -428,7 +423,7 @@ function ScenarioBlock({ title, rows }: {
             >
               {row.type}:
             </span>
-            <span className="text-[11px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <span className="text-[11px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               {row.content}
             </span>
           </div>
@@ -633,7 +628,7 @@ function FeatureShowcaseSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundImage: "url('/images/dot-image.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>Healthcare Platform</span>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>Healthcare Platform</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
               Built for every type of practice
@@ -655,7 +650,7 @@ function FeatureShowcaseSection() {
               >
                 <Icon size={16} strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.5)' }} />
                 <p className="text-sm font-semibold text-white">{title}</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -705,7 +700,7 @@ function FeatureShowcaseSection() {
           {/* Right on desktop (order-1 on mobile = above image): product info + tabs */}
           <div data-animate="" className="order-1 md:order-2" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Specialty Deep-Dive</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Every practice type gets workflows, protocols, and integrations built for their specific specialty.
             </p>
             <div className="mt-4">
@@ -755,7 +750,7 @@ function FeatureShowcaseSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -1000,7 +995,7 @@ function PlatformFeaturesSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[440px]">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundImage: "url('/images/dot-image.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>Platform Features</span>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>Platform Features</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
               Everything you need to run your practice
@@ -1022,7 +1017,7 @@ function PlatformFeaturesSection() {
               >
                 <Icon size={16} strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.5)' }} />
                 <p className="text-sm font-semibold text-white">{title}</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -1034,7 +1029,7 @@ function PlatformFeaturesSection() {
           {/* Left: product info + tabs */}
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Practice Management</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Built-in tools designed to run your clinic without juggling multiple platforms.
             </p>
             <div className="mt-4">
@@ -1082,7 +1077,7 @@ function PlatformFeaturesSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -1303,7 +1298,7 @@ function HealthcareChatbotSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundImage: "url('/images/dot-image.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>Healthcare AI</span>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>Healthcare AI</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
               Trained on your clinical workflows
@@ -1325,7 +1320,7 @@ function HealthcareChatbotSection() {
               >
                 <Icon size={16} strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.5)' }} />
                 <p className="text-sm font-semibold text-white">{title}</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -1337,7 +1332,7 @@ function HealthcareChatbotSection() {
           {/* Left: product info + tabs */}
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Conversational AI</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Your AI handles the routine so your team handles what matters most.
             </p>
             <div className="mt-4">
@@ -1387,7 +1382,7 @@ function HealthcareChatbotSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -1497,7 +1492,7 @@ function FAQSection() {
                     transition: 'max-height 300ms ease',
                   }}
                 >
-                  <p className="pb-5 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <p className="pb-5 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                     {item.a}
                   </p>
                 </div>
@@ -1523,7 +1518,7 @@ export default function HomepageClient() {
       <HealthcareChatbotSection />
       <FeatureShowcaseSection />
       <PlatformFeaturesSection />
-      <TrustBadges />
+      <TrustBadges descriptionColor="rgba(255,255,255,0.75)" />
       <FAQSection />
       <CtaSection
         heading={
@@ -1536,6 +1531,9 @@ export default function HomepageClient() {
           </>
         }
         subtitle="Automated clinical communication that keeps patients on protocol and revenue in the door."
+        subtitleColor="rgba(255,255,255,0.75)"
+        subtitleSize="text-base"
+        subtitleMaxWidth="500px"
       />
       <Footer />
     </main>

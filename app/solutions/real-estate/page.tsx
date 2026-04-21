@@ -102,7 +102,7 @@ function HeroSection() {
 
         <p
           className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '580px' }}
+          style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '580px' }}
         >
           A2V2.ai qualifies leads, answers listing questions, and schedules private viewings automatically. No missed calls. No lost leads. No extra staff.
         </p>
@@ -146,21 +146,21 @@ function StatsSection() {
         >
           <div data-animate="" className="flex-1 text-center py-8 md:py-4">
             <div className="text-3xl font-semibold text-white">100x</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Faster lead response</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Faster lead response</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
             <div className="text-3xl font-semibold text-white">24/7</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Lead engagement</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Lead engagement</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={0} format={() => '0'} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Extra staff needed</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Extra staff needed</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
             <div className="text-3xl font-semibold text-white">Minutes</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>To go live</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>To go live</div>
           </div>
         </div>
       </div>
@@ -313,7 +313,7 @@ function BenefitCards() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Built for agents who close
           </h2>
-          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '600px' }}>
+          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
             AI that captures, qualifies, and books while you focus on closing.
           </p>
         </div>
@@ -337,7 +337,7 @@ function BenefitCards() {
               <div className="pt-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span style={gradientDot} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{dot}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{dot}</span>
                 </div>
                 <h3 className="text-xl text-white" style={{ fontWeight: 600 }}>{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
@@ -444,7 +444,7 @@ function QualifyLeadCard() {
             className="flex items-center justify-between rounded-lg px-3 py-2"
             style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
-            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</span>
+            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.75)' }}>{label}</span>
             <span className="text-xs text-white">{value}</span>
           </div>
         ))}
@@ -453,7 +453,7 @@ function QualifyLeadCard() {
         className="flex items-center justify-between rounded-lg px-3 py-2 mb-3"
         style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
       >
-        <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>Lead score</span>
+        <span className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>Lead score</span>
         <span className="text-sm font-semibold text-white">9/10 — Hot</span>
       </div>
       <div className="flex items-center justify-between">
@@ -478,7 +478,7 @@ function ViewingSchedulerCard() {
         <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>3 bed · 2 bath · 1,450 sqft</p>
         <p className="text-sm text-white mt-1">$525,000</p>
       </div>
-      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Available times</p>
+      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Available times</p>
       <div className="flex items-center gap-1.5 mb-3">
         {[
           { label: 'Tue 2 PM', active: false },
@@ -490,7 +490,7 @@ function ViewingSchedulerCard() {
             className="text-[10px] rounded-full px-2.5 py-1"
             style={{
               background: active ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)',
-              color: active ? '#ffffff' : 'rgba(255,255,255,0.5)',
+              color: active ? '#ffffff' : 'rgba(255,255,255,0.75)',
               border: active ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(255,255,255,0.08)',
             }}
           >
@@ -527,7 +527,7 @@ function ProfilePreviewCard() {
       </div>
       <div
         className="flex items-center justify-center gap-3 py-2 mb-3 rounded-lg text-[10px]"
-        style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.5)' }}
+        style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.75)' }}
       >
         <span>142 Listings</span>
         <span>4.9 ★</span>
@@ -579,7 +579,7 @@ function ShowcaseSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span style={gradientDot} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Real Estate AI
               </span>
             </div>
@@ -615,7 +615,7 @@ function ShowcaseSection() {
 
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Inside Sales Engine</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               The fastest way to capture leads, qualify buyers, and book viewings without lifting a finger.
             </p>
             <div className="mt-4">
@@ -665,7 +665,7 @@ function ShowcaseSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -741,7 +741,7 @@ function RoiCalculator() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             The math on never missing a lead
           </h2>
-          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.75)' }}>
             See how much revenue you could recover with 24/7 lead engagement
           </p>
         </div>
@@ -757,7 +757,7 @@ function RoiCalculator() {
         >
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Monthly inquiries</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Monthly inquiries</span>
               <span className="text-2xl font-medium text-white">{inquiries}</span>
             </div>
             <input
@@ -774,7 +774,7 @@ function RoiCalculator() {
 
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Average commission per deal</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Average commission per deal</span>
               <span className="text-2xl font-medium text-white">${commission.toLocaleString()}</span>
             </div>
             <input
@@ -809,13 +809,13 @@ function RoiCalculator() {
             className="flex flex-wrap gap-x-6 gap-y-2 mt-4 pt-4 text-sm"
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
           >
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Projected lead capture increase: <span className="font-medium text-white">15%</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Estimated close rate: <span className="font-medium text-white">20%</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Recovered monthly: <span className="font-medium text-white">{recoveredMonthly}</span>
             </span>
           </div>
@@ -874,7 +874,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         />
       </button>
       <div style={{ maxHeight: open ? '300px' : '0px', overflow: 'hidden', transition: 'max-height 250ms ease' }}>
-        <p className="pb-5 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{a}</p>
+        <p className="pb-5 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{a}</p>
       </div>
     </div>
   )
@@ -908,7 +908,7 @@ function CtaSection() {
         <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
           Clone Yourself.<br />Scale Your Influence.
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
           Get started in minutes. No credit card required.
         </p>
         <div className="mt-8">

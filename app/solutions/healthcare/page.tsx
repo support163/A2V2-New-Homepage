@@ -148,21 +148,21 @@ function StatsSection() {
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={100} format={(n) => `${Math.floor(n)}%`} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>HIPAA Compliant</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>HIPAA Compliant</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
             <div className="text-3xl font-semibold text-white">&lt;2 Weeks</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Implementation</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Implementation</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
             <div className="text-3xl font-semibold text-white">
               <AnimatedNumber target={67} format={(n) => `${Math.floor(n)}%`} />
             </div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Projected no-show reduction</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Projected no-show reduction</div>
           </div>
           <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
             <div className="text-3xl font-semibold text-white">30-45</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.5)' }}>Day early warning</div>
+            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Day early warning</div>
           </div>
         </div>
       </div>
@@ -316,7 +316,7 @@ function BenefitCards() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Built for clinical workflows
           </h2>
-          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '600px' }}>
+          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
             AI that understands medicine, not marketing funnels.
           </p>
         </div>
@@ -340,7 +340,7 @@ function BenefitCards() {
               <div className="pt-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span style={gradientDot} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{dot}</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{dot}</span>
                 </div>
                 <h3 className="text-xl text-white" style={{ fontWeight: 600 }}>{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
@@ -405,7 +405,7 @@ function EngagementCard() {
           </div>
         ))}
       </div>
-      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Select protocol</p>
+      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.75)' }}>Select protocol</p>
       <div
         className="flex items-center justify-between rounded-lg px-3 py-2 mb-3 text-xs"
         style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)' }}
@@ -413,7 +413,7 @@ function EngagementCard() {
         <span>NAD+ IV Therapy — Week 3</span>
         <span style={{ color: 'rgba(255,255,255,0.4)' }}>▾</span>
       </div>
-      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Timing</p>
+      <p className="text-[10px] mb-1" style={{ color: 'rgba(255,255,255,0.75)' }}>Timing</p>
       <div
         className="flex items-center justify-between rounded-lg px-3 py-2 text-xs"
         style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.75)' }}
@@ -586,7 +586,7 @@ function ShowcaseSection() {
           <div data-animate="" className="flex-shrink-0 max-w-[400px]">
             <div className="flex items-center gap-2 mb-3">
               <span style={gradientDot} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Healthcare Platform
               </span>
             </div>
@@ -622,7 +622,7 @@ function ShowcaseSection() {
 
           <div data-animate="" style={{ transitionDelay: '120ms' }}>
             <p className="text-xl font-semibold text-white">Patient Engagement Engine</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               The fastest way to automate, personalize, and scale clinical patient communication.
             </p>
             <div className="mt-4">
@@ -672,7 +672,7 @@ function ShowcaseSection() {
                       transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
                     }}
                   >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                       {tab.description}
                     </p>
                   </div>
@@ -746,7 +746,7 @@ function RoiCalculator() {
           <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
             Calculate your projected ROI
           </h2>
-          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Based on industry retention data and our engagement model
           </p>
         </div>
@@ -762,7 +762,7 @@ function RoiCalculator() {
         >
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Active patients</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Active patients</span>
               <span className="text-2xl font-medium text-white">{patients.toLocaleString()}</span>
             </div>
             <input
@@ -779,7 +779,7 @@ function RoiCalculator() {
 
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Average patient lifetime value</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Average patient lifetime value</span>
               <span className="text-2xl font-medium text-white">${ltv.toLocaleString()}</span>
             </div>
             <input
@@ -813,13 +813,13 @@ function RoiCalculator() {
             className="flex flex-wrap gap-x-6 gap-y-2 mt-4 pt-4 text-sm"
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
           >
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Est. drop-off without AI: <span className="font-medium text-white">73%</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Est. drop-off with A2V2: <span className="font-medium text-white">35%</span>
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
               Projected reduction: <span className="font-medium text-white">38%</span>
             </span>
           </div>
@@ -882,7 +882,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         />
       </button>
       <div style={{ maxHeight: open ? '300px' : '0px', overflow: 'hidden', transition: 'max-height 250ms ease' }}>
-        <p className="pb-5 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{a}</p>
+        <p className="pb-5 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{a}</p>
       </div>
     </div>
   )
@@ -916,7 +916,7 @@ function CtaSection() {
         <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
           Clone Yourself.<br />Scale Your Influence.
         </h2>
-        <p className="mt-6 text-sm mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '400px' }}>
+        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
           Get started in minutes. No credit card required.
         </p>
         <div className="mt-8">
