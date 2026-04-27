@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 9,
+    title: 'Medical Agents User Guide: Everything You Need to Get Started',
+    description:
+      'Step-by-step guide to creating Medical Agents on A2V2.ai. Set up HIPAA compliance, health parameters, medications, prescriptions, document extraction, and per-field CRM encryption.',
+    category: 'Quick Guides',
+    href: '/blog/medical-agents-user-guide',
+    thumbnail: '/images/blog-post9/blog-post9-heroimage.png',
+  },
+  {
     id: 7,
     title: 'April 2026 Model Catalog Update: More HIPAA-Eligible AI Models, Lower Costs, Zero Downtime',
     description:
@@ -17,6 +26,15 @@ export const blogPosts: BlogPost[] = [
     category: "What's New",
     href: '/blog/april-2026-model-catalog-update',
     thumbnail: '/images/blog-post7.png',
+  },
+  {
+    id: 8,
+    title: 'Introducing Medical Agents: HIPAA-Aware Chatbots, Built Right Into A2V2',
+    description:
+      'A2V2 now offers Medical Agents with BAA gating, field-level encryption, HIPAA-eligible models, and clinical modules for health parameters, medications, prescriptions, and document extraction.',
+    category: "What's New",
+    href: '/blog/introducing-medical-agents',
+    thumbnail: '/images/blog-post8.png',
   },
   {
     id: 6,
