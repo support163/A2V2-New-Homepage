@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 7,
+    title: 'April 2026 Model Catalog Update: More HIPAA-Eligible AI Models, Lower Costs, Zero Downtime',
+    description:
+      'We just refreshed the entire model catalog. The HIPAA-eligible lineup got a lot bigger, most credit costs went down, and every retired model has been auto-migrated.',
+    category: "What's New",
+    href: '/blog/april-2026-model-catalog-update',
+    thumbnail: '/images/blog-post7.png',
+  },
+  {
     id: 6,
     title: 'Your Front Desk Is Doing the Work of Five People and Patients Are Still Falling Through the Cracks',
     description:
