@@ -10,6 +10,33 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 14,
+    title: 'How Much Revenue Are You Losing to Patient Drop-Off?',
+    description:
+      '73% of longevity patients disengage within 6 months. Use our calculator to see exactly what that is costing your clinic and what AI-powered retention could recover.',
+    category: 'Best Practices',
+    href: '/blog/revenue-loss-patient-drop-off-calculator',
+    thumbnail: '/images/blog-post14.png',
+  },
+  {
+    id: 13,
+    title: 'ChatGPT vs HIPAA-Compliant AI: Why Your Clinic Needs to Know the Difference',
+    description:
+      'Your staff is probably already using ChatGPT with patient data. That is a HIPAA violation. Here is what is actually at risk and what to use instead.',
+    category: 'Privacy & Trust',
+    href: '/blog/chatgpt-vs-hipaa-compliant-ai',
+    thumbnail: '/images/blog-post13.png',
+  },
+  {
+    id: 12,
+    title: 'How to Automate Patient Follow-Ups Without Violating HIPAA',
+    description:
+      'Patient follow-ups are where retention is won or lost. Here is how to automate them safely with HIPAA-compliant tools, protocol-aware timing, and encrypted messaging.',
+    category: 'Best Practices',
+    href: '/blog/automate-patient-follow-ups-hipaa',
+    thumbnail: '/images/blog-post12.png',
+  },
+  {
     id: 11,
     title: 'Best AI Tools for Longevity Clinics in 2026',
     description:
