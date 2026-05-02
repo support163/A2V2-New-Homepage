@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 10,
+    title: 'What Is HIPAA-Compliant AI? A Guide for Healthcare Providers',
+    description:
+      'Most AI tools were never built to handle patient data safely. Here is what HIPAA-compliant AI actually means, why it matters, and how to evaluate whether your AI vendor meets the standard.',
+    category: 'Privacy & Trust',
+    href: '/blog/what-is-hipaa-compliant-ai',
+    thumbnail: '/images/blog-post10.png',
+  },
+  {
     id: 9,
     title: 'Medical Agents User Guide: Everything You Need to Get Started',
     description:
