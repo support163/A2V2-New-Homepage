@@ -42,7 +42,7 @@ export default function BlogPostPage() {
               '@type': 'Organization',
               name: 'The A2V2.ai Team',
             },
-            image: 'https://www.a2v2.ai/images/blog-post10.png',
+            image: 'https://www.a2v2.ai/images/blog-post10-fix.png',
             publisher: {
               '@type': 'Organization',
               name: 'A2V2.ai',

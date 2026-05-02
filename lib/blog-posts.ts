@@ -10,13 +10,22 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 11,
+    title: 'Best AI Tools for Longevity Clinics in 2026',
+    description:
+      'We evaluated the AI landscape for longevity clinics. Here is what to look for, which tools are worth evaluating, and how they compare on protocols, compliance, and cost.',
+    category: 'Best Practices',
+    href: '/blog/best-ai-tools-longevity-clinics-2026',
+    thumbnail: '/images/blog-post11.png',
+  },
+  {
     id: 10,
     title: 'What Is HIPAA-Compliant AI? A Guide for Healthcare Providers',
     description:
       'Most AI tools were never built to handle patient data safely. Here is what HIPAA-compliant AI actually means, why it matters, and how to evaluate whether your AI vendor meets the standard.',
     category: 'Privacy & Trust',
     href: '/blog/what-is-hipaa-compliant-ai',
-    thumbnail: '/images/blog-post10.png',
+    thumbnail: '/images/blog-post10-fix.png',
   },
   {
     id: 9,

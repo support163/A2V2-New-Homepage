@@ -357,7 +357,7 @@ export default function HipaaCompliantAiBlogPost() {
         {/* Hero image */}
         <div className="w-full mb-12">
           <Image
-            src="/images/blog-post10.png"
+            src="/images/blog-post10-fix.png"
             alt="What Is HIPAA-Compliant AI?"
             width={720}
             height={405}
