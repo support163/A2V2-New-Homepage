@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 16,
+    title: 'Patient Retention Strategies for Functional Medicine Practices',
+    description:
+      '60 to 80% of functional medicine patients disengage before completing their protocols. Here are the 7 specific retention strategies that keep them engaged through every phase.',
+    category: 'Best Practices',
+    href: '/blog/patient-retention-strategies-functional-medicine',
+    thumbnail: '/images/blog-post16.png',
+  },
+  {
+    id: 15,
+    title: 'Why 73% of Longevity Patients Quit Their Treatment Protocols',
+    description:
+      'The protocols work. The patients leave anyway. Here are the 7 predictable reasons longevity patients drop off and what clinics can do about each one.',
+    category: 'Best Practices',
+    href: '/blog/why-longevity-patients-quit-protocols',
+    thumbnail: '/images/blog-post15.png',
+  },
+  {
     id: 14,
     title: 'How Much Revenue Are You Losing to Patient Drop-Off?',
     description:
