@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 18,
+    title: 'NAD+ Therapy Patient Management: How to Keep Patients Through the Full Protocol',
+    description:
+      'NAD+ IV therapy has one of the highest drop-off rates in longevity medicine. Here is the session-by-session retention playbook that keeps patients through the full 6-week cycle.',
+    category: 'Best Practices',
+    href: '/blog/nad-therapy-patient-management',
+    thumbnail: '/images/blog-post18.png',
+  },
+  {
+    id: 17,
+    title: 'How to Choose an AI Chatbot for Your Medical Practice',
+    description:
+      'There are hundreds of AI chatbot platforms. Fewer than a dozen are built for healthcare. Here is a practical framework and 12 questions to ask every vendor before signing.',
+    category: 'Quick Guides',
+    href: '/blog/how-to-choose-ai-chatbot-medical-practice',
+    thumbnail: '/images/blog-post17.png',
+  },
+  {
     id: 16,
     title: 'Patient Retention Strategies for Functional Medicine Practices',
     description:
