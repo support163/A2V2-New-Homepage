@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
-import TestHomepage2 from './test-homepage-2/page'
+import HomepageClient from '../homepage-client'
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Patient Lifecycle Automation for Modern Clinics | A2V2.ai',
+  title: 'Healthcare AI Platform | HIPAA-Compliant Patient Engagement | A2V2.ai',
   description:
-    'A2V2.ai is a HIPAA-compliant AI platform built for longevity clinics, HRT practices, and functional medicine. Automate the full patient lifecycle — intake, engagement, follow-ups, and escalation — with clinical-grade AI agents.',
+    'A2V2.ai is a HIPAA-compliant AI platform built for longevity clinics, HRT practices, and functional medicine. Automate patient engagement, track treatment adherence, and recover lost revenue with clinical-grade AI.',
   keywords:
-    'healthcare AI, HIPAA compliant AI, patient lifecycle automation, longevity clinic software, HRT clinic AI, functional medicine AI, clinical workflow automation, patient retention software, healthcare chatbot, medical AI assistant',
-  alternates: { canonical: 'https://www.a2v2.ai/' },
+    'healthcare AI, HIPAA compliant AI, patient engagement, longevity clinic software, HRT clinic AI, functional medicine AI, clinical workflow automation, patient retention software, healthcare chatbot, medical AI assistant',
+  alternates: { canonical: 'https://www.a2v2.ai/home-dark' },
   openGraph: {
-    title: 'Patient Lifecycle Automation | A2V2.ai',
+    title: 'Healthcare AI Platform | A2V2.ai',
     description:
-      'HIPAA-compliant AI agents that manage the full patient lifecycle for modern clinics. Everything escalates to your team for clinical judgment.',
-    url: 'https://www.a2v2.ai',
+      'HIPAA-compliant AI engagement built for clinics. Automate patient communication and recover lost revenue.',
+    url: 'https://www.a2v2.ai/home-dark',
     siteName: 'A2V2.ai',
     images: [
       {
@@ -28,21 +28,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Patient Lifecycle Automation | A2V2.ai',
-    description:
-      'HIPAA-compliant AI agents that manage the full patient lifecycle for modern clinics.',
+    title: 'Healthcare AI Platform | A2V2.ai',
+    description: 'HIPAA-compliant AI engagement built for clinics.',
     images: ['https://www.a2v2.ai/images/og-healthcare.png'],
     creator: '@A2V2_Ai',
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-      'max-video-preview': -1,
+      index: false,
+      follow: false,
     },
   },
 }
@@ -56,7 +52,7 @@ const orgSchema = {
   url: 'https://www.a2v2.ai',
   logo: 'https://www.a2v2.ai/icons/Logo.svg',
   description:
-    'HIPAA-compliant AI platform for patient lifecycle automation in longevity, HRT, and functional medicine clinics.',
+    'HIPAA-compliant AI platform for healthcare patient engagement and creator monetization.',
   sameAs: [
     'https://x.com/A2V2_Ai',
     'https://www.linkedin.com/company/a2v2',
@@ -64,16 +60,9 @@ const orgSchema = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'support@a2v2.ai',
+    email: 'marci@a2v2.ai',
     contactType: 'Sales',
   },
-}
-
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'A2V2.ai',
-  url: 'https://www.a2v2.ai',
 }
 
 const softwareSchema = {
@@ -83,7 +72,7 @@ const softwareSchema = {
   applicationCategory: 'HealthApplication',
   operatingSystem: 'Web',
   description:
-    'HIPAA-compliant AI patient lifecycle automation platform for longevity clinics, HRT practices, and functional medicine.',
+    'HIPAA-compliant AI patient engagement platform for longevity clinics, HRT practices, and functional medicine.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -91,11 +80,10 @@ const softwareSchema = {
     description: 'Free trial available',
   },
   featureList: [
-    'HIPAA-compliant AI agents',
-    'Full patient lifecycle automation',
+    'HIPAA-compliant AI chat',
     'Automated patient engagement',
     'Treatment protocol tracking',
-    'Clinical escalation workflows',
+    'Predictive drop-off analytics',
     'EHR integration',
     'BAA provided',
     'AES-256 encryption',
@@ -164,17 +152,13 @@ const breadcrumbSchema = {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function HomePage() {
+export default function HomeDarkPage() {
   return (
     <>
-      <TestHomepage2 />
+      <HomepageClient />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"
