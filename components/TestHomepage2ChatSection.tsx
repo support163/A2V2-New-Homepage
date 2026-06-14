@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, ShieldCheck, ArrowUpRight, Bot, ArrowUp } from 'lucide-react'
+import { MessageCircle, ShieldCheck, ArrowUpRight, ArrowUp } from 'lucide-react'
 
 const CONVERSATION = [
   { role: 'ai' as const,      text: "Hi Sarah! How are you feeling after your NAD+ infusion yesterday?" },
@@ -234,14 +234,18 @@ export default function TestHomepage2ChatSection() {
                     width: 40,
                     height: 40,
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #0F0E0D 0%, #374151 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    overflow: 'hidden',
                     flexShrink: 0,
+                    position: 'relative',
                   }}
                 >
-                  <Bot size={18} color="#ffffff" />
+                  <Image
+                    src="/images/profile-image1.jpg"
+                    alt="A2V2 Care Assistant"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    unoptimized
+                  />
                 </div>
                 <div>
                   <div
