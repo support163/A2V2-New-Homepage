@@ -13,35 +13,35 @@ const COLUMN_ACTIVE_H = TEXT_OFFSET + 120 // 656 — reserves space for text
 const SPECIALTIES = [
   {
     label: 'HRT Clinics',
-    image: '/images/hrt-clininc.png',
+    image: '/images/hrt-clininc1.png',
     title: 'Built for hormone optimization',
     description:
       "Refill scheduling tied to each patient's hormone protocol, dosage check-ins, and automated lab draw reminders.",
   },
   {
     label: 'Longevity Clinics',
-    image: '/images/longevity-clinics.png',
+    image: '/images/longevity-clinics1.png',
     title: 'Keep patients on protocol',
     description:
       'NAD+ and peptide protocol follow-ups, biomarker tracking, and re-engagement when patients go quiet between visits.',
   },
   {
     label: 'Functional Medicine',
-    image: '/images/functional-medicine.png',
+    image: '/images/functional-medicine1.png',
     title: 'Coordinate complex protocols',
     description:
       'Multi-protocol coordination, supplement adherence check-ins, and elimination diet support across every phase.',
   },
   {
     label: 'Weight Loss / GLP-1',
-    image: '/images/weight-loss.png',
+    image: '/images/weight-loss1.png',
     title: 'Support every step',
     description:
       'Injection reminders, side effect check-ins, and progress tracking that keeps patients engaged through the program.',
   },
   {
     label: 'IV / Wellness',
-    image: '/images/iv-wellness.png',
+    image: '/images/iv-wellness1.png',
     title: 'Drive repeat visits',
     description:
       'Session reminders, membership renewals, and automated rebooking outreach to keep your schedule full.',
@@ -215,12 +215,13 @@ export default function TestHomepage2SpecialtyCarousel() {
         {/* Carousel */}
         <div
           className="mt-12"
+          style={{ overflow: 'hidden' }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
 
-          {/* Desktop: 5-card row */}
-          <div className="hidden md:flex items-start justify-between">
+          {/* Desktop: 5-card row — fixed gap so cards never shrink or touch */}
+          <div className="hidden md:flex items-start justify-center" style={{ gap: 24 }}>
             {SPECIALTIES.map((s, index) => {
               const isActive = index === activeIndex
               return (
@@ -330,7 +331,7 @@ export default function TestHomepage2SpecialtyCarousel() {
                 position: 'relative',
                 width: '100%',
                 height: 360,
-                borderRadius: 12,
+                borderRadius: 0,
                 overflow: 'hidden',
               }}
             >
