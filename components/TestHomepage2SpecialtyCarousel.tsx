@@ -30,14 +30,14 @@ const SPECIALTIES = [
   },
   {
     label: 'Functional Medicine',
-    image: '/images/functional-medicine1.png',
+    image: '/images/functional-medicine2.png',
     title: 'Coordinate complex protocols',
     description:
       'Multi-protocol coordination, supplement adherence check-ins, and elimination diet support across every phase.',
   },
   {
     label: 'Weight Loss / GLP-1',
-    image: '/images/weight-loss1.png',
+    image: '/images/weight-loss2.png',
     title: 'Support every step',
     description:
       'Injection reminders, side effect check-ins, and progress tracking that keeps patients engaged through the program.',

@@ -23,7 +23,7 @@ const POINTS = [
 ]
 
 export default function TestHomepage2ChatSection() {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>([{ ...CONVERSATION[0], key: 0 }])
   const [isTyping, setIsTyping] = useState(false)
   const [started, setStarted]   = useState(false)
 
@@ -57,10 +57,10 @@ export default function TestHomepage2ChatSection() {
     const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms))
 
     async function run() {
-      setMessages([])
+      setMessages([{ ...CONVERSATION[0], key: 0 }])
       setIsTyping(false)
 
-      for (let i = 0; i < CONVERSATION.length; i++) {
+      for (let i = 1; i < CONVERSATION.length; i++) {
         if (!valid()) return
         const msg = CONVERSATION[i]
 
@@ -109,6 +109,11 @@ export default function TestHomepage2ChatSection() {
         .chat-tdot   { animation: tdot 1.1s ease-in-out infinite; }
         .chat-msgs::-webkit-scrollbar { display: none; }
         .chat-msgs   { scrollbar-width: none; }
+        @media (max-width: 767px) {
+          .chat-outer    { height: 480px !important; min-height: 480px !important; max-height: 480px !important; padding-top: 52px !important; }
+          .chat-gradient { height: 504px !important; min-height: 504px !important; max-height: 504px !important; }
+          .chat-card     { height: 500px !important; min-height: 500px !important; max-height: 500px !important; }
+        }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-20 md:py-24">
@@ -165,11 +170,12 @@ export default function TestHomepage2ChatSection() {
 
           {/* RIGHT — chat card floating on background image, bottom cut off */}
           <div
-            className="relative overflow-hidden"
+            className="relative overflow-hidden chat-outer"
             style={{
               height: 760,
+              minHeight: 760,
+              maxHeight: 760,
               minWidth: 0,
-              contain: 'layout',
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'center',
@@ -190,11 +196,14 @@ export default function TestHomepage2ChatSection() {
 
             {/* Gradient border wrapper — explicit height matches card + 2px padding each side */}
             <div
+              className="chat-gradient"
               style={{
                 position: 'relative',
                 width: '100%',
                 maxWidth: 480,
                 height: 724,
+                minHeight: 724,
+                maxHeight: 724,
                 flexShrink: 0,
                 borderRadius: 20,
                 padding: 2,
@@ -205,6 +214,7 @@ export default function TestHomepage2ChatSection() {
 
             {/* Chat card — all three size props pin it so typing-state reflows can't change its height */}
             <div
+              className="chat-card"
               style={{
                 width: '100%',
                 height: 720,
