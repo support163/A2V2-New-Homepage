@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/home-dark', '/test-homepage-2'],
       },
       {
         userAgent: [
@@ -19,6 +20,7 @@ export default function robots(): MetadataRoute.Robots {
           'Amazonbot',
         ],
         allow: '/',
+        disallow: ['/home-dark', '/test-homepage-2'],
       },
       {
         userAgent: ['Bytespider', 'CCBot'],

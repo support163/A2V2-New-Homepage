@@ -54,7 +54,7 @@ const orgSchema = {
   url: 'https://www.a2v2.ai',
   logo: 'https://www.a2v2.ai/icons/Logo.svg',
   description:
-    'HIPAA-compliant AI platform for healthcare patient engagement and creator monetization.',
+    'HIPAA-compliant AI platform for patient lifecycle automation — intake, follow-ups, refill reminders, lab reminders, and re-engagement for longevity, HRT, and functional medicine clinics.',
   sameAs: [
     'https://x.com/A2V2_Ai',
     'https://www.linkedin.com/company/a2v2',
@@ -62,7 +62,7 @@ const orgSchema = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'marci@a2v2.ai',
+    email: 'support@a2v2.ai',
     contactType: 'Sales',
   },
 }

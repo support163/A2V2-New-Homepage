@@ -7,14 +7,14 @@ import BlogContent from '@/components/blog/BlogContent'
 export const metadata: Metadata = {
   title: 'Blog | A2V2.ai',
   description:
-    'Explore news, updates, and guides on how to turn your bio into an AI-powered engagement tool.',
+    'Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care for HRT, longevity, and functional medicine.',
   alternates: {
     canonical: 'https://www.a2v2.ai/blog',
   },
   openGraph: {
     title: 'Blog | A2V2.ai',
     description:
-      'Explore news, updates, and guides on how to turn your bio into an AI-powered engagement tool.',
+      'Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care for HRT, longevity, and functional medicine.',
     url: 'https://www.a2v2.ai/blog',
     type: 'website',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog | A2V2.ai',
     description:
-      'Explore news, updates, and guides on how to turn your bio into an AI-powered engagement tool.',
+      'Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care for HRT, longevity, and functional medicine.',
   },
 }
 

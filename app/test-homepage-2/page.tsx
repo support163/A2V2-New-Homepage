@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
-import TestHomepage2Navbar from '@/components/TestHomepage2Navbar'
 import TestHomepage2HeroDashboard from '@/components/TestHomepage2HeroDashboard'
 import TestHomepage2TabsSection from '@/components/TestHomepage2TabsSection'
 import TestHomepage2SpecialtyCarousel from '@/components/TestHomepage2SpecialtyCarousel'
@@ -95,7 +94,6 @@ export default function TestHomepage2() {
 
   return (
     <main style={{ background: '#ffffff', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-      <TestHomepage2Navbar />
 
       {/* Hero Section */}
       <section className="w-full">

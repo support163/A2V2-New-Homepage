@@ -39,7 +39,7 @@ export default function TestHomepage2Footer() {
                 letterSpacing: '-0.3px',
               }}
             >
-              AI-powered engagement for healthcare and creators. Clone yourself, scale your influence, and grow revenue on autopilot.
+              HIPAA-compliant AI agents that manage the full patient lifecycle for your clinic. From intake to retention, your team stays in control.
             </p>
             <a
               href={DEMO_BOOKING_URL}
@@ -51,7 +51,7 @@ export default function TestHomepage2Footer() {
                 color: '#ffffff',
               }}
             >
-              Book a free audit
+              Book a Demo
               <ArrowRight size={16} color="#ffffff" />
             </a>
           </div>

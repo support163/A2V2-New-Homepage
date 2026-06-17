@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/solutions/real-estate',
+        destination: '/solutions/healthcare',
+        permanent: true,
+      },
     ]
   },
 }

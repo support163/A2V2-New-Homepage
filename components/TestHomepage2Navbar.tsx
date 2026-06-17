@@ -13,7 +13,6 @@ const FEATURES_ITEMS = [
 ]
 
 const plainLinks = [
-  { label: 'Plans', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
 ]
 
@@ -122,6 +121,7 @@ export default function TestHomepage2Navbar() {
           marginLeft: 24,
           marginRight: 24,
           background: '#0F0E0D',
+          border: '1px solid rgba(255,255,255,0.1)',
           padding: '10px 20px',
         }}
       >

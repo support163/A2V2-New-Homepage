@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import ChatWidget from '@/components/ChatWidget'
 import Analytics from '@/components/Analytics'
+import TestHomepage2Navbar from '@/components/TestHomepage2Navbar'
 import './globals.css'
 
 const inter = Inter({
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
         <Analytics />
+        <TestHomepage2Navbar />
         {children}
         <ChatWidget />
       </body>
