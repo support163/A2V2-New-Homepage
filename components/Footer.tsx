@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { DEMO_BOOKING_URL } from '@/lib/constants'
 
 const socialLinks = [
@@ -28,7 +29,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-[512px]">
-              AI-powered engagement for healthcare and creators. Clone yourself, scale your influence, and grow revenue on autopilot.
+              HIPAA-compliant AI agents that manage the full patient lifecycle for your clinic. From intake to retention, your team stays in control.
             </p>
             <a
               href={DEMO_BOOKING_URL}
@@ -36,8 +37,8 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
-              Book a free audit
-              <span aria-hidden="true">&rarr;</span>
+              Book a Demo
+              <ArrowRight size={16} />
             </a>
           </div>
 

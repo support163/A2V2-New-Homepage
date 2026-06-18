@@ -40,7 +40,7 @@ export default function BlogContent() {
               The Latest from A2V2.
             </h1>
             <p className="mt-4 text-btn leading-relaxed max-w-[480px] mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Explore news, updates, and guides on how to turn your bio into an AI-powered engagement tool.
+              Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care.
             </p>
           </div>
 
@@ -174,7 +174,7 @@ export default function BlogContent() {
                 className="mt-4 text-btn md:text-body-lg leading-relaxed max-w-[600px]"
                 style={{ color: 'rgba(255,255,255,0.6)' }}
               >
-                Explore news, updates, and guides on how to turn your bio into an AI-powered engagement tool.
+                Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care.
               </p>
             </div>
 
