@@ -757,7 +757,7 @@ export default function BestAiToolsBlogPost() {
             If you are evaluating tools for your longevity clinic, we offer a free 30-minute audit where we review your current patient retention, identify where drop-off is happening, and show you what recovery looks like with AI-powered engagement. No sales pitch. Just the numbers.
           </p>
           <p style={bodyText}>
-            <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Book your free audit
             </a>
             {' '}&middot;{' '}

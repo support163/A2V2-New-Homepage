@@ -48,8 +48,6 @@ export default function CtaBanner({
               </a>
               <a
                 href={DEMO_BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="border border-white text-white text-btn font-medium px-btn-x py-btn-y rounded-full hover:bg-white/10 transition-colors text-center"
               >
                 See a Demo

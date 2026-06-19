@@ -202,8 +202,6 @@ export default function TestHomepage2Navbar() {
           </a>
           <a
             href={DEMO_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="hidden md:flex items-center justify-center rounded-lg transition-colors"
             style={{
               fontSize: 14, fontWeight: 500, color: '#0F0E0D',
@@ -282,8 +280,6 @@ export default function TestHomepage2Navbar() {
           </a>
           <a
             href={DEMO_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="flex items-center justify-center rounded-lg mt-2"
             style={{ fontSize: 14, fontWeight: 500, color: '#0F0E0D', padding: '10px 20px', textDecoration: 'none', fontFamily: "'Inter', sans-serif", background: '#ffffff' }}

@@ -696,7 +696,7 @@ export default function RevenueDropOffBlogPost() {
           <ActionBox>
             <p style={{ ...bodyText, marginBottom: 0 }}>
               <strong style={strongStyle}>4. Book a free retention audit.</strong> We will review your patient retention data, identify where drop-off is happening, and project what recovery looks like with AI-powered engagement. 30 minutes. No sales pitch. Just the math.{' '}
-              <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+              <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
                 Book your free retention audit
               </a>
             </p>

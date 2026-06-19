@@ -33,8 +33,6 @@ export default function Footer() {
             </p>
             <a
               href={DEMO_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
               Book a Demo

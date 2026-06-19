@@ -655,7 +655,7 @@ export default function HipaaCompliantAiBlogPost() {
             If you want to see what HIPAA-compliant AI looks like in practice, A2V2 offers a free 30-minute audit where we review your current patient engagement workflow and show you exactly how Medical Agents can fit in. No sales pitch. Just a clear picture of what is possible.
           </p>
           <p style={bodyText}>
-            <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Book your free audit
             </a>
           </p>

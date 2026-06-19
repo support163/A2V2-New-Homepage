@@ -43,8 +43,6 @@ export default function TestHomepage2Footer() {
             </p>
             <a
               href={DEMO_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
               style={{
                 background: '#0F0E0D',

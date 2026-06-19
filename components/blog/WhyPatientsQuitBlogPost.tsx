@@ -610,7 +610,7 @@ export default function WhyPatientsQuitBlogPost() {
             If you want to see what your clinic&apos;s specific retention gap looks like and what recovery is projected to be with AI-powered engagement, we offer a free 30-minute audit. No sales pitch. Just the math on your own numbers.
           </p>
           <p style={bodyText}>
-            <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Book your free retention audit
             </a>
             {' '}&middot;{' '}

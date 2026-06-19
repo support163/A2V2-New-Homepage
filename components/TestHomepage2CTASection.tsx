@@ -83,8 +83,6 @@ export default function TestHomepage2CTASection() {
             </a>
             <a
               href={DEMO_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="text-sm rounded-lg transition-opacity hover:opacity-70 flex items-center justify-center"
               style={{
                 border: '1px solid #0F0E0D',

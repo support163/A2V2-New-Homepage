@@ -681,7 +681,7 @@ export default function ChatGptVsHipaaBlogPost() {
           </ActionBox>
 
           <p style={{ ...bodyText, marginTop: '1.5rem' }}>
-            <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Book your free compliance review
             </a>
           </p>

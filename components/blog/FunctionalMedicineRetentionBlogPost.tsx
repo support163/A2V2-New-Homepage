@@ -707,7 +707,7 @@ export default function FunctionalMedicineRetentionBlogPost() {
           <ActionBox>
             <p style={{ ...bodyText, marginBottom: 0 }}>
               <strong style={strongStyle}>5. Book a free retention audit.</strong> We review your patient retention data, identify where drop-off is happening by protocol, and project what recovery looks like with automated engagement.{' '}
-              <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+              <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
                 Book your free retention audit
               </a>
             </p>

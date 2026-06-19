@@ -800,7 +800,7 @@ export default function NadTherapyPatientManagementBlogPost() {
             The clinics that implement this, whether manually for a small patient base or through AI automation at scale, will retain significantly more NAD+ patients, recover significantly more revenue, and build a patient base that stays engaged for years rather than weeks.
           </p>
           <p style={bodyText}>
-            <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Book a free retention audit
             </a>
           </p>

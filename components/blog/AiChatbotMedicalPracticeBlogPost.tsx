@@ -861,7 +861,7 @@ export default function AiChatbotMedicalPracticeBlogPost() {
           <ActionBox>
             <p style={{ ...bodyText, marginBottom: 0 }}>
               <strong style={strongStyle}>5. Book a free consultation.</strong> If you want help evaluating your options, A2V2 offers a free 30-minute session where we review your current patient engagement workflow, identify gaps, and show you what a Medical Agent looks like for your specific practice.{' '}
-              <a href={DEMO_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+              <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
                 Book a free consultation
               </a>
             </p>
