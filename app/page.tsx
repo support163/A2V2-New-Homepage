@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import TestHomepage2 from './test-homepage-2/page'
+import HomeVariantTracker from '@/components/HomeVariantTracker'
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -168,6 +169,7 @@ export default function HomePage() {
   return (
     <>
       <TestHomepage2 />
+      <HomeVariantTracker variant="home-a" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

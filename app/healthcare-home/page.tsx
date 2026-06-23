@@ -1039,7 +1039,7 @@ function PlatformFeaturesSection() {
             </p>
             <div className="mt-4">
               <a
-                href="/features/security"
+                href="/security"
                 className="inline-flex items-center gap-1.5 text-sm text-white rounded-full px-4 py-1.5 transition-colors"
                 style={{ border: '1px solid rgba(255,255,255,0.2)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}

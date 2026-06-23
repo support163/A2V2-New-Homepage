@@ -555,7 +555,7 @@ export default function ChatGptVsHipaaBlogPost() {
           </ActionBox>
 
           <p style={{ ...bodyText, marginTop: '1.5rem' }}>
-            <Link href="/features/security" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <Link href="/security" style={{ color: '#2563EB', textDecoration: 'underline' }}>
               See how A2V2 handles all of this
             </Link>
           </p>

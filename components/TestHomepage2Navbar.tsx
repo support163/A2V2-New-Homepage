@@ -8,11 +8,11 @@ import { ChevronDown } from 'lucide-react'
 import { SIGN_IN_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const FEATURES_ITEMS = [
-  { title: 'Security', description: 'HIPAA, BAA, and encryption', href: '/features/security' },
   { title: 'Pay For Access', description: 'Monetize your expertise', href: '/features/pay-for-access' },
 ]
 
 const plainLinks = [
+  { label: 'Security', href: '/security' },
   { label: 'Blog', href: '/blog' },
 ]
 
@@ -258,6 +258,7 @@ export default function TestHomepage2Navbar() {
               </a>
             ))}
           </div>
+          {/* Security + Blog as top-level plain links */}
           {plainLinks.map((link) => (
             <a
               key={link.label}

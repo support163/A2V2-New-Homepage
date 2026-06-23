@@ -20,7 +20,7 @@ export default function TrustBadges({ descriptionColor = 'rgba(255,255,255,0.5)'
             </p>
             <div className="mt-6">
               <Link
-                href="/features/security"
+                href="/security"
                 className="inline-flex items-center text-sm text-white rounded-full px-5 py-2 transition-colors"
                 style={{ border: '1px solid rgba(255,255,255,0.2)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}

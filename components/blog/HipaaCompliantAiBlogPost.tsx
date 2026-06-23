@@ -635,7 +635,7 @@ export default function HipaaCompliantAiBlogPost() {
               Read the Medical Agents user guide
             </Link>
             {' '}&middot;{' '}
-            <Link href="/features/security" style={{ color: '#2563EB', textDecoration: 'underline' }}>
+            <Link href="/security" style={{ color: '#2563EB', textDecoration: 'underline' }}>
               Learn about our security infrastructure
             </Link>
           </p>
