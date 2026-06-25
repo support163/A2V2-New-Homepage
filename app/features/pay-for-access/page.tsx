@@ -1,958 +1,692 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { useState, useEffect, useRef } from 'react'
-import { ChevronDown, Layers, UserPlus, DollarSign, Youtube, Instagram } from 'lucide-react'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ScrollAnimator from '@/components/ScrollAnimator'
-import { SIGN_IN_URL } from '@/lib/constants'
+import { useEffect, useRef, useState } from 'react'
+import {
+  AlertTriangle, Lock, ShieldOff, PlayCircle, Bot, ShieldCheck,
+  Home, MessageSquare, FileText, Users, Settings, Video, HelpCircle,
+  Stethoscope, Zap, Heart, Building2, GraduationCap, LayoutGrid, ArrowUp,
+} from 'lucide-react'
+import TestHomepage2Footer from '@/components/TestHomepage2Footer'
+import { DEMO_BOOKING_URL, SIGN_IN_URL } from '@/lib/constants'
 
-/* ─── Shared ─── */
+const H = "'Helvetica Neue', Helvetica, Arial, sans-serif"
+const I = "'Inter', sans-serif"
 
-const gradientDot: React.CSSProperties = {
-  width: 12,
-  height: 12,
-  borderRadius: '50%',
-  backgroundImage: "url('/images/dot-image.jpg')",
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  flexShrink: 0,
+const btnBlack: React.CSSProperties = {
+  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+  background: '#0F0E0D', color: '#ffffff', fontSize: 14, fontWeight: 500,
+  fontFamily: I, padding: '10px 20px', borderRadius: 8, textDecoration: 'none',
+  letterSpacing: '-0.2px', transition: 'opacity 200ms ease',
 }
 
-const glassCardStyle: React.CSSProperties = {
-  background: 'rgba(0,0,0,0.55)',
-  backdropFilter: 'blur(20px)',
-  WebkitBackdropFilter: 'blur(20px)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: '12px',
-  padding: '20px',
-  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+const btnGhost: React.CSSProperties = {
+  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+  background: 'transparent', color: '#0F0E0D', fontSize: 14, fontWeight: 500,
+  fontFamily: I, padding: '10px 20px', borderRadius: 8, border: '1px solid #0F0E0D',
+  textDecoration: 'none', letterSpacing: '-0.2px', transition: 'opacity 200ms ease',
 }
 
-function AnimatedNumber({
-  target,
-  format,
-  duration = 2000,
+function FadeIn({
+  children, delay = 0, className = '', style = {},
 }: {
-  target: number
-  format: (n: number) => string
-  duration?: number
+  children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties
 }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const started = useRef(false)
-
+  const [v, setV] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    el.textContent = format(0)
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true
-          const startTime = performance.now()
-          const update = (now: number) => {
-            const elapsed = now - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            const eased = 1 - Math.pow(1 - progress, 3)
-            el.textContent = format(eased * target)
-            if (progress < 1) requestAnimationFrame(update)
-            else el.textContent = format(target)
-          }
-          requestAnimationFrame(update)
-        }
-      },
-      { threshold: 0.5 }
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setV(true); obs.disconnect() } },
+      { threshold: 0.1 }
     )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [target, format, duration])
-
-  return <span ref={ref} />
-}
-
-/* ─── Section 1: Hero ─── */
-
-function HeroSection() {
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
   return (
-    <section
-      className="relative flex items-center justify-center overflow-hidden -mt-[72px]"
-      style={{ background: '#0F0E0D', height: '90vh' }}
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        ...style,
+        opacity: v ? 1 : 0,
+        transform: v ? 'none' : 'translateY(20px)',
+        transition: `opacity 600ms ease ${delay}ms, transform 600ms ease ${delay}ms`,
+      }}
     >
-      <Image
-        src="/images/hero-background-Image7.jpg"
-        alt=""
-        fill
-        className="object-cover"
-        quality={100}
-        unoptimized
-        priority
-        style={{ zIndex: 0 }}
-      />
+      {children}
+    </div>
+  )
+}
+
+function BadgeSVG({ label }: { label: string }) {
+  const cx = 35, cy = 35, r = 34, ringR = 29, arcR = 25
+  const arcCirc = 2 * Math.PI * arcR
+  const arcLen = arcCirc * 0.22
+  const gapLen = arcCirc * 0.03
+  return (
+    <svg width={70} height={70} viewBox="0 0 70 70" fill="none">
+      <circle cx={cx} cy={cy} r={r} fill="#0F0E0D" />
+      <circle cx={cx} cy={cy} r={ringR} stroke="rgba(255,255,255,0.35)" strokeWidth={1} fill="none" />
+      <circle cx={cx} cy={cy} r={arcR} stroke="rgba(255,255,255,0.55)" strokeWidth={1} fill="none"
+        strokeDasharray={`${arcLen} ${gapLen}`} strokeLinecap="round"
+        transform={`rotate(-90 ${cx} ${cy})`} />
+      <text x={cx} y={cy} textAnchor="middle" dominantBaseline="central" fill="#ffffff"
+        fontSize={label.length > 4 ? 10 : 11} fontWeight={500} fontFamily={I} letterSpacing="0.5">
+        {label}
+      </text>
+    </svg>
+  )
+}
+
+const CONTENT_SIDEBAR = [
+  { Icon: Home,       active: false },
+  { Icon: LayoutGrid, active: false },
+  { Icon: FileText,   active: true  },
+  { Icon: Users,      active: false },
+  { Icon: Settings,   active: false },
+]
+
+const PFA_CONVERSATION = [
+  { role: 'ai'     as const, text: "Hi Jordan! How is week 2 of the Metabolic Reset going?" },
+  { role: 'member' as const, text: "Going well, but I've been feeling a bit fatigued." },
+  { role: 'ai'     as const, text: "That's a common adjustment in week 2 as your body adapts. Make sure you're hydrating and getting enough electrolytes. It usually passes within a few days." },
+  { role: 'member' as const, text: "Good to know. Is that covered in the course?" },
+  { role: 'ai'     as const, text: "Yes! Check Module 3, the 'Energy & Adaptation' lesson. It walks through exactly what to expect this week." },
+  { role: 'member' as const, text: "Perfect, thank you!" },
+  { role: 'ai'     as const, text: "Anytime. I'll flag this for Dr. Lee in case you'd like to discuss it directly." },
+]
+type PFAMessage = { role: 'ai' | 'member'; text: string; key: number }
+
+const CONTENT_ITEMS = [
+  { Icon: Video,       label: '12-Week Metabolic Reset',      type: 'Course' },
+  { Icon: FileText,    label: 'Hormone Optimization Protocol', type: 'PDF' },
+  { Icon: HelpCircle,  label: 'Longevity Q&A Library',        type: 'Members only' },
+]
+
+const PILLARS = [
+  { badge: 'HIPAA',   title: 'HIPAA Compliant',      desc: 'Built for healthcare from day one. BAA provided on every plan, with full audit trails.' },
+  { badge: 'AES-256', title: 'AES-256 Encryption',   desc: 'All data encrypted at rest and in transit using industry-standard AES-256 and TLS 1.3.' },
+  { badge: 'BAA',     title: 'Secured LLM Access',   desc: 'AI runs under a Business Associate Agreement. Your data is never used to train models.' },
+  { badge: 'U.S.',    title: 'U.S. Data Centers',    desc: 'All patient data is stored in U.S.-based data centers with complete access controls.' },
+]
+
+const WHO = [
+  { Icon: Stethoscope,   title: 'Functional medicine practitioners', desc: 'Sell protocols and answer patient questions safely.' },
+  { Icon: Zap,           title: 'Longevity & wellness creators',     desc: 'Monetize your following without compliance risk.' },
+  { Icon: Heart,         title: 'HRT & hormone health educators',    desc: 'Share programs and guidance under a BAA.' },
+  { Icon: Building2,     title: 'Clinics & practices',               desc: 'Offer paid content and AI support to your patient base.' },
+  { Icon: GraduationCap, title: 'Coaches & health educators',        desc: 'Turn your expertise into compliant, recurring revenue.' },
+]
+
+function ContentLibraryDashboard() {
+  return (
+    <div className="relative overflow-hidden" style={{ height: 730, width: '100%' }}>
       <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{ height: '220px', background: 'linear-gradient(to bottom, transparent, #0F0E0D)', zIndex: 2 }}
+        className="absolute inset-0"
+        style={{ backgroundImage: "url('/images/Background-website-3.png')", backgroundSize: 'cover', backgroundPosition: 'center top' }}
       />
-
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
-        <div
-          className="flex items-center gap-2 rounded-full px-4 py-1.5 mb-6"
-          style={{ border: '1px solid rgba(255,255,255,0.2)' }}
-        >
-          <span style={gradientDot} />
-          <span className="text-sm text-white">Pay For Access</span>
-        </div>
-
-        <h1
-          className="text-3xl md:text-5xl text-white tracking-tight text-center"
-          style={{ fontWeight: 600, maxWidth: '700px', lineHeight: 1.15 }}
-        >
-          Turn your expertise into passive income
-        </h1>
-
-        <p
-          className="text-lg mt-4 text-center"
-          style={{ color: 'rgba(255,255,255,0.95)', maxWidth: '560px' }}
-        >
-          Train an AI on your content. Followers pay $4.99 for 24-hour personalized access. You earn while you sleep.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={SIGN_IN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
-            style={{ background: '#ffffff', color: '#0F0E0D' }}
-          >
-            Apply for Beta Access
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold transition-colors"
-            style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
-          >
-            Book a Demo
-          </a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 2: Stats ─── */
-
-function StatsSection() {
-  return (
-    <section style={{ background: '#0F0E0D' }} className="py-12">
-      <div className="mx-auto max-w-[900px] px-6">
-        <div
-          className="flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x"
-          style={{ borderColor: 'rgba(255,255,255,0.1)' }}
-        >
-          <div data-animate="" className="flex-1 text-center py-8 md:py-4">
-            <div className="text-3xl font-semibold text-white">$4.99</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Per session</div>
+      <div className="flex" style={{ position: 'absolute', top: 109, left: 149, right: -300, bottom: 0 }}>
+        {/* Sidebar */}
+        <div style={{
+          width: 56, flexShrink: 0, background: '#F5F4F2',
+          borderRight: '1px solid rgba(0,0,0,0.06)', borderRadius: '8px 0 0 0',
+          padding: '14px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+        }}>
+          <div style={{ marginBottom: 14 }}>
+            <Image src="/favicon.svg" alt="A2V2" width={22} height={22} style={{ width: 22, height: 22 }} />
           </div>
-          <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '80ms' }}>
-            <div className="text-3xl font-semibold text-white">15 min</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Setup time</div>
-          </div>
-          <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '160ms' }}>
-            <div className="text-3xl font-semibold text-white">24/7</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>AI availability</div>
-          </div>
-          <div data-animate="" className="flex-1 text-center py-8 md:py-4" style={{ transitionDelay: '240ms' }}>
-            <div className="text-3xl font-semibold text-white">Zero</div>
-            <div className="text-sm mt-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Ongoing time</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 3: Benefit Cards ─── */
-
-function MiniBarChart() {
-  const heights = [30, 45, 35, 55, 40, 60, 50, 80]
-  return (
-    <div className="flex items-end gap-1 mt-3" style={{ height: '40px' }}>
-      {heights.map((h, i) => (
-        <div
-          key={i}
-          className="flex-1 rounded-sm"
-          style={{
-            height: `${h}%`,
-            background: i === heights.length - 1 ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
-          }}
-        />
-      ))}
-    </div>
-  )
-}
-
-function EarningsCard() {
-  return (
-    <div style={{ ...glassCardStyle, maxWidth: '280px', width: '100%' }}>
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Earnings snapshot</span>
-      </div>
-      <div className="flex items-center gap-0.5 mb-3 rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
-        {['Daily', 'Weekly', 'Monthly'].map((t, i) => (
-          <div
-            key={t}
-            className="flex-1 text-center text-[10px] font-medium py-1 rounded-md"
-            style={{
-              background: i === 0 ? 'rgba(255,255,255,0.12)' : 'transparent',
-              color: i === 0 ? '#ffffff' : 'rgba(255,255,255,0.4)',
-            }}
-          >
-            {t}
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-2 mb-1">
-        {[
-          { label: 'Sessions', value: '1,247' },
-          { label: 'Revenue', value: '$6,223' },
-        ].map(({ label, value }) => (
-          <div key={label} className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
-            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</p>
-            <p className="text-lg font-bold text-white">{value}</p>
-          </div>
-        ))}
-      </div>
-      <MiniBarChart />
-    </div>
-  )
-}
-
-function BetaCard() {
-  const items = [
-    'Free setup ($500 value)',
-    '3 months free ($297 value)',
-    'Priority 24-hour support',
-    '1:1 onboarding call',
-  ]
-  return (
-    <div style={{ ...glassCardStyle, maxWidth: '280px', width: '100%' }}>
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Beta program</span>
-      </div>
-      <div className="flex flex-col">
-        {items.map((item, i) => (
-          <div
-            key={item}
-            className="flex items-center gap-2 py-2"
-            style={{ borderTop: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
-          >
-            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M3 8l3 3 7-7" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="text-xs text-white">{item}</span>
-          </div>
-        ))}
-      </div>
-      <div className="mt-3 text-center">
-        <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Apply now</span>
-      </div>
-    </div>
-  )
-}
-
-function BenefitCards() {
-  const cards = [
-    {
-      bg: '/images/Ui-Card-Background1.jpg',
-      dot: 'Passive',
-      title: 'Passive Income Engine',
-      desc: 'Earn $34k to $172k per year (projected) with 100k followers at conservative conversion rates. Zero ongoing time commitment after setup.',
-      mockup: <EarningsCard />,
-    },
-    {
-      bg: '/images/Ui-Card-Background2.jpg',
-      dot: 'Beta',
-      title: 'White-Glove Onboarding',
-      desc: 'Free setup, 3 months free, priority support, and 1:1 onboarding. We handle everything so you can focus on creating.',
-      mockup: <BetaCard />,
-    },
-  ]
-
-  return (
-    <section style={{ background: '#0F0E0D' }} className="py-20">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
-        <div data-animate="" className="text-center mb-14">
-          <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
-            Built for creators. Built for revenue.
-          </h2>
-          <p className="mt-3 text-lg mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '600px' }}>
-            Everything you need to scale your influence without scaling your time.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {cards.map(({ bg, dot, title, desc, mockup }, i) => (
-            <div
-              key={title}
-              data-animate=""
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <div
-                className="relative rounded-lg overflow-hidden"
-                style={{ height: '400px' }}
-              >
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url('${bg}')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  {mockup}
-                </div>
-              </div>
-              <div className="pt-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <span style={gradientDot} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>{dot}</span>
-                </div>
-                <h3 className="text-xl text-white" style={{ fontWeight: 600 }}>{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
-              </div>
+          {CONTENT_SIDEBAR.map(({ Icon, active }, i) => (
+            <div key={i} style={{
+              width: 32, height: 32, minWidth: 32, minHeight: 32, flexShrink: 0, borderRadius: 7,
+              background: active ? '#0F0E0D' : 'transparent',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Icon size={14} color={active ? '#ffffff' : 'rgba(0,0,0,0.32)'} />
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 4: How It Works (Giga-style tabs) ─── */
-
-const workflowTabs = [
-  {
-    title: 'Train your AI',
-    description:
-      'Upload your existing content. YouTube videos, courses, PDFs. The AI ingests your knowledge in 24 to 48 hours.',
-  },
-  {
-    title: 'Customize',
-    description:
-      'Set your pricing, tone, and CTAs. Make the AI sound like you and recommend your courses.',
-  },
-  {
-    title: 'Share your link',
-    description:
-      'Drop your unique PayForAccess link in your YouTube descriptions, Instagram bio, or TikTok link tree.',
-  },
-  {
-    title: 'Earn passively',
-    description:
-      'Followers pay $4.99 for 24 hours of personalized AI access. You earn automatically while you sleep.',
-  },
-]
-
-const summaryItems = [
-  { Icon: Layers, title: 'AI Clone', desc: 'Trained on your content' },
-  { Icon: UserPlus, title: 'Lead Capture', desc: 'Grows your list' },
-  { Icon: DollarSign, title: 'Revenue', desc: '$4.99 per session' },
-]
-
-function TrainCard() {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Train your AI</span>
-      </div>
-      <div className="flex items-center gap-0.5 mb-3 rounded-lg p-0.5" style={{ background: 'rgba(255,255,255,0.08)' }}>
-        {['YouTube', 'PDF', 'Articles'].map((t, i) => (
-          <div
-            key={t}
-            className="flex-1 text-center text-[10px] font-medium py-1 rounded-md"
-            style={{
-              background: i === 0 ? 'rgba(255,255,255,0.12)' : 'transparent',
-              color: i === 0 ? '#ffffff' : 'rgba(255,255,255,0.4)',
-            }}
-          >
-            {t}
+        {/* Main */}
+        <div style={{ flex: 1, background: '#FAFAF8', borderRadius: '0 8px 0 0', overflow: 'hidden' }}>
+          {/* Topbar */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 318px 10px 16px', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>Content Hub</span>
+            <span style={{ fontSize: 10, background: '#EFF6FF', color: '#2563EB', borderRadius: 999, padding: '2px 8px', fontFamily: I, fontWeight: 500 }}>847 members</span>
           </div>
-        ))}
-      </div>
-      <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.75)' }}>Add training content</p>
-      <div
-        className="flex flex-col items-center justify-center gap-2 rounded-lg py-6"
-        style={{ border: '1px dashed rgba(255,255,255,0.15)' }}
-      >
-        <div className="flex items-center gap-2">
-          {['MP4', 'PDF', 'TXT', 'MP3', 'URL'].map((f) => (
-            <span
-              key={f}
-              className="text-[9px] rounded px-1.5 py-0.5"
-              style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.3)' }}
-            >
-              {f}
-            </span>
+          {/* Column header */}
+          <div style={{ padding: '8px 318px 6px 16px', background: '#F5F4F2', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
+            <span style={{ fontSize: 9, fontWeight: 600, color: '#9A9590', fontFamily: I, letterSpacing: '0.5px', textTransform: 'uppercase' }}>Paywalled Content</span>
+          </div>
+          {/* Content rows */}
+          {CONTENT_ITEMS.map(({ Icon, label, type }, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 318px 10px 16px', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
+              <div style={{ width: 28, height: 28, borderRadius: 6, background: '#F0EFED', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <Icon size={12} color="#68655E" />
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 11, fontWeight: 500, color: '#0F0E0D', fontFamily: I }}>{label}</div>
+                <div style={{ fontSize: 9, color: '#9A9590', fontFamily: I, marginTop: 1 }}>{type}</div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexShrink: 0 }}>
+                <Lock size={9} color="#9A9590" />
+                <span style={{ fontSize: 9, color: '#9A9590', fontFamily: I }}>Members only</span>
+              </div>
+            </div>
           ))}
+          {/* Stats bar */}
+          <div style={{ padding: '12px 16px', display: 'flex', gap: 16, alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 9, color: '#9A9590', fontFamily: I }}>Members</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>847</div>
+            </div>
+            <div style={{ width: 1, height: 24, background: 'rgba(0,0,0,0.06)' }} />
+            <div>
+              <div style={{ fontSize: 9, color: '#9A9590', fontFamily: I }}>This month</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: '#16A34A', fontFamily: I }}>$2,341</div>
+            </div>
+            <div style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
+              <span style={{ fontSize: 9, background: '#F0FDF4', color: '#16A34A', border: '1px solid #BBF7D0', borderRadius: 4, padding: '2px 6px', fontFamily: I, fontWeight: 500 }}>BAA active</span>
+              <span style={{ fontSize: 9, background: '#EFF6FF', color: '#2563EB', border: '1px solid #BFDBFE', borderRadius: 4, padding: '2px 6px', fontFamily: I, fontWeight: 500 }}>AES-256</span>
+            </div>
+          </div>
         </div>
-        <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>Drag files here or click to browse</p>
-      </div>
-      <div className="flex items-center justify-between mt-3">
-        <button className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Cancel</button>
-        <button
-          className="text-[11px] font-semibold rounded-full px-4 py-1.5"
-          style={{ background: '#ffffff', color: '#000000' }}
-        >
-          Start training
-        </button>
       </div>
     </div>
   )
 }
 
-function CustomizeCard() {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Customize AI</span>
-      </div>
-      <div className="flex flex-col gap-2">
-        {[
-          { label: 'Session price', value: '$4.99' },
-          { label: 'AI tone', value: 'Friendly & expert' },
-          { label: 'CTA target', value: 'Course upgrade' },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            className="flex items-center justify-between rounded-lg px-3 py-2"
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
-          >
-            <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.75)' }}>{label}</span>
-            <span className="text-xs text-white">{value}</span>
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center justify-between mt-3">
-        <button className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>Cancel</button>
-        <button
-          className="text-[11px] font-semibold rounded-full px-4 py-1.5"
-          style={{ background: '#ffffff', color: '#000000' }}
-        >
-          Save
-        </button>
-      </div>
-    </div>
-  )
-}
+function PFAChatCard() {
+  const [messages, setMessages] = useState<PFAMessage[]>([{ ...PFA_CONVERSATION[0], key: 0 }])
+  const [isTyping, setIsTyping] = useState(false)
+  const [started, setStarted] = useState(false)
 
-function ShareCard() {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Your unique link</span>
-      </div>
-      <div
-        className="rounded-lg px-3 py-2.5 mb-3 text-xs text-center"
-        style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.1)' }}
-      >
-        a2v2.ai/c/yourname
-      </div>
-      <div className="flex items-center justify-center gap-4 mb-3">
-        <Youtube size={16} style={{ color: 'rgba(255,255,255,0.4)' }} />
-        <Instagram size={16} style={{ color: 'rgba(255,255,255,0.4)' }} />
-        {/* TikTok */}
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)">
-          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.73a8.18 8.18 0 0 0 4.78 1.52V6.79a4.85 4.85 0 0 1-1.01-.1z" />
-        </svg>
-        {/* Twitter/X */}
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.26 5.631 5.905-5.631Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      </div>
-      <button
-        className="w-full text-sm font-semibold rounded-full py-2"
-        style={{ background: '#ffffff', color: '#000000' }}
-      >
-        Copy link
-      </button>
-    </div>
-  )
-}
-
-function EarnCard() {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <span style={{ ...gradientDot, width: 10, height: 10 }} />
-        <span className="text-sm font-semibold text-white">Live earnings</span>
-      </div>
-      <div className="grid grid-cols-2 gap-2 mb-1">
-        {[
-          { label: 'Today', value: '$127.42' },
-          { label: 'This month', value: '$3,841' },
-        ].map(({ label, value }) => (
-          <div key={label} className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.08)' }}>
-            <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</p>
-            <p className="text-lg font-bold text-white">{value}</p>
-          </div>
-        ))}
-      </div>
-      <MiniBarChart />
-      <button
-        className="mt-3 w-full text-[11px] font-semibold rounded-full py-2"
-        style={{ background: '#ffffff', color: '#000000' }}
-      >
-        View dashboard
-      </button>
-    </div>
-  )
-}
-
-const workflowCards = [
-  <TrainCard key="0" />,
-  <CustomizeCard key="1" />,
-  <ShareCard key="2" />,
-  <EarnCard key="3" />,
-]
-
-function HowItWorksSection() {
-  const [activeTab, setActiveTab] = useState(0)
+  const outerRef = useRef<HTMLDivElement>(null)
+  const msgsRef  = useRef<HTMLDivElement>(null)
+  const genRef   = useRef(0)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % workflowTabs.length)
-    }, 8000)
-    return () => clearInterval(interval)
-  }, [activeTab])
+    const el = outerRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); obs.disconnect() } },
+      { threshold: 0.3 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!started) return
+    const gen = ++genRef.current
+    const valid = () => genRef.current === gen
+    const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms))
+
+    async function run() {
+      setMessages([{ ...PFA_CONVERSATION[0], key: 0 }])
+      setIsTyping(false)
+      for (let i = 1; i < PFA_CONVERSATION.length; i++) {
+        if (!valid()) return
+        const msg = PFA_CONVERSATION[i]
+        if (msg.role === 'ai') {
+          setIsTyping(true)
+          await delay(1300)
+          if (!valid()) return
+          setIsTyping(false)
+          await delay(60)
+        } else {
+          await delay(700)
+        }
+        if (!valid()) return
+        setMessages((prev) => [...prev, { ...msg, key: i }])
+        await delay(900)
+      }
+      await delay(3000)
+      if (!valid()) return
+      run()
+    }
+
+    run()
+    return () => { genRef.current++ }
+  }, [started])
+
+  useEffect(() => {
+    const el = msgsRef.current
+    if (el) el.scrollTop = el.scrollHeight
+  }, [messages, isTyping])
 
   return (
-    <section style={{ background: '#0F0E0D' }} className="py-20 md:py-24">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
+    <div
+      ref={outerRef}
+      className="relative overflow-hidden pfa-chat-outer"
+      style={{
+        height: 760, minHeight: 760, maxHeight: 760,
+        display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+        paddingTop: 105, paddingLeft: 28, paddingRight: 28,
+      }}
+    >
+      <style>{`
+        @keyframes pfa-msg-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pfa-tdot {
+          0%, 60%, 100% { transform: translateY(0);    opacity: 0.35; }
+          30%            { transform: translateY(-4px); opacity: 1;    }
+        }
+        .pfa-chat-msg-in { animation: pfa-msg-in 280ms ease forwards; }
+        .pfa-chat-tdot   { animation: pfa-tdot 1.1s ease-in-out infinite; }
+        .pfa-chat-msgs::-webkit-scrollbar { display: none; }
+        .pfa-chat-msgs   { scrollbar-width: none; }
+        @media (max-width: 880px) {
+          .pfa-chat-outer    { height: 480px !important; min-height: 480px !important; max-height: 480px !important; padding-top: 52px !important; }
+          .pfa-chat-gradient { height: 504px !important; min-height: 504px !important; max-height: 504px !important; }
+          .pfa-chat-card     { height: 500px !important; min-height: 500px !important; max-height: 500px !important; }
+        }
+      `}</style>
 
-        {/* Top row */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-14">
-          <div data-animate="" className="flex-shrink-0 max-w-[400px]">
-            <div className="flex items-center gap-2 mb-3">
-              <span style={gradientDot} />
-              <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.75)' }}>
-                Pay For Access
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl text-white leading-tight" style={{ fontWeight: 600 }}>
-              From content to passive income in 4 steps
-            </h2>
-          </div>
+      <Image
+        src="/images/Background-website-3.png"
+        alt=""
+        fill
+        style={{ objectFit: 'cover' }}
+        quality={100}
+        unoptimized
+      />
 
-          <div
-            data-animate=""
-            className="flex flex-row items-stretch flex-shrink-0"
-            style={{ transitionDelay: '80ms' }}
-          >
-            {summaryItems.map(({ Icon, title, desc }, i) => (
-              <div
-                key={title}
-                className="flex flex-col gap-2 flex-1"
-                style={{
-                  paddingLeft: i === 0 ? '0' : '20px',
-                  paddingRight: i === summaryItems.length - 1 ? '0' : '20px',
-                  borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.15)' : 'none',
-                }}
-              >
-                <Icon size={16} strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.5)' }} />
-                <p className="text-sm font-semibold text-white">{title}</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-[35fr_65fr] gap-8 items-start">
-
-          {/* Left: tabs */}
-          <div data-animate="" style={{ transitionDelay: '120ms' }}>
-            <p className="text-xl font-semibold text-white">Creator Workflow</p>
-            <p className="mt-2 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              The fastest way to monetize your expertise with zero ongoing time commitment.
-            </p>
-            <div className="mt-4">
-              <a
-                href={SIGN_IN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-white rounded-full px-4 py-1.5 transition-colors"
-                style={{ border: '1px solid rgba(255,255,255,0.2)' }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-              >
-                Apply now &#8250;
-              </a>
-            </div>
-
-            <style>{`
-              @keyframes pfaFillProgress {
-                from { width: 0%; }
-                to { width: 100%; }
-              }
-            `}</style>
-
-            <div className="flex flex-col">
-              {workflowTabs.map((tab, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveTab(i)}
-                  className="w-full text-left py-4 transition-all duration-200 relative"
-                >
-                  <span
-                    className="text-sm block"
-                    style={{
-                      fontWeight: activeTab === i ? 600 : 500,
-                      color: activeTab === i ? '#ffffff' : 'rgba(255,255,255,0.4)',
-                      transition: 'color 200ms ease',
-                    }}
-                  >
-                    {tab.title}
-                  </span>
-                  <div
-                    style={{
-                      maxHeight: activeTab === i ? '200px' : '0px',
-                      opacity: activeTab === i ? 1 : 0,
-                      marginTop: activeTab === i ? '8px' : '0px',
-                      overflow: 'hidden',
-                      transition: 'max-height 300ms ease, opacity 300ms ease, margin 300ms ease',
-                    }}
-                  >
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-                      {tab.description}
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-full" style={{ height: '2px', background: 'rgba(255,255,255,0.1)' }}>
-                    {activeTab === i && (
-                      <div
-                        key={`pfa-progress-${activeTab}`}
-                        style={{
-                          height: '100%',
-                          background: 'rgba(255,255,255,0.8)',
-                          animation: 'pfaFillProgress 8s linear forwards',
-                        }}
-                      />
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: card */}
-          <div
-            data-animate=""
-            className="relative rounded-2xl overflow-hidden"
-            style={{ height: '500px', transitionDelay: '160ms' }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: "url('/images/Ui-Card-Background3.jpg')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-            <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.15)' }} />
-            <div className="absolute inset-0 flex items-center justify-center p-6">
-              <div
-                className="rounded-xl w-full"
-                style={{
-                  maxWidth: '300px',
-                  padding: '20px',
-                  background: 'rgba(0,0,0,0.55)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                }}
-              >
-                {workflowCards[activeTab]}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 5: Revenue Calculator ─── */
-
-function formatFollowers(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`
-  if (n >= 1_000) return `${Math.round(n / 1_000)}k`
-  return String(n)
-}
-
-function RevenueCalculator() {
-  const [followers, setFollowers] = useState(100_000)
-  const [conversionRate, setConversionRate] = useState(3)
-
-  const payingFollowers = Math.round(followers * (conversionRate / 100))
-  const annualEarnings = Math.round(payingFollowers * 4.99)
-  const monthlyEarnings = Math.round(annualEarnings / 12)
-
-  return (
-    <section style={{ background: '#0F0E0D' }} className="py-20">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
-        <div data-animate="" className="text-center mb-12">
-          <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
-            Calculate your projected earnings
-          </h2>
-          <p className="mt-3 text-lg" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Based on $4.99 per session and 1 to 5 percent follower conversion
-          </p>
-        </div>
-
-        <div
-          data-animate=""
-          className="mx-auto rounded-2xl p-8"
-          style={{
-            maxWidth: '700px',
-            background: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.05)',
-          }}
-        >
-          {/* Slider 1 */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Your follower count</span>
-              <span className="text-2xl font-medium text-white">{formatFollowers(followers)}</span>
-            </div>
-            <input
-              type="range"
-              min={10_000}
-              max={1_000_000}
-              step={10_000}
-              value={followers}
-              onChange={(e) => setFollowers(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#ffffff' }}
-            />
-          </div>
-
-          {/* Slider 2 */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Expected conversion rate</span>
-              <span className="text-2xl font-medium text-white">{conversionRate}%</span>
-            </div>
-            <input
-              type="range"
-              min={1}
-              max={5}
-              step={0.5}
-              value={conversionRate}
-              onChange={(e) => setConversionRate(Number(e.target.value))}
-              className="w-full"
-              style={{ accentColor: '#ffffff' }}
-            />
-          </div>
-
-          {/* Results */}
-          <div
-            className="grid grid-cols-2 gap-4 pt-6"
-            style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
-          >
-            {[
-              { label: 'Projected annual earnings', value: `$${annualEarnings.toLocaleString()}`, sub: 'per year' },
-              { label: 'Projected monthly earnings', value: `$${monthlyEarnings.toLocaleString()}`, sub: 'per month' },
-            ].map(({ label, value, sub }) => (
-              <div
-                key={label}
-                className="rounded-xl p-5"
-                style={{ background: 'rgba(255,255,255,0.08)' }}
-              >
-                <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</p>
-                <p className="text-2xl font-medium text-white">{value}</p>
-                <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{sub}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Breakdown */}
-          <div
-            className="flex flex-wrap gap-x-6 gap-y-2 mt-4 pt-4 text-sm"
-            style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
-          >
-            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Sessions/year: <span className="font-medium text-white">{payingFollowers.toLocaleString()}</span>
-            </span>
-            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Per session: <span className="font-medium text-white">$4.99</span>
-            </span>
-            <span style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Paying followers: <span className="font-medium text-white">{payingFollowers.toLocaleString()}</span>
-            </span>
-          </div>
-
-          <p className="mt-4 text-xs text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Revenue projections are estimates based on conversion rate modeling. Actual results may vary.
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 6: FAQ ─── */
-
-const faqs = [
-  {
-    q: 'Will AI replace my personal touch?',
-    a: 'No. The AI handles routine Q&A. The DMs you would answer anyway. You own the relationship and focus on high-value 1:1 work.',
-  },
-  {
-    q: 'What if AI gives bad advice?',
-    a: 'The AI is trained only on your content. Your expertise, your tone, your methodology. You can review conversations and adjust training anytime.',
-  },
-  {
-    q: 'Why would followers pay when I give free content?',
-    a: 'Free content is generic, one-to-many. PayForAccess is personalized, one-to-one. Followers pay for advice specific to their situation.',
-  },
-  {
-    q: 'Will this cannibalize my course or membership sales?',
-    a: 'PayForAccess is designed as a top-of-funnel tool. $4.99 gets people in the door, the AI experiences your expertise, and encourages upgrades to your full offerings.',
-  },
-  {
-    q: 'How long does setup take?',
-    a: 'About 15 minutes. Upload content, customize AI, share link. AI trains in background (24 to 48 hours). After that, it is designed to run passively.',
-  },
-]
-
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-      <button
-        className="w-full flex items-center justify-between py-5 text-left"
-        onClick={() => setOpen((prev) => !prev)}
-      >
-        <span className="text-base font-medium text-white pr-4">{q}</span>
-        <ChevronDown
-          size={18}
-          className="flex-shrink-0 transition-transform duration-200"
-          style={{
-            color: 'rgba(255,255,255,0.4)',
-            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-          }}
-        />
-      </button>
+      {/* Gradient border wrapper */}
       <div
+        className="pfa-chat-gradient"
         style={{
-          maxHeight: open ? '300px' : '0px',
-          overflow: 'hidden',
-          transition: 'max-height 250ms ease',
+          position: 'relative',
+          width: '100%',
+          maxWidth: 480,
+          height: 724,
+          minHeight: 724,
+          maxHeight: 724,
+          flexShrink: 0,
+          borderRadius: 20,
+          padding: 2,
+          background: 'linear-gradient(135deg, #F5A623, #EF8A3E, #E05A2B, #9B5CFF, #7C5CFC)',
+          boxShadow: '0 0 40px rgba(239,138,62,0.22), 0 0 70px rgba(124,92,252,0.18)',
         }}
       >
-        <p className="pb-5 text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{a}</p>
+        {/* Chat card */}
+        <div
+          className="pfa-chat-card"
+          style={{
+            width: '100%',
+            height: 720,
+            minHeight: 720,
+            maxHeight: 720,
+            background: '#ffffff',
+            borderRadius: 18,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Header */}
+          <div style={{
+            padding: '12px 16px',
+            borderBottom: '1px solid rgba(0,0,0,0.06)',
+            display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0,
+          }}>
+            <div style={{ width: 40, height: 40, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
+              <Image src="/images/profile-image1.jpg" alt="Health Expert AI" fill style={{ objectFit: 'cover' }} unoptimized />
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>Health Expert AI</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e' }} />
+                <span style={{ fontSize: 11, color: '#68655E', fontFamily: I }}>Online</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div
+            ref={msgsRef}
+            className="pfa-chat-msgs"
+            style={{
+              flex: 1, minHeight: 0, padding: '16px',
+              overflowY: 'scroll', display: 'flex', flexDirection: 'column', gap: 10,
+            }}
+          >
+            {messages.map((msg) => (
+              <div
+                key={msg.key}
+                className="pfa-chat-msg-in"
+                style={{ display: 'flex', justifyContent: msg.role === 'member' ? 'flex-end' : 'flex-start' }}
+              >
+                <div style={{
+                  maxWidth: '75%',
+                  padding: '10px 14px',
+                  borderRadius: msg.role === 'member' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                  background: msg.role === 'member' ? '#0F0E0D' : 'rgba(0,0,0,0.05)',
+                  color: msg.role === 'member' ? '#ffffff' : '#0F0E0D',
+                  fontSize: 14,
+                  fontFamily: I,
+                  lineHeight: 1.5,
+                }}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+
+            {isTyping && (
+              <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                <div style={{
+                  padding: '12px 14px', borderRadius: '18px 18px 18px 4px',
+                  background: 'rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', gap: 5,
+                }}>
+                  {[0, 160, 320].map((d) => (
+                    <div
+                      key={d}
+                      className="pfa-chat-tdot"
+                      style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(0,0,0,0.4)', animationDelay: `${d}ms` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Input bar */}
+          <div style={{
+            padding: '10px 12px', borderTop: '1px solid rgba(0,0,0,0.06)',
+            display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0,
+          }}>
+            <div style={{
+              flex: 1, borderRadius: 999, background: 'rgba(0,0,0,0.04)',
+              border: '1px solid rgba(0,0,0,0.08)', padding: '9px 16px',
+              fontSize: 14, color: 'rgba(0,0,0,0.3)', fontFamily: I, userSelect: 'none',
+            }}>
+              Type a message...
+            </div>
+            <div style={{
+              width: 36, height: 36, borderRadius: '50%', background: '#0F0E0D',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+            }}>
+              <ArrowUp size={16} color="#ffffff" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
-
-function FaqSection() {
-  return (
-    <section style={{ background: '#0F0E0D' }} className="py-20">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
-        <div data-animate="" className="text-center mb-12">
-          <h2 className="text-3xl text-white" style={{ fontWeight: 600 }}>
-            Frequently asked questions
-          </h2>
-        </div>
-        <div data-animate="" className="mx-auto" style={{ maxWidth: '700px' }}>
-          {faqs.map(({ q, a }) => (
-            <FaqItem key={q} q={q} a={a} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Section 7: CTA ─── */
-
-function CtaSection() {
-  return (
-    <section style={{ background: '#0F0E0D', marginBottom: '-8px' }}>
-      <div data-animate="" className="relative z-10 pt-20 mx-auto max-w-[700px] px-6 text-center">
-        <h2 className="text-4xl md:text-6xl text-white tracking-tight leading-tight" style={{ fontWeight: 600 }}>
-          Clone Yourself.<br />Scale Your Influence.
-        </h2>
-        <p className="mt-6 text-base mx-auto" style={{ color: 'rgba(255,255,255,0.75)', maxWidth: '550px' }}>
-          Get started in minutes. No credit card required.
-        </p>
-        <div className="mt-8">
-          <a
-            href={SIGN_IN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
-            style={{ background: '#ffffff', color: '#0F0E0D' }}
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
-
-      <div className="relative overflow-hidden" style={{ marginTop: '-180px', zIndex: 0 }}>
-        <Image
-          src="/images/Cta-Background3.png"
-          alt=""
-          width={1920}
-          height={800}
-          quality={100}
-          unoptimized
-          className="w-full h-auto pointer-events-none"
-          style={{ display: 'block', verticalAlign: 'bottom' }}
-        />
-        <div
-          className="absolute bottom-0 left-0 right-0 pointer-events-none"
-          style={{
-            height: '280px',
-            background: 'linear-gradient(to bottom, transparent, #0F0E0D)',
-            zIndex: 10,
-          }}
-        />
-      </div>
-    </section>
-  )
-}
-
-/* ─── Page ─── */
 
 export default function PayForAccessPage() {
   return (
-    <main style={{ background: '#0F0E0D', fontFamily: "'Inter', sans-serif" }}>
-      <ScrollAnimator />
-      <Navbar />
-      <HeroSection />
-      <StatsSection />
-      <BenefitCards />
-      <HowItWorksSection />
-      <RevenueCalculator />
-      <FaqSection />
-      <CtaSection />
-      <Footer />
+    <main style={{ background: '#ffffff', fontFamily: H }}>
+      <style>{`
+        @media (max-width: 880px) {
+          .pfa-hero-row { flex-direction: column !important; gap: 28px !important; }
+          .pfa-hero-right { padding-left: 0 !important; }
+          .pfa-problem-grid { grid-template-columns: 1fr !important; }
+          .pfa-how-row { flex-direction: column !important; gap: 40px !important; }
+          .pfa-how-col { flex: 0 0 auto !important; width: 100% !important; }
+          .pfa-pillars-row { flex-direction: column !important; }
+          .pfa-pillar { border-right: none !important; border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
+          .pfa-pillar:last-child { border-bottom: none !important; }
+          .pfa-hero-dashboard { display: none !important; }
+        }
+      `}</style>
+
+      {/* ── SECTION 1: HERO ── */}
+      <section style={{ background: '#ffffff', paddingTop: 128, paddingBottom: 80 }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8">
+          <FadeIn>
+            <div className="pfa-hero-row" style={{ display: 'flex', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 55%' }}>
+                <h1
+                  className="font-normal leading-[1.05]"
+                  style={{ fontSize: 'clamp(36px, 5vw, 64px)', color: '#0F0E0D', fontFamily: H, maxWidth: 620 }}
+                >
+                  Monetize your expertise, the HIPAA-safe way
+                </h1>
+              </div>
+              <div className="pfa-hero-right" style={{ flex: '0 0 45%', paddingLeft: 'clamp(0px, 8vw, 128px)' }}>
+                <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, maxWidth: 470 }}>
+                  Pay For Access lets healthcare experts sell their content and answer their audience&apos;s questions through HIPAA-compliant infrastructure. Build authority and revenue without the compliance risk of generic creator tools.
+                </p>
+                <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
+                  <a
+                    href={SIGN_IN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={btnBlack}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.82')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                  >
+                    Get Started
+                  </a>
+                  <a
+                    href={DEMO_BOOKING_URL}
+                    style={btnGhost}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.65')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                  >
+                    Book a Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn delay={120} className="pfa-hero-dashboard" style={{ marginTop: 64 }}>
+            <ContentLibraryDashboard />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: THE PROBLEM ── */}
+      <section style={{ background: '#ffffff' }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-16 md:py-24">
+          <FadeIn>
+            <h2
+              className="font-normal leading-[1.05]"
+              style={{ fontSize: 'clamp(28px, 4vw, 52px)', color: '#0F0E0D', fontFamily: H, maxWidth: 700, marginBottom: 20 }}
+            >
+              Generic creator tools were never built for health
+            </h2>
+            <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, maxWidth: 640, marginBottom: 52 }}>
+              Patreon, Kajabi, and Substack are fine for newsletters. But the moment a paying member asks you a health question or shares their symptoms, you have a compliance problem those platforms cannot solve.
+            </p>
+          </FadeIn>
+          <div className="pfa-problem-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40 }}>
+            {([
+              { Icon: AlertTriangle, title: 'Health questions create PHI', desc: 'The second a member describes symptoms, you are handling protected health information.', bg: '#FEF2F2', color: '#DC2626' },
+              { Icon: Lock,         title: 'No BAA, no protection',        desc: 'Consumer creator platforms do not offer Business Associate Agreements.',                  bg: '#FEF2F2', color: '#DC2626' },
+              { Icon: ShieldOff,    title: 'Your liability, not theirs',   desc: 'If member health data is mishandled, the exposure falls on you.',                        bg: '#FEF2F2', color: '#DC2626' },
+            ] as const).map(({ Icon, title, desc, bg, color }, i) => (
+              <FadeIn key={title} delay={i * 60}>
+                <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                  <div style={{ width: 36, height: 36, borderRadius: 8, background: bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Icon size={16} style={{ color }} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>{title}</div>
+                    <div style={{ fontSize: 14, color: '#68655E', fontFamily: I, marginTop: 4, lineHeight: 1.55 }}>{desc}</div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: HOW IT WORKS ── */}
+      <section style={{ background: '#ffffff' }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-16 md:py-24">
+          <div className="pfa-how-row" style={{ display: 'flex', alignItems: 'flex-start', gap: 60 }}>
+            {/* Left */}
+            <FadeIn className="pfa-how-col" style={{ flex: '0 0 38%' }}>
+              <h2
+                className="font-normal leading-[1.05]"
+                style={{ fontSize: 'clamp(28px, 4vw, 52px)', color: '#0F0E0D', fontFamily: H, marginBottom: 20 }}
+              >
+                Sell content. Answer questions. Stay compliant.
+              </h2>
+              <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, marginBottom: 36 }}>
+                Pay For Access gives you a paywalled hub for your content and a HIPAA-compliant AI agent that answers your audience&apos;s questions in your voice.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+                {([
+                  { Icon: PlayCircle, title: 'Paywalled content & courses',   desc: 'Sell videos, protocols, guides, and programs behind a secure paywall.' },
+                  { Icon: Bot,        title: 'HIPAA-safe AI agent',            desc: 'An AI assistant answers member health questions under a BAA, with escalation when needed.' },
+                  { Icon: ShieldCheck, title: 'Compliant by default',         desc: 'BAA, AES-256 encryption, audit trails, and secured LLM access built in.' },
+                ] as const).map(({ Icon, title, desc }) => (
+                  <div key={title} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 8, background: '#F5F4F2', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <Icon size={16} style={{ color: '#0F0E0D' }} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>{title}</div>
+                      <div style={{ fontSize: 14, color: '#68655E', fontFamily: I, marginTop: 3, lineHeight: 1.5 }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+            {/* Right */}
+            <FadeIn className="pfa-how-col" delay={120} style={{ flex: '0 0 58%' }}>
+              <PFAChatCard />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4: WHO IT'S FOR ── */}
+      <section style={{ background: '#ffffff' }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-16 md:py-24">
+          <FadeIn>
+            <h2
+              className="font-normal leading-[1.05]"
+              style={{ fontSize: 'clamp(28px, 4vw, 52px)', color: '#0F0E0D', fontFamily: H, marginBottom: 16 }}
+            >
+              Built for every kind of health expert
+            </h2>
+            <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, maxWidth: 560, marginBottom: 48 }}>
+              If your audience trusts you with their health, Pay For Access keeps that relationship compliant.
+            </p>
+          </FadeIn>
+          <FadeIn delay={80}>
+            <div className="pfa-pillars-row" style={{ display: 'flex', border: '1px solid rgba(0,0,0,0.08)' }}>
+              {WHO.map(({ Icon, title, desc }, i) => (
+                <div
+                  key={title}
+                  className="pfa-pillar"
+                  style={{
+                    flex: 1,
+                    padding: '28px 20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    borderRight: i < WHO.length - 1 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                  }}
+                >
+                  <div style={{ width: 36, height: 36, borderRadius: 8, background: '#F5F4F2', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                    <Icon size={16} style={{ color: '#0F0E0D' }} />
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: '#0F0E0D', fontFamily: I, marginBottom: 6 }}>{title}</div>
+                  <div style={{ fontSize: 13, color: '#68655E', fontFamily: I, lineHeight: 1.55 }}>{desc}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── SECTION 5: SECURITY TIE-IN ── */}
+      <section style={{ background: '#ffffff' }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-16 md:py-24">
+          <FadeIn>
+            <h2
+              className="font-normal leading-[1.05]"
+              style={{ fontSize: 'clamp(24px, 3.5vw, 44px)', color: '#0F0E0D', fontFamily: H, marginBottom: 16 }}
+            >
+              The same security that powers our clinic platform
+            </h2>
+            <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, maxWidth: 560, marginBottom: 48 }}>
+              Pay For Access runs on A2V2&apos;s HIPAA-compliant infrastructure.
+            </p>
+          </FadeIn>
+          <FadeIn delay={80}>
+            <div className="pfa-pillars-row" style={{ display: 'flex', border: '1px solid rgba(0,0,0,0.08)' }}>
+              {PILLARS.map(({ badge, title, desc }, i) => (
+                <div
+                  key={title}
+                  className="pfa-pillar"
+                  style={{
+                    flex: 1,
+                    padding: '32px 28px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    borderRight: i < PILLARS.length - 1 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                  }}
+                >
+                  <BadgeSVG label={badge} />
+                  <div style={{ fontSize: 15, fontWeight: 600, color: '#0F0E0D', fontFamily: I, marginTop: 20 }}>{title}</div>
+                  <div style={{ fontSize: 14, color: '#68655E', fontFamily: I, marginTop: 8, lineHeight: 1.6 }}>{desc}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn delay={120} style={{ marginTop: 24 }}>
+            <a
+              href="/security"
+              style={{ fontSize: 14, fontWeight: 500, color: '#0F0E0D', fontFamily: I, textDecoration: 'underline', textUnderlineOffset: 3, letterSpacing: '-0.2px', transition: 'color 150ms ease' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#2563EB')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#0F0E0D')}
+            >
+              Learn more about our security →
+            </a>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── SECTION 6: CTA ── */}
+      <section style={{ background: '#ffffff' }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-20 md:py-28">
+          <FadeIn>
+            <div style={{ textAlign: 'center' }}>
+              <h2
+                className="font-normal leading-[1.05]"
+                style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', color: '#0F0E0D', fontFamily: H, maxWidth: 700, margin: '0 auto' }}
+              >
+                Turn your expertise into compliant revenue
+              </h2>
+              <p style={{ fontSize: 16, fontWeight: 500, color: '#68655E', fontFamily: I, letterSpacing: '-0.3px', lineHeight: 1.6, maxWidth: 500, margin: '20px auto 36px' }}>
+                Start selling your content and answering your audience the HIPAA-safe way.
+              </p>
+              <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a
+                  href={SIGN_IN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={btnBlack}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.82')}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                >
+                  Get Started
+                </a>
+                <a
+                  href={DEMO_BOOKING_URL}
+                  style={btnGhost}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.65')}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                >
+                  Book a Demo
+                </a>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <TestHomepage2Footer />
     </main>
   )
 }
