@@ -11,12 +11,17 @@ const FEATURES_ITEMS = [
   { title: 'Pay For Access', description: 'Monetize your expertise', href: '/features/pay-for-access' },
 ]
 
-const plainLinks = [
-  { label: 'Security', href: '/security' },
-  { label: 'Blog', href: '/blog' },
+const SOLUTIONS_ITEMS = [
+  { title: 'Custom Dashboard', description: 'A dashboard built for your clinic', href: '/solutions/custom-dashboard' },
 ]
 
-function FeaturesDropdown({ triggerRef, onClose, onMouseEnter, onMouseLeave }: {
+const plainLinks = [
+  { label: 'Security', href: '/security' },
+  { label: 'Blog',     href: '/blog' },
+]
+
+function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }: {
+  items: { title: string; description: string; href: string }[]
   triggerRef: React.RefObject<HTMLButtonElement | null>
   onClose: () => void
   onMouseEnter: () => void
@@ -49,7 +54,7 @@ function FeaturesDropdown({ triggerRef, onClose, onMouseEnter, onMouseLeave }: {
         minWidth: 220,
       }}
     >
-      {FEATURES_ITEMS.map((item) => (
+      {items.map((item) => (
         <a
           key={item.title}
           href={item.href}
@@ -78,35 +83,55 @@ function FeaturesDropdown({ triggerRef, onClose, onMouseEnter, onMouseLeave }: {
 }
 
 export default function TestHomepage2Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen,     setMenuOpen]     = useState(false)
   const [featuresOpen, setFeaturesOpen] = useState(false)
-  const triggerRef = useRef<HTMLButtonElement>(null)
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
 
-  const cancelClose = useCallback(() => {
-    if (closeTimerRef.current !== null) {
-      clearTimeout(closeTimerRef.current)
-      closeTimerRef.current = null
-    }
+  const featuresTriggerRef  = useRef<HTMLButtonElement>(null)
+  const solutionsTriggerRef = useRef<HTMLButtonElement>(null)
+  const featuresTimerRef    = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const solutionsTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // ── Features hover handlers ──
+  const cancelFeaturesClose = useCallback(() => {
+    if (featuresTimerRef.current !== null) { clearTimeout(featuresTimerRef.current); featuresTimerRef.current = null }
   }, [])
-
-  const scheduleClose = useCallback(() => {
-    cancelClose()
-    closeTimerRef.current = setTimeout(() => setFeaturesOpen(false), 180)
-  }, [cancelClose])
-
-  const openDropdown = useCallback(() => {
-    cancelClose()
+  const scheduleFeaturesClose = useCallback(() => {
+    cancelFeaturesClose()
+    featuresTimerRef.current = setTimeout(() => setFeaturesOpen(false), 180)
+  }, [cancelFeaturesClose])
+  const openFeatures = useCallback(() => {
+    cancelFeaturesClose()
+    setSolutionsOpen(false)
     setFeaturesOpen(true)
-  }, [cancelClose])
-
-  const closeNow = useCallback(() => {
-    cancelClose()
+  }, [cancelFeaturesClose])
+  const closeFeaturesNow = useCallback(() => {
+    cancelFeaturesClose()
     setFeaturesOpen(false)
-  }, [cancelClose])
+  }, [cancelFeaturesClose])
 
-  // Clean up timer on unmount
-  useEffect(() => () => { if (closeTimerRef.current) clearTimeout(closeTimerRef.current) }, [])
+  // ── Solutions hover handlers ──
+  const cancelSolutionsClose = useCallback(() => {
+    if (solutionsTimerRef.current !== null) { clearTimeout(solutionsTimerRef.current); solutionsTimerRef.current = null }
+  }, [])
+  const scheduleSolutionsClose = useCallback(() => {
+    cancelSolutionsClose()
+    solutionsTimerRef.current = setTimeout(() => setSolutionsOpen(false), 180)
+  }, [cancelSolutionsClose])
+  const openSolutions = useCallback(() => {
+    cancelSolutionsClose()
+    setFeaturesOpen(false)
+    setSolutionsOpen(true)
+  }, [cancelSolutionsClose])
+  const closeSolutionsNow = useCallback(() => {
+    cancelSolutionsClose()
+    setSolutionsOpen(false)
+  }, [cancelSolutionsClose])
+
+  useEffect(() => () => {
+    if (featuresTimerRef.current)  clearTimeout(featuresTimerRef.current)
+    if (solutionsTimerRef.current) clearTimeout(solutionsTimerRef.current)
+  }, [])
 
   return (
     <div
@@ -117,7 +142,7 @@ export default function TestHomepage2Navbar() {
       <nav
         className="w-full flex items-center justify-between rounded-2xl"
         style={{
-          maxWidth: 740,
+          maxWidth: 820,
           marginLeft: 24,
           marginRight: 24,
           background: '#0F0E0D',
@@ -136,13 +161,14 @@ export default function TestHomepage2Navbar() {
           />
         </Link>
 
-        {/* Desktop: center links */}
+        {/* Desktop: center links — Features, Solutions, Security, Blog */}
         <div className="hidden md:flex items-center gap-1">
-          {/* Features — hover dropdown trigger */}
+
+          {/* Features dropdown trigger */}
           <button
-            ref={triggerRef}
-            onMouseEnter={(e) => { openDropdown(); e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}
-            onMouseLeave={(e) => { scheduleClose(); e.currentTarget.style.background = 'transparent' }}
+            ref={featuresTriggerRef}
+            onMouseEnter={(e) => { openFeatures(); e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}
+            onMouseLeave={(e) => { scheduleFeaturesClose(); e.currentTarget.style.background = featuresOpen ? 'rgba(255,255,255,0.1)' : 'transparent' }}
             style={{
               display: 'flex', alignItems: 'center', gap: 4,
               fontSize: 14, fontWeight: 500, color: '#ffffff',
@@ -154,16 +180,29 @@ export default function TestHomepage2Navbar() {
             }}
           >
             Features
-            <ChevronDown
-              size={13}
-              style={{
-                transition: 'transform 200ms',
-                transform: featuresOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-              }}
-            />
+            <ChevronDown size={13} style={{ transition: 'transform 200ms', transform: featuresOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
           </button>
 
-          {/* Plain links */}
+          {/* Solutions dropdown trigger */}
+          <button
+            ref={solutionsTriggerRef}
+            onMouseEnter={(e) => { openSolutions(); e.currentTarget.style.background = 'rgba(255,255,255,0.1)' }}
+            onMouseLeave={(e) => { scheduleSolutionsClose(); e.currentTarget.style.background = solutionsOpen ? 'rgba(255,255,255,0.1)' : 'transparent' }}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 4,
+              fontSize: 14, fontWeight: 500, color: '#ffffff',
+              background: solutionsOpen ? 'rgba(255,255,255,0.1)' : 'transparent',
+              border: 'none', cursor: 'pointer',
+              padding: '6px 12px', borderRadius: 8,
+              fontFamily: "'Inter', sans-serif",
+              transition: 'background 150ms',
+            }}
+          >
+            Solutions
+            <ChevronDown size={13} style={{ transition: 'transform 200ms', transform: solutionsOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+          </button>
+
+          {/* Security, Blog */}
           {plainLinks.map((link) => (
             <a
               key={link.label}
@@ -230,21 +269,33 @@ export default function TestHomepage2Navbar() {
 
       {/* Features portal dropdown */}
       {featuresOpen && (
-        <FeaturesDropdown
-          triggerRef={triggerRef}
-          onClose={closeNow}
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
+        <DropdownMenu
+          items={FEATURES_ITEMS}
+          triggerRef={featuresTriggerRef}
+          onClose={closeFeaturesNow}
+          onMouseEnter={cancelFeaturesClose}
+          onMouseLeave={scheduleFeaturesClose}
         />
       )}
 
-      {/* Mobile menu dropdown */}
+      {/* Solutions portal dropdown */}
+      {solutionsOpen && (
+        <DropdownMenu
+          items={SOLUTIONS_ITEMS}
+          triggerRef={solutionsTriggerRef}
+          onClose={closeSolutionsNow}
+          onMouseEnter={cancelSolutionsClose}
+          onMouseLeave={scheduleSolutionsClose}
+        />
+      )}
+
+      {/* Mobile menu */}
       {menuOpen && (
         <div
           className="md:hidden absolute top-full left-6 right-6 rounded-2xl mt-2 flex flex-col"
           style={{ background: '#0F0E0D', padding: '16px 20px', gap: 4 }}
         >
-          {/* Features items expanded inline on mobile */}
+          {/* Features */}
           <div style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: 8, marginBottom: 4 }}>
             <div style={{ fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.4)', fontFamily: "'Inter', sans-serif", padding: '4px 4px 8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Features</div>
             {FEATURES_ITEMS.map((item) => (
@@ -258,7 +309,21 @@ export default function TestHomepage2Navbar() {
               </a>
             ))}
           </div>
-          {/* Security + Blog as top-level plain links */}
+          {/* Solutions */}
+          <div style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: 8, marginBottom: 4 }}>
+            <div style={{ fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.4)', fontFamily: "'Inter', sans-serif", padding: '4px 4px 8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Solutions</div>
+            {SOLUTIONS_ITEMS.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                style={{ display: 'block', fontSize: 15, fontWeight: 500, color: '#ffffff', textDecoration: 'none', fontFamily: "'Inter', sans-serif", padding: '8px 4px' }}
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
+          {/* Security + Blog */}
           {plainLinks.map((link) => (
             <a
               key={link.label}

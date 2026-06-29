@@ -11,12 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`,                            lastModified: '2026-06-17', changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${BASE}/roi-calculator`,                  lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.7 },
     // Specialty landing pages
-    { url: `${BASE}/ai-for-longevity-clinics`,        lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/ai-for-functional-medicine`,      lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/ai-for-hrt-clinics`,              lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/patient-retention-software`,      lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.9 },
     // Solutions
     { url: `${BASE}/solutions/healthcare`,            lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/solutions/custom-dashboard`,      lastModified: '2026-06-29', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/security`,                         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
     // Features
     { url: `${BASE}/features/pay-for-access`,         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.6 },
