@@ -7,6 +7,7 @@ import {
   Stethoscope, Network, Bot, ShieldCheck,
 } from 'lucide-react'
 import TestHomepage2Footer from '@/components/TestHomepage2Footer'
+import TestHomepage2HeroDashboard from '@/components/TestHomepage2HeroDashboard'
 import { DEMO_BOOKING_URL, SIGN_IN_URL } from '@/lib/constants'
 
 const H = "'Helvetica Neue', Helvetica, Arial, sans-serif"
@@ -86,14 +87,6 @@ const CD_PILLARS = [
   { badge: 'U.S.',    title: 'U.S. Data Centers',  desc: 'All patient data is stored in U.S.-based data centers with complete access controls.' },
 ]
 
-const HERO_SIDEBAR = [
-  { Icon: Home,     active: false },
-  { Icon: Activity, active: true  },
-  { Icon: Users,    active: false },
-  { Icon: FileText, active: false },
-  { Icon: Settings, active: false },
-]
-
 function Sidebar({ icons }: { icons: { Icon: React.ElementType; active: boolean }[] }) {
   return (
     <div style={{
@@ -113,64 +106,6 @@ function Sidebar({ icons }: { icons: { Icon: React.ElementType; active: boolean 
           <Icon size={14} color={active ? '#ffffff' : 'rgba(0,0,0,0.32)'} />
         </div>
       ))}
-    </div>
-  )
-}
-
-function PatientDashboard() {
-  const patients = [
-    { name: 'Sarah J.',   detail: 'HRT · Week 6',         status: 'On track',      sc: '#16A34A', sb: '#DCFCE7' },
-    { name: 'Michael K.', detail: 'NAD+ · Day 2',          status: 'Check-in sent', sc: '#2563EB', sb: '#EFF6FF' },
-    { name: 'Priya S.',   detail: 'Metabolic Reset',       status: 'Labs due',      sc: '#D97706', sb: '#FEF3C7' },
-    { name: 'Robert T.',  detail: 'TRT · Refill',          status: 'Reminder sent', sc: '#2563EB', sb: '#EFF6FF' },
-    { name: 'Karen B.',   detail: '18 days inactive',      status: 'Flagged',       sc: '#DC2626', sb: '#FEF2F2' },
-  ]
-  return (
-    <div className="relative overflow-hidden cd-hero-dashboard" style={{ height: 680, width: '100%' }}>
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: "url('/images/Background-website-3.png')", backgroundSize: 'cover', backgroundPosition: 'center top' }}
-      />
-      <div className="flex" style={{ position: 'absolute', top: 109, left: 149, right: -300, bottom: 0 }}>
-        <Sidebar icons={HERO_SIDEBAR} />
-        <div style={{ flex: 1, background: '#FAFAF8', borderRadius: '0 8px 0 0', overflow: 'hidden' }}>
-          {/* Topbar */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 318px 10px 16px', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-            <span style={{ fontSize: 12, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>Patient Queue</span>
-            <span style={{ fontSize: 10, background: '#EFF6FF', color: '#2563EB', borderRadius: 999, padding: '2px 8px', fontFamily: I, fontWeight: 500 }}>5 need attention</span>
-          </div>
-          {/* Column headers */}
-          <div style={{ display: 'grid', gridTemplateColumns: '100px 1fr 100px', padding: '6px 318px 6px 16px', borderBottom: '1px solid rgba(0,0,0,0.04)', background: '#F5F4F2' }}>
-            {['Patient', 'Protocol', 'Status'].map(h => (
-              <span key={h} style={{ fontSize: 9, fontWeight: 600, color: '#9A9590', fontFamily: I, letterSpacing: '0.5px', textTransform: 'uppercase' }}>{h}</span>
-            ))}
-          </div>
-          {/* Patient rows */}
-          {patients.map((p, i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: '100px 1fr 100px', padding: '9px 318px 9px 16px', borderBottom: '1px solid rgba(0,0,0,0.04)', alignItems: 'center' }}>
-              <span style={{ fontSize: 10, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>{p.name}</span>
-              <span style={{ fontSize: 10, color: '#68655E', fontFamily: I }}>{p.detail}</span>
-              <span style={{ fontSize: 9, background: p.sb, color: p.sc, borderRadius: 999, padding: '2px 7px', fontFamily: I, fontWeight: 500, width: 'fit-content' }}>{p.status}</span>
-            </div>
-          ))}
-          {/* Footer stats */}
-          <div style={{ padding: '12px 16px', display: 'flex', gap: 16, alignItems: 'center' }}>
-            <div>
-              <div style={{ fontSize: 9, color: '#9A9590', fontFamily: I }}>Active patients</div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#0F0E0D', fontFamily: I }}>14</div>
-            </div>
-            <div style={{ width: 1, height: 24, background: 'rgba(0,0,0,0.06)' }} />
-            <div>
-              <div style={{ fontSize: 9, color: '#9A9590', fontFamily: I }}>Avg. engagement</div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#16A34A', fontFamily: I }}>94%</div>
-            </div>
-            <div style={{ marginLeft: 'auto', display: 'flex', gap: 4 }}>
-              <span style={{ fontSize: 9, background: '#F0FDF4', color: '#16A34A', border: '1px solid #BBF7D0', borderRadius: 4, padding: '2px 6px', fontFamily: I, fontWeight: 500 }}>HIPAA active</span>
-              <span style={{ fontSize: 9, background: '#EFF6FF', color: '#2563EB', border: '1px solid #BFDBFE', borderRadius: 4, padding: '2px 6px', fontFamily: I, fontWeight: 500 }}>AES-256</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
@@ -338,8 +273,21 @@ export default function CustomDashboardPage() {
               </div>
             </div>
           </FadeIn>
-          <FadeIn delay={120} className="cd-hero-dashboard" style={{ marginTop: 56 }}>
-            <PatientDashboard />
+          <FadeIn delay={120} className="cd-hero-dashboard" style={{ marginTop: 64 }}>
+            <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }} className="px-10 py-32">
+              <Image
+                src="/images/Background-website-3.png"
+                alt=""
+                fill
+                style={{ objectFit: 'cover' }}
+                quality={100}
+                unoptimized
+                priority
+              />
+              <div className="relative w-full mx-auto max-w-[920px] origin-center md:scale-[1.17]">
+                <TestHomepage2HeroDashboard />
+              </div>
+            </div>
           </FadeIn>
         </div>
       </section>
