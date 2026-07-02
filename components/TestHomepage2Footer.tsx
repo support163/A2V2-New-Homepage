@@ -104,7 +104,36 @@ export default function TestHomepage2Footer() {
               </ul>
             </div>
 
-            {/* Column 4 — Socials */}
+            {/* Column 4 — Contact */}
+            <div>
+              <h4 className="text-btn font-medium" style={{ color: '#0F0E0D', fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>Contact</h4>
+              <ul className="mt-4 flex flex-col gap-3">
+                <li>
+                  <a
+                    href="mailto:support@a2v2.ai"
+                    className="text-sm transition-colors"
+                    style={{ color: '#68655E', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '-0.3px' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#0F0E0D')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#68655E')}
+                  >
+                    support@a2v2.ai
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+13232820051"
+                    className="text-sm transition-colors"
+                    style={{ color: '#68655E', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '-0.3px' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#0F0E0D')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#68655E')}
+                  >
+                    323-282-0051
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 5 — Socials */}
             <div>
               <h4 className="text-btn font-medium" style={{ color: '#0F0E0D', fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>Socials</h4>
               <div className="mt-4 flex items-center gap-4">

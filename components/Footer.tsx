@@ -81,7 +81,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Socials */}
+          {/* Column 4 — Contact */}
+          <div>
+            <h4 className="text-btn font-bold text-white">Contact</h4>
+            <ul className="mt-4 flex flex-col gap-3">
+              <li>
+                <a
+                  href="mailto:support@a2v2.ai"
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  support@a2v2.ai
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+13232820051"
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  323-282-0051
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5 — Socials */}
           <div>
             <h4 className="text-btn font-bold text-white">Socials</h4>
             <div className="mt-4 flex items-center gap-4">
