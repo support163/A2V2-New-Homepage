@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 19,
+    title: 'Attach more, do more: multi-file upload is here',
+    description:
+      'Patients can now share lab reports, scans, and documents right in the chat, up to 5 files per message, and your agent reads them directly.',
+    category: "What's New",
+    href: '/blog/multi-file-upload-in-chat',
+    thumbnail: '/images/multi-file-upload-in-chat.png',
+  },
+  {
     id: 18,
     title: 'NAD+ Therapy Patient Management: How to Keep Patients Through the Full Protocol',
     description:

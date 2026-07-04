@@ -4,8 +4,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { blogPosts } from '@/lib/blog-posts'
 
+const H = "'Helvetica Neue', Helvetica, Arial, sans-serif"
+const I = "'Inter', sans-serif"
+
 const categories = [
-  'All Category',
+  'All',
   "What's New",
   'Quick Guides',
   'Best Practices',
@@ -13,12 +16,11 @@ const categories = [
 ]
 
 export default function BlogContent() {
-  const [activeCategory, setActiveCategory] = useState('All Category')
+  const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
 
   const filteredPosts = blogPosts.filter((post) => {
-    const matchesCategory =
-      activeCategory === 'All Category' || post.category === activeCategory
+    const matchesCategory = activeCategory === 'All' || post.category === activeCategory
     const matchesSearch =
       searchQuery === '' ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -28,221 +30,208 @@ export default function BlogContent() {
 
   return (
     <section
-      className="pt-[88px] pb-8 md:pb-section-y min-h-screen"
-      style={{ background: '#0F0E0D', fontFamily: "'Inter', sans-serif" }}
+      style={{ background: '#FFFFFF', fontFamily: I }}
     >
-      <div className="mx-auto max-w-[1280px] px-6 md:px-section-x">
+      {/* Header */}
+      <div className="mx-auto max-w-[1400px] px-6 md:px-8 pt-32 pb-10">
+        <h1
+          style={{
+            fontSize: 'clamp(36px, 6vw, 60px)',
+            fontWeight: 400,
+            color: '#0F0E0D',
+            fontFamily: H,
+            lineHeight: 1.05,
+            letterSpacing: '-0.5px',
+            marginBottom: 16,
+          }}
+        >
+          The A2V2 Blog
+        </h1>
+        <p
+          style={{
+            fontSize: 17,
+            fontWeight: 500,
+            color: '#68655E',
+            fontFamily: I,
+            letterSpacing: '-0.3px',
+            lineHeight: 1.6,
+            maxWidth: 520,
+            marginBottom: 0,
+          }}
+        >
+          Guides, updates, and best practices for running a modern clinic.
+        </p>
+      </div>
 
-        {/* ── Mobile: Title + categories on top ── */}
-        <div className="block md:hidden">
-          <div className="text-center mb-8">
-            <h1 className="text-[32px] font-semibold leading-tight text-white">
-              The Latest from A2V2.
-            </h1>
-            <p className="mt-4 text-btn leading-relaxed max-w-[480px] mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care.
-            </p>
-          </div>
+      {/* Filters + Search */}
+      <div
+        className="mx-auto max-w-[1400px] px-6 md:px-8 pb-8"
+        style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
 
-          {/* Mobile Search */}
-          <div className="mb-4">
-            <div className="relative">
-              <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
-                width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-lg py-2.5 pl-10 pr-4 text-sm focus:outline-none"
-                style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: '#ffffff',
-                }}
-              />
-            </div>
-          </div>
-
-          {/* Mobile horizontal scrollable categories */}
-          <div className="mb-8 overflow-x-auto scrollbar-hide">
-            <div className="flex gap-2 min-w-max pb-2">
-              {categories.map((cat) => (
+          {/* Category pills */}
+          <div className="flex flex-wrap gap-2 flex-1">
+            {categories.map((cat) => {
+              const active = activeCategory === cat
+              return (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors"
-                  style={
-                    activeCategory === cat
-                      ? { background: 'rgba(255,255,255,0.12)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.15)' }
-                      : { background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.08)' }
-                  }
-                >
-                  {cat === 'All Category' ? 'All' : cat}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ── Desktop: Two-column layout ── */}
-        <div className="flex gap-12">
-
-          {/* Left sidebar — desktop only */}
-          <aside className="hidden md:block w-[200px] flex-shrink-0 sticky top-[88px] self-start">
-
-            {/* Search */}
-            <div className="relative mb-8">
-              <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
-                width="14" height="14" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-lg py-2 pl-9 pr-3 text-sm focus:outline-none"
-                style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: '#ffffff',
-                }}
-              />
-            </div>
-
-            {/* Categories */}
-            <p
-              className="text-xs font-medium uppercase tracking-wider mb-3"
-              style={{ color: 'rgba(255,255,255,0.5)' }}
-            >
-              Categories
-            </p>
-            <nav className="flex flex-col gap-0.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className="text-left text-sm py-2 px-3 rounded-lg w-full transition-colors"
-                  style={
-                    activeCategory === cat
-                      ? { background: 'rgba(255,255,255,0.08)', color: '#ffffff' }
-                      : { color: 'rgba(255,255,255,0.6)', background: 'transparent' }
-                  }
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 500,
+                    fontFamily: I,
+                    padding: '6px 14px',
+                    borderRadius: 999,
+                    border: active ? '1px solid #0F0E0D' : '1px solid rgba(0,0,0,0.15)',
+                    background: active ? '#0F0E0D' : 'transparent',
+                    color: active ? '#ffffff' : '#68655E',
+                    cursor: 'pointer',
+                    transition: 'all 150ms',
+                    whiteSpace: 'nowrap',
+                  }}
                   onMouseEnter={(e) => {
-                    if (activeCategory !== cat) {
-                      e.currentTarget.style.color = '#ffffff'
-                      e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                    if (!active) {
+                      e.currentTarget.style.borderColor = 'rgba(0,0,0,0.35)'
+                      e.currentTarget.style.color = '#0F0E0D'
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (activeCategory !== cat) {
-                      e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
-                      e.currentTarget.style.background = 'transparent'
+                    if (!active) {
+                      e.currentTarget.style.borderColor = 'rgba(0,0,0,0.15)'
+                      e.currentTarget.style.color = '#68655E'
                     }
                   }}
                 >
                   {cat}
                 </button>
-              ))}
-            </nav>
-          </aside>
+              )
+            })}
+          </div>
 
-          {/* Main content */}
-          <div className="flex-1 min-w-0">
+          {/* Search */}
+          <div className="relative flex-shrink-0 w-full sm:w-[220px]">
+            <svg
+              className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+              style={{ color: 'rgba(0,0,0,0.35)' }}
+              width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" strokeWidth="2"
+              strokeLinecap="round" strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full rounded-lg py-2 pl-9 pr-4 text-sm focus:outline-none"
+              style={{
+                background: 'rgba(0,0,0,0.04)',
+                border: '1px solid rgba(0,0,0,0.10)',
+                color: '#0F0E0D',
+                fontFamily: I,
+              }}
+            />
+          </div>
+        </div>
+      </div>
 
-            {/* Title — desktop only */}
-            <div className="hidden md:block mb-10">
-              <h1 className="text-[32px] md:text-h1 font-semibold leading-tight text-white">
-                The Latest from A2V2.
-              </h1>
-              <p
-                className="mt-4 text-btn md:text-body-lg leading-relaxed max-w-[600px]"
-                style={{ color: 'rgba(255,255,255,0.6)' }}
+      {/* Grid */}
+      <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-12 md:py-16">
+        {filteredPosts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {filteredPosts.map((post) => (
+              <a
+                key={post.id}
+                href={post.href}
+                className="flex flex-col group"
+                style={{ textDecoration: 'none' }}
               >
-                Guides, research, and updates on HIPAA-compliant AI for healthcare clinics — patient retention, protocol automation, and AI-assisted care.
-              </p>
-            </div>
-
-            {/* Blog post grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredPosts.map((post) => (
-                <a
-                  key={post.id}
-                  href={post.href}
-                  className="flex flex-col"
-                >
-                  {/* Thumbnail */}
+                {/* Thumbnail */}
+                <div style={{ borderRadius: 12, overflow: 'hidden', background: 'rgba(0,0,0,0.04)' }}>
                   {post.thumbnail ? (
                     <Image
                       src={post.thumbnail}
                       alt={post.title}
                       width={600}
                       height={450}
-                      className="w-full aspect-[4/3] rounded-2xl object-cover"
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      quality={100}
+                      unoptimized
                     />
                   ) : (
-                    <div className="w-full aspect-[4/3] rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                    <div className="w-full aspect-[4/3]" />
                   )}
+                </div>
 
-                  {/* Category pill */}
-                  <span
-                    className="inline-flex self-start text-xs px-2.5 py-1 rounded-full mt-4 mb-2"
-                    style={{
-                      background: 'rgba(255,255,255,0.08)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      color: 'rgba(255,255,255,0.7)',
-                    }}
-                  >
-                    {post.category}
-                  </span>
+                {/* Category pill */}
+                <span
+                  className="inline-flex self-start text-xs px-2.5 py-1 rounded-full mt-4 mb-2"
+                  style={{
+                    border: '1px solid rgba(0,0,0,0.15)',
+                    color: '#0F0E0D',
+                    fontFamily: I,
+                    fontWeight: 500,
+                  }}
+                >
+                  {post.category}
+                </span>
 
-                  <h2 className="text-base font-semibold text-white leading-snug">
-                    {post.title}
-                  </h2>
-                  <p
-                    className="mt-2 text-sm leading-relaxed"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
-                  >
-                    {post.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-white">
-                    Read Post
-                    <svg
-                      width="14" height="14" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" strokeWidth="2.5"
-                      strokeLinecap="round" strokeLinejoin="round"
-                    >
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
-                  </span>
-                </a>
-              ))}
-            </div>
+                {/* Title */}
+                <h2
+                  style={{
+                    fontSize: 15,
+                    fontWeight: 600,
+                    color: '#0F0E0D',
+                    fontFamily: I,
+                    lineHeight: 1.45,
+                    margin: 0,
+                    transition: 'color 150ms',
+                  }}
+                  className="group-hover:opacity-80"
+                >
+                  {post.title}
+                </h2>
 
-            {/* Empty state */}
-            {filteredPosts.length === 0 && (
-              <p className="text-center py-20" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                No posts found.
-              </p>
-            )}
+                {/* Description */}
+                <p
+                  style={{
+                    marginTop: 8,
+                    fontSize: 13,
+                    lineHeight: 1.65,
+                    color: '#68655E',
+                    fontFamily: I,
+                    letterSpacing: '-0.1px',
+                  }}
+                >
+                  {post.description}
+                </p>
+
+                {/* Read link */}
+                <span
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium"
+                  style={{ color: '#0F0E0D', fontFamily: I }}
+                >
+                  Read Post
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </span>
+              </a>
+            ))}
           </div>
-        </div>
+        ) : (
+          <p
+            className="py-20 text-center"
+            style={{ color: '#68655E', fontFamily: I, fontSize: 15 }}
+          >
+            No posts found.
+          </p>
+        )}
       </div>
     </section>
   )
