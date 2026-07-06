@@ -151,19 +151,19 @@ export default function BlogContent() {
                 style={{ textDecoration: 'none' }}
               >
                 {/* Thumbnail */}
-                <div style={{ borderRadius: 12, overflow: 'hidden', background: 'rgba(0,0,0,0.04)' }}>
+                <div style={{ overflow: 'hidden', background: 'rgba(0,0,0,0.04)' }}>
                   {post.thumbnail ? (
                     <Image
                       src={post.thumbnail}
                       alt={post.title}
                       width={600}
-                      height={450}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      height={338}
+                      className="w-full aspect-[16/9] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       quality={100}
                       unoptimized
                     />
                   ) : (
-                    <div className="w-full aspect-[4/3]" />
+                    <div className="w-full aspect-[16/9]" />
                   )}
                 </div>
 

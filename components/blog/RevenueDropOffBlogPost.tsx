@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -358,7 +358,7 @@ export default function RevenueDropOffBlogPost() {
             alt="How Much Revenue Are You Losing to Patient Drop-Off?"
             width={720}
             height={405}
-            className="w-full rounded-xl object-cover"
+            className="w-full aspect-[16/9] object-cover"
             quality={100}
             unoptimized
             priority
@@ -748,11 +748,11 @@ export default function RevenueDropOffBlogPost() {
                   src={post.thumbnail}
                   alt={post.title}
                   width={600}
-                  height={450}
-                  className="w-full aspect-[4/3] rounded-xl object-cover"
+                  height={338}
+                  className="w-full aspect-[16/9] object-cover"
                 />
               ) : (
-                <div className="w-full aspect-[4/3] rounded-xl" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <div className="w-full aspect-[16/9]" style={{ background: 'rgba(255,255,255,0.06)' }} />
               )}
               <span
                 className="inline-flex self-start text-xs px-2.5 py-1 rounded-full mt-4 mb-2"

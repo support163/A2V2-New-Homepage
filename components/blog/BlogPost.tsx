@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -162,7 +162,7 @@ export default function BlogPost() {
               alt="The Silent Revenue Killer in Longevity Medicine"
               width={720}
               height={405}
-              className="w-full rounded-2xl object-cover"
+              className="w-full aspect-[16/9] object-cover"
               priority
             />
           </div>
@@ -278,11 +278,11 @@ export default function BlogPost() {
                     src={post.thumbnail}
                     alt={post.title}
                     width={600}
-                    height={450}
-                    className="w-full aspect-[4/3] rounded-xl object-cover"
+                    height={338}
+                    className="w-full aspect-[16/9] object-cover"
                   />
                 ) : (
-                  <div className="w-full aspect-[4/3] bg-gray-200 rounded-xl" />
+                  <div className="w-full aspect-[16/9] bg-gray-200" />
                 )}
                 <h3 className="mt-4 text-sm font-bold text-text-primary leading-snug">
                   {post.title}

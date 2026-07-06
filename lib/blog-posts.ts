@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 20,
+    title: 'Make it unmistakably yours: agent theming is here',
+    description:
+      'Style your agent with light, dark, or fully custom colors so it matches your brand and builds patient trust.',
+    category: "What's New",
+    href: '/blog/agent-theming',
+    thumbnail: '/images/agent-theming.png',
+  },
+  {
     id: 19,
     title: 'Attach more, do more: multi-file upload is here',
     description:

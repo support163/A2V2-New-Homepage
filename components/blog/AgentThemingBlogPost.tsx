@@ -11,32 +11,28 @@ import { DEMO_BOOKING_URL, SIGN_IN_URL } from '@/lib/constants'
 const H = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 const I = "'Inter', sans-serif"
 
-const CURRENT_HREF = '/blog/multi-file-upload-in-chat'
-const ARTICLE_URL = 'https://www.a2v2.ai/blog/multi-file-upload-in-chat'
-const ARTICLE_TITLE = 'Attach more, do more: multi-file upload is here'
+const CURRENT_HREF = '/blog/agent-theming'
+const ARTICLE_URL = 'https://www.a2v2.ai/blog/agent-theming'
+const ARTICLE_TITLE = 'Make it unmistakably yours: agent theming is here'
 
 const relatedPosts = getRelatedPosts(CURRENT_HREF, 3)
 
 const faqItems = [
   {
-    q: 'How many files can a patient attach at once?',
-    a: 'Up to 5 files per message. They can mix types, for example a couple of images and a PDF in the same message.',
+    q: 'What theming options are available?',
+    a: 'You can choose light mode, dark mode, or set fully custom colors to match your brand palette.',
   },
   {
-    q: 'What file types are supported?',
-    a: 'Images (PNG, JPG, WEBP, GIF), PDF, Word documents (DOC and DOCX), and plain text (TXT). What the agent can do with each depends on the model it runs on.',
+    q: 'Do new agents come pre-styled?',
+    a: 'Yes. Brand-new agents arrive polished out of the box with a clean white background and your A2V2 logo, so they look professional from the start.',
   },
   {
-    q: 'What are the size limits?',
-    a: 'Up to 5 MB per image or PDF, and up to 2 MB per document that is read as text.',
+    q: "Where do I change my agent's theme?",
+    a: 'Go to Agents, select your agent, then Agent UI, then Appearance to set your theme and colors.',
   },
   {
-    q: 'Can my agent read an image of a lab result?',
-    a: 'If your agent runs on a vision-capable model, yes. It can read a photo of a lab result or a PDF directly. On a lighter text-focused model, patients can still share PDFs, Word, and text documents.',
-  },
-  {
-    q: 'Is file sharing HIPAA-compliant?',
-    a: "Yes. Files shared in chat are handled inside A2V2's HIPAA-compliant infrastructure, with encryption and a Business Associate Agreement in place.",
+    q: 'Why does branding my agent matter?',
+    a: 'A branded agent builds instant trust. When the chat looks like your practice, patients feel like they are talking to you rather than a generic bot.',
   },
 ]
 
@@ -61,7 +57,7 @@ function ShareBar({ url, title }: { url: string; title: string }) {
 
   return (
     <div className="flex items-center gap-3 mt-6">
-      <span className="text-sm font-medium" style={{ color: '#68655E', fontFamily: I }}>Share:</span>
+      <span style={{ fontSize: 13, fontWeight: 500, color: '#68655E', fontFamily: I }}>Share:</span>
 
       <a
         href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
@@ -127,65 +123,11 @@ function NoteBox({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="rounded-r-lg p-4 mb-6"
-      style={{
-        background: 'rgba(0,0,0,0.03)',
-        borderLeft: '3px solid #0F0E0D',
-      }}
+      style={{ background: 'rgba(0,0,0,0.03)', borderLeft: '3px solid #0F0E0D' }}
     >
       <p style={{ fontSize: 14, lineHeight: 1.7, color: '#1a1a1a', fontFamily: I, margin: 0 }}>
         {children}
       </p>
-    </div>
-  )
-}
-
-/* ── Light table ── */
-function LightTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
-  return (
-    <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)', marginBottom: '1.5rem' }}>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ background: 'rgba(0,0,0,0.03)' }}>
-            {headers.map((h, i) => (
-              <th
-                key={i}
-                style={{
-                  padding: '12px 16px',
-                  textAlign: 'left',
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: '#0F0E0D',
-                  fontFamily: I,
-                  borderBottom: '1px solid rgba(0,0,0,0.08)',
-                }}
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, ri) => (
-            <tr key={ri} style={{ background: ri % 2 === 0 ? 'transparent' : 'rgba(0,0,0,0.015)' }}>
-              {row.map((cell, ci) => (
-                <td
-                  key={ci}
-                  style={{
-                    padding: '12px 16px',
-                    fontSize: 14,
-                    color: '#1a1a1a',
-                    fontFamily: I,
-                    lineHeight: 1.6,
-                    borderBottom: ri < rows.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none',
-                  }}
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   )
 }
@@ -219,21 +161,16 @@ function FAQAccordion() {
           >
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full flex items-center justify-between gap-4 py-5 text-left"
+              className="w-full flex items-center justify-between gap-4 text-left"
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '20px 0' }}
             >
               <span style={{ fontSize: 15, fontWeight: 500, color: '#0F0E0D', fontFamily: I, lineHeight: 1.4 }}>
                 {item.q}
               </span>
               <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#0F0E0D"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="#0F0E0D" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round"
                 style={{
                   flexShrink: 0,
                   transition: 'transform 300ms',
@@ -261,7 +198,7 @@ function FAQAccordion() {
   )
 }
 
-/* ── Body text / heading styles ── */
+/* ── Shared text styles ── */
 const bodyText: React.CSSProperties = {
   fontSize: 17,
   lineHeight: 1.78,
@@ -282,12 +219,11 @@ const h2Style: React.CSSProperties = {
 }
 
 /* ── Main component ── */
-export default function MultiFileUploadBlogPost() {
+export default function AgentThemingBlogPost() {
   return (
     <div style={{ background: '#FFFFFF', fontFamily: I }}>
       <TestHomepage2Navbar />
 
-      {/* Article */}
       <div style={{ paddingTop: 88 }}>
         <div className="mx-auto max-w-[720px] px-6 py-12 md:py-20">
 
@@ -307,15 +243,9 @@ export default function MultiFileUploadBlogPost() {
 
           {/* Header */}
           <header className="mb-10">
-            {/* Category pill */}
             <span
               className="inline-block rounded-full px-3 py-1 text-xs font-medium mb-5"
-              style={{
-                border: '1px solid rgba(0,0,0,0.15)',
-                color: '#0F0E0D',
-                fontFamily: I,
-                letterSpacing: '0.2px',
-              }}
+              style={{ border: '1px solid rgba(0,0,0,0.15)', color: '#0F0E0D', fontFamily: I, letterSpacing: '0.2px' }}
             >
               What&apos;s New
             </span>
@@ -331,7 +261,7 @@ export default function MultiFileUploadBlogPost() {
                 marginBottom: 20,
               }}
             >
-              Attach more, do more: multi-file upload is here
+              Make it unmistakably yours: agent theming is here
             </h1>
 
             <p
@@ -345,7 +275,7 @@ export default function MultiFileUploadBlogPost() {
                 marginBottom: 0,
               }}
             >
-              Your patients can now share lab reports, scans, and documents right inside the chat. Your agent reads them directly, so the important details land in the conversation and the record without the back and forth.
+              Style your agent to match your brand with light, dark, or fully custom colors. New agents now arrive polished out of the box, so patients see your practice, not a generic bot.
             </p>
 
             {/* Author row */}
@@ -358,7 +288,7 @@ export default function MultiFileUploadBlogPost() {
                 className="w-7 h-7 object-contain"
               />
               <span style={{ fontSize: 13, color: '#68655E', fontFamily: I }}>
-                By The A2V2 Team &middot; 4 min read
+                By The A2V2 Team &middot; 3 min read
               </span>
             </div>
 
@@ -368,12 +298,11 @@ export default function MultiFileUploadBlogPost() {
           {/* Hero image */}
           <div className="w-full mb-12">
             <Image
-              src="/images/multi-file-upload-in-chat.png"
-              alt="Multi-file upload in chat"
-              width={720}
-              height={405}
+              src="/images/agent-theming.png"
+              alt="Agent theming in A2V2"
+              width={1280}
+              height={720}
               className="w-full aspect-[16/9] object-cover"
-              quality={100}
               unoptimized
               priority
             />
@@ -382,49 +311,30 @@ export default function MultiFileUploadBlogPost() {
           {/* Body */}
           <article>
             <p style={bodyText}>
-              Great conversations often start with a document. A lab result a patient wants explained. A scan they have a question about. An intake form from another provider. Until now, sharing those in chat meant one file at a time or describing them in words. Not anymore.
+              First impressions matter, especially in healthcare. When a patient opens your agent, it should feel like an extension of your practice, not a generic tool bolted on. Now it can.
             </p>
             <p style={bodyText}>
-              Today we are rolling out multi-file upload in chat. Your patients can attach several files in a single message, and your agent reads them directly, so the details that matter show up right in the conversation.
+              Today we are rolling out agent theming. You can style your agent to match your brand, and brand-new agents arrive polished out of the box.
             </p>
 
-            <h2 style={h2Style}>What patients can share</h2>
+            <h2 style={h2Style}>Light, dark, or fully custom</h2>
             <p style={bodyText}>
-              With multi-file upload, a patient can attach several files at once instead of sending them one by one.
-            </p>
-
-            <LightTable
-              headers={['What', 'Details']}
-              rows={[
-                ['File types', 'Images (PNG, JPG, WEBP, GIF), PDF, Word (DOC and DOCX), and plain text (TXT)'],
-                ['How many', 'Up to 5 files per message'],
-                ['Size limits', 'Up to 5 MB per image or PDF, and up to 2 MB per document read as text'],
-              ]}
-            />
-
-            <h2 style={h2Style}>Your agent adapts to the model you choose</h2>
-            <p style={bodyText}>
-              What your agent can do with an attachment depends on the AI model it runs on, and A2V2 handles that automatically.
+              Choose the look that fits your brand.
             </p>
 
             <ul style={{ paddingLeft: 0, listStyle: 'none', marginBottom: '1.5rem' }}>
               {[
-                {
-                  heading: 'On a vision-capable model:',
-                  text: 'a patient can snap a photo of a lab result or drop in a PDF, and the agent reads it directly.',
-                },
-                {
-                  heading: 'On a lighter text-focused model:',
-                  text: 'patients can still share PDFs, Word documents, and text files.',
-                },
-              ].map(({ heading, text }, i) => (
+                'Light mode for a clean, bright, clinical feel',
+                'Dark mode for a sleek, modern look',
+                'Fully custom colors to match your exact brand palette',
+              ].map((item, i) => (
                 <li
                   key={i}
                   style={{
                     display: 'flex',
                     alignItems: 'flex-start',
                     gap: 12,
-                    marginBottom: 16,
+                    marginBottom: 14,
                     fontSize: 17,
                     color: '#1a1a1a',
                     fontFamily: I,
@@ -441,29 +351,28 @@ export default function MultiFileUploadBlogPost() {
                       marginTop: 10,
                     }}
                   />
-                  <span>
-                    <strong style={{ fontWeight: 600, color: '#0F0E0D' }}>{heading}</strong>{' '}
-                    {text}
-                  </span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
 
+            <h2 style={h2Style}>Polished out of the box</h2>
+            <p style={bodyText}>
+              Every brand-new agent now arrives ready to go, with a clean white background and your A2V2 logo in place. No blank slate, no setup required before it looks professional.
+            </p>
+
             <NoteBox>
-              You choose the model that fits your use case, and your agent adapts automatically. No extra setup, no toggles to manage per conversation.
+              A branded experience builds instant trust. When your agent looks like your practice, patients feel like they are talking to you, not a generic bot.
             </NoteBox>
 
-            <h2 style={h2Style}>Why it matters for your clinic</h2>
-            <p style={bodyText}>
-              The moment a patient can hand your agent the actual document, the conversation gets faster and more useful.
-            </p>
+            <h2 style={h2Style}>Why it matters</h2>
 
             <ul style={{ paddingLeft: 0, listStyle: 'none', marginBottom: '1.5rem' }}>
               {[
-                'Fewer back-and-forth messages trying to describe what is on a page',
-                'Richer context for the agent to work from, so answers are more relevant',
-                'The important details are captured in the conversation instead of lost in a patient\'s inbox',
-                'A smoother experience that feels like talking to your practice, not filling out a portal',
+                'Patients recognize your brand the moment the chat opens',
+                'A polished, on-brand agent signals professionalism and builds trust',
+                'Your agent feels like part of your practice, not a third-party add-on',
+                'Consistency across your website, your agent, and your patient touchpoints',
               ].map((item, i) => (
                 <li
                   key={i}
@@ -479,14 +388,9 @@ export default function MultiFileUploadBlogPost() {
                   }}
                 >
                   <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#0F0E0D"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="#0F0E0D" strokeWidth="2.5"
+                    strokeLinecap="round" strokeLinejoin="round"
                     style={{ flexShrink: 0, marginTop: 4 }}
                   >
                     <polyline points="20 6 9 17 4 12" />
@@ -498,11 +402,25 @@ export default function MultiFileUploadBlogPost() {
 
             <h2 style={h2Style}>Where to find it</h2>
             <p style={bodyText}>
-              It is already live. Inside any agent chat, tap the attach icon, choose up to five files, and send. That is it.
+              It is live now. Head to your agent&apos;s appearance settings to set your theme and colors.
             </p>
-            <p style={bodyText}>
-              Every file shared in chat is handled inside A2V2&apos;s HIPAA-compliant infrastructure, with encryption and a Business Associate Agreement in place. As always, anything that needs clinical judgment escalates to your team.
-            </p>
+
+            <div
+              style={{
+                display: 'inline-block',
+                background: 'rgba(0,0,0,0.04)',
+                border: '1px solid rgba(0,0,0,0.08)',
+                borderRadius: 6,
+                padding: '4px 10px',
+                fontSize: 13,
+                fontFamily: "'ui-monospace', 'SFMono-Regular', 'Menlo', monospace",
+                color: '#0F0E0D',
+                marginBottom: '1.5rem',
+                letterSpacing: '0.1px',
+              }}
+            >
+              Agents &rarr; your agent &rarr; Agent UI &rarr; Appearance
+            </div>
 
             <p style={{ ...bodyText, marginBottom: 0 }}>
               <Link href="/platform" style={{ color: '#2563EB', textDecoration: 'underline' }}>
@@ -516,7 +434,7 @@ export default function MultiFileUploadBlogPost() {
               <a href={DEMO_BOOKING_URL} style={{ color: '#2563EB', textDecoration: 'underline' }}>
                 book a demo
               </a>
-              {' '}to see it live.
+              {' '}to see it in action.
             </p>
           </article>
 
@@ -530,9 +448,7 @@ export default function MultiFileUploadBlogPost() {
         </div>
 
         {/* Related Posts */}
-        <div
-          style={{ borderTop: '1px solid rgba(0,0,0,0.07)', background: '#FAFAFA' }}
-        >
+        <div style={{ borderTop: '1px solid rgba(0,0,0,0.07)', background: '#FAFAFA' }}>
           <div className="mx-auto max-w-[1280px] px-6 md:px-16 py-16 md:py-20">
             <h2
               style={{
@@ -562,18 +478,11 @@ export default function MultiFileUploadBlogPost() {
                       className="w-full aspect-[16/9] object-cover"
                     />
                   ) : (
-                    <div
-                      className="w-full aspect-[16/9]"
-                      style={{ background: 'rgba(0,0,0,0.05)' }}
-                    />
+                    <div className="w-full aspect-[16/9]" style={{ background: 'rgba(0,0,0,0.05)' }} />
                   )}
                   <span
                     className="inline-flex self-start text-xs px-2.5 py-1 rounded-full mt-4 mb-2"
-                    style={{
-                      border: '1px solid rgba(0,0,0,0.12)',
-                      color: '#68655E',
-                      fontFamily: I,
-                    }}
+                    style={{ border: '1px solid rgba(0,0,0,0.12)', color: '#68655E', fontFamily: I }}
                   >
                     {post.category}
                   </span>
@@ -589,15 +498,7 @@ export default function MultiFileUploadBlogPost() {
                   >
                     {post.title}
                   </h3>
-                  <p
-                    style={{
-                      marginTop: 8,
-                      fontSize: 13,
-                      lineHeight: 1.6,
-                      color: '#68655E',
-                      fontFamily: I,
-                    }}
-                  >
+                  <p style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: '#68655E', fontFamily: I }}>
                     {post.description}
                   </p>
                   <span
@@ -617,12 +518,8 @@ export default function MultiFileUploadBlogPost() {
         </div>
 
         {/* CTA */}
-        <div
-          style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.07)' }}
-        >
-          <div
-            className="mx-auto max-w-[720px] px-6 py-20 md:py-28 text-center"
-          >
+        <div style={{ background: '#FFFFFF', borderTop: '1px solid rgba(0,0,0,0.07)' }}>
+          <div className="mx-auto max-w-[720px] px-6 py-20 md:py-28 text-center">
             <h2
               style={{
                 fontSize: 'clamp(32px, 6vw, 52px)',
@@ -634,7 +531,7 @@ export default function MultiFileUploadBlogPost() {
                 marginBottom: 20,
               }}
             >
-              See it in your own agent
+              Make your agent your own
             </h2>
             <p
               style={{
@@ -647,24 +544,17 @@ export default function MultiFileUploadBlogPost() {
                 marginBottom: 36,
               }}
             >
-              Book a demo and we will show you multi-file upload and everything else A2V2 can do for your clinic.
+              Book a demo and we will show you agent theming and everything else A2V2 can do for your clinic.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
                 href={DEMO_BOOKING_URL}
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#0F0E0D',
-                  color: '#ffffff',
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: I,
-                  padding: '11px 24px',
-                  borderRadius: 8,
-                  textDecoration: 'none',
-                  transition: 'opacity 150ms',
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  background: '#0F0E0D', color: '#ffffff',
+                  fontSize: 14, fontWeight: 500, fontFamily: I,
+                  padding: '11px 24px', borderRadius: 8,
+                  textDecoration: 'none', transition: 'opacity 150ms',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.82')}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
@@ -676,19 +566,12 @@ export default function MultiFileUploadBlogPost() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'transparent',
-                  color: '#0F0E0D',
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: I,
-                  padding: '11px 24px',
-                  borderRadius: 8,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'transparent', color: '#0F0E0D',
+                  fontSize: 14, fontWeight: 500, fontFamily: I,
+                  padding: '11px 24px', borderRadius: 8,
                   border: '1px solid #0F0E0D',
-                  textDecoration: 'none',
-                  transition: 'opacity 150ms',
+                  textDecoration: 'none', transition: 'opacity 150ms',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.65')}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
