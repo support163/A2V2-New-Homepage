@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Solutions
     { url: `${BASE}/solutions/healthcare`,            lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/solutions/custom-dashboard`,      lastModified: '2026-06-29', changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/about`,                            lastModified: '2026-07-07', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/security`,                         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
     // Features
     { url: `${BASE}/features/pay-for-access`,         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.6 },

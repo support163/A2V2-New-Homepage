@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 21,
+    title: 'Faster, cleaner contact management is here',
+    description:
+      'A redesigned add and edit experience plus smart phone-number matching that stops duplicate patient files before they happen.',
+    category: "What's New",
+    href: '/blog/smarter-contact-management',
+    thumbnail: '/images/smarter-contacts.svg',
+  },
+  {
     id: 20,
     title: 'Make it unmistakably yours: agent theming is here',
     description:

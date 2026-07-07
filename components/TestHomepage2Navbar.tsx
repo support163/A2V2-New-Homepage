@@ -19,6 +19,7 @@ const SOLUTIONS_ITEMS = [
 const plainLinks = [
   { label: 'Security', href: '/security' },
   { label: 'Blog',     href: '/blog'     },
+  { label: 'About',    href: '/about'    },
 ]
 
 function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }: {
@@ -250,7 +251,7 @@ export default function TestHomepage2Navbar() {
             {/* Book a Demo — pill shaped dark button */}
             <a
               href={DEMO_BOOKING_URL}
-              className="hidden md:flex items-center justify-center"
+              className="hidden md:flex items-center justify-center text-center"
               style={{
                 fontSize: 14, fontWeight: 500, color: '#ffffff',
                 borderRadius: 999,
