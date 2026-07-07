@@ -83,6 +83,17 @@ export default function TestHomepage2Footer() {
               <ul className="mt-4 flex flex-col gap-3">
                 <li>
                   <Link
+                    href="/about"
+                    className="text-sm transition-colors"
+                    style={{ color: '#68655E', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '-0.3px' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#0F0E0D')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#68655E')}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/terms-and-conditions"
                     className="text-sm transition-colors"
                     style={{ color: '#68655E', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '-0.3px' }}
