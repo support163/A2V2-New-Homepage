@@ -16,14 +16,21 @@ const SOLUTIONS_ITEMS = [
   { title: 'Custom Dashboard', description: 'A dashboard built for your clinic', href: '/solutions/custom-dashboard' },
 ]
 
-const plainLinks = [
-  { label: 'Security', href: '/security' },
-  { label: 'Blog',     href: '/blog'     },
-  { label: 'About',    href: '/about'    },
+const RESOURCES_ITEMS = [
+  { title: 'Blog', description: 'Updates, guides, and best practices', href: '/blog',                            external: false },
+  { title: 'Docs', description: 'Product documentation',               href: 'https://docs.a2v2.ai/introduction', external: true  },
 ]
 
+const plainLinkStyle = {
+  fontSize: 14, fontWeight: 500, color: '#0F0E0D',
+  textDecoration: 'none', fontFamily: "'Inter', sans-serif",
+  padding: '6px 12px', borderRadius: 8,
+  background: 'transparent', transition: 'background 150ms',
+  display: 'inline-block',
+} as const
+
 function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }: {
-  items: { title: string; description: string; href: string }[]
+  items: { title: string; description: string; href: string; external?: boolean }[]
   triggerRef: React.RefObject<HTMLButtonElement | null>
   onClose: () => void
   onMouseEnter: () => void
@@ -61,6 +68,8 @@ function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }
           key={item.title}
           href={item.href}
           onClick={onClose}
+          target={item.external ? '_blank' : undefined}
+          rel={item.external ? 'noopener noreferrer' : undefined}
           style={{
             display: 'block',
             padding: '8px 12px',
@@ -85,14 +94,17 @@ function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }
 }
 
 export default function TestHomepage2Navbar() {
-  const [menuOpen,      setMenuOpen]      = useState(false)
-  const [featuresOpen,  setFeaturesOpen]  = useState(false)
-  const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [menuOpen,       setMenuOpen]       = useState(false)
+  const [featuresOpen,   setFeaturesOpen]   = useState(false)
+  const [solutionsOpen,  setSolutionsOpen]  = useState(false)
+  const [resourcesOpen,  setResourcesOpen]  = useState(false)
 
   const featuresTriggerRef  = useRef<HTMLButtonElement>(null)
   const solutionsTriggerRef = useRef<HTMLButtonElement>(null)
+  const resourcesTriggerRef = useRef<HTMLButtonElement>(null)
   const featuresTimerRef    = useRef<ReturnType<typeof setTimeout> | null>(null)
   const solutionsTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const resourcesTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // ── Features hover handlers ──
   const cancelFeaturesClose = useCallback(() => {
@@ -105,6 +117,7 @@ export default function TestHomepage2Navbar() {
   const openFeatures = useCallback(() => {
     cancelFeaturesClose()
     setSolutionsOpen(false)
+    setResourcesOpen(false)
     setFeaturesOpen(true)
   }, [cancelFeaturesClose])
   const closeFeaturesNow = useCallback(() => {
@@ -123,6 +136,7 @@ export default function TestHomepage2Navbar() {
   const openSolutions = useCallback(() => {
     cancelSolutionsClose()
     setFeaturesOpen(false)
+    setResourcesOpen(false)
     setSolutionsOpen(true)
   }, [cancelSolutionsClose])
   const closeSolutionsNow = useCallback(() => {
@@ -130,9 +144,29 @@ export default function TestHomepage2Navbar() {
     setSolutionsOpen(false)
   }, [cancelSolutionsClose])
 
+  // ── Resources hover handlers ──
+  const cancelResourcesClose = useCallback(() => {
+    if (resourcesTimerRef.current !== null) { clearTimeout(resourcesTimerRef.current); resourcesTimerRef.current = null }
+  }, [])
+  const scheduleResourcesClose = useCallback(() => {
+    cancelResourcesClose()
+    resourcesTimerRef.current = setTimeout(() => setResourcesOpen(false), 180)
+  }, [cancelResourcesClose])
+  const openResources = useCallback(() => {
+    cancelResourcesClose()
+    setFeaturesOpen(false)
+    setSolutionsOpen(false)
+    setResourcesOpen(true)
+  }, [cancelResourcesClose])
+  const closeResourcesNow = useCallback(() => {
+    cancelResourcesClose()
+    setResourcesOpen(false)
+  }, [cancelResourcesClose])
+
   useEffect(() => () => {
     if (featuresTimerRef.current)  clearTimeout(featuresTimerRef.current)
     if (solutionsTimerRef.current) clearTimeout(solutionsTimerRef.current)
+    if (resourcesTimerRef.current) clearTimeout(resourcesTimerRef.current)
   }, [])
 
   return (
@@ -158,7 +192,7 @@ export default function TestHomepage2Navbar() {
             />
           </Link>
 
-          {/* Desktop: center links */}
+          {/* Desktop: center links — Features, Solutions, Security, Resources, About */}
           <div className="hidden md:flex items-center gap-1">
 
             {/* Features dropdown trigger */}
@@ -207,24 +241,48 @@ export default function TestHomepage2Navbar() {
               />
             </button>
 
-            {/* Plain links */}
-            {plainLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                style={{
-                  fontSize: 14, fontWeight: 500, color: '#0F0E0D',
-                  textDecoration: 'none', fontFamily: "'Inter', sans-serif",
-                  padding: '6px 12px', borderRadius: 8,
-                  background: 'transparent', transition: 'background 150ms',
-                  display: 'inline-block',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-              >
-                {link.label}
-              </a>
-            ))}
+            {/* Security — plain link */}
+            <a
+              href="/security"
+              style={plainLinkStyle}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            >
+              Security
+            </a>
+
+            {/* Resources dropdown trigger */}
+            <button
+              ref={resourcesTriggerRef}
+              onMouseEnter={(e) => { openResources(); e.currentTarget.style.background = 'rgba(0,0,0,0.04)' }}
+              onMouseLeave={(e) => { scheduleResourcesClose(); e.currentTarget.style.background = resourcesOpen ? 'rgba(0,0,0,0.04)' : 'transparent' }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 4,
+                fontSize: 14, fontWeight: 500, color: '#0F0E0D',
+                background: resourcesOpen ? 'rgba(0,0,0,0.04)' : 'transparent',
+                border: 'none', cursor: 'pointer',
+                padding: '6px 12px', borderRadius: 8,
+                fontFamily: "'Inter', sans-serif",
+                transition: 'background 150ms',
+              }}
+            >
+              Resources
+              <ChevronDown
+                size={13}
+                color="#0F0E0D"
+                style={{ transition: 'transform 200ms', transform: resourcesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+              />
+            </button>
+
+            {/* About — plain link */}
+            <a
+              href="/about"
+              style={plainLinkStyle}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+            >
+              About
+            </a>
           </div>
 
           {/* Right: CTA buttons (desktop) + hamburger (mobile) */}
@@ -320,8 +378,25 @@ export default function TestHomepage2Navbar() {
               ))}
             </div>
 
-            {/* Plain links */}
-            {plainLinks.map((link) => (
+            {/* Resources */}
+            <div style={{ borderBottom: '1px solid rgba(0,0,0,0.06)', paddingBottom: 8, marginBottom: 4 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: 'rgba(0,0,0,0.35)', fontFamily: "'Inter', sans-serif", padding: '4px 4px 6px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Resources</div>
+              {RESOURCES_ITEMS.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                  style={{ display: 'block', fontSize: 15, fontWeight: 500, color: '#0F0E0D', textDecoration: 'none', fontFamily: "'Inter', sans-serif", padding: '8px 4px' }}
+                >
+                  {item.title}
+                </a>
+              ))}
+            </div>
+
+            {/* Security + About — plain links */}
+            {[{ label: 'Security', href: '/security', external: false }, { label: 'About', href: '/about', external: false }].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -374,6 +449,17 @@ export default function TestHomepage2Navbar() {
           onClose={closeSolutionsNow}
           onMouseEnter={cancelSolutionsClose}
           onMouseLeave={scheduleSolutionsClose}
+        />
+      )}
+
+      {/* Resources portal dropdown */}
+      {resourcesOpen && (
+        <DropdownMenu
+          items={RESOURCES_ITEMS}
+          triggerRef={resourcesTriggerRef}
+          onClose={closeResourcesNow}
+          onMouseEnter={cancelResourcesClose}
+          onMouseLeave={scheduleResourcesClose}
         />
       )}
     </>

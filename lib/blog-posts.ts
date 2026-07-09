@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 23,
+    title: 'Full version history for your agent\'s instructions',
+    description:
+      'Your agent\'s instructions now carry complete version history, with the exact version recorded on every response. Experiment freely and roll back anytime.',
+    category: "What's New",
+    href: '/blog/instruction-version-history',
+    thumbnail: '/images/instruction-version-history.png',
+  },
+  {
+    id: 22,
+    title: 'More powerful CRM automations are here',
+    description:
+      'New primary and secondary automations plus state-based automation give you finer control over your workflows, with every action logged.',
+    category: "What's New",
+    href: '/blog/crm-automations',
+    thumbnail: '/images/crm-automations.png',
+  },
+  {
     id: 21,
     title: 'Faster, cleaner contact management is here',
     description:
