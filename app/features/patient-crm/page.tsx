@@ -9,6 +9,7 @@ import {
   ClipboardList, StickyNote, Pill,
   Zap, Layers, ScrollText,
   TrendingDown, Minus,
+  type LucideIcon,
 } from 'lucide-react'
 import TestHomepage2Navbar from '@/components/TestHomepage2Navbar'
 import TestHomepage2Footer from '@/components/TestHomepage2Footer'
@@ -109,7 +110,7 @@ const SIDEBAR_NOTES = [
   { Icon: Settings,      active: false },
 ]
 
-type SidebarItem = { Icon: React.ComponentType<{ size?: number; color?: string }>; active: boolean }
+type SidebarItem = { Icon: LucideIcon; active: boolean }
 
 function DashboardShell({
   children, sidebar, height = 540,
@@ -710,7 +711,7 @@ export default function PatientCrmPage() {
                 { id: 'primary', Icon: Zap,        label: <>Primary and secondary<br />automations</>,  desc: 'Chain actions that trigger when a condition is met.' },
                 { id: 'state',   Icon: Layers,     label: <>State-based<br />automation</>,             desc: 'Drive actions from where each patient sits in your workflow.' },
                 { id: 'logged',  Icon: ScrollText, label: <>Every action<br />logged</>,                desc: 'A clear, auditable record of what ran and when.' },
-              ] as { id: string; Icon: React.ComponentType<{ size?: number; color?: string }>; label: React.ReactNode; desc: string }[]).map(({ id, Icon, label, desc }) => (
+              ] as { id: string; Icon: LucideIcon; label: React.ReactNode; desc: string }[]).map(({ id, Icon, label, desc }) => (
                 <div key={id} style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
                   <div style={{ width: 44, height: 44, borderRadius: 8, background: '#F5F4F2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={22} color="#0F0E0D" />

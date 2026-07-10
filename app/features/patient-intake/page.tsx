@@ -7,6 +7,7 @@ import {
   Home, FileText, Users, MessageSquare, Settings,
   LayoutList, Stethoscope, Lock, FileUp, Zap, CheckCircle2,
   MailCheck, UserPlus, SlidersHorizontal, Tag, ShieldCheck,
+  type LucideIcon,
 } from 'lucide-react'
 import TestHomepage2Navbar from '@/components/TestHomepage2Navbar'
 import TestHomepage2Footer from '@/components/TestHomepage2Footer'
@@ -99,7 +100,7 @@ const SIDEBAR_CHAT = [
   { Icon: Settings,      active: false },
 ]
 
-type SidebarItem = { Icon: React.ComponentType<{ size?: number; color?: string }>; active: boolean }
+type SidebarItem = { Icon: LucideIcon; active: boolean }
 
 function DashboardShell({
   children, sidebar, height = 540,
