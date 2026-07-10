@@ -4,21 +4,23 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, FormInput, Users, Bot, DollarSign, LayoutDashboard, BookOpen, FileText } from 'lucide-react'
 import { SIGN_IN_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const FEATURES_ITEMS = [
-  { title: 'Platform Overview', description: 'Everything your clinic needs, in one place', href: '/platform' },
-  { title: 'Pay For Access',    description: 'Monetize your expertise',                    href: '/features/pay-for-access' },
+  { title: 'Patient Intake',  description: 'AI intake and file extraction',    href: '/features/patient-intake', Icon: FormInput   },
+  { title: 'Patient CRM',     description: 'Records, trends, automations',       href: '/features/patient-crm',    Icon: Users       },
+  { title: 'AI Agents',       description: 'Custom agents, your knowledge',    href: '/features/ai-agents',      Icon: Bot         },
+  { title: 'Pay For Access',  description: 'Monetize your expertise, safely',  href: '/features/pay-for-access', Icon: DollarSign  },
 ]
 
 const SOLUTIONS_ITEMS = [
-  { title: 'Custom Dashboard', description: 'A dashboard built for your clinic', href: '/solutions/custom-dashboard' },
+  { title: 'Custom Dashboard', description: 'Built for your clinic',      href: '/solutions/custom-dashboard',       Icon: LayoutDashboard },
 ]
 
 const RESOURCES_ITEMS = [
-  { title: 'Blog', description: 'Updates, guides, and best practices', href: '/blog',                            external: false },
-  { title: 'Docs', description: 'Product documentation',               href: 'https://docs.a2v2.ai/introduction', external: true  },
+  { title: 'Blog', description: 'Updates, guides, best practices', href: '/blog',                             external: false, Icon: BookOpen  },
+  { title: 'Docs', description: 'Product documentation',           href: 'https://docs.a2v2.ai/introduction',  external: true,  Icon: FileText  },
 ]
 
 const plainLinkStyle = {
@@ -30,7 +32,7 @@ const plainLinkStyle = {
 } as const
 
 function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }: {
-  items: { title: string; description: string; href: string; external?: boolean }[]
+  items: { title: string; description: string; href: string; external?: boolean; Icon: React.ComponentType<{ size?: number; color?: string }> }[]
   triggerRef: React.RefObject<HTMLButtonElement | null>
   onClose: () => void
   onMouseEnter: () => void
@@ -59,35 +61,116 @@ function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }
         zIndex: 9999,
         background: '#F5F5F5',
         borderRadius: 12,
-        padding: 8,
-        minWidth: 220,
+        padding: 12,
+        minWidth: 260,
       }}
     >
-      {items.map((item) => (
+      {items.map(({ title, description, href, external, Icon }) => (
         <a
-          key={item.title}
-          href={item.href}
+          key={title}
+          href={href}
           onClick={onClose}
-          target={item.external ? '_blank' : undefined}
-          rel={item.external ? 'noopener noreferrer' : undefined}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
           style={{
-            display: 'block',
-            padding: '8px 12px',
-            borderRadius: 8,
-            textDecoration: 'none',
-            transition: 'background 150ms',
+            display: 'flex', alignItems: 'flex-start', gap: 12,
+            padding: '10px 12px', borderRadius: 10,
+            textDecoration: 'none', transition: 'background 150ms',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
+          onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.05)')}
           onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
         >
-          <div style={{ fontSize: 13, fontWeight: 500, color: '#0F0E0D', fontFamily: "'Inter', sans-serif" }}>
-            {item.title}
+          <div style={{
+            width: 38, height: 38, borderRadius: 9, flexShrink: 0,
+            background: 'rgba(0,0,0,0.06)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <Icon size={17} color="#0F0E0D" />
           </div>
-          <div style={{ fontSize: 11, color: '#68655E', fontFamily: "'Inter', sans-serif", marginTop: 2 }}>
-            {item.description}
+          <div style={{ paddingTop: 1 }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: '#0F0E0D', fontFamily: "'Inter', sans-serif", letterSpacing: '-0.1px', marginBottom: 3 }}>
+              {title}
+            </div>
+            <div style={{ fontSize: 12, color: '#68655E', fontFamily: "'Inter', sans-serif", lineHeight: 1.45, whiteSpace: 'nowrap' }}>
+              {description}
+            </div>
           </div>
         </a>
       ))}
+    </div>,
+    document.body
+  )
+}
+
+function FeaturesDropdownMenu({ triggerRef, onClose, onMouseEnter, onMouseLeave }: {
+  triggerRef: React.RefObject<HTMLButtonElement | null>
+  onClose: () => void
+  onMouseEnter: () => void
+  onMouseLeave: () => void
+}) {
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
+
+  useEffect(() => {
+    const el = triggerRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    setPos({ top: rect.bottom + 8, left: rect.left + rect.width / 2 })
+  }, [triggerRef])
+
+  if (!pos) return null
+
+  return createPortal(
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      style={{
+        position: 'fixed',
+        top: pos.top,
+        left: pos.left,
+        transform: 'translateX(-50%)',
+        zIndex: 9999,
+        background: '#F5F5F5',
+        borderRadius: 12,
+        padding: 12,
+        width: 560,
+      }}
+    >
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+        {FEATURES_ITEMS.map(({ title, description, href, Icon }) => (
+          <a
+            key={title}
+            href={href}
+            onClick={onClose}
+            style={{
+              display: 'flex', alignItems: 'flex-start', gap: 12,
+              padding: '10px 12px', borderRadius: 10,
+              textDecoration: 'none', transition: 'background 150ms',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,0,0,0.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+          >
+            <div style={{
+              width: 38, height: 38, borderRadius: 9, flexShrink: 0,
+              background: 'rgba(0,0,0,0.06)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Icon size={17} color="#0F0E0D" />
+            </div>
+            <div style={{ paddingTop: 1 }}>
+              <div style={{
+                fontSize: 13, fontWeight: 600, color: '#0F0E0D',
+                fontFamily: "'Inter', sans-serif", letterSpacing: '-0.1px',
+                marginBottom: 3,
+              }}>
+                {title}
+              </div>
+              <div style={{ fontSize: 12, color: '#68655E', fontFamily: "'Inter', sans-serif", lineHeight: 1.45 }}>
+                {description}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>,
     document.body
   )
@@ -432,8 +515,7 @@ export default function TestHomepage2Navbar() {
 
       {/* Features portal dropdown */}
       {featuresOpen && (
-        <DropdownMenu
-          items={FEATURES_ITEMS}
+        <FeaturesDropdownMenu
           triggerRef={featuresTriggerRef}
           onClose={closeFeaturesNow}
           onMouseEnter={cancelFeaturesClose}
