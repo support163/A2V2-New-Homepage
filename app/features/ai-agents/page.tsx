@@ -8,6 +8,7 @@ import {
   Bot, History, Database, Search, FolderCheck,
   SlidersHorizontal, Eye, CheckCircle,
   AlertCircle, UserCheck, Sparkles,
+  type LucideIcon,
 } from 'lucide-react'
 import TestHomepage2Navbar from '@/components/TestHomepage2Navbar'
 import TestHomepage2Footer from '@/components/TestHomepage2Footer'
@@ -84,7 +85,7 @@ const PILLARS = [
   { badge: 'U.S.',    title: 'U.S. Data Centers',   desc: 'All patient data is stored in U.S.-based data centers with complete access controls.' },
 ]
 
-type SidebarItem = { Icon: React.ComponentType<{ size?: number; color?: string }>; active: boolean }
+type SidebarItem = { Icon: LucideIcon; active: boolean }
 
 const SIDEBAR_AGENT: SidebarItem[] = [
   { Icon: Home,          active: false },

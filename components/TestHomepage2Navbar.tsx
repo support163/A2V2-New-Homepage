@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, FormInput, Users, Bot, DollarSign, LayoutDashboard, BookOpen, FileText } from 'lucide-react'
+import { ChevronDown, FormInput, Users, Bot, DollarSign, LayoutDashboard, BookOpen, FileText, type LucideIcon } from 'lucide-react'
 import { SIGN_IN_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const FEATURES_ITEMS = [
@@ -32,7 +32,7 @@ const plainLinkStyle = {
 } as const
 
 function DropdownMenu({ items, triggerRef, onClose, onMouseEnter, onMouseLeave }: {
-  items: { title: string; description: string; href: string; external?: boolean; Icon: React.ComponentType<{ size?: number; color?: string }> }[]
+  items: { title: string; description: string; href: string; external?: boolean; Icon: LucideIcon }[]
   triggerRef: React.RefObject<HTMLButtonElement | null>
   onClose: () => void
   onMouseEnter: () => void
