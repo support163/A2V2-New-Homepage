@@ -4,13 +4,14 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, FormInput, Users, Bot, DollarSign, LayoutDashboard, BookOpen, FileText, type LucideIcon } from 'lucide-react'
+import { ChevronDown, FormInput, Users, Bot, DollarSign, LayoutDashboard, BookOpen, FileText, Calendar, type LucideIcon } from 'lucide-react'
 import { SIGN_IN_URL, DEMO_BOOKING_URL } from '@/lib/constants'
 
 const FEATURES_ITEMS = [
   { title: 'Patient Intake',  description: 'AI intake and file extraction',    href: '/features/patient-intake', Icon: FormInput   },
-  { title: 'Patient CRM',     description: 'Records, trends, automations',       href: '/features/patient-crm',    Icon: Users       },
+  { title: 'Patient CRM',     description: 'Records, trends, automations',     href: '/features/patient-crm',    Icon: Users       },
   { title: 'AI Agents',       description: 'Custom agents, your knowledge',    href: '/features/ai-agents',      Icon: Bot         },
+  { title: 'Scheduling',      description: 'Booking, calendar sync, AI notes', href: '/features/scheduling',     Icon: Calendar    },
   { title: 'Pay For Access',  description: 'Monetize your expertise, safely',  href: '/features/pay-for-access', Icon: DollarSign  },
 ]
 

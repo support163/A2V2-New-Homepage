@@ -9,7 +9,7 @@ const cards = [
     title: 'Enterprise-Grade Data Security',
     titleMaxW: '',
     description:
-      'SOC2 Type II certified with AES-256 encryption at rest and in transit.',
+      'HIPAA compliant with AES-256 encryption at rest and TLS 1.3 in transit.',
     bgPosition: 'left',
   },
   {

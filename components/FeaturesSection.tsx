@@ -84,8 +84,8 @@ export default function FeaturesSection() {
                   Secure by Design.
                 </h3>
                 <p className="mt-2 text-[12px] md:text-btn text-white/60 leading-[22px]">
-                  Built on HIPAA-compliant infrastructure with SOC2
-                  certification, so your audience&apos;s data stays private and
+                  Built on HIPAA-compliant infrastructure with AES-256
+                  encryption, so your audience&apos;s data stays private and
                   protected.
                 </p>
               </div>

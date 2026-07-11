@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/features/patient-intake`,         lastModified: '2026-07-09', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/features/patient-crm`,            lastModified: '2026-07-09', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/features/ai-agents`,              lastModified: '2026-07-09', changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/features/scheduling`,             lastModified: '2026-07-10', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/features/pay-for-access`,         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.6 },
     // Legal
     { url: `${BASE}/privacy-policy`,                  lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },

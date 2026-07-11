@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 25,
+    title: "AI agents vs. chatbots: what's the difference for healthcare?",
+    description:
+      'The words get used interchangeably, but they are not the same. Here is the difference and why it matters for clinics.',
+    category: 'Quick Guides',
+    href: '/blog/ai-agents-vs-chatbots-healthcare',
+    thumbnail: '/images/ai-agents-vs-chatbots.png',
+  },
+  {
+    id: 24,
+    title: 'What is a HIPAA-compliant AI agent?',
+    description:
+      'AI can transform clinic communication, but only if it handles patient data the right way. Here is what makes an AI agent HIPAA-compliant.',
+    category: 'Privacy & Trust',
+    href: '/blog/what-is-a-hipaa-compliant-ai-agent',
+    thumbnail: '/images/what-is-hipaa-compliant-ai-agent.png',
+  },
+  {
     id: 23,
     title: 'Full version history for your agent\'s instructions',
     description:
