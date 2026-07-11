@@ -11,11 +11,11 @@ const relatedPosts = getRelatedPosts(CURRENT_HREF)
 const faqItems = [
   {
     q: 'Is ChatGPT HIPAA-compliant for patient communication?',
-    a: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines of up to $1.5 million per violation category. Healthcare providers need purpose-built platforms like A2V2.ai that are designed to include BAA agreements, end-to-end encryption, and private model deployment.',
+    a: 'No. ChatGPT, Claude, Gemini, and other general-purpose AI tools are not HIPAA-compliant for handling Protected Health Information. Using them for patient communication creates legal exposure with fines of up to $1.5 million per violation category. Healthcare providers need purpose-built platforms like A2V2.ai that are designed to include BAA agreements, end-to-end encryption, and secured LLM access so patient data is never used to train AI models.',
   },
   {
     q: 'What makes an AI platform HIPAA-compliant?',
-    a: 'A truly HIPAA-compliant AI platform requires a signed BAA, end-to-end encryption (AES-256 at rest, TLS 1.3 in transit), private model deployment, role-based access control, complete audit logging, regular third-party security audits, SOC 2 Type II certification, and U.S.-based data centers.',
+    a: 'A truly HIPAA-compliant AI platform requires a signed BAA, end-to-end encryption (AES-256 at rest, TLS 1.3 in transit), secured LLM access (patient data never used to train AI models), role-based access control, complete audit logging, regular third-party security audits, and U.S.-based data centers.',
   },
   {
     q: 'What are the penalties for HIPAA violations involving AI?',
@@ -444,8 +444,8 @@ export default function HipaaComplianceBlogPost() {
               practices for healthcare data protection.
             </p>
             <p>
-              <strong>Private model deployment</strong> means your patient data
-              is never used to train the AI&apos;s public models. This is the
+              <strong>Secured LLM access</strong> means your patient data
+              is never used to train AI models. This is the
               single biggest differentiator between general-purpose AI and
               healthcare-grade AI.
             </p>
@@ -460,7 +460,7 @@ export default function HipaaComplianceBlogPost() {
             <p>
               <strong>Regular third-party security audits</strong> validate that
               the platform&apos;s security claims hold up under independent
-              scrutiny. SOC 2 Type II certification is the gold standard here.
+              scrutiny. Independent penetration testing and security reviews confirm that the encryption, access controls, and audit systems perform as designed.
             </p>
             <p>
               <strong>U.S.-based data centers with redundancy</strong> ensure

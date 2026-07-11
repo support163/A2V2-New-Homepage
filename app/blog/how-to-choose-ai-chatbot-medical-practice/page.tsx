@@ -1,7 +1,4 @@
 import type { Metadata } from 'next'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ScrollAnimator from '@/components/ScrollAnimator'
 import AiChatbotMedicalPracticeBlogPost from '@/components/blog/AiChatbotMedicalPracticeBlogPost'
 
 export const metadata: Metadata = {
@@ -150,12 +147,7 @@ export default function BlogPostPage() {
           }),
         }}
       />
-      <main style={{ background: '#0F0E0D' }}>
-        <ScrollAnimator />
-        <Navbar />
-        <AiChatbotMedicalPracticeBlogPost />
-        <Footer />
-      </main>
+      <AiChatbotMedicalPracticeBlogPost />
     </>
   )
 }
