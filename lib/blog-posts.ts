@@ -10,6 +10,33 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 28,
+    title: 'What to look for in a healthcare CRM',
+    description:
+      'A general-purpose CRM was not built for patient care. Here is what actually matters when choosing a CRM for your clinic.',
+    category: 'Quick Guides',
+    href: '/blog/what-to-look-for-healthcare-crm',
+    thumbnail: '/images/what-to-look-for-healthcare-crm.png',
+  },
+  {
+    id: 27,
+    title: 'How AI reduces administrative work in your clinic',
+    description:
+      'Your team did not go into healthcare to do paperwork. Here is how AI takes the repetitive admin off their plate.',
+    category: 'Best Practices',
+    href: '/blog/how-ai-reduces-admin-work-clinic',
+    thumbnail: '/images/how-ai-reduces-admin-work.png',
+  },
+  {
+    id: 26,
+    title: 'How to keep patient data safe when using AI',
+    description:
+      'AI can save your clinic hours, but only if patient data stays protected. Here is a practical guide to using AI safely.',
+    category: 'Privacy & Trust',
+    href: '/blog/keep-patient-data-safe-using-ai',
+    thumbnail: '/images/keep-patient-data-safe-using-ai.png',
+  },
+  {
     id: 25,
     title: "AI agents vs. chatbots: what's the difference for healthcare?",
     description:
