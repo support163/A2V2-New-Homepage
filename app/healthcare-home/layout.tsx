@@ -86,7 +86,7 @@ const softwareSchema = {
     'Automated patient engagement',
     'Treatment protocol tracking',
     'Predictive drop-off analytics',
-    'EHR integration',
+    'Works with your EHR data',
     'BAA provided',
     'AES-256 encryption',
   ],

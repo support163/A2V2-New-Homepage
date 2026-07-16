@@ -7,7 +7,7 @@ const faqs = [
   {
     question: 'What makes A2V2.ai different from other healthcare AI platforms?',
     answer:
-      'A2V2.ai was built exclusively for healthcare from the ground up, not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and operate under a BAA so your patient data is never used for AI training.',
+      'A2V2.ai was built exclusively for healthcare from the ground up, not adapted from a general-purpose AI. We natively support clinical protocols (NAD+, HRT, peptides, supplements), work with your existing EHR and EMR data, and operate under a BAA so your patient data is never used for AI training.',
   },
   {
     question: 'Can I use ChatGPT or Claude for patient engagement?',
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'How long does implementation take?',
     answer:
-      'Most practices go live in under 2 weeks. Our dedicated implementation team handles EHR integration, protocol mapping, and staff training.',
+      'Most practices go live in under 2 weeks. Our dedicated implementation team handles EHR data setup, protocol mapping, and staff training.',
   },
   {
     question: 'Do we need to replace our existing systems?',

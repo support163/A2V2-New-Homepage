@@ -38,7 +38,7 @@ const CALENDLY_LINK = DEMO_BOOKING_URL
 
 const trustBarItems = [
   '100% HIPAA Compliant',
-  'Integrates with your EHR',
+  'Works with your EHR and EMR data',
   'Estimated go-live in under 2 weeks',
   'Trusted by PrevMed & leading longevity clinics',
 ]
@@ -76,7 +76,7 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view, integrates with EHR/EMR, AI is designed to surface at-risk patients.',
+    body: 'All patient data in one view. Brings your EHR and EMR data into one place. AI is designed to surface at-risk patients.',
   },
   {
     title: 'Smart Re-Engagement Engine',
@@ -88,7 +88,7 @@ const howItWorksSteps = [
   {
     step: 1,
     title: 'Connect',
-    description: 'Integrate with your existing EHR. No migrations required.',
+    description: 'Bring your existing EHR and EMR data into A2V2. No migrations required.',
   },
   {
     step: 2,
@@ -132,7 +132,7 @@ export default function LongevityPage() {
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
                 A2V2.ai is designed to automate patient engagement, track protocol adherence,
                 and re-engage at-risk patients &mdash; 100% HIPAA compliant,
-                integrated with your existing EHR. No new staff required.
+                works with your existing EHR and EMR data. No new staff required.
               </p>
 
               {/* CTA buttons */}
@@ -545,7 +545,7 @@ export default function LongevityPage() {
               'Automated patient engagement',
               'Protocol adherence tracking',
               'HIPAA-compliant AI',
-              'EHR integration',
+              'Works with your EHR data',
               'Smart patient re-engagement',
               'Real-time compliance dashboard',
             ],
@@ -606,7 +606,7 @@ export default function LongevityPage() {
                 name: 'We use [EHR name]. Will it work?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: "We integrate with most major EHR systems. If there's no native connector, we build one.",
+                  text: "We bring your EHR and EMR data into A2V2 so it is available for patient and provider review. Contact us to discuss your specific system.",
                 },
               },
               {

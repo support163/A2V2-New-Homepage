@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 const trustBarItems = [
   '100% HIPAA Compliant',
-  'Integrates with your EHR',
+  'Works with your EHR and EMR data',
   'Estimated go-live in under 2 weeks',
   'Trusted by Revitalized Health & leading HRT clinics',
 ]
@@ -76,7 +76,7 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view \u2014 labs, hormone levels, communications, adherence history. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables. AI is designed to surface at-risk patients before they churn.',
+    body: 'All patient data in one view \u2014 labs, hormone levels, communications, adherence history. Brings your EHR and EMR data into one place. Patients can upload lab results for automatic extraction. AI is designed to surface at-risk patients before they churn.',
   },
   {
     title: 'Smart Re-Engagement Engine',
@@ -89,7 +89,7 @@ const howItWorksSteps = [
     step: 1,
     title: 'Connect',
     description:
-      'We integrate with your existing EHR, lab partners, and pharmacy systems. No migrations, no downtime.',
+      'We bring your existing EHR and EMR data into A2V2. No migrations, no downtime.',
   },
   {
     step: 2,
@@ -119,8 +119,8 @@ const comparisonRows = [
     generic: 'No medical tracking',
   },
   {
-    feature: 'EHR Integration',
-    a2v2: 'Native connectors',
+    feature: 'EHR / EMR Data',
+    a2v2: 'EHR and EMR data import',
     crm: 'Custom dev required',
     generic: 'Not designed for healthcare',
   },
@@ -145,17 +145,13 @@ const comparisonRows = [
 ]
 
 const integrations = [
-  'EHR/EMR Systems',
-  'Quest Diagnostics',
-  'LabCorp',
-  'Oura Ring',
-  'Whoop',
-  'Apple Health',
-  'CGM Devices',
+  'EHR / EMR Data',
+  'Lab document upload',
   'Twilio',
   'Stripe',
   'Zapier',
   'Custom API',
+  'Wearable devices (coming soon)',
 ]
 
 /* ───────────────────────── page ───────────────────────── */
@@ -180,7 +176,7 @@ export default function HrtClinicsPage() {
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
                 A2V2.ai is designed to automate patient engagement, track hormone therapy
                 adherence, and re-engage patients before they discontinue &mdash;
-                100% HIPAA compliant, integrated with your existing EHR. No new
+                100% HIPAA compliant, works with your existing EHR and EMR data. No new
                 staff required.
               </p>
 
@@ -338,9 +334,7 @@ export default function HrtClinicsPage() {
               Whether you&apos;re managing testosterone replacement therapy
               (TRT), estrogen and progesterone programs, DHEA and thyroid
               optimization, or pellet therapy tracking, A2V2.ai is designed to monitor patient
-              adherence to hormone protocols in real-time. Designed to integrate lab data,
-              wearable metrics, and patient-reported symptoms for a complete
-              picture.
+              adherence to hormone protocols in real-time. Patients can upload lab documents for automatic AI extraction, and health parameter trends give your team a complete picture.
             </p>
           </div>
 
@@ -604,11 +598,11 @@ export default function HrtClinicsPage() {
               'Automated patient engagement',
               'Hormone protocol adherence tracking',
               'HIPAA-compliant AI',
-              'EHR integration',
+              'EHR and EMR data import',
               'Hormone level tracking',
               'Smart patient re-engagement',
               'Real-time compliance dashboard',
-              'Lab and wearable integration',
+              'Lab document upload and extraction',
             ],
           }),
         }}

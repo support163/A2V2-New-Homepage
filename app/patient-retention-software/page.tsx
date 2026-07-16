@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 
 const trustBarItems = [
   '100% HIPAA Compliant',
-  'Integrates with your EHR',
+  'Works with your EHR and EMR data',
   'Estimated go-live in under 2 weeks',
   'Trusted by PrevMed, Revitalized Health & leading clinics',
 ]
@@ -114,7 +114,7 @@ const howItWorksSteps = [
     step: 1,
     title: 'Connect',
     description:
-      'We integrate with your existing EHR, lab systems, and communication tools. No migrations, no downtime. Our engineering team handles everything.',
+      'We bring your existing EHR and EMR data into A2V2. Patients can upload lab documents for automatic extraction. No migrations, no downtime.',
     icon: Plug,
   },
   {
@@ -156,8 +156,8 @@ const comparisonRows = [
     basic: 'No tracking',
   },
   {
-    feature: 'EHR Integration',
-    a2v2: 'Native connectors',
+    feature: 'EHR / EMR Data',
+    a2v2: 'EHR and EMR data import',
     crm: 'Custom dev',
     generic: 'Not designed for healthcare',
     basic: 'Limited',
@@ -186,17 +186,13 @@ const comparisonRows = [
 ]
 
 const integrations = [
-  'EHR/EMR Systems',
-  'Quest Diagnostics',
-  'LabCorp',
-  'Oura Ring',
-  'Whoop',
-  'Apple Health',
-  'CGM Devices',
+  'EHR / EMR Data',
+  'Lab document upload',
   'Twilio',
   'Stripe',
   'Zapier',
   'Custom API',
+  'Wearable devices (coming soon)',
 ]
 
 /* ───────────────────────── page ───────────────────────── */
@@ -729,7 +725,7 @@ export default function PatientRetentionPage() {
               'Real-time adherence dashboard',
               'Smart re-engagement engine',
               'HIPAA-compliant AI',
-              'EHR integration',
+              'Works with your EHR data',
               'Treatment protocol tracking',
               'Patient reactivation campaigns',
             ],
@@ -782,7 +778,7 @@ export default function PatientRetentionPage() {
                 name: 'Do we need to replace our existing systems?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'No. A2V2.ai sits on top of your current EHR/EMR, lab systems, and payment processors. No migrations required.',
+                  text: 'No. A2V2.ai sits on top of your current stack. It works with your EHR and EMR data and connects to payment processors. No migrations required.',
                 },
               },
               {

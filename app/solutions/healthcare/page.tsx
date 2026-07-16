@@ -838,7 +838,7 @@ function RoiCalculator() {
 const faqs = [
   {
     q: 'What makes A2V2.ai different from other healthcare AI platforms?',
-    a: 'A2V2.ai was built exclusively for healthcare from the ground up. We natively support clinical protocols (NAD+, HRT, peptides, supplements), integrate with EHR systems, and operate under a BAA so your patient data is never used for AI training.',
+    a: 'A2V2.ai was built exclusively for healthcare from the ground up. We natively support clinical protocols (NAD+, HRT, peptides, supplements), work with your existing EHR and EMR data, and operate under a BAA so your patient data is never used for AI training.',
   },
   {
     q: 'Can I use ChatGPT or Claude for patient engagement?',
@@ -854,11 +854,11 @@ const faqs = [
   },
   {
     q: 'How long does implementation take?',
-    a: 'Most practices go live in under 2 weeks. Our dedicated implementation team handles EHR integration, protocol mapping, and staff training.',
+    a: 'Most practices go live in under 2 weeks. Our dedicated implementation team handles EHR data setup, protocol mapping, and staff training.',
   },
   {
     q: 'Do we need to replace our existing systems?',
-    a: 'No. A2V2.ai sits on top of your current stack. EHR/EMR, lab systems, communication tools, and payment processors. No migrations required.',
+    a: 'No. A2V2.ai sits on top of your current stack. It works with your EHR and EMR data and connects to your communication tools and payment processors. No migrations required.',
   },
   {
     q: 'What does the free audit include?',

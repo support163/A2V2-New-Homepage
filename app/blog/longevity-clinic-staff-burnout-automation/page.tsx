@@ -94,7 +94,7 @@ export default function StaffBurnoutBlogPostPage() {
                 name: 'What communication tasks can be automated?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Appointment reminders, no-show follow-ups, lab tracking, supplement refill coordination, protocol milestone check-ins, birthday messages, lapsed patient re-engagement, wearable data alerts, and biomarker notifications. A2V2.ai is designed to handle all of these within HIPAA compliance.',
+                  text: 'Appointment reminders, no-show follow-ups, lab tracking, supplement refill coordination, protocol milestone check-ins, birthday messages, lapsed patient re-engagement, and biomarker notifications. A2V2.ai is designed to handle all of these within HIPAA compliance. Wearable data monitoring is on the roadmap.',
                 },
               },
               {

@@ -11,8 +11,8 @@ const relatedPosts = getRelatedPosts(CURRENT_HREF)
 
 const faqItems = [
   {
-    q: 'Can longevity clinics integrate wearable device data from Oura Ring, Whoop, and CGMs?',
-    a: 'Yes, but most clinics currently lack the infrastructure. Wearable devices generate thousands of data points daily, but this data typically lives in the patient\u2019s personal app. Purpose-built platforms like A2V2.ai are designed to aggregate wearable data alongside lab results and protocol timelines.',
+    q: 'Can longevity clinics use wearable device data from Oura Ring, Whoop, and CGMs?',
+    a: 'Most clinics currently lack the infrastructure to aggregate wearable data automatically. Wearable devices generate thousands of data points daily, but this data typically lives in the patient\u2019s personal app. A2V2.ai is building wearable integrations for the future. Today, clinics can track key health parameters manually and patients can share relevant data through conversations with their care agent.',
   },
   {
     q: 'Why is wearable data important for longevity medicine protocols?',
@@ -20,15 +20,15 @@ const faqItems = [
   },
   {
     q: 'Is it HIPAA-compliant to collect wearable data from patients?',
-    a: 'Yes, as long as the platform meets full HIPAA requirements including a signed BAA, end-to-end encryption, and audit logging. Consumer fitness apps are not HIPAA-compliant. A2V2.ai is designed to handle wearable data within a fully compliant environment.',
+    a: 'Yes, as long as the platform meets full HIPAA requirements including a signed BAA, end-to-end encryption, and audit logging. Consumer fitness apps are not HIPAA-compliant. Any platform handling wearable data in a clinical context must meet these requirements.',
   },
   {
-    q: 'What wearable devices are most useful for longevity clinics?',
-    a: 'Oura Ring (sleep, HRV, readiness), Whoop (strain, recovery, sleep), CGMs (glucose variability), Apple Health and Fitbit (activity, heart rate), and Garmin (advanced fitness metrics).',
+    q: 'What wearable devices are most relevant for longevity clinics?',
+    a: 'Oura Ring (sleep, HRV, readiness), Whoop (strain, recovery, sleep), CGMs (glucose variability), Apple Health and Fitbit (activity, heart rate), and Garmin (advanced fitness metrics) are the most commonly used devices among longevity patients.',
   },
   {
-    q: 'How does wearable data improve patient retention?',
-    a: 'Published research suggests patients who see objective evidence of progress are more likely to stay engaged. Wearable data makes invisible progress visible \u2014 a key retention driver in platforms like A2V2.ai.',
+    q: 'How does continuous health data improve patient retention?',
+    a: 'Published research suggests patients who see objective evidence of progress are more likely to stay engaged. Making invisible progress visible, whether through health parameter tracking or wearable data, is a meaningful retention driver.',
   },
 ]
 
@@ -359,7 +359,7 @@ export default function WearableDataGapBlogPost() {
               </Link>
             </p>
 
-            <h2>Closing the Gap — What a Connected Clinic Looks Like</h2>
+            <h2>Closing the Gap — What a Connected Clinic Could Look Like</h2>
 
             {/* Closing the Gap image */}
             <div className="my-8">
@@ -373,31 +373,27 @@ export default function WearableDataGapBlogPost() {
             </div>
 
             <p>
-              This is the problem A2V2.ai is designed to solve.
+              This is the problem A2V2.ai is building to solve. Wearable integrations are on our roadmap. Here is what a connected clinic will look like when that infrastructure is in place.
             </p>
 
             <p>
-              Rather than forcing wearable data into an EHR that wasn&apos;t built for it, A2V2.ai is designed to create an intelligent layer that sits between patient wearables, lab systems, and your clinical workflow. It&apos;s designed to aggregate data from Oura Ring, Whoop, Apple Health, Fitbit, Garmin, and CGM devices alongside lab results from Quest Diagnostics and LabCorp — and map all of it against the specific protocol each patient is following.
+              Rather than forcing wearable data into an EHR that was not built for it, the vision is an intelligent layer that sits between patient wearables, lab documents, and your clinical workflow — mapping all of it against the specific protocol each patient is following. Today, patients can already upload lab documents and have AI extract the relevant details automatically.
             </p>
 
             <p>
-              The result, based on our platform architecture, would look something like this:
+              When wearable integrations arrive, clinicians will be able to see <strong>protocol-contextualized summaries</strong>. A patient on a six-month NAD+ protocol would not just have a sleep score — they would have a trend showing how their deep sleep percentage has changed since starting treatment.
             </p>
 
             <p>
-              Instead of raw data dumps, clinicians would see <strong>protocol-contextualized summaries</strong>. A patient on a six-month NAD+ protocol wouldn&apos;t just have an Oura sleep score — they&apos;d have a trend showing how their deep sleep percentage has changed since starting treatment.
+              <strong>Intelligent alerts</strong> will surface what matters. The platform will not notify your staff every time a readiness score dips. It will flag clinically meaningful patterns — a sustained HRV decline over two weeks during a peptide therapy cycle, a glucose variability pattern that suggests medication timing should be reconsidered.
             </p>
 
             <p>
-              <strong>Intelligent alerts</strong> are designed to surface what matters. The platform isn&apos;t designed to notify your staff every time a readiness score dips. It&apos;s designed to flag clinically meaningful patterns — a sustained HRV decline over two weeks during a peptide therapy cycle, a glucose variability pattern that suggests medication timing should be reconsidered.
+              <strong>Patient-facing progress visibility</strong> drives retention. Published adherence research consistently shows that patients who can see objective evidence of their improvement are significantly more likely to stay engaged. Today, A2V2.ai shows patients how their tracked health parameters are trending over time. Wearable data will add another layer to that picture.
             </p>
 
             <p>
-              <strong>Patient-facing progress visibility</strong> is designed to drive retention. Published adherence research consistently shows that patients who can see objective evidence of their improvement are significantly more likely to stay engaged. A2V2.ai is designed to show patients their own wearable trends in the context of their treatment.
-            </p>
-
-            <p>
-              And everything is designed to run within a fully HIPAA-compliant environment. Wearable data, lab results, protocol timelines, and patient communications are all designed to be protected by 256-bit AES encryption, role-based access controls, complete audit logging, and a signed BAA.
+              Everything is built on a fully HIPAA-compliant foundation. Protocol timelines, lab data, patient communications, and future wearable data are all protected by AES-256 encryption, role-based access controls, complete audit logging, and a signed BAA.
             </p>
 
             <p>
@@ -459,7 +455,7 @@ export default function WearableDataGapBlogPost() {
             </div>
 
             <p>
-              If you answered &ldquo;I don&apos;t know&rdquo; to more than two of those, you&apos;re not alone. But the clinics that close this gap now — the ones that build infrastructure for continuous wearable data integration — will have a significant competitive advantage as longevity medicine moves from quarterly snapshots to real-time, data-driven patient management.
+              If you answered &ldquo;I don&apos;t know&rdquo; to more than two of those, you&apos;re not alone. But the clinics that build the infrastructure now — starting with health parameter tracking and lab document upload — will be best positioned to take advantage of wearable integrations as they arrive.
             </p>
 
             <p>
@@ -467,7 +463,7 @@ export default function WearableDataGapBlogPost() {
                 href="/ai-for-hrt-clinics"
                 className="text-primary hover:underline font-medium"
               >
-                See how A2V2.ai is designed to bring wearable integration, protocol tracking, and patient engagement together for HRT clinics
+                See how A2V2.ai is designed to support protocol tracking and patient engagement for HRT clinics
               </Link>
             </p>
           </article>

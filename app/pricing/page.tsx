@@ -91,7 +91,7 @@ const FACTORS = [
   { Icon: Building2,   title: 'Clinic size',              desc: 'Solo practice or multi-location group.' },
   { Icon: Users,       title: 'Patient volume',            desc: 'How many patients you manage across protocols.' },
   { Icon: Stethoscope, title: 'Specialties & protocols',   desc: 'The treatments and workflows you run.' },
-  { Icon: Plug,        title: 'Integrations',              desc: 'Connections to your existing EHR and tools.' },
+  { Icon: Plug,        title: 'Integrations',              desc: 'Works with your existing EHR data and tools.' },
 ]
 
 const INCLUDED = [

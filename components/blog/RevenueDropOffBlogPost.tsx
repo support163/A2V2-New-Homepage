@@ -29,7 +29,7 @@ const faqItems = [
   },
   {
     q: 'Does this require replacing our current EHR or CRM?',
-    a: 'No. A2V2 is designed to sit on top of your existing clinical stack. It integrates with your current systems and adds the engagement and retention layer that most EHRs and CRMs do not provide.',
+    a: 'No. A2V2 is designed to sit on top of your existing clinical stack. It works alongside your current EHR and EMR data and adds the engagement and retention layer that most EHRs and CRMs do not provide.',
   },
   {
     q: 'Is the calculator free?',

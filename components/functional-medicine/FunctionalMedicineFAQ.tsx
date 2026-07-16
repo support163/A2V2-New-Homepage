@@ -22,7 +22,7 @@ const faqs = [
   {
     question: 'Do we need to replace our existing systems?',
     answer:
-      'No. A2V2.ai sits on top of your current EHR/EMR, lab systems, and payment processors.',
+      'No. A2V2.ai sits on top of your current stack. It works with your EHR and EMR data and connects to your payment processors.',
   },
   {
     question: 'Can we customize messaging and workflows?',

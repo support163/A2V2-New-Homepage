@@ -75,10 +75,10 @@ export default function WearableDataGapBlogPostPage() {
             mainEntity: [
               {
                 '@type': 'Question',
-                name: 'Can longevity clinics integrate wearable device data from Oura Ring, Whoop, and CGMs?',
+                name: 'Can longevity clinics use wearable device data from Oura Ring, Whoop, and CGMs?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Yes, but most clinics currently lack the infrastructure. Wearable devices generate thousands of data points daily, but this data typically lives in the patient\u2019s personal app. Purpose-built platforms like A2V2.ai are designed to aggregate wearable data alongside lab results and protocol timelines.',
+                  text: 'Most clinics currently lack the infrastructure to aggregate wearable data automatically. Wearable devices generate thousands of data points daily, but this data typically lives in the patient\u2019s personal app. A2V2.ai is building wearable integrations for the future. Today, clinics can track key health parameters manually and patients can share relevant data through conversations with their care agent.',
                 },
               },
               {
@@ -94,23 +94,23 @@ export default function WearableDataGapBlogPostPage() {
                 name: 'Is it HIPAA-compliant to collect wearable data from patients?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Yes, as long as the platform meets full HIPAA requirements including a signed BAA, end-to-end encryption, and audit logging. Consumer fitness apps are not HIPAA-compliant. A2V2.ai is designed to handle wearable data within a fully compliant environment.',
+                  text: 'Yes, as long as the platform meets full HIPAA requirements including a signed BAA, end-to-end encryption, and audit logging. Consumer fitness apps are not HIPAA-compliant. Any platform handling wearable data in a clinical context must meet these requirements.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'What wearable devices are most useful for longevity clinics?',
+                name: 'What wearable devices are most relevant for longevity clinics?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Oura Ring (sleep, HRV, readiness), Whoop (strain, recovery, sleep), CGMs (glucose variability), Apple Health and Fitbit (activity, heart rate), and Garmin (advanced fitness metrics).',
+                  text: 'Oura Ring (sleep, HRV, readiness), Whoop (strain, recovery, sleep), CGMs (glucose variability), Apple Health and Fitbit (activity, heart rate), and Garmin (advanced fitness metrics) are the most commonly used devices among longevity patients.',
                 },
               },
               {
                 '@type': 'Question',
-                name: 'How does wearable data improve patient retention?',
+                name: 'How does continuous health data improve patient retention?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Published research suggests patients who see objective evidence of progress are more likely to stay engaged. Wearable data makes invisible progress visible \u2014 a key retention driver in platforms like A2V2.ai.',
+                  text: 'Published research suggests patients who see objective evidence of progress are more likely to stay engaged. Making invisible progress visible, whether through health parameter tracking or wearable data, is a meaningful retention driver.',
                 },
               },
             ],
