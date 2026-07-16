@@ -551,9 +551,7 @@ export default function HipaaComplianceBlogPost() {
               exposure, no training data contamination, and no unnecessary legal liability.
             </p>
             <p>
-              And because A2V2.ai is designed to integrate directly with your existing
-              EHR/EMR, lab partners, wearable devices, and payment processors,
-              there&apos;s no data migration and no system overhaul. Most clinics
+              And because A2V2.ai works with your existing EHR and EMR data and connects to your payment processors, there&apos;s no data migration and no system overhaul. Most clinics
               can expect to go live in under two weeks.
             </p>
             <p>

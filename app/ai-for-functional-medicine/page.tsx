@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 const trustBarItems = [
   '100% HIPAA Compliant',
-  'Integrates with your EHR',
+  'Works with your EHR and EMR data',
   'Estimated go-live in under 2 weeks',
   'Trusted by leading functional medicine practices',
 ]
@@ -79,7 +79,7 @@ const solutionCards = [
   },
   {
     title: 'Unified Patient Intelligence',
-    body: 'All patient data in one view \u2014 labs, biomarkers, communications, adherence. Integrates with existing EHR/EMR, lab partners (Quest, LabCorp), and wearables (Oura, Whoop, Apple Health, CGM devices). AI is designed to surface at-risk patients before they churn.',
+    body: 'All patient data in one view \u2014 labs, biomarkers, communications, adherence. Brings your EHR and EMR data into one place. Patients can upload lab results for automatic extraction. AI is designed to surface at-risk patients before they churn.',
   },
   {
     title: 'Smart Re-Engagement Engine',
@@ -92,7 +92,7 @@ const howItWorksSteps = [
     step: 1,
     title: 'Connect',
     description:
-      'We integrate with your existing EHR, lab partners, and wearables. No migrations, no downtime. Our engineering team handles setup.',
+      'We bring your existing EHR and EMR data into A2V2. No migrations, no downtime. Our engineering team handles setup.',
   },
   {
     step: 2,
@@ -122,8 +122,8 @@ const comparisonRows = [
     generic: 'No medical tracking',
   },
   {
-    feature: 'EHR Integration',
-    a2v2: 'Native connectors',
+    feature: 'EHR / EMR Data',
+    a2v2: 'EHR and EMR data import',
     crm: 'Custom dev required',
     generic: 'Not designed for healthcare',
   },
@@ -148,17 +148,13 @@ const comparisonRows = [
 ]
 
 const integrations = [
-  'EHR/EMR Systems',
-  'Quest Diagnostics',
-  'LabCorp',
-  'Oura Ring',
-  'Whoop',
-  'Apple Health',
-  'CGM Devices',
+  'EHR / EMR Data',
+  'Lab document upload',
   'Twilio',
   'Stripe',
   'Zapier',
   'Custom API',
+  'Wearable devices (coming soon)',
 ]
 
 /* ───────────────────────── page ───────────────────────── */
@@ -183,7 +179,7 @@ export default function FunctionalMedicinePage() {
               <p className="mt-6 text-btn md:text-body-lg text-text-secondary leading-[25px] max-w-[460px] text-center lg:text-left">
                 A2V2.ai is designed to automate patient engagement, track complex supplement
                 protocols, and re-engage patients before they drop off &mdash;
-                100% HIPAA compliant, integrated with your existing EHR. No new
+                100% HIPAA compliant, works with your existing EHR and EMR data. No new
                 staff required.
               </p>
 
@@ -341,8 +337,7 @@ export default function FunctionalMedicinePage() {
               Whether you&apos;re managing complex supplement stacks, root-cause
               treatment plans, chronic disease reversal programs, or lifestyle
               modification protocols, A2V2.ai is designed to track patient adherence in
-              real-time. Designed to integrate data from labs, wearables, and continuous
-              glucose monitors for a complete patient health picture.
+              real-time. Patients can upload lab documents for automatic AI extraction, and wearable integrations are on the roadmap.
             </p>
           </div>
 
@@ -605,11 +600,11 @@ export default function FunctionalMedicinePage() {
               'Automated patient engagement',
               'Supplement protocol adherence tracking',
               'HIPAA-compliant AI',
-              'EHR integration',
+              'EHR and EMR data import',
               'Biomarker tracking',
               'Smart patient re-engagement',
               'Real-time compliance dashboard',
-              'Wearable and CGM integration',
+              'Lab document upload and extraction',
             ],
           }),
         }}

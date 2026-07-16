@@ -20,11 +20,11 @@ const faqItems = [
   },
   {
     q: 'How can clinics improve protocol adherence?',
-    a: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance.',
+    a: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance. Wearable device integrations are on the roadmap.',
   },
   {
     q: 'What does protocol adherence tracking software do?',
-    a: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
+    a: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, health parameter tracking, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
   },
   {
     q: 'How much revenue do clinics lose from poor adherence?',
@@ -360,7 +360,7 @@ export default function ProtocolAdherenceBlogPost() {
               The solution isn&apos;t more staff. It isn&apos;t a better CRM. It&apos;s AI that actually understands longevity medicine protocols.
             </p>
             <p>
-              A2V2.ai was built specifically for this problem. The platform is designed to monitor patient behavior across every touchpoint — supplement compliance, lab completion, appointment attendance, wearable device data with planned integrations for Oura Ring, Whoop, Apple Health, Fitbit, Garmin, and CGM devices — and map it against the specific protocol each patient is following.
+              A2V2.ai was built specifically for this problem. The platform is designed to monitor patient behavior across every touchpoint — supplement compliance, lab completion, appointment attendance, and health parameter tracking — and map it against the specific protocol each patient is following. Wearable device integrations are on the roadmap.
             </p>
             <p>
               <strong>Automated check-ins at critical windows</strong> are designed to reach patients at day 7, 14, 30, 60, 90, and 180. These aren&apos;t generic messages. A patient on a peptide therapy cycle gets communication specific to their protocol.
@@ -369,7 +369,7 @@ export default function ProtocolAdherenceBlogPost() {
               <strong>Real-time adherence dashboards</strong> are designed to give your clinical team a single view of every patient&apos;s compliance status. At-risk patients are designed to be surfaced automatically so your team can intervene during Stage 2 or Stage 3.
             </p>
             <p>
-              <strong>Biomarker trend analysis</strong> turns invisible progress into visible motivation. A2V2.ai is designed to pull lab data from Quest, LabCorp, and specialized longevity labs and show patients how their biomarkers are trending over time.
+              <strong>Biomarker trend analysis</strong> turns invisible progress into visible motivation. Patients can upload their lab results and A2V2.ai extracts the data automatically, showing patients how their biomarkers are trending over time.
             </p>
             <p>
               <strong>Predictive re-engagement</strong> is designed to catch patients before they ghost — identifying early disengagement signals and triggering personalized win-back sequences.

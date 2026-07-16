@@ -32,7 +32,7 @@ const faqs = [
   {
     question: 'We use [EHR name]. Will it work?',
     answer:
-      'We integrate with most major EHR systems. If there\u2019s no native connector, we build one.',
+      'We bring your EHR and EMR data into A2V2 so it is available for patient and provider review. Contact us to discuss your specific system.',
   },
   {
     question: 'Do we need to replace our existing systems?',

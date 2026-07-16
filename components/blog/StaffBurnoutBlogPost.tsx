@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     q: 'What communication tasks can be automated?',
-    a: 'Appointment reminders, no-show follow-ups, lab tracking, supplement refill coordination, protocol milestone check-ins, birthday messages, lapsed patient re-engagement, wearable data alerts, and biomarker notifications. A2V2.ai is designed to handle all of these within HIPAA compliance.',
+    a: 'Appointment reminders, no-show follow-ups, lab tracking, supplement refill coordination, protocol milestone check-ins, birthday messages, lapsed patient re-engagement, and biomarker notifications. A2V2.ai is designed to handle all of these within HIPAA compliance. Wearable data monitoring is on the roadmap.',
   },
   {
     q: 'How does staff burnout affect patient retention?',
@@ -383,7 +383,7 @@ export default function StaffBurnoutBlogPost() {
             </p>
 
             <p>
-              <strong>Automation is designed to handle:</strong> appointment reminders and no-show follow-ups, lab requisition tracking and reminders, protocol milestone check-ins (day 7, 30, 90, 180), supplement refill coordination, re-engagement sequences for lapsed patients, wearable data monitoring and alerts.
+              <strong>Automation is designed to handle:</strong> appointment reminders and no-show follow-ups, lab requisition tracking and reminders, protocol milestone check-ins (day 7, 30, 90, 180), supplement refill coordination, re-engagement sequences for lapsed patients, and health parameter tracking. Wearable data monitoring is on the roadmap.
             </p>
 
             <p>

@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'Do we need to replace our existing systems?',
     answer:
-      'No. A2V2.ai sits on top of your current EHR/EMR, lab systems, and payment processors. No migrations required.',
+      'No. A2V2.ai sits on top of your current stack. It works with your EHR and EMR data, and connects to payment processors. No migrations required.',
   },
   {
     question: 'What does the free audit include?',

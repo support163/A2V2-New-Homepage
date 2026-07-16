@@ -234,7 +234,7 @@ export default function BlogPost() {
 
             <h2>Integration Without Disruption</h2>
             <p>
-              One of the biggest barriers to adopting new technology in a clinical setting is the fear of ripping out existing systems. A2V2.ai is designed to sit on top of what you already have. It is designed to connect to your EHR/EMR, your lab partners like Quest and LabCorp, your wearable device ecosystem, and your payment processors. No data migration. No system overhaul. Most clinics can expect to go live in under two weeks.
+              One of the biggest barriers to adopting new technology in a clinical setting is the fear of ripping out existing systems. A2V2.ai is designed to sit on top of what you already have. It works with your existing EHR and EMR data, connects to your payment processors, and lets patients upload lab results so the details can be extracted automatically. No data migration. No system overhaul. Most clinics can expect to go live in under two weeks.
             </p>
 
             <h2>The Bottom Line</h2>

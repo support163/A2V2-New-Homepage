@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 30,
+    title: '5 questions to ask before adopting AI in your practice',
+    description:
+      'Every AI vendor sounds impressive in a demo. These five questions tell you whether a tool is actually safe and useful for your clinic.',
+    category: 'Quick Guides',
+    href: '/blog/questions-to-ask-before-adopting-ai',
+    thumbnail: '/images/questions-to-ask-before-adopting-ai.png',
+  },
+  {
+    id: 29,
+    title: 'AI-powered patient intake: a guide for clinics',
+    description:
+      'Intake is where patients form their first impression and where your team loses the most time. Here is how AI makes it faster for everyone.',
+    category: 'Best Practices',
+    href: '/blog/ai-powered-patient-intake-guide',
+    thumbnail: '/images/ai-powered-patient-intake-guide.png',
+  },
+  {
     id: 28,
     title: 'What to look for in a healthcare CRM',
     description:

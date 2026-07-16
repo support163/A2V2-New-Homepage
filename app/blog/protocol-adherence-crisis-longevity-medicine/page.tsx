@@ -94,7 +94,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'How can clinics improve protocol adherence?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, wearable device integration, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance.',
+                  text: 'Implement automated check-ins at critical windows, real-time compliance tracking, biomarker trend analysis, and predictive alerts. Platforms like A2V2.ai are designed to automate all of these while maintaining HIPAA compliance. Wearable device integrations are on the roadmap.',
                 },
               },
               {
@@ -102,7 +102,7 @@ export default function ProtocolAdherenceBlogPostPage() {
                 name: 'What does protocol adherence tracking software do?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, wearable data, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
+                  text: 'It is designed to monitor patient compliance in real-time across supplement schedules, lab appointments, health parameter tracking, and treatment milestones. It is designed to detect early warning signs and trigger personalized re-engagement sequences.',
                 },
               },
               {

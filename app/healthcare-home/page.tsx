@@ -477,8 +477,8 @@ function LongevityDashboard() {
           rows={[
             { type: 'Dose', content: '250mg weekly infusion' },
             { type: 'Duration', content: '6-week initial cycle' },
-            { type: 'Lab tracking', content: 'Quest Diagnostics integration' },
-            { type: 'Wearable sync', content: 'Oura Ring — sleep & HRV' },
+            { type: 'Lab tracking', content: 'Upload labs for AI extraction' },
+            { type: 'Wearable sync', content: 'Wearable integrations coming soon' },
             { type: 'Check-in', content: '48h post-infusion cadence' },
           ]}
         />
@@ -569,7 +569,7 @@ function HealthOptimizationDashboard() {
           title="Program details"
           rows={[
             { type: 'Review', content: 'Quarterly full biomarker panel' },
-            { type: 'Wearables', content: 'CGM, Whoop, Apple Health' },
+            { type: 'Wearables', content: 'Wearable integrations coming soon' },
             { type: 'Training', content: 'VO2 max optimization plan' },
             { type: 'Sleep', content: 'Chronotype-based schedule' },
             { type: 'Follow-up', content: '90-day cadence' },
@@ -588,10 +588,10 @@ const showcaseCardContent = [
 ]
 
 const showcaseTabs = [
-  { title: 'Longevity clinics', description: 'Native support for NAD+ IV therapy, peptide protocols, senolytics, and biomarker optimization. Integrations with Quest, LabCorp, and wearable devices like Oura and Whoop.' },
+  { title: 'Longevity clinics', description: 'Native support for NAD+ IV therapy, peptide protocols, senolytics, and biomarker optimization. Lab document upload with AI extraction. Wearable integrations coming soon.' },
   { title: 'HRT practices', description: 'Hormone optimization workflows with cycle-aware dosing reminders, lab schedule tracking, and testosterone, estrogen, and thyroid protocol support.' },
   { title: 'Functional medicine', description: 'Multi-protocol coordination for complex root-cause treatment. Supplement stack management, elimination diet tracking, and symptom journaling.' },
-  { title: 'Health optimization', description: 'Executive health programs with VO2 max tracking, CGM integration, sleep optimization workflows, and quarterly biomarker reviews.' },
+  { title: 'Health optimization', description: 'Executive health programs with VO2 max tracking, sleep optimization workflows, quarterly biomarker reviews, and lab document upload.' },
 ]
 
 const showcaseSummary = [
