@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 31,
+    title: 'Why text reminders work better than email for patients',
+    description:
+      'Your reminder is only useful if the patient sees it. Here is why texts outperform email, and how to use them well.',
+    category: 'Best Practices',
+    href: '/blog/text-reminders-for-patients',
+    thumbnail: '/images/text-reminders-for-patients.png',
+  },
+  {
     id: 30,
     title: '5 questions to ask before adopting AI in your practice',
     description:

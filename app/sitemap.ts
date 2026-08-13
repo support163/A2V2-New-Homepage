@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/features/pay-for-access`,         lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE}/features/patient-messaging`,      lastModified: '2026-07-15', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/features/ehr-data`,              lastModified: '2026-07-15', changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE}/blog/text-reminders-for-patients`, lastModified: '2026-08-13', changeFrequency: 'monthly', priority: 0.7 },
     // Legal
     { url: `${BASE}/privacy-policy`,                  lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${BASE}/terms-and-conditions`,            lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
