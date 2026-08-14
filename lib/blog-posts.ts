@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 32,
+    title: 'Why patients drop off between visits, and what to do about it',
+    description:
+      'Most patients who quit a protocol do not decide to quit. They drift. Here is why it happens and how clinics close the gap.',
+    category: 'Best Practices',
+    href: '/blog/why-patients-drop-off-between-visits',
+    thumbnail: '/images/why-patients-drop-off-between-visits.png',
+  },
+  {
     id: 31,
     title: 'Why text reminders work better than email for patients',
     description:
