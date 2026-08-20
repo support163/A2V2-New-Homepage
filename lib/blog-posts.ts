@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 33,
+    title: 'Why patient engagement is different at specialty clinics',
+    description:
+      'HRT, longevity, functional medicine, and weight loss clinics run long protocols. That changes what good patient communication looks like.',
+    category: 'Best Practices',
+    href: '/blog/patient-engagement-specialty-clinics',
+    thumbnail: '/images/patient-engagement-specialty-clinics.png',
+  },
+  {
     id: 32,
     title: 'Why patients drop off between visits, and what to do about it',
     description:
