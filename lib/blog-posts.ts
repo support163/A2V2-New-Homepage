@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 34,
+    title: 'How to get your clinic team to actually use new software',
+    description:
+      'Most software does not fail because it is bad. It fails because nobody uses it. Here is how to roll out a tool your staff will adopt.',
+    category: 'Best Practices',
+    href: '/blog/getting-your-clinic-team-to-adopt-new-software',
+    thumbnail: '/images/getting-your-clinic-team-to-adopt-new-software.png',
+  },
+  {
     id: 33,
     title: 'Why patient engagement is different at specialty clinics',
     description:
