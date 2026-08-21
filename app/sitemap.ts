@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog/why-patients-drop-off-between-visits`,      lastModified: '2026-08-14', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/blog/patient-engagement-specialty-clinics`,           lastModified: '2026-08-19', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/blog/getting-your-clinic-team-to-adopt-new-software`, lastModified: '2026-08-20', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/blog/first-30-days-new-patient`,                      lastModified: '2026-08-21', changeFrequency: 'monthly', priority: 0.7 },
     // Legal
     { url: `${BASE}/privacy-policy`,                  lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${BASE}/terms-and-conditions`,            lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
