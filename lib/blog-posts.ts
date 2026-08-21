@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 35,
+    title: 'The first 30 days decide whether a patient stays',
+    description:
+      'Most clinics put their energy into winning the patient and then go quiet. The month after onboarding is where retention is won or lost.',
+    category: 'Best Practices',
+    href: '/blog/first-30-days-new-patient',
+    thumbnail: '/images/first-30-days-new-patient.png',
+  },
+  {
     id: 34,
     title: 'How to get your clinic team to actually use new software',
     description:
