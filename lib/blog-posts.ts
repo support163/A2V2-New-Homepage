@@ -10,6 +10,24 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 37,
+    title: 'The patient retention metrics worth actually tracking',
+    description:
+      'Most clinics track revenue and appointments. Neither tells you whether patients are staying. Here are the numbers that do.',
+    category: 'Best Practices',
+    href: '/blog/patient-retention-metrics-to-track',
+    thumbnail: '/images/patient-retention-metrics-to-track.png',
+  },
+  {
+    id: 36,
+    title: 'How to re-engage patients who have gone quiet',
+    description:
+      'A patient who stopped scheduling has not necessarily left. Here is how to reach them again without sounding pushy.',
+    category: 'Best Practices',
+    href: '/blog/re-engaging-patients-who-went-quiet',
+    thumbnail: '/images/re-engaging-patients-who-went-quiet.png',
+  },
+  {
     id: 35,
     title: 'The first 30 days decide whether a patient stays',
     description:
