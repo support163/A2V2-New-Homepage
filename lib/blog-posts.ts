@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 39,
+    title: 'How to make an AI agent actually sound like your clinic',
+    description:
+      'The fear with AI is that it will sound like a robot reading a script. That is a setup problem, not an AI problem.',
+    category: 'Best Practices',
+    href: '/blog/making-ai-sound-like-your-clinic',
+    thumbnail: '/images/making-ai-sound-like-your-clinic.png',
+  },
+  {
     id: 38,
     title: 'What to tell patients when your clinic uses AI',
     description:
