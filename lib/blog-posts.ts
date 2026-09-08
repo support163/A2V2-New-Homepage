@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 38,
+    title: 'What to tell patients when your clinic uses AI',
+    description:
+      'Patients notice. Being straightforward about how AI supports their care builds more trust than staying quiet about it.',
+    category: 'Privacy & Trust',
+    href: '/blog/telling-patients-you-use-ai',
+    thumbnail: '/images/telling-patients-you-use-ai.png',
+  },
+  {
     id: 37,
     title: 'The patient retention metrics worth actually tracking',
     description:
