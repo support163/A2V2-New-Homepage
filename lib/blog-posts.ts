@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 40,
+    title: 'What to automate in your clinic, and what to keep human',
+    description:
+      'Automating the wrong thing damages trust faster than automating nothing at all. Here is a simple way to draw the line.',
+    category: 'Best Practices',
+    href: '/blog/what-to-automate-what-to-keep-human',
+    thumbnail: '/images/what-to-automate-what-to-keep-human.png',
+  },
+  {
     id: 39,
     title: 'How to make an AI agent actually sound like your clinic',
     description:

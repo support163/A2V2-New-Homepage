@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog/patient-retention-metrics-to-track`,            lastModified: '2026-09-04', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/blog/telling-patients-you-use-ai`,                  lastModified: '2026-09-07', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/blog/making-ai-sound-like-your-clinic`,             lastModified: '2026-09-08', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/blog/what-to-automate-what-to-keep-human`,          lastModified: '2026-09-11', changeFrequency: 'monthly', priority: 0.7 },
     // Legal
     { url: `${BASE}/privacy-policy`,                  lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${BASE}/terms-and-conditions`,            lastModified: '2026-03-24', changeFrequency: 'yearly',  priority: 0.3 },
