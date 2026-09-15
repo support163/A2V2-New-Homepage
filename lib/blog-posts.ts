@@ -10,6 +10,15 @@ export interface BlogPost {
 /** All published blog posts, newest first. */
 export const blogPosts: BlogPost[] = [
   {
+    id: 41,
+    title: 'How to reduce no-shows at your clinic',
+    description:
+      'An empty slot costs you twice. Most no-shows are preventable with small changes to reminders and rescheduling.',
+    category: 'Best Practices',
+    href: '/blog/how-to-reduce-no-shows',
+    thumbnail: '/images/how-to-reduce-no-shows.png',
+  },
+  {
     id: 40,
     title: 'What to automate in your clinic, and what to keep human',
     description:
