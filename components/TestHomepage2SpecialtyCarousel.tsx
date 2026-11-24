@@ -56,8 +56,10 @@ export default function TestHomepage2SpecialtyCarousel() {
   const [showText, setShowText]             = useState(false)
   const [isHovered, setIsHovered]           = useState(false)
   const [containerWidth, setContainerWidth] = useState(0)
+  const [started, setStarted]               = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
+  const sectionRef   = useRef<HTMLElement>(null)
   const intervalRef  = useRef<ReturnType<typeof setInterval> | null>(null)
   const textTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -88,15 +90,32 @@ export default function TestHomepage2SpecialtyCarousel() {
     return () => { if (textTimerRef.current) clearTimeout(textTimerRef.current) }
   }, [activeIndex])
 
-  // Auto-advance — pauses on hover, resets on manual navigation
+  // One-time trigger: auto-advance only begins once the section has been scrolled into view
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  // Auto-advance — starts after first view, pauses on hover, resets on manual navigation
   useEffect(() => {
     if (intervalRef.current) clearInterval(intervalRef.current)
-    if (isHovered) return
+    if (!started || isHovered) return
     intervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % SPECIALTIES.length)
     }, AUTO_ADVANCE_MS)
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [isHovered, activeIndex])
+  }, [started, isHovered, activeIndex])
 
   const goTo   = (i: number) => { if (i !== activeIndex) setActiveIndex(i) }
   const advance = (dir: 1 | -1) =>
@@ -167,7 +186,7 @@ export default function TestHomepage2SpecialtyCarousel() {
                     borderRadius: 999,
                     background: '#0F0E0D',
                     animation: `pillProgress ${AUTO_ADVANCE_MS}ms linear forwards`,
-                    animationPlayState: isHovered ? 'paused' : 'running',
+                    animationPlayState: isHovered || !started ? 'paused' : 'running',
                   }}
                 />
               )}
@@ -193,7 +212,7 @@ export default function TestHomepage2SpecialtyCarousel() {
   )
 
   return (
-    <section className="w-full" style={{ background: '#ffffff', overflow: 'hidden' }}>
+    <section ref={sectionRef} className="w-full" style={{ background: '#ffffff', overflow: 'hidden' }}>
       <div className="mx-auto max-w-[1400px] px-6 md:px-8 py-20 md:py-24">
 
         {/* Header */}

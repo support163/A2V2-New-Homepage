@@ -5,7 +5,7 @@ const BASE = 'https://www.a2v2.ai'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE,                                      lastModified: '2026-06-19', changeFrequency: 'weekly',  priority: 1.0 },
+    { url: BASE,                                      lastModified: '2026-11-23', changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${BASE}/platform`,                         lastModified: '2026-07-01', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/book-a-demo`,                     lastModified: '2026-06-19', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/blog`,                            lastModified: '2026-06-17', changeFrequency: 'weekly',  priority: 0.8 },

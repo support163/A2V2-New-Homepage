@@ -1,20 +1,26 @@
 import type { Metadata } from 'next'
-import TestHomepage2 from './test-homepage-2/page'
+import Hero from '@/components/website1/Hero'
+import StatsSection from '@/components/website1/StatsSection'
+import Reveal from '@/components/website1/Reveal'
+import { AgentsSection, KnowledgeSection } from '@/components/website1/Sections'
+import { HealthSection, PortalSection, FinalCta } from '@/components/website1/Sections2'
+import TrainingSection from '@/components/website1/TrainingSection'
+import TestHomepage2ChatSection from '@/components/TestHomepage2ChatSection'
+import TestHomepage2SpecialtyCarousel from '@/components/TestHomepage2SpecialtyCarousel'
+import Website1EscalationSection from '@/components/Website1EscalationSection'
+import TestHomepage2SecuritySection from '@/components/TestHomepage2SecuritySection'
+import TestHomepage2Footer from '@/components/TestHomepage2Footer'
 import HomeVariantTracker from '@/components/HomeVariantTracker'
 
-// ─── Page Metadata ────────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
-  title: 'Patient Lifecycle Automation for Modern Clinics | A2V2.ai',
+  title: 'A2V2.ai | Your Clinic. Your Portal. Powered by AI Agents.',
   description:
-    'A2V2.ai is a HIPAA-compliant AI platform built for longevity clinics, HRT practices, and functional medicine. Automate the full patient lifecycle — intake, engagement, follow-ups, and escalation — with clinical-grade AI agents.',
-  keywords:
-    'healthcare AI, HIPAA compliant AI, patient lifecycle automation, longevity clinic software, HRT clinic AI, functional medicine AI, clinical workflow automation, patient retention software, healthcare chatbot, medical AI assistant',
+    'A2V2 gives clinics HIPAA-compliant AI agents trained on their own protocols, patient health tracking, and a branded patient portal, with every clinical decision left to your team.',
   alternates: { canonical: 'https://www.a2v2.ai/' },
   openGraph: {
-    title: 'Patient Lifecycle Automation | A2V2.ai',
+    title: 'A2V2.ai | Your Clinic. Your Portal. Powered by AI Agents.',
     description:
-      'HIPAA-compliant AI agents that manage the full patient lifecycle for modern clinics. Everything escalates to your team for clinical judgment.',
+      'A2V2 gives clinics HIPAA-compliant AI agents trained on their own protocols, patient health tracking, and a branded patient portal, with every clinical decision left to your team.',
     url: 'https://www.a2v2.ai',
     siteName: 'A2V2.ai',
     images: [
@@ -29,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Patient Lifecycle Automation | A2V2.ai',
+    title: 'A2V2.ai | Your Clinic. Your Portal. Powered by AI Agents.',
     description:
-      'HIPAA-compliant AI agents that manage the full patient lifecycle for modern clinics.',
+      'A2V2 gives clinics HIPAA-compliant AI agents trained on their own protocols, patient health tracking, and a branded patient portal, with every clinical decision left to your team.',
     images: ['https://www.a2v2.ai/images/og-healthcare.png'],
     creator: '@A2V2_Ai',
   },
@@ -77,119 +83,32 @@ const websiteSchema = {
   url: 'https://www.a2v2.ai',
 }
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'A2V2.ai Healthcare Platform',
-  applicationCategory: 'HealthApplication',
-  operatingSystem: 'Web',
-  description:
-    'HIPAA-compliant AI patient lifecycle automation platform for longevity clinics, HRT practices, and functional medicine.',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    description: 'Free trial available',
-  },
-  featureList: [
-    'HIPAA-compliant AI agents',
-    'Full patient lifecycle automation',
-    'Automated patient engagement',
-    'Treatment protocol tracking',
-    'Clinical escalation workflows',
-    'Works with your EHR data',
-    'BAA provided',
-    'AES-256 encryption',
-  ],
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What types of practices does A2V2 support?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Longevity, HRT, functional medicine, health optimization, and any practice with ongoing treatment protocols.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is A2V2 HIPAA compliant?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. BAA provided, AES-256 encryption, secured LLM access, and complete audit trails.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does implementation take?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most practices go live in under 2 weeks with our dedicated implementation team.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do I need to replace my EHR?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. A2V2 sits on top of your existing stack with native integrations.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What does the free audit include?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A 30-minute review of patient retention, drop-off patterns, and a custom revenue projection.',
-      },
-    },
-  ],
-}
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: 'https://www.a2v2.ai',
-    },
-  ],
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
   return (
-    <>
-      <TestHomepage2 />
+    <main style={{ background: '#ffffff', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+      <Hero />
+      <Reveal>
+        <StatsSection />
+      </Reveal>
+      <AgentsSection />
+      <KnowledgeSection />
+      <TrainingSection />
+      <TestHomepage2ChatSection />
+      <HealthSection />
+      <PortalSection />
+      <TestHomepage2SpecialtyCarousel />
+      <Website1EscalationSection />
+      <TestHomepage2SecuritySection
+        heading="Patient data stays private. That's the whole point."
+        subtitle="Encrypted, kept in the United States, covered by a BAA, and never used to train AI models."
+      />
+      <FinalCta />
+      <TestHomepage2Footer />
       <HomeVariantTracker variant="home-a" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-    </>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+    </main>
   )
 }
