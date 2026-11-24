@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/website-1',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/test-homepage-2',
         destination: '/',
         permanent: true,

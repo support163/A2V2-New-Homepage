@@ -65,7 +65,10 @@ function BadgeSVG({ label }: { label: string }) {
   )
 }
 
-export default function TestHomepage2SecuritySection() {
+export default function TestHomepage2SecuritySection({
+  heading = 'Security is the foundation, not a feature',
+  subtitle = 'Every plan includes HIPAA compliance, a Business Associate Agreement, and end-to-end encryption. Your patient data is protected at every layer and never used to train AI models.',
+}: { heading?: string; subtitle?: string } = {}) {
   const [visible, setVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -135,7 +138,7 @@ export default function TestHomepage2SecuritySection() {
                 maxWidth: 650,
               }}
             >
-              Security is the foundation, not a feature
+              {heading}
             </h2>
           </div>
 
@@ -151,8 +154,7 @@ export default function TestHomepage2SecuritySection() {
                 maxWidth: 600,
               }}
             >
-              Every plan includes HIPAA compliance, a Business Associate Agreement, and end-to-end
-              encryption. Your patient data is protected at every layer and never used to train AI models.
+              {subtitle}
             </p>
           </div>
         </div>
